@@ -123,6 +123,27 @@ for fid, pf in probe.items():
 
 rows.sort(key=lambda r: (r["cost"], -(r["cu"] or 0)))
 
+# ---------------------------------------------------------------------------
+# Transparencia: o que NAO entrou. Sem esta secao o dashboard da a impressao de
+# que o catalogo tem 135 modelos, quando o OpenRouter lista 467. O usuario
+# precisa poder auditar a exclusao, nao so confiar nela.
+# ---------------------------------------------------------------------------
+allor_list = json.load(open("or_models.json"))["data"]
+excluded = json.load(open("excluded.json"))
+n_or_total = len(allor_list)
+n_batch = sum(1 for m in allor_list if ":batch" in m["id"])
+n_alias = sum(1 for m in allor_list if m["id"].startswith("~"))
+n_freep = sum(1 for m in allor_list if m["id"].endswith(":free"))
+
+EXCL_REASON = (
+    "Estes modelos existem no OpenRouter mas <b>nao tem nota no AI IQ</b> &mdash; "
+    "em muitos casos porque sao modelos antigos ou pequenos que o AI IQ nunca avaliou. "
+    "Sem nota de capacidade nao ha como calcular capacidade por dolar, entao eles ficam "
+    "fora do ranking. O preco e o contexto <b>sao</b> conhecidos e estao listados: "
+    "se voce ja sabe que um deles serve, o custo mensal dele e calculavel."
+)
+EXCL_DATA = json.dumps(excluded, ensure_ascii=False)
+
 CUS = sorted(r["cu"] for r in rows if r["cu"] is not None)
 MED_CU = statistics.median(CUS) if CUS else 0
 LEAD_CU = max(CUS) if CUS else 0
@@ -210,6 +231,15 @@ TMPL = r"""<!DOCTYPE html>
   .dims div{display:flex;justify-content:space-between;border-bottom:1px dashed #e2e7ec;padding:3px 0;font-size:13px}
   .note{background:#fff8e6;border:1px solid #f0dfa8;border-radius:8px;padding:12px 14px;font-size:12.5px;line-height:1.7;color:#5a4300}
   .note b{color:#3d2d00}
+  .funnel{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0}
+  .fitem{background:#f7f9fc;border:1px solid #dde3ea;border-radius:8px;padding:9px 13px;min-width:96px;text-align:center}
+  .fitem b{display:block;font-size:19px;line-height:1.2}
+  .fitem span{font-size:11px;color:#5b6b7c;display:block;margin-top:3px;max-width:150px;line-height:1.35}
+  .fitem.good{background:#e9f6ec;border-color:#b9dfc2}
+  .fitem.good b{color:#1d7a33}
+  .fitem.bad{background:#fdeeee;border-color:#f0c4c4}
+  .fitem.bad b{color:#a11}
+  .farrow{font-size:17px;color:#9aa7b4;font-weight:600}
   footer{font-size:11.5px;color:#8a97a5;padding:0 16px 28px;max-width:1180px;margin:0 auto;line-height:1.8}
 </style>
 </head>
@@ -308,6 +338,37 @@ TMPL = r"""<!DOCTYPE html>
       <th class="num">Codigo</th><th class="num">Contexto</th><th>Status</th>
     </tr></thead><tbody></tbody></table>
     </div>
+  </div>
+
+  <div class="card">
+    <h2>O que ficou de fora (e por que)</h2>
+    <p class="sub">O catalogo do OpenRouter tem <b>__NTOTAL__</b> entradas. Esta tabela analisa
+    <b>__NROWS__</b>. A diferenca nao e um filtro escondido: cada exclusao tem um motivo declarado.</p>
+    <div class="funnel">
+      <div class="fitem"><b>__NTOTAL__</b><span>entradas no catalogo</span></div>
+      <div class="farrow">&minus;</div>
+      <div class="fitem"><b>__NBATCH__</b><span>variantes <code>:batch</code> (desconto, mesmo modelo)</span></div>
+      <div class="farrow">&minus;</div>
+      <div class="fitem"><b>__NALIAS__</b><span>aliases <code>~</code> (apontam para outro modelo)</span></div>
+      <div class="farrow">&minus;</div>
+      <div class="fitem"><b>__NFREE__</b><span>variantes <code>:free</code> (mesmo modelo, preco zero)</span></div>
+      <div class="farrow">=</div>
+      <div class="fitem"><b>__NINDEP__</b><span>modelos independentes</span></div>
+      <div class="farrow">=</div>
+      <div class="fitem good"><b>__NROWS__</b><span>com nota &rarr; analisados</span></div>
+      <div class="farrow">+</div>
+      <div class="fitem bad"><b>__NEXCL__</b><span>sem nota &rarr; fora do ranking</span></div>
+    </div>
+    <div class="note" style="margin-top:14px">__EXCLREASON__</div>
+    <details style="margin-top:12px">
+      <summary style="cursor:pointer;font-size:13px;color:#0b5fff">Ver os __NEXCL__ modelos sem nota</summary>
+      <div style="overflow-x:auto;margin-top:10px">
+      <table id="exclTable"><thead><tr>
+        <th data-e="id">Modelo</th><th data-e="inP" class="num">Entrada US$/1M</th>
+        <th data-e="outP" class="num">Saida US$/1M</th><th data-e="ctx" class="num">Contexto</th><th>Ferramentas</th>
+      </tr></thead><tbody></tbody></table>
+      </div>
+    </details>
   </div>
 
   <div class="card">
@@ -434,8 +495,34 @@ function renderValue(){
     "<td class='num'>"+fmtP(r.per1mNow)+"</td><td class='num'>"+fmt(r.ctx,0)+"</td></tr>").join("");
 }
 
-const frees = DATA.filter(r=>r.free).sort((a,b)=>(b.cu||0)-(a.cu||0));
-document.querySelector("#freeTable tbody").innerHTML = frees.map((r,i)=>
+// ---- tabela de excluidos (transparencia) ----
+const EXCL = __EXCLDATA__;
+let exclSort = {k:"inP", dir:1};
+function renderExcl(){
+  const list = EXCL.slice().sort((a,b)=>{
+    const av=a[exclSort.k], bv=b[exclSort.k];
+    if(av==null&&bv==null) return 0;
+    if(av==null) return 1; if(bv==null) return -1;
+    const c = typeof av==="string" ? av.localeCompare(bv) : av-bv;
+    return c*exclSort.dir;
+  });
+  document.querySelector("#exclTable tbody").innerHTML = list.map(r=>
+    "<tr><td>"+r.id+"</td><td class='num'>"+fmt(r.inP,4)+"</td>"+
+    "<td class='num'>"+fmt(r.outP,4)+"</td><td class='num'>"+fmt(r.ctx,0)+"</td>"+
+    "<td>"+(r.tools?"<span class='tag'>sim</span>":"<span class='muted'>nao</span>")+"</td></tr>").join("");
+  document.querySelectorAll("#exclTable th").forEach(th=>{
+    const k=th.dataset.e;
+    if(k) th.textContent = th.textContent.replace(/ [\u25b2\u25bc]$/,"") + (exclSort.k===k?(exclSort.dir===1?" \u25b2":" \u25bc"):"");
+  });
+}
+document.querySelectorAll("#exclTable th").forEach(th=>th.addEventListener("click",()=>{
+  const k=th.dataset.e; if(!k) return;
+  if(exclSort.k===k) exclSort.dir*=-1; else exclSort={k, dir:1};
+  renderExcl();
+}));
+renderExcl();
+
+const frees = DATA.filter(r=>r.free).sort((a,b)=>(b.cu||0)-(a.cu||0));document.querySelector("#freeTable tbody").innerHTML = frees.map((r,i)=>
   "<tr class='rowlink' data-id='"+r.id+"'><td>"+(i+1)+"</td><td>"+r.name+"</td>"+
   "<td class='num'>"+fmt(r.cu,0)+"</td><td class='num'>"+fmt(r.iq,0)+"</td>"+
   "<td class='num'>"+fmt(r.code,0)+"</td><td class='num'>"+fmt(r.ctx,0)+"</td>"+
@@ -633,6 +720,15 @@ out = (TMPL
        .replace("__MC__", f"{mix_cache:.0f}")
        .replace("__MO__", f"{mix_out:.2f}")
        .replace("__BASEP__", f"{(MIX['uncached_in_M'] + MIX['cache_read_M']):.1f}")
+       .replace("__NTOTAL__", str(n_or_total))
+       .replace("__NROWS__", str(len(rows)))
+       .replace("__NBATCH__", str(n_batch))
+       .replace("__NALIAS__", str(n_alias))
+       .replace("__NFREE__", str(n_freep))
+       .replace("__NINDEP__", str(n_or_total - n_batch - n_alias - n_freep))
+       .replace("__NEXCL__", str(len(excluded)))
+       .replace("__EXCLREASON__", EXCL_REASON)
+       .replace("__EXCLDATA__", EXCL_DATA)
        .replace("__MIX_TXT__",
                 f"em 30 dias o Hermes processou {MIX['uncached_in_M']:.1f}M tokens de entrada sem cache, "
                 f"{MIX['cache_read_M']:.1f}M de cache read e {MIX['out_M']:.2f}M de saida "
