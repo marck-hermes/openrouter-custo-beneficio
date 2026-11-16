@@ -68,13 +68,45 @@
   .fitem.bad b{color:#a11}
   .farrow{font-size:17px;color:#9aa7b4;font-weight:600}
   footer{font-size:11.5px;color:#8a97a5;padding:0 16px 28px;max-width:1180px;margin:0 auto;line-height:1.8}
+  .hbar{position:sticky;top:0;z-index:100;background:#0f1830;border-bottom:1px solid #233051}
+  .hbar-inner{max-width:1180px;margin:0 auto;padding:9px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .hbar-brand{display:flex;align-items:center;gap:9px;color:#fff;font-weight:700;font-size:16px;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+  .hbar-brand svg{color:#ffd166;flex-shrink:0}
+  .hbar-tabs{display:flex;gap:3px;background:#16203c;padding:3px;border-radius:8px;border:1px solid #233051;overflow-x:auto;max-width:100%}
+  .hbar-tab{padding:6px 12px;border-radius:6px;font-size:12.5px;font-weight:600;color:#a8b4d8;text-decoration:none;white-space:nowrap;transition:color .15s,background .15s}
+  .hbar-tab:hover{color:#fff;background:#1d2a4a}
+  .hbar-tab.active{color:#0f1830;background:#ffd166}
+  .hbar-links{display:flex;gap:4px}
+  .hbar-links a{font-size:12.5px;color:#a8b4d8;text-decoration:none;padding:5px 8px;border-radius:6px;white-space:nowrap}
+  .hbar-links a:hover{color:#ffd166;background:#16203c}
+  @media (max-width:900px){.hbar-links{display:none}.hbar-inner{padding:8px 10px;gap:10px}}
 </style>
 </head>
 <body>
+<nav class="hbar" aria-label="Main navigation">
+ <div class="hbar-inner">
+  <a class="hbar-brand" href="https://token-dashboard-tau-five.vercel.app">
+   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+   Hermes Dashboards
+  </a>
+  <div class="hbar-tabs" role="tablist" aria-label="Dashboard selection">
+   <a class="hbar-tab" role="tab" href="https://token-dashboard-tau-five.vercel.app">📊 Token Usage</a>
+   <a class="hbar-tab" role="tab" href="https://token-dashboard-tau-five.vercel.app/str-flow-chart.html">📈 STR Pipeline</a>
+   <a class="hbar-tab" role="tab" href="https://token-dashboard-tau-five.vercel.app/backup-flow.html">🛡️ Backup Flow</a>
+   <a class="hbar-tab active" role="tab" aria-selected="true" aria-current="page" href="https://openrouter-custo-beneficio.vercel.app">🤖 LLM Comparison</a>
+   <a class="hbar-tab" role="tab" href="https://token-dashboard-tau-five.vercel.app/openrouter-usage.html">🔑 OpenRouter Usage</a>
+   <a class="hbar-tab" role="tab" href="https://token-dashboard-tau-five.vercel.app/finesse-bench-ta.html">📊 FINESSE TA</a>
+  </div>
+  <div class="hbar-links">
+   <a href="https://str-web-murex.vercel.app" target="_blank" rel="noopener">STR Web</a>
+   <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">Hermes Repo</a>
+  </div>
+ </div>
+</nav>
 <header>
   <h1>OpenRouter: custo x beneficio &mdash; Hermes Agent</h1>
   <p>Custo recalculado ao vivo com o <b>mix real de tokens do Hermes</b>: em 30 dias o Hermes processou 18.6M tokens de entrada sem cache, 105.9M de cache read e 0.66M de saida (85% cache, 0.52% saida, em 1279 chamadas).<br>
-  Notas do AI IQ ligadas ao modelo certo por nome. Dados de 15/11/2026 23:48.</p>
+  Notas do AI IQ ligadas ao modelo certo por nome. Dados de 16/11/2026 07:23.</p>
 </header>
 <main>
 
@@ -252,7 +284,7 @@
 <footer>
   <b>Fontes.</b> Notas e precos de tabela: API publica do AI IQ (<code>www.aiiq.org/api/v1/models</code>,
   metodologia 2026-09-30-arc-predictive-puzzles). Precos praticados, contexto e ferramentas:
-  <code>openrouter.ai/api/v1/models</code>. Ambas em 15/11/2026 23:48.<br>
+  <code>openrouter.ai/api/v1/models</code>. Ambas em 16/11/2026 07:23.<br>
   <b>Custo mensal.</b> em 30 dias o Hermes processou 18.6M tokens de entrada sem cache, 105.9M de cache read e 0.66M de saida (85% cache, 0.52% saida, em 1279 chamadas). O Hermes grava <code>input_tokens</code> ja liquido de cache
   (<code>agent/usage_pricing.py</code>: <code>input_tokens = prompt_total - cache_read - cache_write</code>),
   por isso sao tres baldes. O calculo no navegador usa os precos por token de cada linha; o volume total
