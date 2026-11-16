@@ -47,6 +47,44 @@ preco de entrada (US$ 0,007/1M) mas custa **US$ 5,23/mes** por causa da saida a 
 retorna `403 "only available on agentic harnesses"` em chamada direta. Cada `:free` agora
 recebe um probe de 10 tokens; 11 respondem, 1 esta bloqueado, 2 estavam limitados por taxa.
 
+## Seletor de mix (client-side)
+
+O custo nao e mais um numero fixo no HTML: os precos por token vao para a pagina e o
+custo e recalculado no navegador. Dois sliders &mdash; `% cache read` e `% saida` &mdash;
+comecam no mix medido (85% / 0,52%) e recalculam tabela, ranking, grafico e detalhe.
+Botoes de preset: "Mix medido", "Sem cache", "Cache maximo".
+
+Isso existe porque a escolha do modelo **muda** com o mix, mas so nas posicoes 2-15:
+o #1 se manteve em 25 de 25 combinacoes testadas (cache 50-95%, saida 0,3-8%).
+Com cache, `kimi-k3` cai 13 posicoes e `claude-haiku-5.5` sobe 3. Reportar so o
+numero do mix atual esconderia isso.
+
+## Filtro de IQ
+
+O campo "IQ minimo" **esconde linhas**, nunca altera a nota exibida. Um IQ vindo do
+benchmark e imutavel qualquer que seja o filtro; reescreve-lo seria o mesmo defeito do
+dashboard original. Com 100, a tabela mostra 119 de 135 linhas. A opcao "manter sem nota"
+(ligada por padrao) preserva os modelos que nao tem nota no AI IQ &mdash; senao 8 gratuitos
+que respondem ao probe sumiriam do catalogo por nao terem sido medidos.
+
+## Dois bugs de join corrigidos nesta rodada
+
+A primeira versao do `map_models.py` aceitava qualquer prefixo de nome. Isso produziu
+**54 pares errados e silenciosos**: `gpt-5` casava com `gpt-5.5`, `opus-5` com `opus-5.5`,
+`glm-5.3` com `glm-5.3-flash`, `gpt-6-luna` com `gpt-6-luna-october` (snapshot antigo).
+Cada um herdava as notas de outra geracao. A regra correta e estrita:
+
+1. nome normalizado **identico** &rarr; aceito (confianca 100)
+2. OpenRouter acrescentou apenas **parametros de tamanho** (`550b-a55b`) &rarr; aceito (80)
+3. qualquer outro sufixo e **versionamento** &rarr; rejeitado
+
+Resultado: 121 de 211 mapeados, zero colisoes, zero ambiguos.
+
+O segundo bug: modelos sem preco de cache publicado eram **omitidos**. Isso sumia com
+`gemma-4-31b` (IQ 100), `nemotron-3-super-120b` (101) e `qwen3.6-plus` (109) do catalogo.
+Agora entram com o preco de **entrada como pior caso**, marcados `cache~` na tabela e
+com explicacao no detalhe. Sao 19 linhas assim.
+
 ## Piso de capacidade no ranking de valor
 
 O ranking "melhor custo-beneficio" so admite modelos com score agentico **igual ou acima da
@@ -58,7 +96,7 @@ liderava. Com a mediana, o vencedor e ao mesmo tempo barato e pelo menos tipicam
 
 Custo mensal na carga real do Hermes (18,6M entrada + 105,9M cache + 0,66M saida):
 
-| modelo | agente | posicao | US$/mes |
+| modelo | agente | posicao | US$/mes (mix medido) |
 |---|---|---|---|
 | DeepSeek V4.1 Flash 1017 | 125 | p77 | **1,18** |
 | MiniMax M3.1 Flash | 115 | p50 | 2,39 |
