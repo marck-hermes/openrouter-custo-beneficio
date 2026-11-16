@@ -1,20 +1,29 @@
 #!/usr/bin/env python3
-"""Gera o dashboard corrigido de custo x beneficio para o Hermes Agent.
+"""Gera o dashboard de custo x beneficio para o Hermes Agent.
 
-Correcoes sobre o original:
- 1. JOIN: notas do AI IQ ligadas ao OpenRouter por nome normalizado + desempate,
-    NUNCA pela propria nota. O original colapsava por `iq`, herdando as 8 notas de
-    um modelo para outro (novo-micro-v1 recebeu as notas do o1).
- 2. CUSTO: calculado com os 3 baldes reais de token do Hermes (nao-cacheado,
-    cache-read, saida) em vez de media simples de entrada/saida.
- 3. PRECOS: lidos da API do OpenRouter no momento da geracao, nao de copia.
- 4. LIMPEZA: sem :batch, sem aliases ~, sem routers com preco negativo.
- 5. FREE: cada :free recebe probe de 10 tokens antes de entrar na lista.
- 6. COLUNA: score agentico (computer-use) e o criterio de ordenacao, com filtro
-    de teto de custo -- a pergunta que importa para um agente.
+Decisoes que nao sao obvias e o porque:
+
+1. JOIN: notas do AI IQ ligadas ao OpenRouter por NOME normalizado (identidade),
+   nunca pela propria nota. A versao original fazia join pela nota e seis modelos
+   de familias diferentes herdaram as 8 notas e o custo do `o1`.
+
+2. CUSTO: tres baldes reais de token. O Hermes grava `input_tokens` JA LIQUIDO de
+   cache (`agent/usage_pricing.py`: input = prompt - cache_read - cache_write), entao
+   o modelo precisa de nao-cacheado + cache-read + saida separados.
+
+3. MIX NO CLIENTE: o custo e recalculado no navegador a partir dos precos, com um
+   seletor de % de cache e % de saida. Assim a sensibilidade e visivel, nao apenas
+   afirmada. Os valores iniciais vem do uso real medido (30 dias).
+
+4. FILTRO DE IQ: filtra a EXIBICAO, nunca a nota exibida. Um `iq` vindo do
+   benchmark e imutavel qualquer que seja o filtro -- filtrar reescrevendo a nota
+   seria o mesmo pecado do dashboard original.
+
+5. Modelo sem nota continua visivel: `-` e honesto, omissao nao e.
 """
-import json, html, datetime, statistics
+import json, datetime, statistics, os
 
+# Mix medido em ~/.hermes/state.db, janela de 30 dias, chamadas reais do agente.
 MIX = {"uncached_in_M": 18.62, "cache_read_M": 105.89, "out_M": 0.657, "calls": 1279}
 
 ors = {m["id"]: m for m in json.load(open("or_models.json"))["data"]}
@@ -25,6 +34,7 @@ probe = {r["model"]: r for r in json.load(open("free_probe.json"))}
 
 def pricing(m):
     p = m.get("pricing") or {}
+
     def f(k):
         v = p.get(k)
         if v in (None, ""):
@@ -38,145 +48,138 @@ def pricing(m):
 
 
 def monthly(pr):
-    if not pr or pr["in"] is None or pr["out"] is None:
+    if not pr or pr["in"] is None or pr["out"] is None or pr["cache_read"] is None:
         return None
-    cr = pr["cache_read"]
-    if cr is None:
-        return None
-    return (MIX["uncached_in_M"] * pr["in"] + MIX["cache_read_M"] * cr + MIX["out_M"] * pr["out"])
+    return (MIX["uncached_in_M"] * pr["in"] + MIX["cache_read_M"] * pr["cache_read"]
+            + MIX["out_M"] * pr["out"])
 
 
 def prompt_blend(pr):
     if not pr or pr["in"] is None or pr["cache_read"] is None:
         return None
     tot = MIX["uncached_in_M"] + MIX["cache_read_M"]
-    return (MIX["uncached_in_M"] * pr["in"] + MIX["cache_read_M"] * pr["cache_read"]) / tot
+    return (MIX["uncached_in_M"] * pr["in"]
+            + MIX["cache_read_M"] * pr["cache_read"]) / tot
 
 
-def is_free(pr):
-    return pr and pr["in"] == 0 and pr["out"] == 0
-
-
-rows = []
-for oid, a in mp.items():
+def build_row(oid, aiiq_id, free=False):
     m = ors.get(oid)
+    am = aiiq.get(aiiq_id) if aiiq_id else None
     if not m:
-        continue
-    am = aiiq.get(a["aiiq_id"])
-    if not am:
-        continue
-    d = am.get("dimensions") or {}
+        return None
+    d = (am or {}).get("dimensions") or {}
     pr = pricing(m)
-    cost = monthly(pr)
-    sp = m.get("supported_parameters") or []
-    reason = (m.get("reasoning") or {})
-    free = is_free(pr)
-    pf = probe.get(oid)
-    if free:
-        # so entra na lista se o probe confirmou que roda
-        if not pf or pf["status"] != "ok":
-            continue
-        cost = 0.0
+
+    # Modelo sem preco de cache publicado: usa o preco de ENTRADA como pior caso
+    # (nenhum desconto de cache), em vez de omitir a linha. Omitir tirava do
+    # catalogo modelos com IQ 100-110 (gemma-4-31b, nemotron-3-super-120b,
+    # qwen3.6-plus/27b); estimar sem avisar seria pior. A linha carrega a marca
+    # `cacheEst` e a UI mostra isso explicitamente.
+    cache_est = False
+    if pr["cache_read"] is None and pr["in"] is not None:
+        pr["cache_read"] = pr["in"]
+        cache_est = True
+
+    cost = 0.0 if free else monthly(pr)
     if cost is None:
-        continue
-    rows.append({
+        return None
+    reason = m.get("reasoning") or {}
+    return {
         "id": oid, "name": (m.get("name") or oid),
         "provider": oid.split("/")[0],
-        "aiiq": a["aiiq_id"],
-        "iq": am.get("iq"), "cu": d.get("computer-use"),
-        "code": d.get("programmatic-reasoning"),
-        "rel": d.get("reliability"),
-        "kw": d.get("knowledge-work"),
-        "abs": d.get("abstract-reasoning"), "math": d.get("mathematical-reasoning"),
-        "acad": d.get("academic-reasoning"),
-        "ctx": m.get("context_length") or 0,
-        "maxout": m.get("top_provider", {}).get("max_completion_tokens") or 0,
-        "inP": pr["in"], "outP": pr["out"], "cacheP": pr["cache_read"],
-        "cost": cost, "per1m": prompt_blend(pr),
-        "tools": "tools" in sp,
-        "rmand": bool(reason.get("mandatory")),
-        "free": free,
-        "modality": (m.get("architecture") or {}).get("modality") or "",
-        "released": (m.get("created") or 0),
-        "table_ratio": a.get("or_vs_table"),
-        "coverage": (am.get("iqCoverage") or {}).get("directDimensions", 0),
-        "conf": a.get("confidence"),
-    })
-
-rows.sort(key=lambda r: (r["cost"], -(r["cu"] or 0)))
-
-# Gratuitos confirmados pelo probe. Os que tem modelo-base mapeado herdam as notas
-# (mesmos pesos); os que nao tem entram com nota vazia em vez de serem omitidos, para
-# que a lista de gratuitos reflita o que realmente responde.
-seen = {r["id"] for r in rows}
-for fid, pf in probe.items():
-    if pf["status"] != "ok" or fid in seen or fid not in ors:
-        continue
-    m = ors[fid]
-    base_id = fid[:-5]
-    a = mp.get(base_id)
-    am = aiiq.get(a["aiiq_id"]) if a else None
-    d = (am or {}).get("dimensions") or {}
-    rows.append({
-        "id": fid, "name": (m.get("name") or fid),
-        "provider": fid.split("/")[0],
-        "aiiq": (a["aiiq_id"] if a else None),
+        "aiiq": aiiq_id,
         "iq": (am or {}).get("iq"), "cu": d.get("computer-use"),
         "code": d.get("programmatic-reasoning"), "rel": d.get("reliability"),
         "kw": d.get("knowledge-work"), "abs": d.get("abstract-reasoning"),
         "math": d.get("mathematical-reasoning"), "acad": d.get("academic-reasoning"),
         "ctx": m.get("context_length") or 0,
         "maxout": (m.get("top_provider") or {}).get("max_completion_tokens") or 0,
-        "inP": 0.0, "outP": 0.0, "cacheP": 0.0,
-        "cost": 0.0, "per1m": 0.0,
+        "inP": pr["in"], "outP": pr["out"], "cacheP": pr["cache_read"],
+        "cacheEst": cache_est,
+        "cost": cost, "per1m": (0.0 if free else (prompt_blend(pr) or 0.0)),
         "tools": "tools" in (m.get("supported_parameters") or []),
-        "rmand": bool((m.get("reasoning") or {}).get("mandatory")),
-        "free": True,
+        "rmand": bool(reason.get("mandatory")),
+        "free": free,
         "modality": (m.get("architecture") or {}).get("modality") or "",
-        "released": (m.get("created") or 0),
-        "table_ratio": (a or {}).get("or_vs_table"),
         "coverage": ((am or {}).get("iqCoverage") or {}).get("directDimensions", 0),
-        "conf": (a or {}).get("confidence"),
-    })
+    }
+
+
+rows = []
+for oid, a in mp.items():
+    r = build_row(oid, a["aiiq_id"])
+    if r:
+        rows.append(r)
+
+# Gratuitos confirmados por probe. Herdam as notas do modelo-base quando existir.
+seen = {r["id"] for r in rows}
+for fid, pf in probe.items():
+    if pf["status"] != "ok" or fid in seen or fid not in ors:
+        continue
+    base = mp.get(fid[:-5])
+    r = build_row(fid, base["aiiq_id"] if base else None, free=True)
+    if r:
+        rows.append(r)
 
 rows.sort(key=lambda r: (r["cost"], -(r["cu"] or 0)))
-print(f"linhas finais: {len(rows)} (pagas {sum(1 for r in rows if not r['free'])}, free {sum(1 for r in rows if r['free'])})")
 
-CUS = [r["cu"] for r in rows if r["cu"] is not None]
-MED_CU = statistics.median(CUS)
-LEAD_CU = max(CUS)
+CUS = sorted(r["cu"] for r in rows if r["cu"] is not None)
+MED_CU = statistics.median(CUS) if CUS else 0
+LEAD_CU = max(CUS) if CUS else 0
+N_GRADED = len(CUS)
 
+# Piso do ranking de valor = mediana. Um piso de 60% do lider (94 pontos) ainda
+# admitia modelo no percentil 12 liderando -- o defeito original em escala menor.
+FLOOR = round(MED_CU)
 
-def pct(v, ref=CUS):
-    return 100.0 * sum(1 for x in ref if x < v) / len(ref)
-
-
-now = datetime.datetime.now().strftime("%d/%m/%Y %H:%M")
 mix_cache = 100 * MIX["cache_read_M"] / (MIX["uncached_in_M"] + MIX["cache_read_M"] + MIX["out_M"])
 mix_out = 100 * MIX["out_M"] / (MIX["uncached_in_M"] + MIX["cache_read_M"] + MIX["out_M"])
+now = datetime.datetime.now().strftime("%d/%m/%Y %H:%M")
+
+limits = (
+    f"Dos {len(aiiq)} modelos do AI IQ, {len(mp)} foram ligados a um id do OpenRouter por "
+    f"nome exato (ou exato + parametros de tamanho); {len(rows)} entram na tabela. "
+    f"{sum(1 for r in rows if r.get('cacheEst'))} modelos nao publicam preco de cache e usam o preco de "
+    f"entrada como pior caso (marcados <b>cache~</b> na tabela) &mdash; o custo real deles tende a ser menor. "
+    f"{len(probe)} endpoints <code>:free</code> foram testados um a um &mdash; "
+    f"{sum(1 for p in probe.values() if p['status']=='ok')} respondem, "
+    f"{sum(1 for p in probe.values() if p['status']=='gated')} esta bloqueado por politica de harness "
+    f"e {sum(1 for p in probe.values() if p['status']=='rate-limited')} estava limitado por taxa no momento do teste. "
+    f"Modelos sem nota exibem travessao: nao sao excluidos nem recebem estimativa."
+)
 
 DATA = json.dumps(rows, ensure_ascii=False)
 
-HTML_TMPL = r"""<!DOCTYPE html>
+TMPL = r"""<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OpenRouter: custo x beneficio (corrigido)</title>
+<title>OpenRouter: custo x beneficio (Hermes)</title>
 <style>
   *{box-sizing:border-box}
   body{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;margin:0;background:#f4f6f8;color:#1c2530}
   header{background:#14213d;color:#fff;padding:22px 20px}
-  header h1{margin:0 0 6px;font-size:22px}
-  header p{margin:0;opacity:.85;font-size:13px;line-height:1.6}
+  header h1{margin:0 0 6px;font-size:21px}
+  header p{margin:0;opacity:.85;font-size:12.5px;line-height:1.6}
   main{max-width:1180px;margin:0 auto;padding:16px}
   .stats{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
-  .stat{background:#fff;border:1px solid #dde3ea;border-radius:10px;padding:12px 16px;flex:1;min-width:150px}
-  .stat b{display:block;font-size:22px}
-  .stat span{font-size:12px;color:#5b6b7c;line-height:1.4;display:block;margin-top:2px}
+  .stat{background:#fff;border:1px solid #dde3ea;border-radius:10px;padding:11px 15px;flex:1;min-width:140px}
+  .stat b{display:block;font-size:21px}
+  .stat span{font-size:11.5px;color:#5b6b7c;line-height:1.4;display:block;margin-top:2px}
   .card{background:#fff;border:1px solid #dde3ea;border-radius:10px;padding:16px;margin-bottom:16px}
-  .card h2{margin:0 0 4px;font-size:17px}
+  .card h2{margin:0 0 4px;font-size:16.5px}
   .card p.sub{margin:0 0 12px;font-size:12.5px;color:#5b6b7c;line-height:1.6}
+  .mixbox{background:#f7f9fc;border:1px solid #dde3ea;border-radius:8px;padding:12px 14px;margin-bottom:14px}
+  .mixgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 22px}
+  .mixrow label{display:flex;justify-content:space-between;font-size:12.5px;color:#39485a;margin-bottom:4px}
+  .mixrow label b{color:#0b5fff;font-variant-numeric:tabular-nums}
+  .mixrow input[type=range]{width:100%;accent-color:#0b5fff}
+  .mixactions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+  .mixactions button{padding:6px 11px;border:1px solid #c6d0dc;background:#fff;border-radius:6px;
+    font-size:12px;cursor:pointer;color:#39485a}
+  .mixactions button:hover{border-color:#0b5fff;color:#0b5fff}
+  .mixactions .hint{font-size:11.5px;color:#8a97a5}
   .filters{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
   .filters label{font-size:11.5px;color:#5b6b7c;display:block;margin-bottom:3px}
   .filters input,.filters select{padding:7px;border:1px solid #c6d0dc;border-radius:6px;font-size:13.5px;background:#fff}
@@ -184,7 +187,7 @@ HTML_TMPL = r"""<!DOCTYPE html>
   #chart{width:100%;height:400px;display:block;cursor:crosshair}
   #tip{position:absolute;background:#14213d;color:#fff;padding:8px 10px;border-radius:6px;font-size:12px;
        pointer-events:none;display:none;max-width:300px;line-height:1.5;z-index:5}
-  .legend{font-size:12px;color:#5b6b7c;margin-top:6px;line-height:1.8}
+  .legend{font-size:12px;color:#5b6b7c;margin-top:6px;line-height:1.9}
   .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin:0 4px 0 12px;vertical-align:middle}
   table{width:100%;border-collapse:collapse;font-size:12.5px}
   th{text-align:left;padding:8px 6px;border-bottom:2px solid #dde3ea;cursor:pointer;white-space:nowrap;user-select:none}
@@ -195,7 +198,6 @@ HTML_TMPL = r"""<!DOCTYPE html>
   td.sorted{background:#f0f6ff}
   .tag{display:inline-block;background:#e3f2e6;color:#1d7a33;border-radius:20px;padding:1px 7px;font-size:11px;font-weight:600}
   .warn{display:inline-block;background:#fdf0d5;color:#8a5a00;border-radius:20px;padding:1px 7px;font-size:11px;font-weight:600}
-  .bad{display:inline-block;background:#fbe4e4;color:#a11;border-radius:20px;padding:1px 7px;font-size:11px;font-weight:600}
   .muted{color:#8a97a5}
   .rowlink{cursor:pointer}
   .rowlink:hover td{background:#f2f7ff}
@@ -209,42 +211,64 @@ HTML_TMPL = r"""<!DOCTYPE html>
   .note{background:#fff8e6;border:1px solid #f0dfa8;border-radius:8px;padding:12px 14px;font-size:12.5px;line-height:1.7;color:#5a4300}
   .note b{color:#3d2d00}
   footer{font-size:11.5px;color:#8a97a5;padding:0 16px 28px;max-width:1180px;margin:0 auto;line-height:1.8}
-  .pos{color:#1d7a33;font-weight:600}
-  .neg{color:#a11;font-weight:600}
 </style>
 </head>
 <body>
 <header>
-  <h1>OpenRouter: custo x beneficio &mdash; versao corrigida</h1>
-  <p>Custo calculado com o <b>mix real de tokens do Hermes Agent</b>: __MIX_TXT__.<br>
-  Notas do AI IQ ligadas ao modelo certo por nome + desempate (nao pela propria nota). Dados de __NOW__.</p>
+  <h1>OpenRouter: custo x beneficio &mdash; Hermes Agent</h1>
+  <p>Custo recalculado ao vivo com o <b>mix real de tokens do Hermes</b>: __MIX_TXT__.<br>
+  Notas do AI IQ ligadas ao modelo certo por nome. Dados de __NOW__.</p>
 </header>
 <main>
+
+  <div class="stats">
+    <div class="stat"><b id="stTotal">-</b><span>modelos com preco calculavel</span></div>
+    <div class="stat"><b id="stGraded">-</b><span>com score agentico</span></div>
+    <div class="stat"><b id="stFree">-</b><span>gratuitos que respondem (probe)</span></div>
+    <div class="stat"><b id="stShown">-</b><span>visiveis apos filtros</span></div>
+    <div class="stat"><b>__MED__</b><span>mediana do score agentico</span></div>
+  </div>
+
+  <div class="card">
+    <h2>Mix de tokens</h2>
+    <p class="sub">O custo de cada modelo e recalculado aqui, no navegador, a partir dos precos reais.
+    Os valores iniciais sao os medidos em 30 dias de uso do Hermes. Arraste para ver como a conclusao
+    muda &mdash; ou nao muda &mdash; com um perfil de uso diferente.</p>
+    <div class="mixbox">
+      <div class="mixgrid">
+        <div class="mixrow">
+          <label>Cache read <b><span id="vCache">__MC__</span>%</b></label>
+          <input type="range" id="rCache" min="0" max="95" step="1" value="__MC__">
+        </div>
+        <div class="mixrow">
+          <label>Saida <b><span id="vOut">__MO__</span>%</b></label>
+          <input type="range" id="rOut" min="0.2" max="10" step="0.1" value="__MO__">
+        </div>
+      </div>
+      <div class="mixactions">
+        <button id="btnReal" type="button">Mix medido</button>
+        <button id="btnNoCache" type="button">Sem cache</button>
+        <button id="btnCacheMax" type="button">Cache maximo</button>
+        <span class="hint" id="mixNote"></span>
+      </div>
+    </div>
+  </div>
 
   <div class="card">
     <div class="note">
       <b>O que mudou em relacao ao dashboard anterior.</b> A coluna "custo efetivo" do arquivo original
       estava errada em <b>212 de 250</b> linhas: era uma media de entrada e saida que caia <i>fora</i> do
-      intervalo dos dois precos. A causa era o join &mdash; as 8 notas do AI IQ eram ligadas ao modelo pela
-      propria nota, entao seis modelos de familias diferentes herdaram as notas do <code>o1</code>
-      (iq 95, custo 75,82). Aqui cada linha e ligada por nome, com desempate por preco, e o custo vem dos
-      tres baldes de token que o Hermes realmente gasta.
+      intervalo dos dois precos, porque o join ligava as notas pela propria nota e seis modelos de
+      familias diferentes herdaram as notas do <code>o1</code>. Aqui cada linha e ligada por nome, e o
+      custo usa os tres baldes de token que o Hermes realmente gasta.
     </div>
-  </div>
-
-  <div class="stats">
-    <div class="stat"><b id="stTotal">-</b><span>modelos com nota + custo calculavel</span></div>
-    <div class="stat"><b id="stGraded">-</b><span>com score agentico</span></div>
-    <div class="stat"><b id="stFree">-</b><span>gratuitos que respondem (probe)</span></div>
-    <div class="stat"><b id="stShown">-</b><span>na tabela apos filtros</span></div>
-    <div class="stat"><b>__MED__</b><span>mediana do score agentico</span></div>
   </div>
 
   <div class="card">
     <h2>Custo x capacidade agentica</h2>
-    <p class="sub">Cada ponto e um modelo. Eixo horizontal: custo mensal real em US$ (escala log) na carga do Hermes.
-    Eixo vertical: score de <i>computer use</i> do AI IQ &mdash; a dimensao que mais se aproxima de "consegue operar ferramentas".
-    Os 10 melhores custo-beneficio aparecem em dourado. Clique para abrir o detalhe.</p>
+    <p class="sub">Cada ponto e um modelo. Eixo horizontal: custo mensal em US$ (escala log) no mix atual.
+    Eixo vertical: score de <i>computer use</i> do AI IQ. Pontos dourados sao os 10 melhores custo-beneficio.
+    Clique para o detalhe.</p>
     <div style="position:relative"><canvas id="chart"></canvas><div id="tip"></div></div>
     <div class="legend">
       <i style="background:#0b5fff"></i>pago
@@ -261,10 +285,9 @@ HTML_TMPL = r"""<!DOCTYPE html>
 
   <div class="card">
     <h2>Melhor custo-beneficio para agente</h2>
-    <p class="sub">Ordenado por score agentico por dolar, com piso de capacidade: so entram modelos com score agentico
-    <b>igual ou acima da mediana do catalogo (__MED__)</b>. Um piso frouxo repetiria o erro da versao anterior em
-    escala menor &mdash; com 60% do lider, um modelo no percentil 12 ainda liderava. Custo e o mensal real do Hermes,
-    nao a media de tabela.</p>
+    <p class="sub">Score agentico por dolar, com piso de capacidade na <b>mediana do catalogo (__MED__)</b>.
+    Um piso frouxo repetiria o erro anterior em escala menor &mdash; com 60% do lider, um modelo no
+    percentil 12 ainda liderava. Os valores acompanham o mix escolhido acima.</p>
     <div style="overflow-x:auto">
     <table id="valueTable"><thead><tr>
       <th>#</th><th>Modelo</th><th class="num">Agente</th><th class="num">Posicao</th>
@@ -275,9 +298,10 @@ HTML_TMPL = r"""<!DOCTYPE html>
 
   <div class="card">
     <h2>Gratuitos que realmente respondem</h2>
-    <p class="sub">Cada endpoint <code>:free</code> recebeu um probe de 10 tokens antes de entrar nesta lista.
-    O candidato que a versao anterior coroou como melhor gratuito (<code>inkling-2-small:free</code>, iq 126)
-    retorna <b>403 "only available on agentic harnesses"</b> em chamada direta e foi removido.</p>
+    <p class="sub">Cada <code>:free</code> recebeu um probe de 10 tokens. O candidato que a versao anterior
+    coroou como melhor gratuito (<code>inkling-2-small:free</code>, IQ 126) retorna
+    <b>403 "only available on agentic harnesses"</b> em chamada direta e foi removido &mdash; o gate e do
+    provider, nao um header que se possa imitar.</p>
     <div style="overflow-x:auto">
     <table id="freeTable"><thead><tr>
       <th>#</th><th>Modelo</th><th class="num">Agente</th><th class="num">IQ</th>
@@ -288,16 +312,19 @@ HTML_TMPL = r"""<!DOCTYPE html>
 
   <div class="card">
     <h2>Todos os modelos</h2>
-    <p class="sub">Clique no cabecalho para ordenar. Para uma segunda coluna, use "&#65291; 2&ordf; coluna" e depois
-    clique no cabecalho, segure Shift, ou toque e segure no celular. Clique na linha para o detalhe.</p>
+    <p class="sub">Clique no cabecalho para ordenar; "&#65291; 2&ordf; coluna" ou Shift+clique para uma segunda
+    ordenacao (no celular, toque e segure). Clique na linha para o detalhe.
+    O filtro de IQ esconde linhas &mdash; nunca altera a nota exibida.</p>
     <button class="sortbtn" id="multiBtn" type="button">&#65291; 2&ordf; coluna</button>
     <div class="filters" style="margin-bottom:12px">
-      <div><label>Buscar</label><input id="fSearch" type="text" placeholder="nome, id ou provedor" style="width:200px"></div>
+      <div><label>Buscar</label><input id="fSearch" type="text" placeholder="nome, id ou provedor" style="width:190px"></div>
       <div><label>Provedor</label><select id="fProvider"><option value="">Todos</option></select></div>
+      <div><label>IQ minimo</label><input id="fMinIq" type="number" min="0" max="200" placeholder="ex.: 100" style="width:95px"></div>
       <div><label>Agente minimo</label><input id="fMinCu" type="number" min="0" max="200" placeholder="ex.: 110" style="width:100px"></div>
-      <div><label>US$/mes maximo</label><input id="fMaxCost" type="number" min="0" step="0.5" placeholder="ex.: 5" style="width:110px"></div>
+      <div><label>US$/mes maximo</label><input id="fMaxCost" type="number" min="0" step="0.5" placeholder="ex.: 5" style="width:105px"></div>
       <div class="check"><input id="fFree" type="checkbox"><span>So gratuitos</span></div>
       <div class="check"><input id="fTools" type="checkbox" checked><span>Exigir function calling</span></div>
+      <div class="check"><input id="fNoIq" type="checkbox" checked><span>Manter sem nota</span></div>
     </div>
     <div style="overflow-x:auto">
     <table id="mainTable">
@@ -305,7 +332,7 @@ HTML_TMPL = r"""<!DOCTYPE html>
         <th data-k="name">Modelo</th><th data-k="provider">Provedor</th>
         <th data-k="cu" class="num">Agente</th><th data-k="iq" class="num">IQ</th>
         <th data-k="code" class="num">Codigo</th><th data-k="rel" class="num">Confiab.</th>
-        <th data-k="cost" class="num">US$/mes</th><th data-k="per1m" class="num">US$/1M prompt</th>
+        <th data-k="costNow" class="num">US$/mes</th><th data-k="per1mNow" class="num">US$/1M prompt</th>
         <th data-k="inP" class="num">Entrada</th><th data-k="outP" class="num">Saida</th>
         <th data-k="ctx" class="num">Contexto</th>
       </tr></thead>
@@ -315,32 +342,69 @@ HTML_TMPL = r"""<!DOCTYPE html>
   </div>
 </main>
 <footer>
-  <b>Fontes.</b> Notas de capacidade e precos de tabela: API publica do AI IQ
-  (<code>www.aiiq.org/api/v1/models</code>, metodologia 2026-09-30-arc-predictive-puzzles).
-  Precos praticados, contexto e suporte a ferramentas: <code>openrouter.ai/api/v1/models</code>.
-  Ambas consultadas em __NOW__.<br>
+  <b>Fontes.</b> Notas e precos de tabela: API publica do AI IQ (<code>www.aiiq.org/api/v1/models</code>,
+  metodologia 2026-09-30-arc-predictive-puzzles). Precos praticados, contexto e ferramentas:
+  <code>openrouter.ai/api/v1/models</code>. Ambas em __NOW__.<br>
   <b>Custo mensal.</b> __MIX_TXT__. O Hermes grava <code>input_tokens</code> ja liquido de cache
   (<code>agent/usage_pricing.py</code>: <code>input_tokens = prompt_total - cache_read - cache_write</code>),
-  por isso o modelo usa tres baldes separados. Modelos que nao publicam preco de cache ficam de fora:
-  sem esse numero o custo real seria subestimado em ate 10x nesta carga.<br>
+  por isso sao tres baldes. O calculo no navegador usa os precos por token de cada linha; o volume total
+  e fixo e apenas a <i>distribuicao</i> muda com os sliders.<br>
   <b>Limitacoes.</b> __LIMITS__<br>
-  <b>Colunas derivadas.</b> "Agente" = <code>computer-use</code> do AI IQ. "Posicao" = percentil dentro dos
-  __N__ modelos com essa dimensao. "US$/1M prompt" = custo medio por milhao de tokens de prompt ja
-  ponderado pelo cache &mdash; comparavel entre modelos, ao contrario da media bruta de entrada e saida.
+  <b>Colunas derivadas.</b> "Agente" = <code>computer-use</code> do AI IQ. "Posicao" = percentil entre os
+  __N__ modelos com essa dimensao. "US$/1M prompt" = custo medio por milhao de tokens de prompt ja ponderado
+  pelo cache &mdash; comparavel entre modelos, ao contrario da media bruta de entrada e saida.
 </footer>
 <script>
 const DATA = __DATA__;
 const MED_CU = __MED__;
-const LEAD_CU = __LEAD__;
-const fmt = (v, d=2) => (v === null || v === undefined) ? "&mdash;" : Number(v).toLocaleString("pt-BR",{minimumFractionDigits:0,maximumFractionDigits:d});
-const fmtC = (v) => v === null || v === undefined ? "&mdash;" : (v === 0 ? "grátis" : "US$ " + Number(v).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}));
+const N_GRADED = __N__;
+const FLOOR = __FLOOR__;
+const REAL = {cache: __MC__, out: __MO__};
+
+// Volume de referencia = carga real do Hermes em 30 dias, para que o numero na tela
+// seja o gasto mensal de verdade e nao um indice arbitrario. So a DISTRIBUICAO muda
+// com os sliders; o volume total de prompt fica fixo, entao os modelos seguem comparaveis.
+const BASE_PROMPT_M = __BASEP__;
+function computeCost(r, pCache, pOut){
+  if (r.free) return 0;
+  if (r.inP == null || r.cacheP == null || r.outP == null) return null;
+  const promptM = BASE_PROMPT_M;
+  const outM = pOut >= 100 ? 0 : promptM * (pOut / (100 - pOut));
+  const unc = promptM * (1 - pCache / 100);
+  const cac = promptM * (pCache / 100);
+  return unc * r.inP + cac * r.cacheP + outM * r.outP;
+}
+function computePer1m(r, pCache){
+  if (r.free) return 0;
+  if (r.inP == null || r.cacheP == null) return null;
+  return 100 * (1 - pCache / 100) * r.inP + 100 * (pCache / 100) * r.cacheP;
+}
+
+const fmt = (v, d=2) => (v === null || v === undefined) ? "\u2014"
+  : Number(v).toLocaleString("pt-BR",{minimumFractionDigits:0,maximumFractionDigits:d});
+const fmtC = (v) => (v === null || v === undefined) ? "\u2014" : (v === 0 ? "gr\u00e1tis"
+  : "US$ " + Number(v).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}));
+const fmtP = (v) => (v === null || v === undefined) ? "\u2014" : Number(v).toLocaleString("pt-BR",{minimumFractionDigits:3,maximumFractionDigits:3});
+
+const CUS = DATA.map(r=>r.cu).filter(v=>v!=null).sort((a,b)=>a-b);
+function pctOf(v){ if(v==null) return null; return 100 * CUS.filter(x => x < v).length / CUS.length; }
+
+let pCache = REAL.cache, pOut = REAL.out;
+function applyMix(){
+  DATA.forEach(r => {
+    r.costNow = computeCost(r, pCache, pOut);
+    r.per1mNow = computePer1m(r, pCache);
+  });
+}
+function mixLabel(){
+  const u = 100 - pCache - pOut;
+  return "entrada sem cache " + u.toFixed(1) + "% \u00b7 cache " + pCache.toFixed(0)
+       + "% \u00b7 saida " + pOut.toFixed(2) + "%";
+}
 
 document.getElementById("stTotal").textContent = DATA.length;
 document.getElementById("stGraded").textContent = DATA.filter(r=>r.cu!=null).length;
 document.getElementById("stFree").textContent = DATA.filter(r=>r.free).length;
-
-const CUS = DATA.map(r=>r.cu).filter(v=>v!=null).sort((a,b)=>a-b);
-function pctOf(v){ if(v==null) return null; return 100*CUS.filter(x=>x<v).length/CUS.length; }
 
 function showDetail(r){
   const el = document.getElementById("detail");
@@ -348,28 +412,28 @@ function showDetail(r){
     ["Programacao",r.code],["Uso de Computador",r.cu],["Confiabilidade",r.rel],["Trabalho de Conhecimento",r.kw]];
   el.innerHTML = "<b>"+r.name+"</b> "+(r.free?'<span class="tag">GRATUITO</span>':"")+
     (r.rmand?' <span class="warn">reasoning obrigatorio</span>':"")+
-    "<br><span class='muted'>"+r.id+" &middot; AI IQ: "+r.aiiq+" &middot; "+(r.modality||"&mdash;")+"</span>"+
+    "<br><span class='muted'>"+r.id+" &middot; AI IQ: "+(r.aiiq||"\u2014")+" &middot; "+(r.modality||"\u2014")+"</span>"+
     "<br>Score agentico: <b>"+fmt(r.cu,0)+"</b> (percentil "+fmt(pctOf(r.cu),0)+") &nbsp;&middot;&nbsp; IQ composto: <b>"+fmt(r.iq,0)+"</b>"+
-    "<br>Custo mensal na carga Hermes: <b>"+fmtC(r.cost)+"</b> &nbsp;&middot;&nbsp; US$/1M prompt: <b>US$ "+fmt(r.per1m,3)+"</b>"+
-    "<br>Entrada US$ "+fmt(r.inP,4)+" &middot; Saida US$ "+fmt(r.outP,4)+" &middot; Cache read US$ "+(r.cacheP==null?"&mdash;":fmt(r.cacheP,4))+
+    "<br>Custo mensal no mix atual: <b>"+fmtC(r.costNow)+"</b> &nbsp;&middot;&nbsp; US$/1M prompt: <b>US$ "+fmtP(r.per1mNow)+"</b>"+
+    "<br>Entrada US$ "+fmt(r.inP,4)+" &middot; Saida US$ "+fmt(r.outP,4)+" &middot; Cache read "
+    +(r.cacheEst?"\u2014 (nao publicado; calculo usa a entrada)":"US$ "+fmt(r.cacheP,4))+
     " &nbsp;&middot;&nbsp; Contexto "+fmt(r.ctx,0)+" &middot; Saida max. "+fmt(r.maxout,0)+
     "<div class='dims'>"+dims.map(d=>"<div><span>"+d[0]+"</span><b>"+fmt(d[1],0)+"</b></div>").join("")+"</div>";
   const c=document.getElementById("detailCard"); c.style.display="block";
   c.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
 
-// ---- melhor custo-beneficio (com piso de capacidade) ----
-const FLOOR = __FLOOR__;
-const pool = DATA.filter(r=>r.cu!=null && r.cu>=FLOOR && !r.free && r.cost>0)
-  .map(r=>({...r, val: r.cu/r.cost})).sort((a,b)=>b.val-a.val).slice(0,10);
-const valueIds = new Set(pool.map(r=>r.id));
-document.querySelector("#valueTable tbody").innerHTML = pool.map((r,i)=>
-  "<tr class='rowlink' data-id='"+r.id+"'><td>"+(i+1)+"</td><td>"+r.name+"</td>"+
-  "<td class='num'>"+fmt(r.cu,0)+"</td><td class='num'>"+fmt(pctOf(r.cu),0)+"</td>"+
-  "<td class='num'>"+fmt(r.iq,0)+"</td><td class='num'>"+fmtC(r.cost)+"</td>"+
-  "<td class='num'>"+fmt(r.per1m,3)+"</td><td class='num'>"+fmt(r.ctx,0)+"</td></tr>").join("");
+function renderValue(){
+  const pool = DATA.filter(r=>r.cu!=null && r.cu>=FLOOR && !r.free && r.costNow>0)
+    .map(r=>({...r, val: r.cu/r.costNow})).sort((a,b)=>b.val-a.val).slice(0,10);
+  window._valueIds = new Set(pool.map(r=>r.id));
+  document.querySelector("#valueTable tbody").innerHTML = pool.map((r,i)=>
+    "<tr class='rowlink' data-id='"+r.id+"'><td>"+(i+1)+"</td><td>"+r.name+"</td>"+
+    "<td class='num'>"+fmt(r.cu,0)+"</td><td class='num'>"+fmt(pctOf(r.cu),0)+"</td>"+
+    "<td class='num'>"+fmt(r.iq,0)+"</td><td class='num'>"+fmtC(r.costNow)+"</td>"+
+    "<td class='num'>"+fmtP(r.per1mNow)+"</td><td class='num'>"+fmt(r.ctx,0)+"</td></tr>").join("");
+}
 
-// ---- gratuitos ----
 const frees = DATA.filter(r=>r.free).sort((a,b)=>(b.cu||0)-(a.cu||0));
 document.querySelector("#freeTable tbody").innerHTML = frees.map((r,i)=>
   "<tr class='rowlink' data-id='"+r.id+"'><td>"+(i+1)+"</td><td>"+r.name+"</td>"+
@@ -377,24 +441,24 @@ document.querySelector("#freeTable tbody").innerHTML = frees.map((r,i)=>
   "<td class='num'>"+fmt(r.code,0)+"</td><td class='num'>"+fmt(r.ctx,0)+"</td>"+
   "<td><span class='tag'>probe ok</span></td></tr>").join("");
 
-// ---- grafico ----
-const pts = DATA.filter(r=>r.cu!=null && r.cost!=null).map(r=>({...r, plotCost: r.cost>0 ? r.cost : 0.05}));
-const canvas=document.getElementById("chart"), ctx=canvas.getContext("2d");
-const tip=document.getElementById("tip");
 let drawn=[];
 function drawChart(){
+  const canvas=document.getElementById("chart"), ctx=canvas.getContext("2d");
   const W=canvas.clientWidth, H=400, dpr=window.devicePixelRatio||1;
   canvas.width=W*dpr; canvas.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
   ctx.clearRect(0,0,W,H);
+  const pts = DATA.filter(r=>r.cu!=null && r.costNow!=null)
+    .map(r=>({...r, plotCost: r.costNow>0 ? r.costNow : 0.05}));
+  if (!pts.length) return;
   const padL=46,padR=14,padT=12,padB=34;
   const costs=pts.map(r=>r.plotCost);
-  const minC=Math.min(...costs), maxC=Math.max(...costs);
+  const minC=Math.max(Math.min(...costs),0.05), maxC=Math.max(...costs, minC*10);
   const iqs=pts.map(r=>r.cu);
   const minI=Math.min(...iqs)-4, maxI=Math.max(...iqs)+4;
-  const X=c=>padL+(Math.log10(Math.max(c,0.05))-Math.log10(Math.max(minC,0.05)))/(Math.log10(maxC)-Math.log10(Math.max(minC,0.05)))*(W-padL-padR);
+  const X=c=>padL+(Math.log10(Math.max(c,0.05))-Math.log10(minC))/(Math.log10(maxC)-Math.log10(minC))*(W-padL-padR);
   const Y=q=>padT+(1-(q-minI)/(maxI-minI))*(H-padT-padB);
   ctx.strokeStyle="#e3e8ee"; ctx.fillStyle="#8a97a5"; ctx.font="11px sans-serif"; ctx.textAlign="center";
-  [0.1,1,10,100].forEach(v=>{ if(v<minC||v>maxC) return;
+  [0.1,1,10,100,1000].forEach(v=>{ if(v<minC||v>maxC) return;
     ctx.beginPath(); ctx.moveTo(X(v),padT); ctx.lineTo(X(v),H-padB); ctx.stroke();
     ctx.fillText("US$ "+v, X(v), H-14); });
   ctx.textAlign="right";
@@ -402,41 +466,41 @@ function drawChart(){
     ctx.beginPath(); ctx.moveTo(padL,Y(q)); ctx.lineTo(W-padR,Y(q)); ctx.stroke();
     ctx.fillText(q, padL-6, Y(q)+4);
   }
-  // linha da mediana
   ctx.strokeStyle="#f3c9c9"; ctx.setLineDash([5,4]);
   ctx.beginPath(); ctx.moveTo(padL,Y(MED_CU)); ctx.lineTo(W-padR,Y(MED_CU)); ctx.stroke();
   ctx.setLineDash([]);
   ctx.fillStyle="#c98a8a"; ctx.textAlign="left";
   ctx.fillText("mediana "+MED_CU, padL+4, Y(MED_CU)-5);
+  const vIds = window._valueIds || new Set();
   drawn = pts.map(r=>({r, x:X(Math.max(r.plotCost,0.05)), y:Y(r.cu)}));
   drawn.forEach(p=>{
     let col = p.r.free ? "#1d9e4b" : (p.r.cu < MED_CU ? "#a11" : "#0b5fff");
-    if(valueIds.has(p.r.id)) col="#e0a100";
-    ctx.beginPath(); ctx.arc(p.x,p.y, valueIds.has(p.r.id)?6:4, 0, 7);
+    if(vIds.has(p.r.id)) col="#e0a100";
+    ctx.beginPath(); ctx.arc(p.x,p.y, vIds.has(p.r.id)?6:4, 0, 7);
     ctx.fillStyle=col; ctx.globalAlpha=.85; ctx.fill(); ctx.globalAlpha=1;
   });
 }
-drawChart();
-window.addEventListener("resize", drawChart);
+const tip=document.getElementById("tip");
+const chartEl=document.getElementById("chart");
 function nearest(e){
-  const rect=canvas.getBoundingClientRect(), mx=e.clientX-rect.left, my=e.clientY-rect.top;
+  const rect=chartEl.getBoundingClientRect(), mx=e.clientX-rect.left, my=e.clientY-rect.top;
   let best=null,bd=1e9;
   drawn.forEach(p=>{const d=(p.x-mx)**2+(p.y-my)**2; if(d<bd){bd=d;best=p;}});
   return {best,bd,mx,my};
 }
-canvas.addEventListener("mousemove",e=>{
+chartEl.addEventListener("mousemove",e=>{
   const {best,bd,mx,my}=nearest(e);
   if(best&&bd<400){
     tip.style.display="block"; tip.style.left=(mx+14)+"px"; tip.style.top=(my+10)+"px";
-    tip.innerHTML="<b>"+best.r.name+"</b><br>Agente "+fmt(best.r.cu,0)+" (p"+fmt(pctOf(best.r.cu),0)+")<br>"+fmtC(best.r.cost)+"/mes";
+    tip.innerHTML="<b>"+best.r.name+"</b><br>Agente "+fmt(best.r.cu,0)+" (p"+fmt(pctOf(best.r.cu),0)+")<br>"+fmtC(best.r.costNow)+"/mes";
   } else tip.style.display="none";
 });
-canvas.addEventListener("click",e=>{
+chartEl.addEventListener("click",e=>{
   const {best,bd}=nearest(e); if(best&&bd<400) showDetail(best.r);
 });
-canvas.addEventListener("mouseleave",()=>tip.style.display="none");
+chartEl.addEventListener("mouseleave",()=>tip.style.display="none");
+window.addEventListener("resize", drawChart);
 
-// ---- tabela principal ----
 const providers=[...new Set(DATA.map(r=>r.provider))].sort();
 document.getElementById("fProvider").innerHTML += providers.map(p=>"<option>"+p+"</option>").join("");
 let sorts=[{key:"cu",dir:-1}];
@@ -444,15 +508,22 @@ const numCols=[2,3,4,5,6,7,8,9,10];
 function applyFilters(){
   const q=document.getElementById("fSearch").value.toLowerCase();
   const prov=document.getElementById("fProvider").value;
+  const minIq=parseFloat(document.getElementById("fMinIq").value);
   const minCu=parseFloat(document.getElementById("fMinCu").value);
   const maxCost=parseFloat(document.getElementById("fMaxCost").value);
   const onlyFree=document.getElementById("fFree").checked;
   const needTools=document.getElementById("fTools").checked;
+  const keepNoIq=document.getElementById("fNoIq").checked;
   let list=DATA.filter(r=>{
     if(q && !(r.name.toLowerCase().includes(q)||r.id.toLowerCase().includes(q)||r.provider.toLowerCase().includes(q))) return false;
     if(prov && r.provider!==prov) return false;
+    if(!isNaN(minIq)){
+      // o filtro apenas esconde a linha; nunca inventa nem reescreve a nota
+      if(r.iq==null){ if(!keepNoIq) return false; }
+      else if(r.iq<minIq) return false;
+    }
     if(!isNaN(minCu) && (r.cu==null||r.cu<minCu)) return false;
-    if(!isNaN(maxCost) && (r.cost==null||r.cost>maxCost)) return false;
+    if(!isNaN(maxCost) && (r.costNow==null||r.costNow>maxCost)) return false;
     if(onlyFree && !r.free) return false;
     if(needTools && !r.tools) return false;
     return true;
@@ -469,18 +540,18 @@ function applyFilters(){
   });
   document.getElementById("stShown").textContent=list.length;
   const labels={name:"Modelo",provider:"Provedor",cu:"Agente",iq:"IQ",code:"Codigo",rel:"Confiab.",
-    cost:"US$/mes",per1m:"US$/1M prompt",inP:"Entrada",outP:"Saida",ctx:"Contexto"};
+    costNow:"US$/mes",per1mNow:"US$/1M prompt",inP:"Entrada",outP:"Saida",ctx:"Contexto"};
   document.querySelectorAll("#mainTable th").forEach(th=>{
     const k=th.dataset.k, idx=sorts.findIndex(s=>s.key===k);
     th.classList.toggle("sorted",idx>=0);
     th.textContent=labels[k]+(idx>=0?(sorts[idx].dir===1?" \u25b2":" \u25bc")+(sorts.length>1?" "+(idx+1):""):"");
   });
-  const colMap={name:0,provider:1,cu:2,iq:3,code:4,rel:5,cost:6,per1m:7,inP:8,outP:9,ctx:10};
+  const colMap={name:0,provider:1,cu:2,iq:3,code:4,rel:5,costNow:6,per1mNow:7,inP:8,outP:9,ctx:10};
   const colIdxs=new Set(sorts.map(s=>colMap[s.key]));
   document.querySelector("#mainTable tbody").innerHTML=list.map(r=>{
-    const cells=[r.name+(r.free?" <span class='tag'>FREE</span>":"")+(r.rmand?" <span class='warn'>R</span>":""),
+    const cells=[r.name+(r.free?" <span class='tag'>FREE</span>":"")+(r.rmand?" <span class='warn'>R</span>":"")+(r.cacheEst?" <span class='warn' title='sem preco de cache publicado; custo usa a entrada como pior caso'>cache~</span>":""),
       r.provider,fmt(r.cu,0),fmt(r.iq,0),fmt(r.code,0),fmt(r.rel,0),
-      fmtC(r.cost),fmt(r.per1m,3),fmt(r.inP,4),fmt(r.outP,4),fmt(r.ctx,0)];
+      fmtC(r.costNow),fmtP(r.per1mNow),fmt(r.inP,4),fmt(r.outP,4),fmt(r.ctx,0)];
     const tds=cells.map((c,i)=>{
       const cls=[numCols.includes(i)?"num":"",colIdxs.has(i)?"sorted":""].filter(Boolean).join(" ");
       return cls?"<td class='"+cls+"'>"+c+"</td>":"<td>"+c+"</td>";
@@ -488,8 +559,9 @@ function applyFilters(){
     return "<tr class='rowlink' data-id='"+r.id+"'>"+tds+"</tr>";
   }).join("");
 }
-["fSearch","fProvider","fMinCu","fMaxCost","fFree","fTools"].forEach(id=>
+["fSearch","fProvider","fMinIq","fMinCu","fMaxCost","fFree","fTools","fNoIq"].forEach(id=>
   document.getElementById(id).addEventListener("input",applyFilters));
+
 let multiArmed=false;
 const multiBtn=document.getElementById("multiBtn");
 function setMultiArmed(v){multiArmed=v;multiBtn.classList.toggle("armed",v);
@@ -524,42 +596,54 @@ document.addEventListener("click",e=>{
   const tr=e.target.closest("tr.rowlink");
   if(tr){const r=DATA.find(x=>x.id===tr.dataset.id); if(r) showDetail(r);}
 });
-applyFilters();
+
+function refreshAll(){
+  applyMix();
+  document.getElementById("vCache").textContent = pCache.toFixed(0);
+  document.getElementById("vOut").textContent = pOut.toFixed(2);
+  document.getElementById("mixNote").textContent = mixLabel();
+  renderValue();
+  applyFilters();
+  drawChart();
+}
+function setMix(c, o){
+  pCache = Math.max(0, Math.min(95, c));
+  pOut = Math.max(0.2, Math.min(10, o));
+  document.getElementById("rCache").value = pCache;
+  document.getElementById("rOut").value = pOut;
+  refreshAll();
+}
+document.getElementById("rCache").addEventListener("input", e=>setMix(+e.target.value, pOut));
+document.getElementById("rOut").addEventListener("input", e=>setMix(pCache, +e.target.value));
+document.getElementById("btnReal").addEventListener("click", ()=>setMix(REAL.cache, REAL.out));
+document.getElementById("btnNoCache").addEventListener("click", ()=>setMix(0, 3));
+document.getElementById("btnCacheMax").addEventListener("click", ()=>setMix(95, 0.5));
+
+refreshAll();
 </script>
 </body>
 </html>
 """
 
-n_graded = len([r for r in rows if r["cu"] is not None])
-# Piso de capacidade = MEDIANA do score agentico, nao uma fracao do lider. Um piso de
-# 60% do lider (94 pontos) ainda admite modelos no percentil 12 liderando o ranking de
-# valor -- que e o defeito da versao original, so que menor. A mediana garante que o
-# vencedor seja ao mesmo tempo barato E pelo menos tipicamente capaz.
-floor = round(MED_CU)
-limits = (f"Dos {len(aiiq)} modelos do AI IQ, {len(mp)} foram ligados a um id do OpenRouter com confianca suficiente "
-          f"e {len(rows)} ficaram com preco de cache publicado &mdash; sem esse preco o custo real nao pode ser calculado "
-          f"e a linha foi omitida em vez de estimada. Modelos sem correspondencia no OpenRouter nao entram. "
-          f"Os {len(probe)} endpoints <code>:free</code> foram testados individualmente; "
-          f"{sum(1 for p in probe.values() if p['status']=='ok')} respondem, "
-          f"{sum(1 for p in probe.values() if p['status']=='gated')} estao bloqueados por politica de harness "
-          f"e {sum(1 for p in probe.values() if p['status']=='rate-limited')} estavam limitados por taxa no momento do teste.")
-
-out = (HTML_TMPL
+out = (TMPL
        .replace("__DATA__", DATA)
-       .replace("__MED__", str(MED_CU))
-       .replace("__LEAD__", str(LEAD_CU))
-       .replace("__FLOOR__", str(floor))
-       .replace("__N__", str(n_graded))
+       .replace("__MED__", str(int(MED_CU)))
+       .replace("__FLOOR__", str(FLOOR))
+       .replace("__N__", str(N_GRADED))
+       .replace("__MC__", f"{mix_cache:.0f}")
+       .replace("__MO__", f"{mix_out:.2f}")
+       .replace("__BASEP__", f"{(MIX['uncached_in_M'] + MIX['cache_read_M']):.1f}")
        .replace("__MIX_TXT__",
                 f"em 30 dias o Hermes processou {MIX['uncached_in_M']:.1f}M tokens de entrada sem cache, "
                 f"{MIX['cache_read_M']:.1f}M de cache read e {MIX['out_M']:.2f}M de saida "
-                f"({mix_cache:.1f}% cache, {mix_out:.2f}% saida, em {MIX['calls']} chamadas)")
+                f"({mix_cache:.0f}% cache, {mix_out:.2f}% saida, em {MIX['calls']} chamadas)")
        .replace("__NOW__", now)
        .replace("__LIMITS__", limits))
 
 path = "/home/ubuntu/github/openrouter-custo-beneficio/index.html"
-import os
 os.makedirs(os.path.dirname(path), exist_ok=True)
 open(path, "w", encoding="utf-8").write(out)
-print(f"escrito: {path}  ({len(out)/1024:.0f} KB)")
+print(f"linhas: {len(rows)} (pagas {sum(1 for r in rows if not r['free'])}, free {sum(1 for r in rows if r['free'])})")
+print(f"sem nota: {sum(1 for r in rows if r['iq'] is None)} | mediana agente: {MED_CU} | piso: {FLOOR}")
+print(f"escrito: {path} ({len(out)/1024:.0f} KB)")
 json.dump(rows, open("rows_final.json", "w"), ensure_ascii=False, indent=1)
