@@ -85,6 +85,50 @@ O segundo bug: modelos sem preco de cache publicado eram **omitidos**. Isso sumi
 Agora entram com o preco de **entrada como pior caso**, marcados `cache~` na tabela e
 com explicacao no detalhe. Sao 19 linhas assim.
 
+## O dashboard esconde modelos? Sim — e agora mostra quais
+
+O catalogo do OpenRouter tem 467 entradas; a tabela analisa 135. A diferenca e
+grande o suficiente para precisar de contabilidade visivel, entao existe um card
+"O que ficou de fora (e por que)" com o funil completo e uma tabela auditavel:
+
+```
+467 entradas no catalogo
+ - 86 variantes :batch       (mesmo modelo, com desconto)
+ - 19 aliases ~              (apontam para outro modelo)
+ -  8 routers com preco < 0  (openrouter/auto, fusion, pareto-code...)
+ = 354 modelos unicos
+ - 14 variantes :free        (mesmo modelo, preco zero)
+ = 340 modelos pagos independentes
+
+   124 pagos analisados  +  11 gratuitos que respondem  =  135 na tabela
+   216 pagos sem nota    +   3 gratuitos nao respondem  =  fora
+```
+
+As duas somas fecham: `124 + 216 = 340` e `11 + 3 = 14`. O gerador tem `assert`
+para as duas — um funil que nao fecha e pior que nao ter funil.
+
+**A razao real de 216 modelos ficarem fora: eles nao tem nota no AI IQ.** Nao e
+filtro de preco, contexto ou ferramentas. O AI IQ avalia 211 modelos; os 216 restantes
+sao em sua maioria modelos antigos ou pequenos (`llama-3.1-8b`, `gemma-3-4b`,
+`mixtral`, `command-r`) que nunca foram medidos. Sem nota de capacidade nao existe
+"capacidade por dolar", entao nao entram no ranking.
+
+Mas eles **nao ficam invisiveis**: a tabela de exclusao lista os 216 com preco de
+entrada, saida, contexto e suporte a ferramentas, ordenavel. Se voce ja sabe que um
+deles serve, o custo mensal e calculavel — o que falta e so a nota.
+
+### Dois caminhos possiveis se 216 for demais
+
+1. **Ampliar a fonte de notas.** O AI IQ e a unica fonte com cobertura de dimensao
+   agentica (`computer-use`). Alternativas como LMArena cobrem mais modelos mas nao
+   tem score agentico, e misturar fontes numa mesma coluna torna a coluna ilegivel.
+2. **Trocar o eixo de ordenacao para metrica de catalogo.** Se a pergunta for "qual o
+   mais barato que suporta ferramentas com contexto > 100k", nao precisa de nota — e o
+   dashboard ja permite filtrar por preco, contexto e `function calling`.
+
+O que nao vale e preencher a nota ausente com heuristica por nome: `'flash'` = rapido
+e `'mini'` = fraco erram nos dois sentidos.
+
 ## Piso de capacidade no ranking de valor
 
 O ranking "melhor custo-beneficio" so admite modelos com score agentico **igual ou acima da
