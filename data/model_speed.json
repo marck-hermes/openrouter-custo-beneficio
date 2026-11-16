@@ -2020,5 +2020,11 @@
     "latency_p50_ms": 539.0,
     "provider": "Morph",
     "fetched_at": "2026-11-15T23:28:06"
+  },
+  "qwen/qwen4-max": {
+    "throughput_p50": 33.0,
+    "latency_p50_ms": 932.0,
+    "provider": "Alibaba",
+    "fetched_at": "2026-11-15T23:47:09"
   }
 }

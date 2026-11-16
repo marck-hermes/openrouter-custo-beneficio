@@ -203,27 +203,30 @@ def step_generate():
     subprocess.run([sys.executable, str(REPO / "generate.py")], cwd=DATA, env=env, check=True)
 
 
+GIT_USER = ("-c", "user.email=marck@hermes.local", "-c", "user.name=marck-hermes")
+
+# O token-dashboard é um deploy 2s baseado em push para o branch padrão do repo:
+# o projeto está ligado como "Other/static" com Vercel git integration; .vercel/project.json
+# tem outputDirectory="." e o projeto NÃO depende mais do deploy.sh/npx vercel --prod
+# (que quebra com múltiplas chamadas aguardadas). Por isso promoção = git push, não CLI.
 def step_deploy():
+    status = subprocess.run(["git", "status", "--porcelain"], cwd=REPO, capture_output=True, text=True)
+    if not status.stdout.strip():
+        log("8. nada a commitar; branch já está sincronizado, sem deploy")
+        return True
     subprocess.run(["git", "add", "-A"], cwd=REPO, check=True)
     subprocess.run(["git", "-c", "user.email=marck@hermes.local",
                     "-c", "user.name=marck-hermes",
                     "commit", "-q", "-m",
-                    f"chore: weekly refresh ({datetime.date.today().isoformat()})"],
-                   cwd=REPO, check=False)  # nada a commitar nao e erro
-    push = subprocess.run(["git", "push", "-q", "origin", "master"], cwd=REPO,
+                    f"chore: update dashboard ({datetime.date.today().isoformat()})"],
+                   cwd=REPO, check=True)
+    push = subprocess.run(["git", "push", "origin", "master"], cwd=REPO,
                           capture_output=True, text=True)
-    if push.returncode == 0:
-        log("8. git push: ok")
-    else:
-        log(f"8. git push FALHOU: {push.stderr.strip()[:200]}")
+    if push.returncode != 0:
+        log(f"8. git push FALHOU: {push.stderr.strip()[:300]}")
         return False
-    deploy = subprocess.run(["vercel", "deploy", "--prod", "--yes"], cwd=REPO,
-                            capture_output=True, text=True, timeout=600)
-    if "https://openrouter-custo-beneficio.vercel.app" in (deploy.stdout or "") or deploy.returncode == 0:
-        log("8. vercel: deploy --prod submetido")
-        return True
-    log(f"8. vercel FALHOU: {(deploy.stderr or deploy.stdout or '')[-200:]}")
-    return False
+    log("8. git push: ok (Vercel faz deploy automático; o projeto está ligado ao branch)")
+    return True
 
 
 def main():
