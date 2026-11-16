@@ -85,49 +85,68 @@ O segundo bug: modelos sem preco de cache publicado eram **omitidos**. Isso sumi
 Agora entram com o preco de **entrada como pior caso**, marcados `cache~` na tabela e
 com explicacao no detalhe. Sao 19 linhas assim.
 
-## O dashboard esconde modelos? Sim — e agora mostra quais
+## Escopo: IQ >= 100
 
-O catalogo do OpenRouter tem 467 entradas; a tabela analisa 135. A diferenca e
-grande o suficiente para precisar de contabilidade visivel, entao existe um card
-"O que ficou de fora (e por que)" com o funil completo e uma tabela auditavel:
+O dashboard usa **um unico universo: IQ >= 100 no AI IQ**. Grafico, ranking de valor,
+lista de gratuitos e tabela principal leem o mesmo conjunto — se cada secao aplicasse um
+corte proprio a pagina se contradiria.
+
+Nao existe mais a limitacao anterior ("so o que tiver todas as metricas"). Modelo sem nota
+nao some: aparece numa tabela auditavel com preco, contexto e suporte a ferramentas.
+
+### Funil de exclusao (fecha em duas identidades)
 
 ```
 467 entradas no catalogo
- - 86 variantes :batch       (mesmo modelo, com desconto)
- - 19 aliases ~              (apontam para outro modelo)
- -  8 routers com preco < 0  (openrouter/auto, fusion, pareto-code...)
+ - 86 variantes :batch          (mesmo modelo, desconto)
+ - 19 aliases ~                 (apontam para outro)
+ -  8 routers com preco < 0
  = 354 modelos unicos
- - 14 variantes :free        (mesmo modelo, preco zero)
+ - 14 variantes :free
  = 340 modelos pagos independentes
 
-   124 pagos analisados  +  11 gratuitos que respondem  =  135 na tabela
-   216 pagos sem nota    +   3 gratuitos nao respondem  =  fora
+   110 pagos analisados (IQ >= 100)
+    14 tem nota, mas IQ < 100
+   216 sem nota no AI IQ
+   ---
+   340  <= identidade 1
+
+     3 gratuitos na tabela (IQ >= 100)
+     8 respondem mas sem nota
+     3 bloqueados pelo provider
+   ---
+    14  <= identidade 2
 ```
 
-As duas somas fecham: `124 + 216 = 340` e `11 + 3 = 14`. O gerador tem `assert`
-para as duas — um funil que nao fecha e pior que nao ter funil.
+Ambas as somas tem `assert` no gerador. Uma ja falhou durante o desenvolvimento e pegou um
+erro real: os 14 pagos abaixo do corte nao estavam sendo contados, e o funil mostrava
+`340 != 110 + 216`.
 
-**A razao real de 216 modelos ficarem fora: eles nao tem nota no AI IQ.** Nao e
-filtro de preco, contexto ou ferramentas. O AI IQ avalia 211 modelos; os 216 restantes
-sao em sua maioria modelos antigos ou pequenos (`llama-3.1-8b`, `gemma-3-4b`,
-`mixtral`, `command-r`) que nunca foram medidos. Sem nota de capacidade nao existe
-"capacidade por dolar", entao nao entram no ranking.
+### 8 modelos recuperados por preco exato
 
-Mas eles **nao ficam invisiveis**: a tabela de exclusao lista os 216 com preco de
-entrada, saida, contexto e suporte a ferramentas, ordenavel. Se voce ja sabe que um
-deles serve, o custo mensal e calculavel — o que falta e so a nota.
+O match estrito por nome deixava de fora modelos do AI IQ que existem no OpenRouter com
+nome comercial diferente. Foram recuperados com uma regra verificavel: **entrada E saida
+batendo exatamente** com o AI IQ.
 
-### Dois caminhos possiveis se 216 for demais
+| AI IQ | OpenRouter | IQ |
+|---|---|---|
+| `gemini-3.1-pro` | `google/gemini-3.1-pro-preview` | 121 |
+| `mistral-large-4` | `mistralai/mistral-large-4-0` | 119 |
+| `gemini-3-pro` | `google/gemini-3-pro-image` | 114 |
+| `gemini-3-flash` | `google/gemini-3-flash-preview` | 110 |
+| `fugu-ultra-v2.0` | `sakana/fugu-ultra-v2` | 109 |
+| `qwen3.5-397b` | `qwen/qwen3.5-397b-a17b` | 109 |
+| `mistral-medium-3.5` | `mistralai/mistral-medium-3-5` | 102 |
 
-1. **Ampliar a fonte de notas.** O AI IQ e a unica fonte com cobertura de dimensao
-   agentica (`computer-use`). Alternativas como LMArena cobrem mais modelos mas nao
-   tem score agentico, e misturar fontes numa mesma coluna torna a coluna ilegivel.
-2. **Trocar o eixo de ordenacao para metrica de catalogo.** Se a pergunta for "qual o
-   mais barato que suporta ferramentas com contexto > 100k", nao precisa de nota — e o
-   dashboard ja permite filtrar por preco, contexto e `function calling`.
+Ficaram de fora os candidatos cujo preco diverge — `nex-n2-pro` -> `nex-n2.5-pro` custa
+6x menos, logo e outra geracao, nao o mesmo modelo com nome diferente.
 
-O que nao vale e preencher a nota ausente com heuristica por nome: `'flash'` = rapido
-e `'mini'` = fraco erram nos dois sentidos.
+### Os 12 que nao da para incluir
+
+Existem no AI IQ com IQ >= 100 mas **nao existem no OpenRouter** (ou seja, nao sao
+chamaveis): `muse-wonder-full` (IQ 133), `agnes-2.5-pro-beta`, `fugu-v1.0`,
+`fugu-ultra-v1.1`, `fugu-ultra-v1.0`, `nemotron-3.5-bolt-74b-a9b`, `kat-coder-pro-v1`,
+`ling-3.0-flash-fin`, `solar-open2-250b`, `doubao-seed-code`, `ring-2.6-1t`, `k-exaone-2.0`.
 
 ## Piso de capacidade no ranking de valor
 
