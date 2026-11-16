@@ -74,7 +74,7 @@
 <header>
   <h1>OpenRouter: custo x beneficio &mdash; Hermes Agent</h1>
   <p>Custo recalculado ao vivo com o <b>mix real de tokens do Hermes</b>: em 30 dias o Hermes processou 18.6M tokens de entrada sem cache, 105.9M de cache read e 0.66M de saida (85% cache, 0.52% saida, em 1279 chamadas).<br>
-  Notas do AI IQ ligadas ao modelo certo por nome. Dados de 15/11/2026 22:33.</p>
+  Notas do AI IQ ligadas ao modelo certo por nome. Dados de 15/11/2026 22:36.</p>
 </header>
 <main>
 
@@ -174,17 +174,28 @@
     <div class="funnel">
       <div class="fitem"><b>467</b><span>entradas no catalogo</span></div>
       <div class="farrow">&minus;</div>
-      <div class="fitem"><b>86</b><span>variantes <code>:batch</code> (desconto, mesmo modelo)</span></div>
+      <div class="fitem"><b>86</b><span>variantes <code>:batch</code> (mesmo modelo, com desconto)</span></div>
       <div class="farrow">&minus;</div>
-      <div class="fitem"><b>19</b><span>aliases <code>~</code> (apontam para outro modelo)</span></div>
+      <div class="fitem"><b>19</b><span>aliases <code>~</code> (apontam para outro)</span></div>
       <div class="farrow">&minus;</div>
-      <div class="fitem"><b>14</b><span>variantes <code>:free</code> (mesmo modelo, preco zero)</span></div>
+      <div class="fitem"><b>8</b><span>routers com preco negativo</span></div>
       <div class="farrow">=</div>
-      <div class="fitem"><b>348</b><span>modelos independentes</span></div>
+      <div class="fitem"><b>354</b><span>modelos unicos</span></div>
+      <div class="farrow">&minus;</div>
+      <div class="fitem"><b>14</b><span>variantes <code>:free</code> (mesmo modelo)</span></div>
       <div class="farrow">=</div>
-      <div class="fitem good"><b>135</b><span>com nota &rarr; analisados</span></div>
+      <div class="fitem"><b>340</b><span>modelos pagos independentes</span></div>
+    </div>
+    <div class="funnel" style="margin-top:4px">
+      <div class="fitem good"><b>124</b><span>pagos analisados</span></div>
       <div class="farrow">+</div>
-      <div class="fitem bad"><b>216</b><span>sem nota &rarr; fora do ranking</span></div>
+      <div class="fitem good"><b>11</b><span>gratuitos que respondem</span></div>
+      <div class="farrow">=</div>
+      <div class="fitem good"><b>135</b><span>na tabela</span></div>
+      <div class="farrow">|</div>
+      <div class="fitem bad"><b>216</b><span>pagos sem nota no AI IQ</span></div>
+      <div class="farrow">+</div>
+      <div class="fitem bad"><b>3</b><span>gratuitos que nao respondem</span></div>
     </div>
     <div class="note" style="margin-top:14px">Estes modelos existem no OpenRouter mas <b>nao tem nota no AI IQ</b> &mdash; em muitos casos porque sao modelos antigos ou pequenos que o AI IQ nunca avaliou. Sem nota de capacidade nao ha como calcular capacidade por dolar, entao eles ficam fora do ranking. O preco e o contexto <b>sao</b> conhecidos e estao listados: se voce ja sabe que um deles serve, o custo mensal dele e calculavel.</div>
     <details style="margin-top:12px">
@@ -232,7 +243,7 @@
 <footer>
   <b>Fontes.</b> Notas e precos de tabela: API publica do AI IQ (<code>www.aiiq.org/api/v1/models</code>,
   metodologia 2026-09-30-arc-predictive-puzzles). Precos praticados, contexto e ferramentas:
-  <code>openrouter.ai/api/v1/models</code>. Ambas em 15/11/2026 22:33.<br>
+  <code>openrouter.ai/api/v1/models</code>. Ambas em 15/11/2026 22:36.<br>
   <b>Custo mensal.</b> em 30 dias o Hermes processou 18.6M tokens de entrada sem cache, 105.9M de cache read e 0.66M de saida (85% cache, 0.52% saida, em 1279 chamadas). O Hermes grava <code>input_tokens</code> ja liquido de cache
   (<code>agent/usage_pricing.py</code>: <code>input_tokens = prompt_total - cache_read - cache_write</code>),
   por isso sao tres baldes. O calculo no navegador usa os precos por token de cada linha; o volume total
