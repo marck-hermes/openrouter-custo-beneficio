@@ -74,7 +74,7 @@
 <header>
   <h1>OpenRouter: custo x beneficio &mdash; Hermes Agent</h1>
   <p>Custo recalculado ao vivo com o <b>mix real de tokens do Hermes</b>: em 30 dias o Hermes processou 18.6M tokens de entrada sem cache, 105.9M de cache read e 0.66M de saida (85% cache, 0.52% saida, em 1279 chamadas).<br>
-  Notas do AI IQ ligadas ao modelo certo por nome. Dados de 15/11/2026 23:47.</p>
+  Notas do AI IQ ligadas ao modelo certo por nome. Dados de 15/11/2026 23:48.</p>
 </header>
 <main>
 
@@ -195,9 +195,9 @@
     <div class="funnel" style="margin-top:4px">
       <div class="fitem good"><b>4</b><span>gratuitos na tabela (IQ &ge; 100)</span></div>
       <div class="farrow">|</div>
-      <div class="fitem bad"><b>5</b><span>respondem, mas sem nota</span></div>
+      <div class="fitem bad"><b>6</b><span>respondem, mas sem nota</span></div>
       <div class="farrow">+</div>
-      <div class="fitem bad"><b>5</b><span>bloqueados pelo provider</span></div>
+      <div class="fitem bad"><b>4</b><span>bloqueados pelo provider</span></div>
     </div>
     <div class="note" style="margin-top:14px">Estes modelos existem no OpenRouter mas <b>nao tem nota no AI IQ</b> &mdash; em muitos casos porque sao modelos antigos ou pequenos que o AI IQ nunca avaliou. Dos 217 listados, 210 nao podem ser ligados a uma entrada do AI IQ, e 7 foram ligados mas o AI IQ nao publicou nota de capacidade. Sem nota nao ha como calcular capacidade por dolar. O preco e o contexto <b>sao</b> conhecidos e estao listados: se voce ja sabe que um deles serve, o custo mensal dele e calculavel.</div>
     <details style="margin-top:12px">
@@ -252,12 +252,12 @@
 <footer>
   <b>Fontes.</b> Notas e precos de tabela: API publica do AI IQ (<code>www.aiiq.org/api/v1/models</code>,
   metodologia 2026-09-30-arc-predictive-puzzles). Precos praticados, contexto e ferramentas:
-  <code>openrouter.ai/api/v1/models</code>. Ambas em 15/11/2026 23:47.<br>
+  <code>openrouter.ai/api/v1/models</code>. Ambas em 15/11/2026 23:48.<br>
   <b>Custo mensal.</b> em 30 dias o Hermes processou 18.6M tokens de entrada sem cache, 105.9M de cache read e 0.66M de saida (85% cache, 0.52% saida, em 1279 chamadas). O Hermes grava <code>input_tokens</code> ja liquido de cache
   (<code>agent/usage_pricing.py</code>: <code>input_tokens = prompt_total - cache_read - cache_write</code>),
   por isso sao tres baldes. O calculo no navegador usa os precos por token de cada linha; o volume total
   e fixo e apenas a <i>distribuicao</i> muda com os sliders.<br>
-  <b>Limitacoes.</b> Dos 211 modelos do AI IQ, 131 foram ligados a um id do OpenRouter por nome exato (ou exato + parametros de tamanho); 114 entram na tabela. 9 modelos nao publicam preco de cache e usam o preco de entrada como pior caso (marcados <b>cache~</b> na tabela) &mdash; o custo real deles tende a ser menor. 14 endpoints <code>:free</code> foram testados um a um &mdash; 8 respondem, 0 esta bloqueado por politica de harness e 5 estava limitado por taxa no momento do teste. Modelos sem nota exibem travessao: nao sao excluidos nem recebem estimativa.<br>
+  <b>Limitacoes.</b> Dos 211 modelos do AI IQ, 131 foram ligados a um id do OpenRouter por nome exato (ou exato + parametros de tamanho); 114 entram na tabela. 9 modelos nao publicam preco de cache e usam o preco de entrada como pior caso (marcados <b>cache~</b> na tabela) &mdash; o custo real deles tende a ser menor. 14 endpoints <code>:free</code> foram testados um a um &mdash; 9 respondem, 0 esta bloqueado por politica de harness e 4 estava limitado por taxa no momento do teste. Modelos sem nota exibem travessao: nao sao excluidos nem recebem estimativa.<br>
   <b>Colunas derivadas.</b> "Agente" = <code>computer-use</code> do AI IQ. "Posicao" = percentil entre os
   114 modelos com essa dimensao. "US$/1M prompt" = custo medio por milhao de tokens de prompt ja ponderado
   pelo cache &mdash; comparavel entre modelos, ao contrario da media bruta de entrada e saida.
