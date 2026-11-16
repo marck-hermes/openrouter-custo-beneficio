@@ -111,14 +111,19 @@ for oid, a in mp.items():
     if r:
         rows.append(r)
 
-# Gratuitos confirmados por probe. Herdam as notas do modelo-base quando existir.
+# Gratuitos utilizaveis por probe. Herdam as notas do modelo-base quando existir.
+# "agentic" = chamada direta retorna 403 do provider, mas funciona como agentic harness
+# (e o gate para o qual foi concedido: apps como Hermes). Esta sessao roda nele e o
+# usuario confirmou. Entram na tabela com selo explicito, nunca como se fossem ok cru.
+usable_free = {i for i,p in probe.items() if p["status"] in ("ok", "agentic")}
 seen = {r["id"] for r in rows}
 for fid, pf in probe.items():
-    if pf["status"] != "ok" or fid in seen or fid not in ors:
+    if fid not in usable_free or fid in seen or fid not in ors:
         continue
     base = mp.get(fid[:-5])
     r = build_row(fid, base["aiiq_id"] if base else None, free=True)
     if r:
+        r["agentic"] = pf["status"] == "agentic"
         rows.append(r)
 
 rows.sort(key=lambda r: (r["cost"], -(r["cu"] or 0)))
@@ -163,7 +168,8 @@ _n_below_free = sum(1 for r in rows_all if r["iq"] is not None and r["iq"] < IQ_
 #  (a) responde ao probe mas nao tem nota no AI IQ
 #  (b) nem responde (gate do provider ou erro) -- nao adianta ter nota
 _n_free_ok_in_table = _n_rows_free
-_n_free_probe_ok = sum(1 for p in probe.values() if p["status"] == "ok")
+_n_free_probe_ok = sum(1 for p in probe.values() if p["status"] in ("ok", "agentic"))
+_n_free_agentic = sum(1 for p in probe.values() if p["status"] == "agentic")
 _n_free_noscore = _n_free_probe_ok - _n_free_ok_in_table
 _n_free_dead = _n_freev - _n_free_probe_ok
 
@@ -374,10 +380,9 @@ TMPL = r"""<!DOCTYPE html>
 
   <div class="card">
     <h2>Gratuitos que realmente respondem</h2>
-    <p class="sub">Cada <code>:free</code> recebeu um probe de 10 tokens. O candidato que a versao anterior
-    coroou como melhor gratuito (<code>inkling-2-small:free</code>, IQ 126) retorna
-    <b>403 "only available on agentic harnesses"</b> em chamada direta e foi removido &mdash; o gate e do
-    provider, nao um header que se possa imitar.</p>
+    <p class="sub">Cada <code>:free</code> recebeu um probe. <code>inkling-2-small:free</code> (IQ 126)
+    retorna <b>403</b> no curl direto &mdash; o gate e do provider. Ele funciona como agentic harness
+    (esta sessao roda neste modelo) e entrou com o selo <b>agentic</b>. Os demais foram confirmados por probe.</p>
     <div style="overflow-x:auto">
     <table id="freeTable"><thead><tr>
       <th>#</th><th>Modelo</th><th class="num">Agente</th><th class="num">IQ</th>
@@ -601,7 +606,9 @@ const frees = DATA.filter(r=>r.free).sort((a,b)=>(b.cu||0)-(a.cu||0));document.q
   "<tr class='rowlink' data-id='"+r.id+"'><td>"+(i+1)+"</td><td>"+r.name+"</td>"+
   "<td class='num'>"+fmt(r.cu,0)+"</td><td class='num'>"+fmt(r.iq,0)+"</td>"+
   "<td class='num'>"+fmt(r.code,0)+"</td><td class='num'>"+fmt(r.ctx,0)+"</td>"+
-  "<td><span class='tag'>probe ok</span></td></tr>").join("");
+  "<td>"+(r.agentic
+      ?"<span class='warn' title='chamada direta retorna 403 (gate de agentic harness); funciona como agente (esta sessao roda neste modelo)'>agentic</span>"
+      :"<span class='tag'>probe ok</span>")+"</td></tr>").join("");
 
 let drawn=[];
 function drawChart(){

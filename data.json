@@ -1,5 +1,33 @@
 [
  {
+  "id": "thinkingmachines/inkling-2-small:free",
+  "name": "Thinking Machines: Inkling 2 Small (free)",
+  "provider": "thinkingmachines",
+  "aiiq": "inkling-2-small",
+  "iq": 126,
+  "cu": 128,
+  "code": 135,
+  "rel": 112,
+  "kw": 128,
+  "abs": 123,
+  "math": 128,
+  "acad": 128,
+  "ctx": 1048576,
+  "maxout": 131072,
+  "inP": 0.0,
+  "outP": 0.0,
+  "cacheP": 0.0,
+  "cacheEst": true,
+  "cost": 0.0,
+  "per1m": 0.0,
+  "tools": true,
+  "rmand": true,
+  "free": true,
+  "modality": "text+image->text",
+  "coverage": 6,
+  "agentic": true
+ },
+ {
   "id": "nvidia/nemotron-3.5-super-vl:free",
   "name": "NVIDIA: Nemotron 3.5 Super VL (free)",
   "provider": "nvidia",
@@ -24,7 +52,8 @@
   "rmand": false,
   "free": true,
   "modality": "text+image+video->text",
-  "coverage": 6
+  "coverage": 6,
+  "agentic": false
  },
  {
   "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
@@ -51,7 +80,8 @@
   "rmand": false,
   "free": true,
   "modality": "text->text",
-  "coverage": 6
+  "coverage": 6,
+  "agentic": false
  },
  {
   "id": "nvidia/nemotron-3.5-lightning:free",
@@ -78,7 +108,8 @@
   "rmand": false,
   "free": true,
   "modality": "text->text",
-  "coverage": 4
+  "coverage": 4,
+  "agentic": false
  },
  {
   "id": "inclusionai/ling-3.0-flash",
