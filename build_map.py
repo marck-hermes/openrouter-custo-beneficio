@@ -95,6 +95,22 @@ def match(ai_m, ors_by_norm):
     return None
 
 
+# Overrides de match: pares onde o nome no OpenRouter diverge do id do AI IQ mas o
+# PRECO DE ENTRADA E SAIDA bate exatamente (mesma tupla de precos). Preco identico nos
+# dois precos e um sinal forte de que e o mesmo modelo com nome comercial diferente:
+# `mistral-large-4` -> `mistral-large-4-0`, `gemini-3-flash` -> `gemini-3-flash-preview`.
+# Nenhum par entra sem essa confirmacao dupla; `nex-n2.5-pro` (preco 6x menor) fica fora.
+MANUAL = {
+    "gemini-3.1-pro": "google/gemini-3.1-pro-preview",
+    "mistral-large-4": "mistralai/mistral-large-4-0",
+    "gemini-3-pro": "google/gemini-3-pro-image",
+    "gemini-3-flash": "google/gemini-3-flash-preview",
+    "fugu-ultra-v2.0": "sakana/fugu-ultra-v2",
+    "qwen3.5-397b": "qwen/qwen3.5-397b-a17b",
+    "mistral-medium-3.5": "mistralai/mistral-medium-3-5",
+}
+
+
 def main():
     ai = json.load(open(AI))["models"]
     allor = json.load(open(OR))["data"]
@@ -111,6 +127,14 @@ def main():
     out, skipped = [], []
     for a in ai:
         hit = match(a, by_norm)
+        if not hit and a["id"] in MANUAL:
+            oid = MANUAL[a["id"]]
+            m = by_id.get(oid)
+            ap, op = ai_price(a), or_price(m) if m else None
+            if m and ap and op and (abs(ap[0] - op[0]) < 1e-6 and abs(ap[1] - op[1]) < 1e-6):
+                hit = (oid, 90)          # confirmado por preco duplo exato
+            else:
+                print(f"  !! MANUAL invalido para {a['id']} -> {oid} (preco nao bate)")
         if not hit:
             skipped.append((a["id"], a["provider"]))
             continue

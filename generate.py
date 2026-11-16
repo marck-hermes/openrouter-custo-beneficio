@@ -124,6 +124,17 @@ for fid, pf in probe.items():
 rows.sort(key=lambda r: (r["cost"], -(r["cu"] or 0)))
 
 # ---------------------------------------------------------------------------
+# Escopo do dashboard: IQ >= 100. Nao e mais "o que couber nas metricas".
+# Todas as secoes (grafico, ranking de valor, gratuitos) usam o MESMO universo,
+# senao a pagina se contradiz: um card mostra 10 modelos e a tabela mostra outros.
+# ---------------------------------------------------------------------------
+IQ_MIN = 100
+rows_all = rows[:]                                  # auditoria do que ficou fora
+rows = [r for r in rows if r["iq"] is not None and r["iq"] >= IQ_MIN]
+n_below = sum(1 for r in rows_all if r["iq"] is not None and r["iq"] < IQ_MIN)
+n_noscore = sum(1 for r in rows_all if r["iq"] is None)
+
+# ---------------------------------------------------------------------------
 # Transparencia: o que NAO entrou. Sem esta secao o dashboard da a impressao de
 # que o catalogo tem 135 modelos, quando o OpenRouter lista 467. O usuario
 # precisa poder auditar a exclusao, nao so confiar nela.
@@ -145,12 +156,25 @@ _n_rows_paid = _n_rows - _n_rows_free
 _n_excl = len(excluded)
 _n_free_ok = _n_rows_free
 _n_free_excl = _n_freev - _n_free_ok
+# pagos que TEM nota mas ficaram abaixo do corte de IQ
+_n_below_paid = sum(1 for r in rows_all if r["iq"] is not None and r["iq"] < IQ_MIN and not r["free"])
+_n_below_free = sum(1 for r in rows_all if r["iq"] is not None and r["iq"] < IQ_MIN and r["free"])
+# gratuitos fora da tabela se dividem em dois motivos distintos, e a UI precisa dizer os dois:
+#  (a) responde ao probe mas nao tem nota no AI IQ
+#  (b) nem responde (gate do provider ou erro) -- nao adianta ter nota
+_n_free_ok_in_table = _n_rows_free
+_n_free_probe_ok = sum(1 for p in probe.values() if p["status"] == "ok")
+_n_free_noscore = _n_free_probe_ok - _n_free_ok_in_table
+_n_free_dead = _n_freev - _n_free_probe_ok
 
 # O funil so vale se fechar. Uma soma que nao fecha e pior que nao ter funil.
-assert _n_paid_indep == _n_rows_paid + _n_excl, (
+assert _n_paid_indep == _n_rows_paid + _n_excl + _n_below_paid, (
     f"funil nao fecha: {_n_paid_indep} pagos independentes != "
-    f"{_n_rows_paid} analisados + {_n_excl} excluidos")
-assert _n_freev == _n_free_ok + _n_free_excl, "funil de :free nao fecha"
+    f"{_n_rows_paid} analisados + {_n_excl} sem nota + {_n_below_paid} abaixo do IQ")
+assert _n_freev == _n_free_ok_in_table + _n_free_noscore + _n_free_dead, (
+    f"funil de :free nao fecha: {_n_freev} != {_n_free_ok_in_table}+{_n_free_noscore}+{_n_free_dead}")
+assert len(rows) + n_below + n_noscore == len(rows_all), (
+    f"particao por IQ nao fecha: {len(rows)}+{n_below}+{n_noscore} != {len(rows_all)}")
 
 EXCL_REASON = (
     "Estes modelos existem no OpenRouter mas <b>nao tem nota no AI IQ</b> &mdash; "
@@ -160,6 +184,11 @@ EXCL_REASON = (
     "se voce ja sabe que um deles serve, o custo mensal dele e calculavel."
 )
 EXCL_DATA = json.dumps(excluded, ensure_ascii=False)
+BELOW_DATA = json.dumps(
+    [{"id": r["id"], "iq": r["iq"], "cu": r["cu"], "inP": r["inP"],
+      "ctx": r["ctx"], "free": r["free"]} for r in rows_all
+     if r["iq"] is not None and r["iq"] < IQ_MIN],
+    ensure_ascii=False)
 
 CUS = sorted(r["cu"] for r in rows if r["cu"] is not None)
 MED_CU = statistics.median(CUS) if CUS else 0
@@ -359,36 +388,48 @@ TMPL = r"""<!DOCTYPE html>
 
   <div class="card">
     <h2>O que ficou de fora (e por que)</h2>
-    <p class="sub">O catalogo do OpenRouter tem <b>__NTOTAL__</b> entradas. Esta tabela analisa
-    <b>__NROWS__</b>. A diferenca nao e um filtro escondido: cada exclusao tem um motivo declarado.</p>
+    <p class="sub">O catalogo do OpenRouter tem <b>__NTOTAL__</b> entradas. Este dashboard analisa
+    <b>__NROWS__</b> &mdash; o recorte e <b>IQ &ge; 100</b> no AI IQ. Toda exclusao tem um motivo declarado.</p>
     <div class="funnel">
       <div class="fitem"><b>__NTOTAL__</b><span>entradas no catalogo</span></div>
       <div class="farrow">&minus;</div>
-      <div class="fitem"><b>__NBATCH__</b><span>variantes <code>:batch</code> (mesmo modelo, com desconto)</span></div>
+      <div class="fitem"><b>__NBATCH__</b><span>variantes <code>:batch</code> (mesmo modelo)</span></div>
       <div class="farrow">&minus;</div>
-      <div class="fitem"><b>__NALIAS__</b><span>aliases <code>~</code> (apontam para outro)</span></div>
+      <div class="fitem"><b>__NALIAS__</b><span>aliases <code>~</code></span></div>
       <div class="farrow">&minus;</div>
       <div class="fitem"><b>__NROUTERS__</b><span>routers com preco negativo</span></div>
       <div class="farrow">=</div>
       <div class="fitem"><b>__NUNIQ__</b><span>modelos unicos</span></div>
       <div class="farrow">&minus;</div>
-      <div class="fitem"><b>__NFREE__</b><span>variantes <code>:free</code> (mesmo modelo)</span></div>
+      <div class="fitem"><b>__NFREE__</b><span>variantes <code>:free</code></span></div>
       <div class="farrow">=</div>
       <div class="fitem"><b>__NPAID__</b><span>modelos pagos independentes</span></div>
     </div>
     <div class="funnel" style="margin-top:4px">
-      <div class="fitem good"><b>__NPAIDROWS__</b><span>pagos analisados</span></div>
-      <div class="farrow">+</div>
-      <div class="fitem good"><b>__NFREEOK__</b><span>gratuitos que respondem</span></div>
-      <div class="farrow">=</div>
-      <div class="fitem good"><b>__NROWS__</b><span>na tabela</span></div>
+      <div class="fitem good"><b>__NPAIDROWS__</b><span>pagos analisados (IQ &ge; 100)</span></div>
       <div class="farrow">|</div>
-      <div class="fitem bad"><b>__NEXCL__</b><span>pagos sem nota no AI IQ</span></div>
+      <div class="fitem bad"><b>__NBELOW__</b><span>tem nota, mas IQ &lt; 100</span></div>
       <div class="farrow">+</div>
-      <div class="fitem bad"><b>__NFREEBAD__</b><span>gratuitos que nao respondem</span></div>
+      <div class="fitem bad"><b>__NEXCL__</b><span>sem nota no AI IQ</span></div>
+    </div>
+    <div class="funnel" style="margin-top:4px">
+      <div class="fitem good"><b>__NFREEOK__</b><span>gratuitos na tabela (IQ &ge; 100)</span></div>
+      <div class="farrow">|</div>
+      <div class="fitem bad"><b>__NFREEBAD__</b><span>respondem, mas sem nota</span></div>
+      <div class="farrow">+</div>
+      <div class="fitem bad"><b>__NFREEDEAD__</b><span>bloqueados pelo provider</span></div>
     </div>
     <div class="note" style="margin-top:14px">__EXCLREASON__</div>
     <details style="margin-top:12px">
+      <summary style="cursor:pointer;font-size:13px;color:#0b5fff">Ver os __NBELOW__ modelos com IQ abaixo de 100</summary>
+      <div style="overflow-x:auto;margin-top:10px">
+      <table id="belowTable"><thead><tr>
+        <th>Modelo</th><th class="num">IQ</th><th class="num">Agente</th>
+        <th class="num">Entrada US$/1M</th><th class="num">Contexto</th>
+      </tr></thead><tbody></tbody></table>
+      </div>
+    </details>
+    <details style="margin-top:8px">
       <summary style="cursor:pointer;font-size:13px;color:#0b5fff">Ver os __NEXCL__ modelos sem nota</summary>
       <div style="overflow-x:auto;margin-top:10px">
       <table id="exclTable"><thead><tr>
@@ -400,20 +441,18 @@ TMPL = r"""<!DOCTYPE html>
   </div>
 
   <div class="card">
-    <h2>Todos os modelos</h2>
+    <h2>Todos os modelos (IQ &ge; 100)</h2>
     <p class="sub">Clique no cabecalho para ordenar; "&#65291; 2&ordf; coluna" ou Shift+clique para uma segunda
     ordenacao (no celular, toque e segure). Clique na linha para o detalhe.
-    O filtro de IQ esconde linhas &mdash; nunca altera a nota exibida.</p>
+    O universo inteiro ja e IQ &ge; 100 &mdash; os abaixo do corte estao listados no card acima.</p>
     <button class="sortbtn" id="multiBtn" type="button">&#65291; 2&ordf; coluna</button>
     <div class="filters" style="margin-bottom:12px">
       <div><label>Buscar</label><input id="fSearch" type="text" placeholder="nome, id ou provedor" style="width:190px"></div>
       <div><label>Provedor</label><select id="fProvider"><option value="">Todos</option></select></div>
-      <div><label>IQ minimo</label><input id="fMinIq" type="number" min="0" max="200" placeholder="ex.: 100" style="width:95px"></div>
       <div><label>Agente minimo</label><input id="fMinCu" type="number" min="0" max="200" placeholder="ex.: 110" style="width:100px"></div>
       <div><label>US$/mes maximo</label><input id="fMaxCost" type="number" min="0" step="0.5" placeholder="ex.: 5" style="width:105px"></div>
       <div class="check"><input id="fFree" type="checkbox"><span>So gratuitos</span></div>
       <div class="check"><input id="fTools" type="checkbox" checked><span>Exigir function calling</span></div>
-      <div class="check"><input id="fNoIq" type="checkbox" checked><span>Manter sem nota</span></div>
     </div>
     <div style="overflow-x:auto">
     <table id="mainTable">
@@ -523,6 +562,14 @@ function renderValue(){
     "<td class='num'>"+fmtP(r.per1mNow)+"</td><td class='num'>"+fmt(r.ctx,0)+"</td></tr>").join("");
 }
 
+// ---- tabela dos que tem nota mas ficaram abaixo do corte de IQ ----
+const BELOW = __BELOWDATA__;
+document.querySelector("#belowTable tbody").innerHTML = BELOW
+  .sort((a,b)=>b.iq-a.iq)
+  .map(r=>"<tr><td>"+r.id+"</td><td class='num'>"+fmt(r.iq,0)+"</td>"+
+    "<td class='num'>"+fmt(r.cu,0)+"</td><td class='num'>"+fmt(r.inP,4)+"</td>"+
+    "<td class='num'>"+fmt(r.ctx,0)+"</td></tr>").join("");
+
 // ---- tabela de excluidos (transparencia) ----
 const EXCL = __EXCLDATA__;
 let exclSort = {k:"inP", dir:1};
@@ -623,20 +670,13 @@ const numCols=[2,3,4,5,6,7,8,9,10];
 function applyFilters(){
   const q=document.getElementById("fSearch").value.toLowerCase();
   const prov=document.getElementById("fProvider").value;
-  const minIq=parseFloat(document.getElementById("fMinIq").value);
   const minCu=parseFloat(document.getElementById("fMinCu").value);
   const maxCost=parseFloat(document.getElementById("fMaxCost").value);
   const onlyFree=document.getElementById("fFree").checked;
   const needTools=document.getElementById("fTools").checked;
-  const keepNoIq=document.getElementById("fNoIq").checked;
   let list=DATA.filter(r=>{
     if(q && !(r.name.toLowerCase().includes(q)||r.id.toLowerCase().includes(q)||r.provider.toLowerCase().includes(q))) return false;
     if(prov && r.provider!==prov) return false;
-    if(!isNaN(minIq)){
-      // o filtro apenas esconde a linha; nunca inventa nem reescreve a nota
-      if(r.iq==null){ if(!keepNoIq) return false; }
-      else if(r.iq<minIq) return false;
-    }
     if(!isNaN(minCu) && (r.cu==null||r.cu<minCu)) return false;
     if(!isNaN(maxCost) && (r.costNow==null||r.costNow>maxCost)) return false;
     if(onlyFree && !r.free) return false;
@@ -674,7 +714,7 @@ function applyFilters(){
     return "<tr class='rowlink' data-id='"+r.id+"'>"+tds+"</tr>";
   }).join("");
 }
-["fSearch","fProvider","fMinIq","fMinCu","fMaxCost","fFree","fTools","fNoIq"].forEach(id=>
+["fSearch","fProvider","fMinCu","fMaxCost","fFree","fTools"].forEach(id=>
   document.getElementById(id).addEventListener("input",applyFilters));
 
 let multiArmed=false;
@@ -757,8 +797,11 @@ out = (TMPL
        .replace("__NFREE__", str(_n_freev))
        .replace("__NPAID__", str(_n_paid_indep))
        .replace("__NPAIDROWS__", str(_n_rows_paid))
-       .replace("__NFREEOK__", str(_n_free_ok))
-       .replace("__NFREEBAD__", str(_n_free_excl))
+       .replace("__NFREEOK__", str(_n_free_ok_in_table))
+       .replace("__NFREEBAD__", str(_n_free_noscore))
+       .replace("__NFREEDEAD__", str(_n_free_dead))
+       .replace("__NBELOW__", str(n_below))
+       .replace("__BELOWDATA__", BELOW_DATA)
        .replace("__NEXCL__", str(_n_excl))
        .replace("__EXCLREASON__", EXCL_REASON)
        .replace("__EXCLDATA__", EXCL_DATA)
