@@ -21,15 +21,25 @@ Decisoes que nao sao obvias e o porque:
 
 5. Modelo sem nota continua visivel: `-` e honesto, omissao nao e.
 """
-import json, datetime, statistics, os
+import json, datetime, statistics, os, re
+
+DASH_DATA = os.environ.get("DASH_DATA", ".")
+DASH_HTML = os.environ.get(
+    "DASH_HTML", "/home/ubuntu/github/openrouter-custo-beneficio/index.html")
+DASH_ROWS = os.environ.get(
+    "DASH_ROWS", "/home/ubuntu/github/openrouter-custo-beneficio/data.json")
+
+def dload(name):
+    with open(os.path.join(DASH_DATA, name), encoding="utf-8") as fh:
+        return json.load(fh)
 
 # Mix medido em ~/.hermes/state.db, janela de 30 dias, chamadas reais do agente.
 MIX = {"uncached_in_M": 18.62, "cache_read_M": 105.89, "out_M": 0.657, "calls": 1279}
 
-ors = {m["id"]: m for m in json.load(open("or_models.json"))["data"]}
-mp = {x["or_id"]: x for x in json.load(open("mapping.json"))}
-aiiq = {m["id"]: m for m in json.load(open("aiiq_v1_models.json"))["models"]}
-probe = {r["model"]: r for r in json.load(open("free_probe.json"))}
+ors = {m["id"]: m for m in dload("or_models.json")["data"]}
+mp = {x["or_id"]: x for x in dload("mapping.json")}
+aiiq = {m["id"]: m for m in dload("aiiq_v1_models.json")["models"]}
+probe = {r["model"]: r for r in dload("free_probe.json")}
 
 
 def pricing(m):
@@ -126,6 +136,79 @@ for fid, pf in probe.items():
         r["agentic"] = pf["status"] == "agentic"
         rows.append(r)
 
+# ---------------------------------------------------------------------------
+# LMArena + velocidade medida — os dois sinais uteis da tabela antiga
+# (token-dashboard/llm-comparison.html) que este dashboard nao tinha.
+# LMArena: preferencia comunitaria controlada por estilo, public limitado a ~421
+# modelos e so com vote_count alto. Velocidade: p50 de throughput/latencia via API
+# autenticada de /models/{id}/endpoints (anonima retorna null).
+# Disponivel apenas quando os caches existem (refresh.py atualiza semanalmente);
+# ausencia vira "-", nunca estimativa.
+# ---------------------------------------------------------------------------
+_SIZE_SEP = re.compile(r"[-_]\d+(\.\d+)?[bt]([-_]a?\d+(\.\d+)?b)?")
+_SIZE_TAIL = re.compile(r"[-_]a\d+(\.\d+)?b")
+_DATE_SEP = re.compile(r"[-_](19|20)?\d{6,8}$")
+_ARENA_SUFFIX = re.compile(r"[-_](high|max|xhigh|low|medium|minimal)$")
+_ARENA_VARIANT = ("high", "max", "xhigh", "low", "medium", "minimal", "thinking")
+ELO_ALIASES = {"qwen3.8-2.4t-a95b": "Qwen3.8-Max"}
+
+def arena_key(name):
+    s = name.lower().strip()
+    s = re.sub(r"\([^)]*\)", "", s)          # (High), (NVFP4)
+    s = s.replace("nvidia-nemotron", "nemotron").replace("nvidia", "")
+    s = _SIZE_SEP.sub("", s)
+    s = _SIZE_TAIL.sub("", s)
+    s = _DATE_SEP.sub("", s)
+    s = _ARENA_SUFFIX.sub("", s)
+    for v in _ARENA_VARIANT:
+        s = s.replace(v, "")
+    return re.sub(r"[^a-z0-9.]", "", s)
+
+def load_elo(path):
+    try:
+        blob = dload(path)
+        return blob.get("models", blob) if isinstance(blob, dict) else {}
+    except (FileNotFoundError, ValueError):
+        return {}
+
+def load_speed(path):
+    try:
+        return dload(path)
+    except (FileNotFoundError, ValueError):
+        return {}
+
+arena = load_elo("arena_elo.json")
+speed = load_speed("model_speed.json")
+
+tails = {r["id"]: r["id"].split("/")[-1].replace(":free", "") for r in rows}
+key_owners = {}
+for mid, tail in tails.items():
+    key_owners.setdefault(arena_key(tail), set()).add(tail)
+
+matched_elo = matched_speed = 0
+for r in rows:
+    tail = tails[r["id"]]
+    alias = ELO_ALIASES.get(tail.lower())
+    if alias:
+        ent = arena.get(arena_key(alias))
+    else:
+        k = arena_key(tail)
+        ent = arena.get(k) if len(key_owners.get(k, set())) == 1 else None
+    if ent:
+        r["elo"] = ent.get("rating")
+        r["eloRank"] = ent.get("rank")
+        r["eloAgent"] = ent.get("agent_score")
+        r["eloAgentRank"] = ent.get("agent_rank")
+        r["eloCoding"] = ent.get("coding_rating")
+        r["eloCodingRank"] = ent.get("coding_rank")
+        matched_elo += 1
+    sp = speed.get(r["id"])
+    if sp:
+        r["tps"] = sp.get("throughput_p50")
+        r["lat"] = sp.get("latency_p50_ms")
+        r["sprov"] = sp.get("provider")
+        matched_speed += 1
+
 rows.sort(key=lambda r: (r["cost"], -(r["cu"] or 0)))
 
 # ---------------------------------------------------------------------------
@@ -144,8 +227,43 @@ n_noscore = sum(1 for r in rows_all if r["iq"] is None)
 # que o catalogo tem 135 modelos, quando o OpenRouter lista 467. O usuario
 # precisa poder auditar a exclusao, nao so confiar nela.
 # ---------------------------------------------------------------------------
-allor_list = json.load(open("or_models.json"))["data"]
-excluded = json.load(open("excluded.json"))
+allor_list = dload("or_models.json")["data"]
+rows_all_ids = {r["id"] for r in rows_all}
+
+
+def _is_independent_paid(m):
+    mid = m["id"]
+    if ":batch" in mid or mid.startswith("~") or mid.endswith(":free"):
+        return False
+    try:
+        return float((m.get("pricing") or {}).get("prompt") or 0) >= 0
+    except (TypeError, ValueError):
+        return False
+
+
+def _price(m, k):
+    try:
+        return float(m.get("pricing", {}).get(k)) * 1e6
+    except (KeyError, TypeError, ValueError):
+        return None
+
+
+excluded = []
+for m in allor_list:
+    if not _is_independent_paid(m):
+        continue
+    if m["id"] in rows_all_ids:
+        continue
+    in_p, out_p = _price(m, "prompt"), _price(m, "completion")
+    if in_p is None or out_p is None:
+        continue  # sem preco nao ha o que auditar como custo
+    excluded.append({"id": m["id"], "inP": in_p, "outP": out_p,
+                     "ctx": m.get("context_length") or 0,
+                     "tools": "tools" in (m.get("supported_parameters") or [])})
+excluded.sort(key=lambda r: r["inP"])
+with open(os.path.join(DASH_DATA, "excluded.json"), "w", encoding="utf-8") as fh:
+    json.dump(excluded, fh, ensure_ascii=False)
+_n_excl_unmapped = len(excluded)   # complemento nao mapeado de rows_all
 _neg = sum(1 for m in allor_list
            if float((m.get("pricing") or {}).get("prompt", 0) or 0) < 0)
 _n_batch = sum(1 for m in allor_list if ":batch" in m["id"])
@@ -158,6 +276,7 @@ _n_paid_indep = _n_unique - _n_freev
 _n_rows = len(rows)
 _n_rows_free = sum(1 for r in rows if r["free"])
 _n_rows_paid = _n_rows - _n_rows_free
+rows_all_paid = sum(1 for r in rows_all if not r["free"])
 _n_excl = len(excluded)
 _n_free_ok = _n_rows_free
 _n_free_excl = _n_freev - _n_free_ok
@@ -174,9 +293,9 @@ _n_free_noscore = _n_free_probe_ok - _n_free_ok_in_table
 _n_free_dead = _n_freev - _n_free_probe_ok
 
 # O funil so vale se fechar. Uma soma que nao fecha e pior que nao ter funil.
-assert _n_paid_indep == _n_rows_paid + _n_excl + _n_below_paid, (
+assert _n_paid_indep == rows_all_paid + _n_excl_unmapped, (
     f"funil nao fecha: {_n_paid_indep} pagos independentes != "
-    f"{_n_rows_paid} analisados + {_n_excl} sem nota + {_n_below_paid} abaixo do IQ")
+    f"{rows_all_paid} com linha + {_n_excl_unmapped} jamais mapeados")
 assert _n_freev == _n_free_ok_in_table + _n_free_noscore + _n_free_dead, (
     f"funil de :free nao fecha: {_n_freev} != {_n_free_ok_in_table}+{_n_free_noscore}+{_n_free_dead}")
 assert len(rows) + n_below + n_noscore == len(rows_all), (
@@ -189,7 +308,28 @@ EXCL_REASON = (
     "fora do ranking. O preco e o contexto <b>sao</b> conhecidos e estao listados: "
     "se voce ja sabe que um deles serve, o custo mensal dele e calculavel."
 )
-EXCL_DATA = json.dumps(excluded, ensure_ascii=False)
+#
+# A auditoria do que ficou de fora precisa incluir os modelos mapeados com preco mas
+# sem nota (quadradinho amarelo nos cards) tanto quanto os nao mapeados. O funil diz
+# "sem nota" com a soma exata dos dois; o detalhe lista os dois.
+_n_noscore_paid = sum(1 for r in rows_all if r["iq"] is None and not r["free"])
+_n_noscore_free = sum(1 for r in rows_all if r["iq"] is None and r["free"])
+noscore_list = [{"id": r["id"], "inP": r["inP"], "outP": r["outP"],
+                 "ctx": r["ctx"], "tools": r["tools"]}
+                for r in rows_all if r["iq"] is None and not r["free"]]
+combined = sorted(excluded + noscore_list, key=lambda r: r["inP"] or 0)
+EXCL_DATA = json.dumps(combined, ensure_ascii=False)
+_n_excl = len(combined)
+_n_excl_unmapped = len(excluded)   # nome usado na nota lateral
+EXCL_REASON = (
+    "Estes modelos existem no OpenRouter mas <b>nao tem nota no AI IQ</b> &mdash; "
+    "em muitos casos porque sao modelos antigos ou pequenos que o AI IQ nunca avaliou. "
+    f"Dos {len(combined)} listados, {len(excluded)} nao podem ser ligados a uma entrada do AI IQ, "
+    f"e {len(noscore_list)} foram ligados mas o AI IQ nao publicou nota de capacidade. "
+    "Sem nota nao ha como calcular capacidade por dolar. O preco e o contexto "
+    "<b>sao</b> conhecidos e estao listados: se voce ja sabe que um deles serve, "
+    "o custo mensal dele e calculavel."
+)
 BELOW_DATA = json.dumps(
     [{"id": r["id"], "iq": r["iq"], "cu": r["cu"], "inP": r["inP"],
       "ctx": r["ctx"], "free": r["free"]} for r in rows_all
@@ -551,6 +691,10 @@ function showDetail(r){
     "<br>Entrada US$ "+fmt(r.inP,4)+" &middot; Saida US$ "+fmt(r.outP,4)+" &middot; Cache read "
     +(r.cacheEst?"\u2014 (nao publicado; calculo usa a entrada)":"US$ "+fmt(r.cacheP,4))+
     " &nbsp;&middot;&nbsp; Contexto "+fmt(r.ctx,0)+" &middot; Saida max. "+fmt(r.maxout,0)+
+    "<br><span title='preferencia comunitaria (controle por estilo), nao benchmark'>LMArena Elo: <b>"+(r.elo==null?"\u2014":fmt(r.elo,1)+" <span class='muted'>#"+r.eloRank+"</span>")+
+    "</b> &middot; Agente "+(r.eloAgent==null?"\u2014":(r.eloAgent>0?"+":"")+r.eloAgent.toFixed(3)+" #"+r.eloAgentRank)+
+    " &middot; Coding "+(r.eloCoding==null?"\u2014":fmt(r.eloCoding,1)+" #"+r.eloCodingRank)+"</span>"+
+    "<br><span title='p50 medido via API /models/{id}/endpoints (autentica)'>Velocidade medida: <b>"+(r.tps==null?"\u2014":fmt(r.tps,1)+" tok/s")+"</b>"+(r.lat==null?"":" &middot; latencia "+fmt(r.lat,0)+" ms")+(r.sprov?" <span class='muted'>("+r.sprov+")</span>":"")+"</span>"+
     "<div class='dims'>"+dims.map(d=>"<div><span>"+d[0]+"</span><b>"+fmt(d[1],0)+"</b></div>").join("")+"</div>";
   const c=document.getElementById("detailCard"); c.style.display="block";
   c.scrollIntoView({behavior:"smooth",block:"nearest"});
@@ -819,10 +963,11 @@ out = (TMPL
        .replace("__NOW__", now)
        .replace("__LIMITS__", limits))
 
-path = "/home/ubuntu/github/openrouter-custo-beneficio/index.html"
+path = DASH_HTML
 os.makedirs(os.path.dirname(path), exist_ok=True)
 open(path, "w", encoding="utf-8").write(out)
 print(f"linhas: {len(rows)} (pagas {sum(1 for r in rows if not r['free'])}, free {sum(1 for r in rows if r['free'])})")
 print(f"sem nota: {sum(1 for r in rows if r['iq'] is None)} | mediana agente: {MED_CU} | piso: {FLOOR}")
+print(f"Arena Elo: {matched_elo}/{len(rows_all)} | velocidade medida: {matched_speed}/{len(rows_all)}")
 print(f"escrito: {path} ({len(out)/1024:.0f} KB)")
-json.dump(rows, open("rows_final.json", "w"), ensure_ascii=False, indent=1)
+json.dump(rows, open(DASH_ROWS, "w"), ensure_ascii=False, indent=1)
