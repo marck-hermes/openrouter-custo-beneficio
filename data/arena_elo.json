@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-15T23:48:25.788954",
+  "fetched_at": "2026-11-19T00:00:49.601932",
   "models": {
     "gemini4carbon": {
       "rating": 1526.2,
@@ -8,9 +8,9 @@
       "name": "Gemini 4 Carbon (High)",
       "coding_rating": 1568.2,
       "coding_rank": 1,
-      "agent_score": 0.17,
+      "agent_score": 0.164,
       "agent_rank": 3,
-      "sessions": 60568
+      "sessions": 64218
     },
     "gemini4argon": {
       "rating": 1521.7,
@@ -19,9 +19,9 @@
       "name": "Gemini 4 Argon (High)",
       "coding_rating": 1553.4,
       "coding_rank": 2,
-      "agent_score": 0.107,
-      "agent_rank": 9,
-      "sessions": 53962
+      "agent_score": 0.1,
+      "agent_rank": 11,
+      "sessions": 54375
     },
     "musewonder": {
       "rating": 1510.9,
@@ -30,9 +30,9 @@
       "name": "Muse Wonder (Max)",
       "coding_rating": 1542.3,
       "coding_rank": 10,
-      "agent_score": 0.018,
-      "agent_rank": 24,
-      "sessions": 14388
+      "agent_score": 0.009,
+      "agent_rank": 31,
+      "sessions": 14677
     },
     "claudeopus5.5": {
       "rating": 1506.8,
@@ -41,9 +41,9 @@
       "name": "Claude Opus 5.5 (High)",
       "coding_rating": 1547.5,
       "coding_rank": 6,
-      "agent_score": 0.195,
-      "agent_rank": 2,
-      "sessions": 14549
+      "agent_score": 0.134,
+      "agent_rank": 8,
+      "sessions": 24277
     },
     "claudefable5": {
       "rating": 1504.0,
@@ -52,9 +52,9 @@
       "name": "Claude Fable 5 (High)",
       "coding_rating": 1551.5,
       "coding_rank": 3,
-      "agent_score": 0.073,
-      "agent_rank": 11,
-      "sessions": 51094
+      "agent_score": 0.062,
+      "agent_rank": 17,
+      "sessions": 51090
     },
     "claudeopus4.6": {
       "rating": 1496.4,
@@ -71,9 +71,9 @@
       "name": "Claude Fable 5.1 (Max)",
       "coding_rating": 1533.5,
       "coding_rank": 17,
-      "agent_score": 0.148,
-      "agent_rank": 5,
-      "sessions": 17485
+      "agent_score": 0.141,
+      "agent_rank": 6,
+      "sessions": 17488
     },
     "claudeopus4.7": {
       "rating": 1493.9,
@@ -90,9 +90,9 @@
       "name": "Gemini 3.8 Flash (High)",
       "coding_rating": 1530.7,
       "coding_rank": 21,
-      "agent_score": 0.023,
-      "agent_rank": 20,
-      "sessions": 52647
+      "agent_score": 0.014,
+      "agent_rank": 27,
+      "sessions": 52602
     },
     "musespark1.3": {
       "rating": 1496.5,
@@ -101,9 +101,9 @@
       "name": "Muse Spark 1.3 (Max)",
       "coding_rating": 1533.6,
       "coding_rank": 15,
-      "agent_score": 0.022,
-      "agent_rank": 21,
-      "sessions": 80764
+      "agent_score": 0.012,
+      "agent_rank": 28,
+      "sessions": 80777
     },
     "musespark1.2": {
       "rating": 1492.9,
@@ -112,9 +112,9 @@
       "name": "Muse Spark 1.2 (xHigh)",
       "coding_rating": 1542.2,
       "coding_rank": 11,
-      "agent_score": -0.082,
-      "agent_rank": 51,
-      "sessions": 54762
+      "agent_score": -0.091,
+      "agent_rank": 57,
+      "sessions": 54668
     },
     "musespark1.1": {
       "rating": 1490.9,
@@ -123,9 +123,9 @@
       "name": "Muse Spark 1.1",
       "coding_rating": 1533.3,
       "coding_rank": 18,
-      "agent_score": -0.08,
-      "agent_rank": 50,
-      "sessions": 148803
+      "agent_score": -0.09,
+      "agent_rank": 55,
+      "sessions": 148466
     },
     "gemini4hydrogen": {
       "rating": 1490.4,
@@ -133,7 +133,10 @@
       "votes": 4741,
       "name": "Gemini 4 Hydrogen (High)",
       "coding_rating": 1517.8,
-      "coding_rank": 43
+      "coding_rank": 43,
+      "agent_score": 0.149,
+      "agent_rank": 5,
+      "sessions": 8639
     },
     "claudeopus5": {
       "rating": 1489.7,
@@ -142,9 +145,9 @@
       "name": "Claude Opus 5 (High)",
       "coding_rating": 1532.0,
       "coding_rank": 20,
-      "agent_score": 0.072,
-      "agent_rank": 12,
-      "sessions": 31951
+      "agent_score": 0.062,
+      "agent_rank": 18,
+      "sessions": 31933
     },
     "gemini3.7flash": {
       "rating": 1489.3,
@@ -153,9 +156,9 @@
       "name": "Gemini 3.7 Flash (High)",
       "coding_rating": 1520.3,
       "coding_rank": 38,
-      "agent_score": -0.022,
-      "agent_rank": 37,
-      "sessions": 63238
+      "agent_score": -0.031,
+      "agent_rank": 43,
+      "sessions": 63159
     },
     "musespark": {
       "rating": 1489.2,
@@ -172,9 +175,9 @@
       "name": "Kimi K3 (Max)",
       "coding_rating": 1538.1,
       "coding_rank": 14,
-      "agent_score": 0.006,
-      "agent_rank": 28,
-      "sessions": 160529
+      "agent_score": -0.002,
+      "agent_rank": 34,
+      "sessions": 160399
     },
     "gemini3.1propreview": {
       "rating": 1486.8,
@@ -183,9 +186,9 @@
       "name": "Gemini 3.1 Pro Preview",
       "coding_rating": 1520.4,
       "coding_rank": 36,
-      "agent_score": -0.045,
-      "agent_rank": 41,
-      "sessions": 87422
+      "agent_score": -0.056,
+      "agent_rank": 49,
+      "sessions": 87365
     },
     "gemini3pro": {
       "rating": 1485.6,
@@ -202,9 +205,9 @@
       "name": "GPT-5.6 Sol (xHigh)",
       "coding_rating": 1533.3,
       "coding_rank": 19,
-      "agent_score": 0.046,
-      "agent_rank": 16,
-      "sessions": 45389
+      "agent_score": 0.037,
+      "agent_rank": 22,
+      "sessions": 45352
     },
     "kimik3.1pro": {
       "rating": 1484.7,
@@ -213,9 +216,9 @@
       "name": "Kimi K3.1 Pro (Max)",
       "coding_rating": 1529.6,
       "coding_rank": 23,
-      "agent_score": 0.049,
-      "agent_rank": 15,
-      "sessions": 22408
+      "agent_score": 0.039,
+      "agent_rank": 21,
+      "sessions": 22291
     },
     "qwen3.8": {
       "rating": 1484.1,
@@ -224,9 +227,9 @@
       "name": "Qwen3.8-Max",
       "coding_rating": 1523.2,
       "coding_rank": 31,
-      "agent_score": 0.001,
-      "agent_rank": 32,
-      "sessions": 80992
+      "agent_score": -0.009,
+      "agent_rank": 39,
+      "sessions": 81275
     },
     "gemini3.6flash": {
       "rating": 1482.6,
@@ -251,9 +254,9 @@
       "name": "GLM-5.3 (Max)",
       "coding_rating": 1522.0,
       "coding_rank": 33,
-      "agent_score": 0.01,
-      "agent_rank": 27,
-      "sessions": 95460
+      "agent_score": 0.0,
+      "agent_rank": 33,
+      "sessions": 95300
     },
     "gpt5.5": {
       "rating": 1476.1,
@@ -270,9 +273,9 @@
       "name": "GPT-6.1 Sol (Max)",
       "coding_rating": 1539.6,
       "coding_rank": 12,
-      "agent_score": 0.125,
-      "agent_rank": 7,
-      "sessions": 30738
+      "agent_score": 0.118,
+      "agent_rank": 9,
+      "sessions": 30951
     },
     "mimov2.6pro": {
       "rating": 1479.9,
@@ -281,9 +284,9 @@
       "name": "MiMo-V2.6-Pro",
       "coding_rating": 1538.2,
       "coding_rank": 13,
-      "agent_score": 0.024,
-      "agent_rank": 19,
-      "sessions": 50288
+      "agent_score": 0.015,
+      "agent_rank": 26,
+      "sessions": 51200
     },
     "gemini3.5flash": {
       "rating": 1478.4,
@@ -308,9 +311,9 @@
       "name": "GLM-5.3-Flash",
       "coding_rating": 1526.3,
       "coding_rank": 28,
-      "agent_score": -0.029,
-      "agent_rank": 39,
-      "sessions": 95632
+      "agent_score": -0.037,
+      "agent_rank": 45,
+      "sessions": 95623
     },
     "gpt5.4": {
       "rating": 1465.1,
@@ -335,9 +338,9 @@
       "name": "GLM-5.2 (Max)",
       "coding_rating": 1515.4,
       "coding_rank": 48,
-      "agent_score": 0.002,
-      "agent_rank": 31,
-      "sessions": 99062
+      "agent_score": -0.005,
+      "agent_rank": 37,
+      "sessions": 99070
     },
     "grok4.20beta1": {
       "rating": 1474.6,
@@ -354,9 +357,9 @@
       "name": "GPT-6 Astra (Max)",
       "coding_rating": 1547.8,
       "coding_rank": 5,
-      "agent_score": 0.145,
-      "agent_rank": 6,
-      "sessions": 15653
+      "agent_score": 0.139,
+      "agent_rank": 7,
+      "sessions": 15699
     },
     "qwen3.7preview": {
       "rating": 1473.8,
@@ -397,9 +400,9 @@
       "name": "Claude Sonnet 5.5 (xHigh)",
       "coding_rating": 1517.2,
       "coding_rank": 45,
-      "agent_score": 0.16,
-      "agent_rank": 4,
-      "sessions": 8750
+      "agent_score": 0.072,
+      "agent_rank": 15,
+      "sessions": 11174
     },
     "claudesonnet4.6": {
       "rating": 1472.1,
@@ -432,9 +435,9 @@
       "name": "GPT-5.6 Terra (xHigh)",
       "coding_rating": 1517.4,
       "coding_rank": 44,
-      "agent_score": -0.018,
-      "agent_rank": 35,
-      "sessions": 44424
+      "agent_score": -0.027,
+      "agent_rank": 41,
+      "sessions": 44389
     },
     "ernie5.1": {
       "rating": 1467.0,
@@ -507,9 +510,9 @@
       "name": "Claude Sonnet 5 (High)",
       "coding_rating": 1519.8,
       "coding_rank": 39,
-      "agent_score": 0.02,
-      "agent_rank": 23,
-      "sessions": 41769
+      "agent_score": 0.011,
+      "agent_rank": 29,
+      "sessions": 41762
     },
     "qwen3.6preview": {
       "rating": 1459.7,
@@ -534,9 +537,9 @@
       "name": "GPT-6 Sol (Max)",
       "coding_rating": 1520.8,
       "coding_rank": 34,
-      "agent_score": 0.069,
-      "agent_rank": 13,
-      "sessions": 13042
+      "agent_score": 0.063,
+      "agent_rank": 16,
+      "sessions": 13147
     },
     "grok4.6": {
       "rating": 1456.7,
@@ -545,9 +548,9 @@
       "name": "Grok 4.6 (High)",
       "coding_rating": 1508.4,
       "coding_rank": 64,
-      "agent_score": -0.002,
-      "agent_rank": 34,
-      "sessions": 30237
+      "agent_score": -0.009,
+      "agent_rank": 40,
+      "sessions": 30240
     },
     "dolaseed2.0pro": {
       "rating": 1456.5,
@@ -580,9 +583,9 @@
       "name": "Qwen3.7-Plus",
       "coding_rating": 1500.3,
       "coding_rank": 83,
-      "agent_score": -0.08,
-      "agent_rank": 49,
-      "sessions": 24616
+      "agent_score": -0.09,
+      "agent_rank": 56,
+      "sessions": 24646
     },
     "deepseekv4propreview": {
       "rating": 1454.9,
@@ -607,9 +610,9 @@
       "name": "Hy3",
       "coding_rating": 1504.0,
       "coding_rank": 73,
-      "agent_score": -0.076,
-      "agent_rank": 48,
-      "sessions": 32730
+      "agent_score": -0.087,
+      "agent_rank": 54,
+      "sessions": 32755
     },
     "gpt5.6luna": {
       "rating": 1453.2,
@@ -666,9 +669,9 @@
       "name": "Step 5 Preview",
       "coding_rating": 1504.6,
       "coding_rank": 70,
-      "agent_score": -0.037,
-      "agent_rank": 40,
-      "sessions": 17182
+      "agent_score": -0.046,
+      "agent_rank": 46,
+      "sessions": 17254
     },
     "mimov2.6flash": {
       "rating": 1448.4,
@@ -677,9 +680,9 @@
       "name": "MiMo-V2.6-Flash",
       "coding_rating": 1511.4,
       "coding_rank": 57,
-      "agent_score": -0.0,
-      "agent_rank": 33,
-      "sessions": 33408
+      "agent_score": -0.006,
+      "agent_rank": 38,
+      "sessions": 34655
     },
     "mimov2pro": {
       "rating": 1448.0,
@@ -728,9 +731,9 @@
       "name": "Grok 4.7 (xHigh)",
       "coding_rating": 1492.5,
       "coding_rank": 93,
-      "agent_score": 0.026,
-      "agent_rank": 17,
-      "sessions": 18939
+      "agent_score": 0.018,
+      "agent_rank": 24,
+      "sessions": 18982
     },
     "qwen3.6plus": {
       "rating": 1442.8,
@@ -755,9 +758,9 @@
       "name": "Inkling",
       "coding_rating": 1494.0,
       "coding_rank": 91,
-      "agent_score": -0.173,
-      "agent_rank": 57,
-      "sessions": 43949
+      "agent_score": -0.183,
+      "agent_rank": 63,
+      "sessions": 43869
     },
     "grok4.3": {
       "rating": 1441.7,
@@ -790,9 +793,9 @@
       "name": "GPT-6 Luna (Max)",
       "coding_rating": 1501.3,
       "coding_rank": 80,
-      "agent_score": 0.016,
-      "agent_rank": 26,
-      "sessions": 231000
+      "agent_score": 0.008,
+      "agent_rank": 32,
+      "sessions": 232894
     },
     "deepseekv4flashpreview": {
       "rating": 1439.0,
@@ -841,9 +844,9 @@
       "name": "MiniMax-M3",
       "coding_rating": 1493.0,
       "coding_rank": 92,
-      "agent_score": -0.105,
-      "agent_rank": 52,
-      "sessions": 44401
+      "agent_score": -0.112,
+      "agent_rank": 58,
+      "sessions": 44375
     },
     "gpt5": {
       "rating": 1434.9,
@@ -860,9 +863,9 @@
       "name": "Beam 1.0 501B A23B",
       "coding_rating": 1504.7,
       "coding_rank": 69,
-      "agent_score": -0.059,
-      "agent_rank": 45,
-      "sessions": 12253
+      "agent_score": -0.074,
+      "agent_rank": 52,
+      "sessions": 12245
     },
     "qwen3preview": {
       "rating": 1434.4,
@@ -943,9 +946,9 @@
       "name": "Mistral Medium 3.5",
       "coding_rating": 1478.1,
       "coding_rank": 119,
-      "agent_score": -0.137,
-      "agent_rank": 54,
-      "sessions": 13903
+      "agent_score": -0.145,
+      "agent_rank": 60,
+      "sessions": 13880
     },
     "claudeopus4": {
       "rating": 1414.4,
@@ -962,9 +965,9 @@
       "name": "NVIDIA-Nemotron-3-Ultra-550B-A55B (NVFP4)",
       "coding_rating": 1473.7,
       "coding_rank": 124,
-      "agent_score": -0.156,
-      "agent_rank": 55,
-      "sessions": 13738
+      "agent_score": -0.164,
+      "agent_rank": 61,
+      "sessions": 13757
     },
     "deepseekv3.2exp": {
       "rating": 1421.9,
@@ -1029,9 +1032,9 @@
       "name": "Claude Haiku 5.5 (High)",
       "coding_rating": 1489.2,
       "coding_rank": 99,
-      "agent_score": 0.005,
-      "agent_rank": 29,
-      "sessions": 32148
+      "agent_score": -0.004,
+      "agent_rank": 36,
+      "sessions": 32455
     },
     "mistrallarge4": {
       "rating": 1420.4,
@@ -1040,9 +1043,9 @@
       "name": "Mistral Large 4",
       "coding_rating": 1483.5,
       "coding_rank": 110,
-      "agent_score": -0.054,
-      "agent_rank": 44,
-      "sessions": 5648
+      "agent_score": -0.068,
+      "agent_rank": 50,
+      "sessions": 5699
     },
     "grok4fast": {
       "rating": 1405.2,
@@ -1107,9 +1110,9 @@
       "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
       "coding_rating": 1459.8,
       "coding_rank": 144,
-      "agent_score": -0.16,
-      "agent_rank": 56,
-      "sessions": 33650
+      "agent_score": -0.167,
+      "agent_rank": 62,
+      "sessions": 35763
     },
     "claudehaiku4.5": {
       "rating": 1414.0,
@@ -1135,8 +1138,8 @@
       "coding_rating": 1484.8,
       "coding_rank": 107,
       "agent_score": 0.025,
-      "agent_rank": 18,
-      "sessions": 10832
+      "agent_rank": 23,
+      "sessions": 13976
     },
     "grok3preview": {
       "rating": 1411.3,
@@ -1193,9 +1196,9 @@
       "name": "Inkling-Small",
       "coding_rating": 1472.4,
       "coding_rank": 126,
-      "agent_score": -0.181,
-      "agent_rank": 58,
-      "sessions": 14723
+      "agent_score": -0.187,
+      "agent_rank": 64,
+      "sessions": 14710
     },
     "gemini2.5flashpreview": {
       "rating": 1403.2,
@@ -1340,9 +1343,9 @@
       "name": "Solar Pro 4",
       "coding_rating": 1460.9,
       "coding_rank": 142,
-      "agent_score": -0.226,
-      "agent_rank": 59,
-      "sessions": 11044
+      "agent_score": -0.239,
+      "agent_rank": 65,
+      "sessions": 11073
     },
     "qwen3coderinstruct": {
       "rating": 1387.4,

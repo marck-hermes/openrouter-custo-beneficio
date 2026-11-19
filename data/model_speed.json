@@ -2026,5 +2026,47 @@
     "latency_p50_ms": 932.0,
     "provider": "Alibaba",
     "fetched_at": "2026-11-15T23:47:09"
+  },
+  "google/gemini-4-neon": {
+    "throughput_p50": 123.0,
+    "latency_p50_ms": 1598.0,
+    "provider": "Google",
+    "fetched_at": "2026-11-19T00:00:49"
+  },
+  "openai/gpt-6.2-astra-pro": {
+    "throughput_p50": 74.0,
+    "latency_p50_ms": 15237.0,
+    "provider": "Azure",
+    "fetched_at": "2026-11-19T00:00:49"
+  },
+  "openai/gpt-6.2-astra": {
+    "throughput_p50": 56.0,
+    "latency_p50_ms": 1409.0,
+    "provider": "OpenAI",
+    "fetched_at": "2026-11-19T00:00:50"
+  },
+  "openai/gpt-6.2-sol-pro": {
+    "throughput_p50": 87.5,
+    "latency_p50_ms": 3735.0,
+    "provider": "Azure",
+    "fetched_at": "2026-11-19T00:00:50"
+  },
+  "openai/gpt-6.2-sol": {
+    "throughput_p50": 86.0,
+    "latency_p50_ms": 1332.0,
+    "provider": "OpenAI",
+    "fetched_at": "2026-11-19T00:00:50"
+  },
+  "tencent/hy4-flash": {
+    "throughput_p50": 65.0,
+    "latency_p50_ms": 3181.0,
+    "provider": "Tencent",
+    "fetched_at": "2026-11-19T00:00:50"
+  },
+  "meta-llama/llama-guard-4-12b": {
+    "throughput_p50": 51.0,
+    "latency_p50_ms": 258.0,
+    "provider": "DeepInfra",
+    "fetched_at": "2026-11-19T00:01:09"
   }
 }
