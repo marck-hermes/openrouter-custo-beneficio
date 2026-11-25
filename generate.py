@@ -750,6 +750,26 @@ document.getElementById("stGraded").textContent = DATA.filter(r=>r.cu!=null).len
 document.getElementById("stFree").textContent = DATA.filter(r=>r.free).length;
 
 function showDetail(r){
+  const el = document.getElementById("detail");
+  const dims=[["Raciocinio Abstrato",r.abs],["Raciocinio Matematico",r.math],["Raciocinio Academico",r.acad],
+    ["Programacao",r.code],["Uso de Computador",r.cu],["Confiabilidade",r.rel],["Trabalho de Conhecimento",r.kw]];
+  const pr = getPrices(r);
+  el.innerHTML = "<b>"+r.name+"</b> "+(r.free?'<span class="tag">GRATUITO</span>':"")+
+    (r.rmand?' <span class="warn">reasoning obrigatorio</span>':"")+
+    "<br><span class='muted'>"+r.id+" &middot; AI IQ: "+(r.aiiq||\"\u2014\")+" &middot; "+(r.modality||\"\u2014\")+"</span>"+
+    "<br>Score agentico: <b>"+fmt(r.cu,0)+"</b> (percentil "+fmt(pctOf(r.cu),0)+") &nbsp;&middot;&nbsp; IQ composto: <b>"+fmt(r.iq,0)+"</b>"+
+    "<br>Custo mensal no mix atual: <b>"+fmtC(r.costNow)+"</b> &nbsp;&middot;&nbsp; US$/1M prompt: <b>US$ "+fmtP(r.per1mNow)+"</b>"+
+    "<br>Entrada US$ "+fmt(pr.in,4)+" &middot; Saida US$ "+fmt(pr.out,4)+" &middot; Cache read "
+    +(r.cacheEst?"\u2014 (nao publicado; calculo usa a entrada)":"US$ "+fmt(pr.cache,4))+
+    " &nbsp;&middot;&nbsp; Contexto "+fmt(r.ctx,0)+" &middot; Saida max. "+fmt(r.maxout,0)+
+    "<br><span title='preferencia comunitaria (controle por estilo), nao benchmark'>LMArena Elo: <b>"+(r.elo==null?"\u2014":fmt(r.elo,1)+" <span class='muted'>#"+r.eloRank+"</span>")+
+    "</b> &middot; Agente "+(r.eloAgent==null?"\u2014":(r.eloAgent>0?"+":"")+r.eloAgent.toFixed(3)+" #"+r.eloAgentRank)+
+    " &middot; Coding "+(r.eloCoding==null?"\u2014":fmt(r.eloCoding,1)+" #"+r.eloCodingRank)+"</span>"+
+    "<br><span title='p50 medido via API /models/{id}/endpoints (autentica)'>Velocidade medida: <b>"+(r.tps==null?"\u2014":fmt(r.tps,1)+" tok/s")+"</b>"+(r.lat==null?"":" &middot; latencia "+fmt(r.lat,0)+" ms")+(r.sprov?" <span class='muted'>("+r.sprov+")</span>":"")+"</span>"+
+    "<div class='dims'>"+dims.map(d=>"<div><span>"+d[0]+"</span><b>"+fmt(d[1],0)+"</b></div>").join("")+"</div>";
+  const c=document.getElementById("detailCard"); c.style.display="block";
+  c.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
 
 function modalityIcons(mod){
   if(!mod) return "<span class='muted'>\u2014</span>";
