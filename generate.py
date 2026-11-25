@@ -41,6 +41,12 @@ mp = {x["or_id"]: x for x in dload("mapping.json")}
 aiiq = {m["id"]: m for m in dload("aiiq_v1_models.json")["models"]}
 probe = {r["model"]: r for r in dload("free_probe.json")}
 
+# Flex pricing (preenchido por refresh.py via step_flex_pricing)
+try:
+    flex_pricing = dload("flex_pricing.json")
+except (FileNotFoundError, ValueError):
+    flex_pricing = {}
+
 
 def pricing(m):
     p = m.get("pricing") or {}
@@ -112,6 +118,10 @@ def build_row(oid, aiiq_id, free=False):
         "free": free,
         "modality": (m.get("architecture") or {}).get("modality") or "",
         "coverage": ((am or {}).get("iqCoverage") or {}).get("directDimensions", 0),
+        "flexIn": flex_pricing.get(oid, {}).get("in"),
+        "flexOut": flex_pricing.get(oid, {}).get("out"),
+        "flexCache": flex_pricing.get(oid, {}).get("cache"),
+        "flexProvider": flex_pricing.get(oid, {}).get("provider"),
     }
 
 
@@ -410,6 +420,7 @@ TMPL = r"""<!DOCTYPE html>
   td.num,th.num{text-align:right}
   td.sorted{background:#f0f6ff}
   .tag{display:inline-block;background:#e3f2e6;color:#1d7a33;border-radius:20px;padding:1px 7px;font-size:11px;font-weight:600}
+  .tag.flex{background:#e0e7ff;color:#3730a3}
   .warn{display:inline-block;background:#fdf0d5;color:#8a5a00;border-radius:20px;padding:1px 7px;font-size:11px;font-weight:600}
   .muted{color:#8a97a5}
   .rowlink{cursor:pointer}
@@ -639,7 +650,7 @@ TMPL = r"""<!DOCTYPE html>
         <th data-k="code" class="num">Codigo</th><th data-k="rel" class="num">Confiab.</th>
         <th data-k="costNow" class="num">US$/mes</th><th data-k="per1mNow" class="num">US$/1M prompt</th>
         <th data-k="inP" class="num">Entrada</th><th data-k="outP" class="num">Saida</th>
-        <th data-k="ctx" class="num">Contexto</th>
+        <th data-k="ctx" class="num">Contexto</th><th data-k="modality" title="Modalidades de entrada aceitas">Entrada</th>
       </tr></thead>
       <tbody></tbody>
     </table>
@@ -730,6 +741,14 @@ function showDetail(r){
     "<div class='dims'>"+dims.map(d=>"<div><span>"+d[0]+"</span><b>"+fmt(d[1],0)+"</b></div>").join("")+"</div>";
   const c=document.getElementById("detailCard"); c.style.display="block";
   c.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function modalityIcons(mod){
+  if(!mod) return "<span class='muted'>\u2014</span>";
+  const input = mod.split("->")[0];
+  const parts = input.split("+");
+  const icons = {"text":"\uD83D\uDCDD","image":"\uD83D\uDCF7","audio":"\uD83D\uDD0A","video":"\uD83C\uDFAC","file":"\uD83D\uDCC4"};
+  return parts.map(p=>icons[p] || p).join("");
 }
 
 function renderValue(){
@@ -878,18 +897,20 @@ function applyFilters(){
   });
   document.getElementById("stShown").textContent=list.length;
   const labels={name:"Modelo",provider:"Provedor",cu:"Agente",iq:"IQ",code:"Codigo",rel:"Confiab.",
-    costNow:"US$/mes",per1mNow:"US$/1M prompt",inP:"Entrada",outP:"Saida",ctx:"Contexto"};
+    costNow:"US$/mes",per1mNow:"US$/1M prompt",inP:"Entrada",outP:"Saida",ctx:"Contexto",modality:"Entrada"};
   document.querySelectorAll("#mainTable th").forEach(th=>{
     const k=th.dataset.k, idx=sorts.findIndex(s=>s.key===k);
     th.classList.toggle("sorted",idx>=0);
     th.textContent=labels[k]+(idx>=0?(sorts[idx].dir===1?" \u25b2":" \u25bc")+(sorts.length>1?" "+(idx+1):""):"");
   });
-  const colMap={name:0,provider:1,cu:2,iq:3,code:4,rel:5,costNow:6,per1mNow:7,inP:8,outP:9,ctx:10};
+  const colMap={name:0,provider:1,cu:2,iq:3,code:4,rel:5,costNow:6,per1mNow:7,inP:8,outP:9,ctx:10,modality:11};
   const colIdxs=new Set(sorts.map(s=>colMap[s.key]));
   document.querySelector("#mainTable tbody").innerHTML=list.map(r=>{
-    const cells=[r.name+(r.free?" <span class='tag'>FREE</span>":"")+(r.rmand?" <span class='warn'>R</span>":"")+(r.cacheEst?" <span class='warn' title='sem preco de cache publicado; custo usa a entrada como pior caso'>cache~</span>":""),
+    const flexBadge = r.flexIn ? " <span class='tag flex' title=\"Flex tier: input US$ "+fmt(r.flexIn,2)+\"/1M, output US$ "+fmt(r.flexOut,2)+\"/1M, cache read US$ "+fmt(r.flexCache,3)+\"/1M (via "+(r.flexProvider||\"provider\")+\"). Use service_tier: 'flex' ou :floor no model ID.\">⚡ Flex</span>" : "";
+    const cells=[r.name+(r.free?" <span class='tag'>FREE</span>":"")+(r.rmand?" <span class='warn'>R</span>":"")+(r.cacheEst?" <span class='warn' title='sem preco de cache publicado; custo usa a entrada como pior caso'>cache~</span>":"")+flexBadge,
       r.provider,fmt(r.cu,0),fmt(r.iq,0),fmt(r.code,0),fmt(r.rel,0),
-      fmtC(r.costNow),fmtP(r.per1mNow),fmt(r.inP,4),fmt(r.outP,4),fmt(r.ctx,0)];
+      fmtC(r.costNow),fmtP(r.per1mNow),fmt(r.inP,4),fmt(r.outP,4),fmt(r.ctx,0),
+      modalityIcons(r.modality)];
     const tds=cells.map((c,i)=>{
       const cls=[numCols.includes(i)?"num":"",colIdxs.has(i)?"sorted":""].filter(Boolean).join(" ");
       return cls?"<td class='"+cls+"'>"+c+"</td>":"<td>"+c+"</td>";

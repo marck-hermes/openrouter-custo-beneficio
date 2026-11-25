@@ -24,6 +24,7 @@ import sys
 import time
 import urllib.request
 import urllib.error
+import urllib.parse
 import datetime
 from pathlib import Path
 
@@ -195,6 +196,47 @@ def step_speed():
         log(f"6. Velocidade: falha ({exc}); mantendo cache")
 
 
+def step_flex_pricing():
+    """Busca preços Flex para modelos da tabela (IQ >= 100)."""
+    rows_path = DATA / "data.json"
+    if not rows_path.exists():
+        log("Flex pricing: data.json não existe, pulando")
+        return
+    rows = json.loads(rows_path.read_text(encoding="utf-8"))
+    oids = {r["id"] for r in rows}
+    key = openrouter_key()
+    if not key:
+        log("Flex pricing: sem API key, pulando")
+        return
+
+    flex = {}
+    for oid in oids:
+        try:
+            url = f"https://openrouter.ai/api/v1/models/{urllib.parse.quote(oid)}/endpoints"
+            req = urllib.request.Request(url, headers={"Authorization": f"Bearer {key}", **UA})
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                data = json.load(resp)
+
+            best_flex = None
+            for ep in data.get("data", {}).get("endpoints", []):
+                if ep.get("service_tier") == "flex":
+                    p = ep.get("pricing", {})
+                    in_p = float(p.get("prompt", 0)) * 1e6
+                    out_p = float(p.get("completion", 0)) * 1e6
+                    cache_p = float(p.get("input_cache_read", 0)) * 1e6
+                    if best_flex is None or in_p < best_flex["in"]:
+                        best_flex = {"in": in_p, "out": out_p, "cache": cache_p, "provider": ep["provider_name"]}
+
+            if best_flex:
+                flex[oid] = best_flex
+            time.sleep(0.2)  # be nice
+        except Exception as e:
+            log(f"  Flex {oid}: {e}")
+
+    (DATA / "flex_pricing.json").write_text(json.dumps(flex, ensure_ascii=False), encoding="utf-8")
+    log(f"Flex pricing: {len(flex)}/{len(oids)} modelos com Flex")
+
+
 def step_generate():
     env = os.environ.copy()
     env["DASH_DATA"] = str(DATA)
@@ -241,6 +283,7 @@ def main():
     step_probe(skip_probe=skip_probe)
     step_arena()
     step_speed()
+    step_flex_pricing()
     step_generate()
     if skip_deploy:
         log("8. deploy ignorado (--skip-deploy)")
