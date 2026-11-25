@@ -906,7 +906,7 @@ function applyFilters(){
   const colMap={name:0,provider:1,cu:2,iq:3,code:4,rel:5,costNow:6,per1mNow:7,inP:8,outP:9,ctx:10,modality:11};
   const colIdxs=new Set(sorts.map(s=>colMap[s.key]));
   document.querySelector("#mainTable tbody").innerHTML=list.map(r=>{
-    const flexBadge = r.flexIn ? " <span class='tag flex' title=\"Flex tier: input US$ "+fmt(r.flexIn,2)+\"/1M, output US$ "+fmt(r.flexOut,2)+\"/1M, cache read US$ "+fmt(r.flexCache,3)+\"/1M (via "+(r.flexProvider||\"provider\")+\"). Use service_tier: 'flex' ou :floor no model ID.\">⚡ Flex</span>" : "";
+    const flexBadge = r.flexIn ? " <span class='tag flex' title='Flex tier: input US$ "+fmt(r.flexIn,2)+"/1M, output US$ "+fmt(r.flexOut,2)+"/1M, cache read US$ "+fmt(r.flexCache,3)+"/1M (via "+(r.flexProvider||"provider")+"). Use service_tier: flex ou :floor no model ID.'>⚡ Flex</span>" : "";
     const cells=[r.name+(r.free?" <span class='tag'>FREE</span>":"")+(r.rmand?" <span class='warn'>R</span>":"")+(r.cacheEst?" <span class='warn' title='sem preco de cache publicado; custo usa a entrada como pior caso'>cache~</span>":"")+flexBadge,
       r.provider,fmt(r.cu,0),fmt(r.iq,0),fmt(r.code,0),fmt(r.rel,0),
       fmtC(r.costNow),fmtP(r.per1mNow),fmt(r.inP,4),fmt(r.outP,4),fmt(r.ctx,0),

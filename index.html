@@ -107,7 +107,7 @@
 <header>
   <h1>OpenRouter: custo x beneficio &mdash; Hermes Agent</h1>
   <p>Custo recalculado ao vivo com o <b>mix real de tokens do Hermes</b>: em 30 dias o Hermes processou 18.6M tokens de entrada sem cache, 105.9M de cache read e 0.66M de saida (85% cache, 0.52% saida, em 1279 chamadas).<br>
-  Notas do AI IQ ligadas ao modelo certo por nome. Dados de 25/11/2026 12:36.</p>
+  Notas do AI IQ ligadas ao modelo certo por nome. Dados de 25/11/2026 15:45.</p>
 </header>
 <main>
 
@@ -285,7 +285,7 @@
 <footer>
   <b>Fontes.</b> Notas e precos de tabela: API publica do AI IQ (<code>www.aiiq.org/api/v1/models</code>,
   metodologia 2026-09-30-arc-predictive-puzzles). Precos praticados, contexto e ferramentas:
-  <code>openrouter.ai/api/v1/models</code>. Ambas em 25/11/2026 12:36.<br>
+  <code>openrouter.ai/api/v1/models</code>. Ambas em 25/11/2026 15:45.<br>
   <b>Custo mensal.</b> em 30 dias o Hermes processou 18.6M tokens de entrada sem cache, 105.9M de cache read e 0.66M de saida (85% cache, 0.52% saida, em 1279 chamadas). O Hermes grava <code>input_tokens</code> ja liquido de cache
   (<code>agent/usage_pricing.py</code>: <code>input_tokens = prompt_total - cache_read - cache_write</code>),
   por isso sao tres baldes. O calculo no navegador usa os precos por token de cada linha; o volume total
@@ -531,7 +531,7 @@ function applyFilters(){
   const colMap={name:0,provider:1,cu:2,iq:3,code:4,rel:5,costNow:6,per1mNow:7,inP:8,outP:9,ctx:10,modality:11};
   const colIdxs=new Set(sorts.map(s=>colMap[s.key]));
   document.querySelector("#mainTable tbody").innerHTML=list.map(r=>{
-    const flexBadge = r.flexIn ? " <span class='tag flex' title=\"Flex tier: input US$ "+fmt(r.flexIn,2)+\"/1M, output US$ "+fmt(r.flexOut,2)+\"/1M, cache read US$ "+fmt(r.flexCache,3)+\"/1M (via "+(r.flexProvider||\"provider\")+\"). Use service_tier: 'flex' ou :floor no model ID.\">⚡ Flex</span>" : "";
+    const flexBadge = r.flexIn ? " <span class='tag flex' title='Flex tier: input US$ "+fmt(r.flexIn,2)+"/1M, output US$ "+fmt(r.flexOut,2)+"/1M, cache read US$ "+fmt(r.flexCache,3)+"/1M (via "+(r.flexProvider||"provider")+"). Use service_tier: flex ou :floor no model ID.'>⚡ Flex</span>" : "";
     const cells=[r.name+(r.free?" <span class='tag'>FREE</span>":"")+(r.rmand?" <span class='warn'>R</span>":"")+(r.cacheEst?" <span class='warn' title='sem preco de cache publicado; custo usa a entrada como pior caso'>cache~</span>":"")+flexBadge,
       r.provider,fmt(r.cu,0),fmt(r.iq,0),fmt(r.code,0),fmt(r.rel,0),
       fmtC(r.costNow),fmtP(r.per1mNow),fmt(r.inP,4),fmt(r.outP,4),fmt(r.ctx,0),
