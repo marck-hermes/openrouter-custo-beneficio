@@ -924,6 +924,8 @@ function applyFilters(){
     return 0;
   });
   document.getElementById("stShown").textContent=list.length;
+  showFlex = document.getElementById("fFlex").checked;
+  applyMix();
   const labels={name:"Modelo",provider:"Provedor",cu:"Agente",iq:"IQ",code:"Codigo",rel:"Confiab.",
     costNow:"US$/mes",per1mNow:"US$/1M prompt",inP:"Entrada",outP:"Saida",ctx:"Contexto",modality:"Entrada"};
   document.querySelectorAll("#mainTable th").forEach(th=>{

@@ -107,7 +107,7 @@
 <header>
   <h1>OpenRouter: custo x beneficio &mdash; Hermes Agent</h1>
   <p>Custo recalculado ao vivo com o <b>mix real de tokens do Hermes</b>: em 30 dias o Hermes processou 18.6M tokens de entrada sem cache, 105.9M de cache read e 0.66M de saida (85% cache, 0.52% saida, em 1279 chamadas).<br>
-  Notas do AI IQ ligadas ao modelo certo por nome. Dados de 25/11/2026 16:22.</p>
+  Notas do AI IQ ligadas ao modelo certo por nome. Dados de 25/11/2026 16:27.</p>
 </header>
 <main>
 
@@ -286,7 +286,7 @@
 <footer>
   <b>Fontes.</b> Notas e precos de tabela: API publica do AI IQ (<code>www.aiiq.org/api/v1/models</code>,
   metodologia 2026-09-30-arc-predictive-puzzles). Precos praticados, contexto e ferramentas:
-  <code>openrouter.ai/api/v1/models</code>. Ambas em 25/11/2026 16:22.<br>
+  <code>openrouter.ai/api/v1/models</code>. Ambas em 25/11/2026 16:27.<br>
   <b>Custo mensal.</b> em 30 dias o Hermes processou 18.6M tokens de entrada sem cache, 105.9M de cache read e 0.66M de saida (85% cache, 0.52% saida, em 1279 chamadas). O Hermes grava <code>input_tokens</code> ja liquido de cache
   (<code>agent/usage_pricing.py</code>: <code>input_tokens = prompt_total - cache_read - cache_write</code>),
   por isso sao tres baldes. O calculo no navegador usa os precos por token de cada linha; o volume total
@@ -549,6 +549,8 @@ function applyFilters(){
     return 0;
   });
   document.getElementById("stShown").textContent=list.length;
+  showFlex = document.getElementById("fFlex").checked;
+  applyMix();
   const labels={name:"Modelo",provider:"Provedor",cu:"Agente",iq:"IQ",code:"Codigo",rel:"Confiab.",
     costNow:"US$/mes",per1mNow:"US$/1M prompt",inP:"Entrada",outP:"Saida",ctx:"Contexto",modality:"Entrada"};
   document.querySelectorAll("#mainTable th").forEach(th=>{
