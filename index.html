@@ -107,7 +107,7 @@
 <header>
   <h1>OpenRouter: custo x beneficio &mdash; Hermes Agent</h1>
   <p>Custo recalculado ao vivo com o <b>mix real de tokens do Hermes</b>: em 30 dias o Hermes processou 18.6M tokens de entrada sem cache, 105.9M de cache read e 0.66M de saida (85% cache, 0.52% saida, em 1279 chamadas).<br>
-  Notas do AI IQ ligadas ao modelo certo por nome. Dados de 25/11/2026 15:45.</p>
+  Notas do AI IQ ligadas ao modelo certo por nome. Dados de 25/11/2026 15:58.</p>
 </header>
 <main>
 
@@ -266,6 +266,7 @@
       <div><label>US$/mes maximo</label><input id="fMaxCost" type="number" min="0" step="0.5" placeholder="ex.: 5" style="width:105px"></div>
       <div class="check"><input id="fFree" type="checkbox"><span>So gratuitos</span></div>
       <div class="check"><input id="fTools" type="checkbox" checked><span>Exigir function calling</span></div>
+      <div class="check"><input id="fFlex" type="checkbox"><span>Mostrar preços Flex</span></div>
     </div>
     <div style="overflow-x:auto">
     <table id="mainTable">
@@ -285,7 +286,7 @@
 <footer>
   <b>Fontes.</b> Notas e precos de tabela: API publica do AI IQ (<code>www.aiiq.org/api/v1/models</code>,
   metodologia 2026-09-30-arc-predictive-puzzles). Precos praticados, contexto e ferramentas:
-  <code>openrouter.ai/api/v1/models</code>. Ambas em 25/11/2026 15:45.<br>
+  <code>openrouter.ai/api/v1/models</code>. Ambas em 25/11/2026 15:58.<br>
   <b>Custo mensal.</b> em 30 dias o Hermes processou 18.6M tokens de entrada sem cache, 105.9M de cache read e 0.66M de saida (85% cache, 0.52% saida, em 1279 chamadas). O Hermes grava <code>input_tokens</code> ja liquido de cache
   (<code>agent/usage_pricing.py</code>: <code>input_tokens = prompt_total - cache_read - cache_write</code>),
   por isso sao tres baldes. O calculo no navegador usa os precos por token de cada linha; o volume total
@@ -331,6 +332,32 @@ const CUS = DATA.map(r=>r.cu).filter(v=>v!=null).sort((a,b)=>a-b);
 function pctOf(v){ if(v==null) return null; return 100 * CUS.filter(x => x < v).length / CUS.length; }
 
 let pCache = REAL.cache, pOut = REAL.out;
+let showFlex = false;
+
+function getPrices(r){
+  if (showFlex && r.flexIn != null){
+    return {in: r.flexIn, out: r.flexOut, cache: r.flexCache};
+  }
+  return {in: r.inP, out: r.outP, cache: r.cacheP};
+}
+
+function computeCost(r, pCache, pOut){
+  if (r.free) return 0;
+  const pr = getPrices(r);
+  if (pr.in == null || pr.cache == null || pr.out == null) return null;
+  const promptM = BASE_PROMPT_M;
+  const outM = pOut >= 100 ? 0 : promptM * (pOut / (100 - pOut));
+  const unc = promptM * (1 - pCache / 100);
+  const cac = promptM * (pCache / 100);
+  return unc * pr.in + cac * pr.cache + outM * pr.out;
+}
+function computePer1m(r, pCache){
+  if (r.free) return 0;
+  const pr = getPrices(r);
+  if (pr.in == null || pr.cache == null) return null;
+  return 100 * (1 - pCache / 100) * pr.in + 100 * (pCache / 100) * pr.cache;
+}
+
 function applyMix(){
   DATA.forEach(r => {
     r.costNow = computeCost(r, pCache, pOut);
@@ -348,25 +375,6 @@ document.getElementById("stGraded").textContent = DATA.filter(r=>r.cu!=null).len
 document.getElementById("stFree").textContent = DATA.filter(r=>r.free).length;
 
 function showDetail(r){
-  const el = document.getElementById("detail");
-  const dims=[["Raciocinio Abstrato",r.abs],["Raciocinio Matematico",r.math],["Raciocinio Academico",r.acad],
-    ["Programacao",r.code],["Uso de Computador",r.cu],["Confiabilidade",r.rel],["Trabalho de Conhecimento",r.kw]];
-  el.innerHTML = "<b>"+r.name+"</b> "+(r.free?'<span class="tag">GRATUITO</span>':"")+
-    (r.rmand?' <span class="warn">reasoning obrigatorio</span>':"")+
-    "<br><span class='muted'>"+r.id+" &middot; AI IQ: "+(r.aiiq||"\u2014")+" &middot; "+(r.modality||"\u2014")+"</span>"+
-    "<br>Score agentico: <b>"+fmt(r.cu,0)+"</b> (percentil "+fmt(pctOf(r.cu),0)+") &nbsp;&middot;&nbsp; IQ composto: <b>"+fmt(r.iq,0)+"</b>"+
-    "<br>Custo mensal no mix atual: <b>"+fmtC(r.costNow)+"</b> &nbsp;&middot;&nbsp; US$/1M prompt: <b>US$ "+fmtP(r.per1mNow)+"</b>"+
-    "<br>Entrada US$ "+fmt(r.inP,4)+" &middot; Saida US$ "+fmt(r.outP,4)+" &middot; Cache read "
-    +(r.cacheEst?"\u2014 (nao publicado; calculo usa a entrada)":"US$ "+fmt(r.cacheP,4))+
-    " &nbsp;&middot;&nbsp; Contexto "+fmt(r.ctx,0)+" &middot; Saida max. "+fmt(r.maxout,0)+
-    "<br><span title='preferencia comunitaria (controle por estilo), nao benchmark'>LMArena Elo: <b>"+(r.elo==null?"\u2014":fmt(r.elo,1)+" <span class='muted'>#"+r.eloRank+"</span>")+
-    "</b> &middot; Agente "+(r.eloAgent==null?"\u2014":(r.eloAgent>0?"+":"")+r.eloAgent.toFixed(3)+" #"+r.eloAgentRank)+
-    " &middot; Coding "+(r.eloCoding==null?"\u2014":fmt(r.eloCoding,1)+" #"+r.eloCodingRank)+"</span>"+
-    "<br><span title='p50 medido via API /models/{id}/endpoints (autentica)'>Velocidade medida: <b>"+(r.tps==null?"\u2014":fmt(r.tps,1)+" tok/s")+"</b>"+(r.lat==null?"":" &middot; latencia "+fmt(r.lat,0)+" ms")+(r.sprov?" <span class='muted'>("+r.sprov+")</span>":"")+"</span>"+
-    "<div class='dims'>"+dims.map(d=>"<div><span>"+d[0]+"</span><b>"+fmt(d[1],0)+"</b></div>").join("")+"</div>";
-  const c=document.getElementById("detailCard"); c.style.display="block";
-  c.scrollIntoView({behavior:"smooth",block:"nearest"});
-}
 
 function modalityIcons(mod){
   if(!mod) return "<span class='muted'>\u2014</span>";
@@ -532,9 +540,10 @@ function applyFilters(){
   const colIdxs=new Set(sorts.map(s=>colMap[s.key]));
   document.querySelector("#mainTable tbody").innerHTML=list.map(r=>{
     const flexBadge = r.flexIn ? " <span class='tag flex' title='Flex tier: input US$ "+fmt(r.flexIn,2)+"/1M, output US$ "+fmt(r.flexOut,2)+"/1M, cache read US$ "+fmt(r.flexCache,3)+"/1M (via "+(r.flexProvider||"provider")+"). Use service_tier: flex ou :floor no model ID.'>⚡ Flex</span>" : "";
+    const pr = getPrices(r);
     const cells=[r.name+(r.free?" <span class='tag'>FREE</span>":"")+(r.rmand?" <span class='warn'>R</span>":"")+(r.cacheEst?" <span class='warn' title='sem preco de cache publicado; custo usa a entrada como pior caso'>cache~</span>":"")+flexBadge,
       r.provider,fmt(r.cu,0),fmt(r.iq,0),fmt(r.code,0),fmt(r.rel,0),
-      fmtC(r.costNow),fmtP(r.per1mNow),fmt(r.inP,4),fmt(r.outP,4),fmt(r.ctx,0),
+      fmtC(r.costNow),fmtP(r.per1mNow),fmt(pr.in,4),fmt(pr.out,4),fmt(r.ctx,0),
       modalityIcons(r.modality)];
     const tds=cells.map((c,i)=>{
       const cls=[numCols.includes(i)?"num":"",colIdxs.has(i)?"sorted":""].filter(Boolean).join(" ");
@@ -543,7 +552,7 @@ function applyFilters(){
     return "<tr class='rowlink' data-id='"+r.id+"'>"+tds+"</tr>";
   }).join("");
 }
-["fSearch","fProvider","fMinCu","fMaxCost","fFree","fTools"].forEach(id=>
+["fSearch","fProvider","fMinCu","fMaxCost","fFree","fTools","fFlex"].forEach(id=>
   document.getElementById(id).addEventListener("input",applyFilters));
 
 let multiArmed=false;
