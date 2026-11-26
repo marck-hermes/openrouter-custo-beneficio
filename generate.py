@@ -274,15 +274,17 @@ excluded.sort(key=lambda r: r["inP"])
 with open(os.path.join(DASH_DATA, "excluded.json"), "w", encoding="utf-8") as fh:
     json.dump(excluded, fh, ensure_ascii=False)
 _n_excl_unmapped = len(excluded)   # complemento nao mapeado de rows_all
-_neg = sum(1 for m in allor_list
+_n_neg = sum(1 for m in allor_list
            if float((m.get("pricing") or {}).get("prompt", 0) or 0) < 0)
 _n_batch = sum(1 for m in allor_list if ":batch" in m["id"])
 _n_alias = sum(1 for m in allor_list if m["id"].startswith("~"))
 _n_freev = sum(1 for m in allor_list if m["id"].endswith(":free"))
 _n_total = len(allor_list)
 # 467 - batch - alias - routers = modelos unicos (pagos + variantes :free)
-_n_unique = _n_total - _n_batch - _n_alias - _neg
-_n_paid_indep = _n_unique - _n_freev
+_n_unique = _n_total - _n_batch - _n_alias - _n_neg
+# _n_paid_indep via formula pode falhar se :free tambem for :batch/~alias (dupla subtracao)
+# usar contagem direta que ja trata tudo corretamente
+_n_paid_indep = sum(1 for m in allor_list if _is_independent_paid(m))
 _n_rows = len(rows)
 _n_rows_free = sum(1 for r in rows if r["free"])
 _n_rows_paid = _n_rows - _n_rows_free
@@ -1027,7 +1029,7 @@ out = (TMPL
        .replace("__NROWS__", str(_n_rows))
        .replace("__NBATCH__", str(_n_batch))
        .replace("__NALIAS__", str(_n_alias))
-       .replace("__NROUTERS__", str(_neg))
+       .replace("__NROUTERS__", str(_n_neg))
        .replace("__NUNIQ__", str(_n_unique))
        .replace("__NFREE__", str(_n_freev))
        .replace("__NPAID__", str(_n_paid_indep))

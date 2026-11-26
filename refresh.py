@@ -198,7 +198,7 @@ def step_speed():
 
 def step_flex_pricing():
     """Busca preços Flex para modelos da tabela (IQ >= 100)."""
-    rows_path = DATA / "data.json"
+    rows_path = REPO / "data.json"  # generate.py escreve aqui via DASH_ROWS
     if not rows_path.exists():
         log("Flex pricing: data.json não existe, pulando")
         return
@@ -283,8 +283,8 @@ def main():
     step_probe(skip_probe=skip_probe)
     step_arena()
     step_speed()
-    step_flex_pricing()
     step_generate()
+    step_flex_pricing()   # roda DEPOIS do generate (data.json já existe)
     if skip_deploy:
         log("8. deploy ignorado (--skip-deploy)")
         return 0

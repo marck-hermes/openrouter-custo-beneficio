@@ -1,2925 +1,2991 @@
 {
-  "fetched_at": "2026-11-19T00:00:49.601932",
+  "fetched_at": "2026-11-26T19:06:21.552677",
   "models": {
     "gemini4carbon": {
-      "rating": 1526.2,
+      "rating": 1526.5,
       "rank": 1,
-      "votes": 4273,
+      "votes": 4255,
       "name": "Gemini 4 Carbon (High)",
-      "coding_rating": 1568.2,
+      "coding_rating": 1567.4,
       "coding_rank": 1,
-      "agent_score": 0.164,
-      "agent_rank": 3,
-      "sessions": 64218
+      "agent_score": 0.161,
+      "agent_rank": 4,
+      "sessions": 63893
     },
     "gemini4argon": {
-      "rating": 1521.7,
+      "rating": 1519.8,
       "rank": 2,
-      "votes": 20779,
+      "votes": 28856,
       "name": "Gemini 4 Argon (High)",
-      "coding_rating": 1553.4,
+      "coding_rating": 1553.6,
+      "coding_rank": 3,
+      "agent_score": 0.103,
+      "agent_rank": 14,
+      "sessions": 56168
+    },
+    "gemini4neon": {
+      "rating": 1512.2,
+      "rank": 3,
+      "votes": 5611,
+      "name": "Gemini 4 Neon (High)",
+      "coding_rating": 1558.3,
       "coding_rank": 2,
-      "agent_score": 0.1,
-      "agent_rank": 11,
-      "sessions": 54375
+      "agent_score": 0.183,
+      "agent_rank": 3,
+      "sessions": 5666
     },
     "musewonder": {
-      "rating": 1510.9,
-      "rank": 3,
-      "votes": 12696,
+      "rating": 1511.9,
+      "rank": 4,
+      "votes": 17102,
       "name": "Muse Wonder (Max)",
-      "coding_rating": 1542.3,
-      "coding_rank": 10,
-      "agent_score": 0.009,
-      "agent_rank": 31,
-      "sessions": 14677
+      "coding_rating": 1549.2,
+      "coding_rank": 6,
+      "agent_score": 0.004,
+      "agent_rank": 33,
+      "sessions": 15801
     },
     "claudeopus5.5": {
-      "rating": 1506.8,
-      "rank": 4,
-      "votes": 15793,
+      "rating": 1507.0,
+      "rank": 5,
+      "votes": 18959,
       "name": "Claude Opus 5.5 (High)",
-      "coding_rating": 1547.5,
-      "coding_rank": 6,
-      "agent_score": 0.134,
+      "coding_rating": 1547.1,
+      "coding_rank": 9,
+      "agent_score": 0.139,
       "agent_rank": 8,
-      "sessions": 24277
+      "sessions": 24506
     },
     "claudefable5": {
-      "rating": 1504.0,
-      "rank": 5,
-      "votes": 45469,
+      "rating": 1504.1,
+      "rank": 6,
+      "votes": 45277,
       "name": "Claude Fable 5 (High)",
-      "coding_rating": 1551.5,
-      "coding_rank": 3,
-      "agent_score": 0.062,
-      "agent_rank": 17,
-      "sessions": 51090
+      "coding_rating": 1551.3,
+      "coding_rank": 4,
+      "agent_score": 0.061,
+      "agent_rank": 22,
+      "sessions": 51261
     },
     "claudeopus4.6": {
-      "rating": 1496.4,
-      "rank": 11,
-      "votes": 89177,
+      "rating": 1496.5,
+      "rank": 13,
+      "votes": 88895,
       "name": "Claude Opus 4.6",
-      "coding_rating": 1546.7,
-      "coding_rank": 8
+      "coding_rating": 1546.8,
+      "coding_rank": 10
+    },
+    "claudefable5.2": {
+      "rating": 1502.2,
+      "rank": 8,
+      "votes": 5842,
+      "name": "Claude Fable 5.2 (Max)",
+      "coding_rating": 1525.4,
+      "coding_rank": 31,
+      "agent_score": 0.274,
+      "agent_rank": 1,
+      "sessions": 12418
     },
     "claudefable5.1": {
-      "rating": 1502.3,
-      "rank": 7,
-      "votes": 20511,
+      "rating": 1502.1,
+      "rank": 9,
+      "votes": 22920,
       "name": "Claude Fable 5.1 (Max)",
-      "coding_rating": 1533.5,
-      "coding_rank": 17,
-      "agent_score": 0.141,
-      "agent_rank": 6,
-      "sessions": 17488
+      "coding_rating": 1534.1,
+      "coding_rank": 19,
+      "agent_score": 0.131,
+      "agent_rank": 10,
+      "sessions": 17579
     },
     "claudeopus4.7": {
-      "rating": 1493.9,
-      "rank": 12,
-      "votes": 65309,
+      "rating": 1494.0,
+      "rank": 14,
+      "votes": 65114,
       "name": "Claude Opus 4.7",
-      "coding_rating": 1546.5,
-      "coding_rank": 9
+      "coding_rating": 1546.3,
+      "coding_rank": 11
     },
     "gemini3.8flash": {
-      "rating": 1496.7,
-      "rank": 9,
-      "votes": 62675,
+      "rating": 1498.0,
+      "rank": 11,
+      "votes": 76031,
       "name": "Gemini 3.8 Flash (High)",
-      "coding_rating": 1530.7,
-      "coding_rank": 21,
-      "agent_score": 0.014,
-      "agent_rank": 27,
-      "sessions": 52602
+      "coding_rating": 1529.9,
+      "coding_rank": 25,
+      "agent_score": 0.015,
+      "agent_rank": 26,
+      "sessions": 52613
     },
     "musespark1.3": {
-      "rating": 1496.5,
-      "rank": 10,
-      "votes": 26806,
+      "rating": 1497.8,
+      "rank": 12,
+      "votes": 31093,
       "name": "Muse Spark 1.3 (Max)",
-      "coding_rating": 1533.6,
-      "coding_rank": 15,
-      "agent_score": 0.012,
-      "agent_rank": 28,
-      "sessions": 80777
+      "coding_rating": 1534.7,
+      "coding_rank": 18,
+      "agent_score": 0.013,
+      "agent_rank": 29,
+      "sessions": 81191
     },
     "musespark1.2": {
-      "rating": 1492.9,
-      "rank": 13,
-      "votes": 15563,
+      "rating": 1492.8,
+      "rank": 15,
+      "votes": 18973,
       "name": "Muse Spark 1.2 (xHigh)",
-      "coding_rating": 1542.2,
-      "coding_rank": 11,
-      "agent_score": -0.091,
-      "agent_rank": 57,
-      "sessions": 54668
+      "coding_rating": 1540.8,
+      "coding_rank": 13,
+      "agent_score": -0.088,
+      "agent_rank": 58,
+      "sessions": 54727
     },
     "musespark1.1": {
-      "rating": 1490.9,
-      "rank": 14,
-      "votes": 45519,
+      "rating": 1491.2,
+      "rank": 16,
+      "votes": 45294,
       "name": "Muse Spark 1.1",
-      "coding_rating": 1533.3,
-      "coding_rank": 18,
-      "agent_score": -0.09,
-      "agent_rank": 55,
-      "sessions": 148466
+      "coding_rating": 1533.5,
+      "coding_rank": 20,
+      "agent_score": -0.091,
+      "agent_rank": 59,
+      "sessions": 147656
     },
     "gemini4hydrogen": {
-      "rating": 1490.4,
-      "rank": 15,
-      "votes": 4741,
+      "rating": 1490.1,
+      "rank": 17,
+      "votes": 4737,
       "name": "Gemini 4 Hydrogen (High)",
-      "coding_rating": 1517.8,
-      "coding_rank": 43,
-      "agent_score": 0.149,
-      "agent_rank": 5,
-      "sessions": 8639
+      "coding_rating": 1514.1,
+      "coding_rank": 53,
+      "agent_score": 0.136,
+      "agent_rank": 9,
+      "sessions": 9102
+    },
+    "gemini3.7flash": {
+      "rating": 1489.7,
+      "rank": 18,
+      "votes": 33059,
+      "name": "Gemini 3.7 Flash (High)",
+      "coding_rating": 1520.7,
+      "coding_rank": 37,
+      "agent_score": -0.031,
+      "agent_rank": 46,
+      "sessions": 63064
     },
     "claudeopus5": {
       "rating": 1489.7,
-      "rank": 16,
-      "votes": 73632,
+      "rank": 19,
+      "votes": 73350,
       "name": "Claude Opus 5 (High)",
-      "coding_rating": 1532.0,
-      "coding_rank": 20,
+      "coding_rating": 1532.1,
+      "coding_rank": 23,
       "agent_score": 0.062,
-      "agent_rank": 18,
-      "sessions": 31933
-    },
-    "gemini3.7flash": {
-      "rating": 1489.3,
-      "rank": 17,
-      "votes": 33251,
-      "name": "Gemini 3.7 Flash (High)",
-      "coding_rating": 1520.3,
-      "coding_rank": 38,
-      "agent_score": -0.031,
-      "agent_rank": 43,
-      "sessions": 63159
+      "agent_rank": 20,
+      "sessions": 32098
     },
     "musespark": {
-      "rating": 1489.2,
-      "rank": 18,
-      "votes": 13985,
+      "rating": 1489.4,
+      "rank": 20,
+      "votes": 13959,
       "name": "Muse Spark",
-      "coding_rating": 1529.2,
-      "coding_rank": 24
+      "coding_rating": 1528.9,
+      "coding_rank": 26
     },
     "kimik3": {
-      "rating": 1487.4,
-      "rank": 20,
-      "votes": 41402,
+      "rating": 1487.9,
+      "rank": 22,
+      "votes": 45111,
       "name": "Kimi K3 (Max)",
-      "coding_rating": 1538.1,
-      "coding_rank": 14,
-      "agent_score": -0.002,
-      "agent_rank": 34,
-      "sessions": 160399
+      "coding_rating": 1537.3,
+      "coding_rank": 16,
+      "agent_score": -0.001,
+      "agent_rank": 36,
+      "sessions": 160609
     },
     "gemini3.1propreview": {
-      "rating": 1486.8,
-      "rank": 21,
-      "votes": 132181,
+      "rating": 1486.7,
+      "rank": 23,
+      "votes": 131773,
       "name": "Gemini 3.1 Pro Preview",
       "coding_rating": 1520.4,
-      "coding_rank": 36,
+      "coding_rank": 39,
       "agent_score": -0.056,
-      "agent_rank": 49,
-      "sessions": 87365
+      "agent_rank": 52,
+      "sessions": 87227
     },
     "gemini3pro": {
-      "rating": 1485.6,
-      "rank": 22,
-      "votes": 41803,
+      "rating": 1485.8,
+      "rank": 24,
+      "votes": 41794,
       "name": "Gemini 3 Pro",
-      "coding_rating": 1517.0,
-      "coding_rank": 46
+      "coding_rating": 1517.2,
+      "coding_rank": 47
     },
     "gpt5.6sol": {
-      "rating": 1485.1,
-      "rank": 23,
-      "votes": 43925,
+      "rating": 1485.2,
+      "rank": 25,
+      "votes": 43730,
       "name": "GPT-5.6 Sol (xHigh)",
-      "coding_rating": 1533.3,
-      "coding_rank": 19,
-      "agent_score": 0.037,
-      "agent_rank": 22,
-      "sessions": 45352
-    },
-    "kimik3.1pro": {
-      "rating": 1484.7,
-      "rank": 24,
-      "votes": 3995,
-      "name": "Kimi K3.1 Pro (Max)",
-      "coding_rating": 1529.6,
-      "coding_rank": 23,
-      "agent_score": 0.039,
-      "agent_rank": 21,
-      "sessions": 22291
+      "coding_rating": 1533.0,
+      "coding_rank": 22,
+      "agent_score": 0.035,
+      "agent_rank": 25,
+      "sessions": 45541
     },
     "qwen3.8": {
-      "rating": 1484.1,
-      "rank": 25,
-      "votes": 36936,
+      "rating": 1483.5,
+      "rank": 26,
+      "votes": 41147,
       "name": "Qwen3.8-Max",
-      "coding_rating": 1523.2,
-      "coding_rank": 31,
-      "agent_score": -0.009,
-      "agent_rank": 39,
-      "sessions": 81275
+      "coding_rating": 1523.8,
+      "coding_rank": 34,
+      "agent_score": -0.01,
+      "agent_rank": 41,
+      "sessions": 82490
+    },
+    "kimik3.1pro": {
+      "rating": 1483.1,
+      "rank": 27,
+      "votes": 7378,
+      "name": "Kimi K3.1 Pro (Max)",
+      "coding_rating": 1534.9,
+      "coding_rank": 17,
+      "agent_score": 0.039,
+      "agent_rank": 24,
+      "sessions": 22066
     },
     "gemini3.6flash": {
-      "rating": 1482.6,
-      "rank": 26,
-      "votes": 35362,
-      "name": "Gemini 3.6 Flash (High)",
-      "coding_rating": 1518.3,
-      "coding_rank": 41
-    },
-    "claudeopus4.8": {
-      "rating": 1474.4,
-      "rank": 41,
-      "votes": 64116,
-      "name": "Claude Opus 4.8",
-      "coding_rating": 1528.9,
-      "coding_rank": 25
-    },
-    "glm5.3": {
-      "rating": 1481.6,
+      "rating": 1482.5,
       "rank": 28,
-      "votes": 31604,
-      "name": "GLM-5.3 (Max)",
-      "coding_rating": 1522.0,
-      "coding_rank": 33,
-      "agent_score": 0.0,
-      "agent_rank": 33,
-      "sessions": 95300
-    },
-    "gpt5.5": {
-      "rating": 1476.1,
-      "rank": 33,
-      "votes": 69859,
-      "name": "GPT-5.5",
-      "coding_rating": 1510.1,
-      "coding_rank": 61
+      "votes": 35239,
+      "name": "Gemini 3.6 Flash (High)",
+      "coding_rating": 1518.0,
+      "coding_rank": 45
     },
     "gpt6.1sol": {
-      "rating": 1480.8,
-      "rank": 30,
-      "votes": 13498,
+      "rating": 1481.9,
+      "rank": 29,
+      "votes": 16525,
       "name": "GPT-6.1 Sol (Max)",
-      "coding_rating": 1539.6,
+      "coding_rating": 1544.4,
       "coding_rank": 12,
-      "agent_score": 0.118,
-      "agent_rank": 9,
-      "sessions": 30951
+      "agent_score": 0.11,
+      "agent_rank": 12,
+      "sessions": 31849
+    },
+    "claudeopus4.8": {
+      "rating": 1474.0,
+      "rank": 44,
+      "votes": 63891,
+      "name": "Claude Opus 4.8",
+      "coding_rating": 1528.4,
+      "coding_rank": 28
     },
     "mimov2.6pro": {
-      "rating": 1479.9,
+      "rating": 1481.3,
       "rank": 31,
-      "votes": 4064,
+      "votes": 4047,
       "name": "MiMo-V2.6-Pro",
-      "coding_rating": 1538.2,
-      "coding_rank": 13,
-      "agent_score": 0.015,
-      "agent_rank": 26,
-      "sessions": 51200
+      "coding_rating": 1539.4,
+      "coding_rank": 15,
+      "agent_score": 0.011,
+      "agent_rank": 30,
+      "sessions": 54071
+    },
+    "gpt5.5": {
+      "rating": 1476.2,
+      "rank": 35,
+      "votes": 69649,
+      "name": "GPT-5.5",
+      "coding_rating": 1510.1,
+      "coding_rank": 67
+    },
+    "glm5.3": {
+      "rating": 1481.1,
+      "rank": 33,
+      "votes": 35486,
+      "name": "GLM-5.3 (Max)",
+      "coding_rating": 1522.9,
+      "coding_rank": 36,
+      "agent_score": 0.002,
+      "agent_rank": 35,
+      "sessions": 94985
     },
     "gemini3.5flash": {
-      "rating": 1478.4,
-      "rank": 32,
-      "votes": 47588,
+      "rating": 1478.2,
+      "rank": 34,
+      "votes": 47406,
       "name": "Gemini 3.5 Flash (High)",
-      "coding_rating": 1508.0,
-      "coding_rank": 65
-    },
-    "gpt5.2chat": {
-      "rating": 1475.6,
-      "rank": 35,
-      "votes": 35669,
-      "name": "GPT-5.2 Chat (20260210)",
-      "coding_rating": 1514.7,
-      "coding_rank": 49
+      "coding_rating": 1508.2,
+      "coding_rank": 70
     },
     "glm5.3flash": {
-      "rating": 1475.3,
-      "rank": 36,
-      "votes": 51019,
+      "rating": 1475.8,
+      "rank": 37,
+      "votes": 57426,
       "name": "GLM-5.3-Flash",
-      "coding_rating": 1526.3,
-      "coding_rank": 28,
-      "agent_score": -0.037,
-      "agent_rank": 45,
-      "sessions": 95623
-    },
-    "gpt5.4": {
-      "rating": 1465.1,
-      "rank": 57,
-      "votes": 67055,
-      "name": "GPT-5.4",
-      "coding_rating": 1511.2,
-      "coding_rank": 59
-    },
-    "deepseekv4.1flash20260910": {
-      "rating": 1475.1,
-      "rank": 38,
-      "votes": 13547,
-      "name": "DeepSeek-V4.1-Flash-20260910 (Max)",
-      "coding_rating": 1525.4,
-      "coding_rank": 29
-    },
-    "glm5.2": {
-      "rating": 1475.0,
-      "rank": 39,
-      "votes": 54143,
-      "name": "GLM-5.2 (Max)",
-      "coding_rating": 1515.4,
-      "coding_rank": 48,
-      "agent_score": -0.005,
-      "agent_rank": 37,
-      "sessions": 99070
-    },
-    "grok4.20beta1": {
-      "rating": 1474.6,
-      "rank": 40,
-      "votes": 27653,
-      "name": "Grok 4.20 Beta 1",
-      "coding_rating": 1507.8,
-      "coding_rank": 66
+      "coding_rating": 1527.0,
+      "coding_rank": 30,
+      "agent_score": -0.038,
+      "agent_rank": 47,
+      "sessions": 96058
     },
     "gpt6astra": {
-      "rating": 1473.9,
-      "rank": 42,
-      "votes": 18745,
+      "rating": 1475.4,
+      "rank": 38,
+      "votes": 21568,
       "name": "GPT-6 Astra (Max)",
-      "coding_rating": 1547.8,
-      "coding_rank": 5,
-      "agent_score": 0.139,
-      "agent_rank": 7,
-      "sessions": 15699
+      "coding_rating": 1548.0,
+      "coding_rank": 7,
+      "agent_score": 0.146,
+      "agent_rank": 6,
+      "sessions": 15915
     },
-    "qwen3.7preview": {
-      "rating": 1473.8,
+    "gpt5.2chat": {
+      "rating": 1475.3,
+      "rank": 39,
+      "votes": 35578,
+      "name": "GPT-5.2 Chat (20260210)",
+      "coding_rating": 1514.6,
+      "coding_rank": 52
+    },
+    "glm5.2": {
+      "rating": 1475.2,
+      "rank": 40,
+      "votes": 53923,
+      "name": "GLM-5.2 (Max)",
+      "coding_rating": 1515.5,
+      "coding_rank": 51,
+      "agent_score": -0.004,
+      "agent_rank": 37,
+      "sessions": 99487
+    },
+    "gpt5.4": {
+      "rating": 1464.9,
+      "rank": 62,
+      "votes": 66878,
+      "name": "GPT-5.4",
+      "coding_rating": 1511.0,
+      "coding_rank": 63
+    },
+    "grok4.20beta1": {
+      "rating": 1474.7,
+      "rank": 42,
+      "votes": 27570,
+      "name": "Grok 4.20 Beta 1",
+      "coding_rating": 1507.7,
+      "coding_rank": 71
+    },
+    "deepseekv4.1flash20260910": {
+      "rating": 1474.4,
       "rank": 43,
-      "votes": 3896,
-      "name": "Qwen3.7-Max-Preview",
-      "coding_rating": 1524.9,
-      "coding_rank": 30
-    },
-    "claudeopus4.5": {
-      "rating": 1469.7,
-      "rank": 51,
-      "votes": 72235,
-      "name": "Claude Opus 4.5 (20251101)",
-      "coding_rating": 1522.9,
+      "votes": 13471,
+      "name": "DeepSeek-V4.1-Flash-20260910 (Max)",
+      "coding_rating": 1525.0,
       "coding_rank": 32
     },
-    "gpt5.5instant": {
-      "rating": 1473.2,
+    "gpt6.1terra": {
+      "rating": 1473.9,
       "rank": 45,
-      "votes": 26859,
+      "votes": 9100,
+      "name": "GPT-6.1 Terra (Max)",
+      "coding_rating": 1540.6,
+      "coding_rank": 14,
+      "agent_score": 0.045,
+      "agent_rank": 23,
+      "sessions": 61983
+    },
+    "qwen3.7preview": {
+      "rating": 1473.7,
+      "rank": 46,
+      "votes": 3888,
+      "name": "Qwen3.7-Max-Preview",
+      "coding_rating": 1524.3,
+      "coding_rank": 33
+    },
+    "claudeopus4.5": {
+      "rating": 1469.5,
+      "rank": 54,
+      "votes": 72158,
+      "name": "Claude Opus 4.5 (20251101)",
+      "coding_rating": 1522.9,
+      "coding_rank": 35
+    },
+    "gpt5.5instant": {
+      "rating": 1473.4,
+      "rank": 48,
+      "votes": 26803,
       "name": "GPT-5.5 Instant",
       "coding_rating": 1513.4,
-      "coding_rank": 52
+      "coding_rank": 57
+    },
+    "claudesonnet5.5": {
+      "rating": 1473.0,
+      "rank": 49,
+      "votes": 17616,
+      "name": "Claude Sonnet 5.5 (xHigh)",
+      "coding_rating": 1516.0,
+      "coding_rank": 50,
+      "agent_score": 0.079,
+      "agent_rank": 17,
+      "sessions": 11378
     },
     "gemini3flash": {
       "rating": 1458.2,
-      "rank": 65,
-      "votes": 90063,
+      "rank": 70,
+      "votes": 89823,
       "name": "Gemini 3 Flash (Minimal)",
       "coding_rating": 1489.4,
-      "coding_rank": 98
-    },
-    "claudesonnet5.5": {
-      "rating": 1472.9,
-      "rank": 47,
-      "votes": 14355,
-      "name": "Claude Sonnet 5.5 (xHigh)",
-      "coding_rating": 1517.2,
-      "coding_rank": 45,
-      "agent_score": 0.072,
-      "agent_rank": 15,
-      "sessions": 11174
-    },
-    "claudesonnet4.6": {
-      "rating": 1472.1,
-      "rank": 48,
-      "votes": 69975,
-      "name": "Claude Sonnet 4.6",
-      "coding_rating": 1528.3,
-      "coding_rank": 26
+      "coding_rank": 103
     },
     "grok4.20beta": {
-      "rating": 1471.9,
-      "rank": 49,
-      "votes": 65690,
+      "rating": 1472.1,
+      "rank": 51,
+      "votes": 65514,
       "name": "Grok 4.20 Beta (Reasoning, 0309)",
-      "coding_rating": 1510.9,
-      "coding_rank": 60
+      "coding_rating": 1510.7,
+      "coding_rank": 65
+    },
+    "claudesonnet4.6": {
+      "rating": 1471.9,
+      "rank": 52,
+      "votes": 69770,
+      "name": "Claude Sonnet 4.6",
+      "coding_rating": 1528.6,
+      "coding_rank": 27
     },
     "grok4.20multiagentbeta": {
       "rating": 1471.1,
-      "rank": 50,
-      "votes": 64196,
+      "rank": 53,
+      "votes": 64036,
       "name": "Grok 4.20 Multi-Agent Beta (0309)",
-      "coding_rating": 1508.5,
-      "coding_rank": 63
+      "coding_rating": 1508.7,
+      "coding_rank": 68
     },
     "gpt5.6terra": {
-      "rating": 1467.9,
-      "rank": 52,
-      "votes": 48778,
+      "rating": 1468.1,
+      "rank": 55,
+      "votes": 48549,
       "name": "GPT-5.6 Terra (xHigh)",
-      "coding_rating": 1517.4,
-      "coding_rank": 44,
-      "agent_score": -0.027,
-      "agent_rank": 41,
-      "sessions": 44389
+      "coding_rating": 1517.7,
+      "coding_rank": 46,
+      "agent_score": -0.026,
+      "agent_rank": 44,
+      "sessions": 44529
     },
     "ernie5.1": {
-      "rating": 1467.0,
-      "rank": 53,
-      "votes": 39018,
+      "rating": 1467.3,
+      "rank": 56,
+      "votes": 38911,
       "name": "ERNIE 5.1",
-      "coding_rating": 1511.9,
-      "coding_rank": 56
+      "coding_rating": 1512.0,
+      "coding_rank": 61
+    },
+    "gpt6.2astra": {
+      "rating": 1466.7,
+      "rank": 57,
+      "votes": 5268,
+      "name": "GPT-6.2 Astra (Max)",
+      "coding_rating": 1516.3,
+      "coding_rank": 48,
+      "agent_score": 0.139,
+      "agent_rank": 7,
+      "sessions": 8205
     },
     "mimov2.5pro": {
-      "rating": 1466.4,
-      "rank": 54,
-      "votes": 76747,
+      "rating": 1466.3,
+      "rank": 58,
+      "votes": 76445,
       "name": "MiMo-V2.5-Pro",
       "coding_rating": 1520.3,
-      "coding_rank": 37
+      "coding_rank": 40
     },
     "grok4.5": {
-      "rating": 1465.8,
-      "rank": 55,
-      "votes": 39122,
+      "rating": 1465.6,
+      "rank": 59,
+      "votes": 38965,
       "name": "Grok 4.5",
-      "coding_rating": 1514.2,
-      "coding_rank": 50
+      "coding_rating": 1514.0,
+      "coding_rank": 55
     },
     "grok4.1": {
       "rating": 1459.3,
-      "rank": 64,
-      "votes": 68162,
+      "rank": 69,
+      "votes": 68087,
       "name": "Grok 4.1",
-      "coding_rating": 1492.4,
-      "coding_rank": 94
+      "coding_rating": 1492.5,
+      "coding_rank": 97
     },
     "qwen3.5preview": {
-      "rating": 1465.0,
-      "rank": 58,
-      "votes": 22401,
+      "rating": 1465.2,
+      "rank": 61,
+      "votes": 22356,
       "name": "Qwen3.5-Max-Preview",
-      "coding_rating": 1513.0,
-      "coding_rank": 53
+      "coding_rating": 1513.1,
+      "coding_rank": 58
     },
     "glm5.1": {
-      "rating": 1465.0,
-      "rank": 59,
-      "votes": 67009,
+      "rating": 1464.8,
+      "rank": 63,
+      "votes": 66739,
       "name": "GLM-5.1",
-      "coding_rating": 1512.3,
-      "coding_rank": 54
+      "coding_rating": 1512.1,
+      "coding_rank": 60
+    },
+    "gpt6.2sol": {
+      "rating": 1463.7,
+      "rank": 64,
+      "votes": 5526,
+      "name": "GPT-6.2 Sol (Max)",
+      "coding_rating": 1513.9,
+      "coding_rank": 56,
+      "agent_score": 0.113,
+      "agent_rank": 11,
+      "sessions": 8903
     },
     "deepseekv4pro": {
-      "rating": 1457.9,
-      "rank": 66,
-      "votes": 56857,
+      "rating": 1458.0,
+      "rank": 71,
+      "votes": 56644,
       "name": "DeepSeek-V4-Pro",
-      "coding_rating": 1500.5,
-      "coding_rank": 81
-    },
-    "kimik2.6": {
-      "rating": 1460.9,
-      "rank": 61,
-      "votes": 39551,
-      "name": "Kimi K2.6",
-      "coding_rating": 1516.1,
-      "coding_rank": 47
-    },
-    "claudesonnet5": {
-      "rating": 1460.8,
-      "rank": 62,
-      "votes": 52963,
-      "name": "Claude Sonnet 5 (High)",
-      "coding_rating": 1519.8,
-      "coding_rank": 39,
-      "agent_score": 0.011,
-      "agent_rank": 29,
-      "sessions": 41762
-    },
-    "qwen3.6preview": {
-      "rating": 1459.7,
-      "rank": 63,
-      "votes": 5380,
-      "name": "Qwen3.6-Max-Preview",
-      "coding_rating": 1509.9,
-      "coding_rank": 62
-    },
-    "glm5": {
-      "rating": 1457.3,
-      "rank": 67,
-      "votes": 28979,
-      "name": "GLM-5",
-      "coding_rating": 1498.3,
+      "coding_rating": 1500.6,
       "coding_rank": 86
     },
-    "gpt6sol": {
-      "rating": 1457.2,
+    "kimik2.6": {
+      "rating": 1461.0,
+      "rank": 66,
+      "votes": 39419,
+      "name": "Kimi K2.6",
+      "coding_rating": 1516.1,
+      "coding_rank": 49
+    },
+    "claudesonnet5": {
+      "rating": 1460.7,
+      "rank": 67,
+      "votes": 52744,
+      "name": "Claude Sonnet 5 (High)",
+      "coding_rating": 1519.3,
+      "coding_rank": 41,
+      "agent_score": 0.006,
+      "agent_rank": 32,
+      "sessions": 42002
+    },
+    "qwen3.6preview": {
+      "rating": 1459.8,
       "rank": 68,
-      "votes": 20430,
+      "votes": 5370,
+      "name": "Qwen3.6-Max-Preview",
+      "coding_rating": 1510.2,
+      "coding_rank": 66
+    },
+    "gpt6sol": {
+      "rating": 1457.9,
+      "rank": 72,
+      "votes": 23792,
       "name": "GPT-6 Sol (Max)",
-      "coding_rating": 1520.8,
-      "coding_rank": 34,
-      "agent_score": 0.063,
-      "agent_rank": 16,
-      "sessions": 13147
+      "coding_rating": 1518.7,
+      "coding_rank": 42,
+      "agent_score": 0.065,
+      "agent_rank": 19,
+      "sessions": 13628
+    },
+    "glm5": {
+      "rating": 1457.2,
+      "rank": 73,
+      "votes": 28916,
+      "name": "GLM-5",
+      "coding_rating": 1498.5,
+      "coding_rank": 91
     },
     "grok4.6": {
-      "rating": 1456.7,
-      "rank": 69,
-      "votes": 34582,
+      "rating": 1456.9,
+      "rank": 74,
+      "votes": 34413,
       "name": "Grok 4.6 (High)",
-      "coding_rating": 1508.4,
-      "coding_rank": 64,
-      "agent_score": -0.009,
+      "coding_rating": 1508.5,
+      "coding_rank": 69,
+      "agent_score": -0.005,
       "agent_rank": 40,
-      "sessions": 30240
+      "sessions": 30295
     },
     "dolaseed2.0pro": {
-      "rating": 1456.5,
-      "rank": 70,
-      "votes": 78156,
+      "rating": 1456.7,
+      "rank": 75,
+      "votes": 77965,
       "name": "Dola Seed 2.0 Pro",
-      "coding_rating": 1513.9,
-      "coding_rank": 51
+      "coding_rating": 1514.0,
+      "coding_rank": 54
     },
     "claudesonnet4.5": {
-      "rating": 1456.1,
-      "rank": 71,
-      "votes": 83310,
+      "rating": 1456.0,
+      "rank": 76,
+      "votes": 83194,
       "name": "Claude Sonnet 4.5 (High, 32K, 20250929)",
-      "coding_rating": 1518.7,
-      "coding_rank": 40
+      "coding_rating": 1518.6,
+      "coding_rank": 43
+    },
+    "hy3": {
+      "rating": 1455.5,
+      "rank": 77,
+      "votes": 16292,
+      "name": "Hy3",
+      "coding_rating": 1504.5,
+      "coding_rank": 76,
+      "agent_score": -0.087,
+      "agent_rank": 57,
+      "sessions": 32957
+    },
+    "qwen3.7plus": {
+      "rating": 1455.4,
+      "rank": 78,
+      "votes": 41156,
+      "name": "Qwen3.7-Plus",
+      "coding_rating": 1500.2,
+      "coding_rank": 88,
+      "agent_score": -0.092,
+      "agent_rank": 60,
+      "sessions": 24830
     },
     "gpt5.1": {
       "rating": 1438.5,
-      "rank": 101,
-      "votes": 44183,
+      "rank": 106,
+      "votes": 44154,
       "name": "GPT-5.1",
       "coding_rating": 1475.4,
-      "coding_rank": 120
-    },
-    "qwen3.7plus": {
-      "rating": 1455.3,
-      "rank": 73,
-      "votes": 41289,
-      "name": "Qwen3.7-Plus",
-      "coding_rating": 1500.3,
-      "coding_rank": 83,
-      "agent_score": -0.09,
-      "agent_rank": 56,
-      "sessions": 24646
-    },
-    "deepseekv4propreview": {
-      "rating": 1454.9,
-      "rank": 75,
-      "votes": 54224,
-      "name": "DeepSeek-V4-Pro Preview (High)",
-      "coding_rating": 1487.9,
-      "coding_rank": 103
+      "coding_rank": 126
     },
     "gemini3.5flashlite": {
-      "rating": 1454.9,
-      "rank": 76,
-      "votes": 35094,
+      "rating": 1455.2,
+      "rank": 80,
+      "votes": 34934,
       "name": "Gemini 3.5 Flash-Lite",
-      "coding_rating": 1502.1,
-      "coding_rank": 78
+      "coding_rating": 1502.2,
+      "coding_rank": 84
     },
-    "hy3": {
-      "rating": 1454.0,
-      "rank": 77,
-      "votes": 15178,
-      "name": "Hy3",
-      "coding_rating": 1504.0,
-      "coding_rank": 73,
-      "agent_score": -0.087,
-      "agent_rank": 54,
-      "sessions": 32755
+    "deepseekv4propreview": {
+      "rating": 1455.0,
+      "rank": 82,
+      "votes": 54019,
+      "name": "DeepSeek-V4-Pro Preview (High)",
+      "coding_rating": 1487.9,
+      "coding_rank": 107
     },
     "gpt5.6luna": {
-      "rating": 1453.2,
-      "rank": 78,
-      "votes": 40598,
+      "rating": 1453.0,
+      "rank": 83,
+      "votes": 40411,
       "name": "GPT-5.6 Luna (xHigh)",
-      "coding_rating": 1502.5,
-      "coding_rank": 76
+      "coding_rating": 1502.9,
+      "coding_rank": 81
     },
     "gemma431b": {
-      "rating": 1451.8,
-      "rank": 79,
-      "votes": 6130,
+      "rating": 1452.2,
+      "rank": 84,
+      "votes": 6118,
       "name": "Gemma 4 31B",
-      "coding_rating": 1502.1,
-      "coding_rank": 77
+      "coding_rating": 1502.4,
+      "coding_rank": 83
     },
     "gpt5.3chat": {
       "rating": 1450.3,
-      "rank": 80,
-      "votes": 34026,
+      "rank": 85,
+      "votes": 33946,
       "name": "GPT-5.3 Chat",
       "coding_rating": 1496.6,
-      "coding_rank": 87
+      "coding_rank": 93
     },
     "claudeopus4.1": {
-      "rating": 1448.0,
-      "rank": 87,
-      "votes": 76899,
+      "rating": 1447.9,
+      "rank": 92,
+      "votes": 76868,
       "name": "Claude Opus 4.1 (20250805)",
-      "coding_rating": 1504.6,
-      "coding_rank": 72
+      "coding_rating": 1504.4,
+      "coding_rank": 77
     },
     "kimik2.5": {
-      "rating": 1449.5,
-      "rank": 82,
-      "votes": 73820,
+      "rating": 1449.6,
+      "rank": 87,
+      "votes": 73597,
       "name": "Kimi K2.5 (Thinking)",
-      "coding_rating": 1501.9,
-      "coding_rank": 79
-    },
-    "ernie5.0preview": {
-      "rating": 1448.8,
-      "rank": 83,
-      "votes": 9727,
-      "name": "ERNIE-5.0-Preview (1203)",
-      "coding_rating": 1471.1,
-      "coding_rank": 130
+      "coding_rating": 1502.1,
+      "coding_rank": 85
     },
     "step5preview": {
-      "rating": 1448.5,
-      "rank": 84,
-      "votes": 12345,
+      "rating": 1449.1,
+      "rank": 88,
+      "votes": 12270,
       "name": "Step 5 Preview",
-      "coding_rating": 1504.6,
-      "coding_rank": 70,
-      "agent_score": -0.046,
-      "agent_rank": 46,
-      "sessions": 17254
+      "coding_rating": 1504.2,
+      "coding_rank": 78,
+      "agent_score": -0.052,
+      "agent_rank": 50,
+      "sessions": 17259
+    },
+    "ernie5.0preview": {
+      "rating": 1448.9,
+      "rank": 89,
+      "votes": 9738,
+      "name": "ERNIE-5.0-Preview (1203)",
+      "coding_rating": 1471.9,
+      "coding_rank": 134
     },
     "mimov2.6flash": {
-      "rating": 1448.4,
-      "rank": 85,
-      "votes": 23252,
+      "rating": 1448.3,
+      "rank": 90,
+      "votes": 30312,
       "name": "MiMo-V2.6-Flash",
-      "coding_rating": 1511.4,
-      "coding_rank": 57,
-      "agent_score": -0.006,
-      "agent_rank": 38,
-      "sessions": 34655
+      "coding_rating": 1510.8,
+      "coding_rank": 64,
+      "agent_score": -0.019,
+      "agent_rank": 43,
+      "sessions": 38375
     },
     "mimov2pro": {
       "rating": 1448.0,
-      "rank": 86,
-      "votes": 25219,
+      "rank": 91,
+      "votes": 25142,
       "name": "MiMo-V2-Pro",
-      "coding_rating": 1503.0,
-      "coding_rank": 75
+      "coding_rating": 1503.1,
+      "coding_rank": 80
     },
     "gpt5.4mini": {
-      "rating": 1447.3,
-      "rank": 88,
-      "votes": 62752,
+      "rating": 1447.1,
+      "rank": 93,
+      "votes": 62577,
       "name": "GPT-5.4 mini (High)",
-      "coding_rating": 1494.9,
-      "coding_rank": 90
+      "coding_rating": 1494.6,
+      "coding_rank": 95
     },
     "ernie5.0": {
-      "rating": 1445.8,
-      "rank": 89,
-      "votes": 36162,
+      "rating": 1445.7,
+      "rank": 94,
+      "votes": 36106,
       "name": "ERNIE 5.0 (0110)",
-      "coding_rating": 1489.2,
-      "coding_rank": 100
+      "coding_rating": 1489.4,
+      "coding_rank": 104
     },
     "gemini2.5pro": {
-      "rating": 1445.5,
-      "rank": 90,
-      "votes": 124742,
+      "rating": 1445.4,
+      "rank": 95,
+      "votes": 124637,
       "name": "Gemini 2.5 Pro",
-      "coding_rating": 1464.2,
-      "coding_rank": 137
+      "coding_rating": 1464.6,
+      "coding_rank": 142
     },
     "gpt4.5preview": {
-      "rating": 1444.7,
-      "rank": 91,
+      "rating": 1444.6,
+      "rank": 96,
       "votes": 14547,
       "name": "GPT-4.5 Preview (2025-02-27)",
-      "coding_rating": 1457.9,
-      "coding_rank": 150
+      "coding_rating": 1457.8,
+      "coding_rank": 156
     },
     "grok4.7": {
-      "rating": 1443.3,
-      "rank": 92,
-      "votes": 22219,
+      "rating": 1443.8,
+      "rank": 97,
+      "votes": 26362,
       "name": "Grok 4.7 (xHigh)",
-      "coding_rating": 1492.5,
-      "coding_rank": 93,
-      "agent_score": 0.018,
-      "agent_rank": 24,
-      "sessions": 18982
+      "coding_rating": 1491.9,
+      "coding_rank": 98,
+      "agent_score": 0.013,
+      "agent_rank": 28,
+      "sessions": 19157
+    },
+    "inkling": {
+      "rating": 1443.4,
+      "rank": 98,
+      "votes": 55011,
+      "name": "Inkling",
+      "coding_rating": 1494.5,
+      "coding_rank": 96,
+      "agent_score": -0.185,
+      "agent_rank": 68,
+      "sessions": 43699
+    },
+    "gpt6luna": {
+      "rating": 1443.0,
+      "rank": 99,
+      "votes": 120692,
+      "name": "GPT-6 Luna (Max)",
+      "coding_rating": 1504.0,
+      "coding_rank": 79,
+      "agent_score": 0.003,
+      "agent_rank": 34,
+      "sessions": 241060
     },
     "qwen3.6plus": {
       "rating": 1442.8,
-      "rank": 93,
-      "votes": 47569,
+      "rank": 100,
+      "votes": 47420,
       "name": "Qwen3.6-Plus",
-      "coding_rating": 1496.3,
-      "coding_rank": 88
+      "coding_rating": 1496.5,
+      "coding_rank": 94
     },
     "chatgpt4olatest": {
-      "rating": 1442.7,
-      "rank": 94,
-      "votes": 81638,
+      "rating": 1442.6,
+      "rank": 101,
+      "votes": 81621,
       "name": "ChatGPT-4o Latest (20250326)",
       "coding_rating": 1466.7,
-      "coding_rank": 135
-    },
-    "inkling": {
-      "rating": 1442.5,
-      "rank": 95,
-      "votes": 50718,
-      "name": "Inkling",
-      "coding_rating": 1494.0,
-      "coding_rank": 91,
-      "agent_score": -0.183,
-      "agent_rank": 63,
-      "sessions": 43869
+      "coding_rank": 141
     },
     "grok4.3": {
-      "rating": 1441.7,
-      "rank": 96,
-      "votes": 70153,
-      "name": "Grok 4.3",
-      "coding_rating": 1487.3,
-      "coding_rank": 104
-    },
-    "qwen3.5": {
-      "rating": 1441.4,
-      "rank": 97,
-      "votes": 97583,
-      "name": "Qwen3.5-397B-A17B",
-      "coding_rating": 1490.2,
-      "coding_rank": 97
-    },
-    "glm4.7": {
-      "rating": 1441.4,
-      "rank": 98,
-      "votes": 12153,
-      "name": "GLM-4.7",
-      "coding_rating": 1484.1,
-      "coding_rank": 108
-    },
-    "gpt6luna": {
-      "rating": 1440.9,
-      "rank": 99,
-      "votes": 108508,
-      "name": "GPT-6 Luna (Max)",
-      "coding_rating": 1501.3,
-      "coding_rank": 80,
-      "agent_score": 0.008,
-      "agent_rank": 32,
-      "sessions": 232894
-    },
-    "deepseekv4flashpreview": {
-      "rating": 1439.0,
-      "rank": 100,
-      "votes": 51180,
-      "name": "DeepSeek-V4-Flash Preview (High)",
-      "coding_rating": 1480.2,
-      "coding_rank": 117
-    },
-    "gemma426ba4b": {
-      "rating": 1437.4,
+      "rating": 1441.6,
       "rank": 102,
-      "votes": 6069,
-      "name": "Gemma 4 26B A4B",
-      "coding_rating": 1482.7,
-      "coding_rank": 111
-    },
-    "gpt5.2": {
-      "rating": 1435.4,
-      "rank": 107,
-      "votes": 82903,
-      "name": "GPT-5.2",
-      "coding_rating": 1482.1,
-      "coding_rank": 112
-    },
-    "longcatflashchatexp": {
-      "rating": 1436.0,
-      "rank": 104,
-      "votes": 29016,
-      "name": "LongCat-Flash-Chat Exp (2602)",
-      "coding_rating": 1500.4,
-      "coding_rank": 82
-    },
-    "deepseekv4flash": {
-      "rating": 1435.8,
-      "rank": 105,
-      "votes": 51336,
-      "name": "DeepSeek-V4-Flash",
-      "coding_rating": 1484.1,
+      "votes": 69922,
+      "name": "Grok 4.3",
+      "coding_rating": 1487.0,
       "coding_rank": 109
     },
-    "minim3": {
-      "rating": 1435.8,
-      "rank": 106,
-      "votes": 73579,
-      "name": "MiniMax-M3",
-      "coding_rating": 1493.0,
-      "coding_rank": 92,
-      "agent_score": -0.112,
-      "agent_rank": 58,
-      "sessions": 44375
+    "qwen3.5": {
+      "rating": 1441.5,
+      "rank": 103,
+      "votes": 97273,
+      "name": "Qwen3.5-397B-A17B",
+      "coding_rating": 1490.6,
+      "coding_rank": 102
+    },
+    "glm4.7": {
+      "rating": 1441.3,
+      "rank": 104,
+      "votes": 12151,
+      "name": "GLM-4.7",
+      "coding_rating": 1483.9,
+      "coding_rank": 114
+    },
+    "deepseekv4flashpreview": {
+      "rating": 1439.1,
+      "rank": 105,
+      "votes": 51018,
+      "name": "DeepSeek-V4-Flash Preview (High)",
+      "coding_rating": 1480.0,
+      "coding_rank": 123
+    },
+    "gemma426ba4b": {
+      "rating": 1437.6,
+      "rank": 107,
+      "votes": 6060,
+      "name": "Gemma 4 26B A4B",
+      "coding_rating": 1482.8,
+      "coding_rank": 116
+    },
+    "gpt5.2": {
+      "rating": 1435.2,
+      "rank": 111,
+      "votes": 82705,
+      "name": "GPT-5.2",
+      "coding_rating": 1481.8,
+      "coding_rank": 117
+    },
+    "longcatflashchatexp": {
+      "rating": 1435.7,
+      "rank": 109,
+      "votes": 28943,
+      "name": "LongCat-Flash-Chat Exp (2602)",
+      "coding_rating": 1500.6,
+      "coding_rank": 87
+    },
+    "deepseekv4flash": {
+      "rating": 1435.6,
+      "rank": 110,
+      "votes": 51186,
+      "name": "DeepSeek-V4-Flash",
+      "coding_rating": 1483.9,
+      "coding_rank": 115
     },
     "gpt5": {
-      "rating": 1434.9,
-      "rank": 108,
-      "votes": 31648,
+      "rating": 1435.0,
+      "rank": 113,
+      "votes": 31621,
       "name": "GPT-5 (High)",
-      "coding_rating": 1471.3,
-      "coding_rank": 129
-    },
-    "beam1.0501ba23b": {
-      "rating": 1434.4,
-      "rank": 109,
-      "votes": 4004,
-      "name": "Beam 1.0 501B A23B",
-      "coding_rating": 1504.7,
-      "coding_rank": 69,
-      "agent_score": -0.074,
-      "agent_rank": 52,
-      "sessions": 12245
+      "coding_rating": 1471.6,
+      "coding_rank": 135
     },
     "qwen3preview": {
       "rating": 1434.4,
-      "rank": 110,
-      "votes": 27294,
+      "rank": 114,
+      "votes": 27286,
       "name": "Qwen3-Max-Preview",
-      "coding_rating": 1480.4,
-      "coding_rank": 116
+      "coding_rating": 1480.6,
+      "coding_rank": 120
+    },
+    "minim3": {
+      "rating": 1434.1,
+      "rank": 115,
+      "votes": 77768,
+      "name": "MiniMax-M3",
+      "coding_rating": 1491.3,
+      "coding_rank": 100,
+      "agent_score": -0.105,
+      "agent_rank": 62,
+      "sessions": 44533
     },
     "mimov2.5": {
-      "rating": 1433.6,
-      "rank": 112,
-      "votes": 46793,
+      "rating": 1433.7,
+      "rank": 116,
+      "votes": 46654,
       "name": "MiMo-V2.5",
       "coding_rating": 1491.1,
-      "coding_rank": 96
+      "coding_rank": 101
+    },
+    "beam1.0501ba23b": {
+      "rating": 1433.7,
+      "rank": 117,
+      "votes": 3989,
+      "name": "Beam 1.0 501B A23B",
+      "coding_rating": 1504.8,
+      "coding_rank": 74,
+      "agent_score": -0.095,
+      "agent_rank": 61,
+      "sessions": 12254
     },
     "gemini3.1flashlitepreview": {
-      "rating": 1433.0,
-      "rank": 113,
-      "votes": 63578,
+      "rating": 1433.1,
+      "rank": 118,
+      "votes": 63402,
       "name": "Gemini 3.1 Flash-Lite Preview",
       "coding_rating": 1457.5,
-      "coding_rank": 151
+      "coding_rank": 157
     },
     "o3": {
-      "rating": 1431.6,
-      "rank": 114,
-      "votes": 58805,
+      "rating": 1431.5,
+      "rank": 119,
+      "votes": 58788,
       "name": "o3 (2025-04-16)",
       "coding_rating": 1460.2,
-      "coding_rank": 143
+      "coding_rank": 149
     },
     "grok4.1fast": {
-      "rating": 1430.6,
-      "rank": 116,
-      "votes": 57103,
+      "rating": 1430.7,
+      "rank": 120,
+      "votes": 57016,
       "name": "Grok 4.1 Fast (Reasoning)",
-      "coding_rating": 1461.4,
-      "coding_rank": 141
+      "coding_rating": 1461.5,
+      "coding_rank": 147
     },
     "mimov2omni": {
-      "rating": 1430.3,
-      "rank": 117,
-      "votes": 20402,
+      "rating": 1430.2,
+      "rank": 122,
+      "votes": 20344,
       "name": "MiMo-V2-Omni",
-      "coding_rating": 1488.0,
-      "coding_rank": 102
+      "coding_rating": 1487.9,
+      "coding_rank": 106
     },
     "kimik2turbo": {
-      "rating": 1429.9,
-      "rank": 118,
-      "votes": 62911,
+      "rating": 1430.0,
+      "rank": 123,
+      "votes": 62847,
       "name": "Kimi K2 Thinking Turbo",
       "coding_rating": 1486.4,
-      "coding_rank": 105
+      "coding_rank": 112
     },
-    "gpt5chat": {
-      "rating": 1426.7,
-      "rank": 119,
-      "votes": 31095,
-      "name": "GPT-5 Chat",
-      "coding_rating": 1461.9,
-      "coding_rank": 140
+    "nemotron3ultra": {
+      "rating": 1426.8,
+      "rank": 124,
+      "votes": 11354,
+      "name": "NVIDIA-Nemotron-3-Ultra-550B-A55B (NVFP4)",
+      "coding_rating": 1473.6,
+      "coding_rank": 129,
+      "agent_score": -0.166,
+      "agent_rank": 65,
+      "sessions": 13873
     },
     "amazonnovaexperimentalchat": {
       "rating": 1363.4,
-      "rank": 210,
-      "votes": 25861,
+      "rank": 216,
+      "votes": 25835,
       "name": "amazon-nova-experimental-chat (11-10)",
-      "coding_rating": 1419.4,
-      "coding_rank": 200
+      "coding_rating": 1420.0,
+      "coding_rank": 206
+    },
+    "gpt5chat": {
+      "rating": 1426.7,
+      "rank": 126,
+      "votes": 31092,
+      "name": "GPT-5 Chat",
+      "coding_rating": 1461.7,
+      "coding_rank": 146
     },
     "mistral3.5": {
-      "rating": 1426.4,
-      "rank": 121,
-      "votes": 11647,
+      "rating": 1426.3,
+      "rank": 127,
+      "votes": 11621,
       "name": "Mistral Medium 3.5",
       "coding_rating": 1478.1,
-      "coding_rank": 119,
-      "agent_score": -0.145,
-      "agent_rank": 60,
-      "sessions": 13880
+      "coding_rank": 124,
+      "agent_score": -0.143,
+      "agent_rank": 64,
+      "sessions": 13876
     },
     "claudeopus4": {
-      "rating": 1414.4,
-      "rank": 147,
-      "votes": 42962,
+      "rating": 1414.2,
+      "rank": 153,
+      "votes": 42950,
       "name": "Claude Opus 4 (20250514)",
-      "coding_rating": 1464.8,
-      "coding_rank": 136
-    },
-    "nemotron3ultra": {
-      "rating": 1426.3,
-      "rank": 123,
-      "votes": 11392,
-      "name": "NVIDIA-Nemotron-3-Ultra-550B-A55B (NVFP4)",
-      "coding_rating": 1473.7,
-      "coding_rank": 124,
-      "agent_score": -0.164,
-      "agent_rank": 61,
-      "sessions": 13757
+      "coding_rating": 1464.4,
+      "coding_rank": 143
     },
     "deepseekv3.2exp": {
       "rating": 1421.9,
-      "rank": 131,
-      "votes": 11950,
+      "rank": 137,
+      "votes": 11945,
       "name": "DeepSeek-V3.2-Exp",
-      "coding_rating": 1467.3,
-      "coding_rank": 134
+      "coding_rating": 1467.4,
+      "coding_rank": 140
+    },
+    "museglimmer": {
+      "rating": 1424.9,
+      "rank": 130,
+      "votes": 3784,
+      "name": "Muse Glimmer",
+      "coding_rating": 1480.3,
+      "coding_rank": 121
     },
     "deepseekv3.2": {
       "rating": 1424.7,
-      "rank": 125,
-      "votes": 47778,
+      "rank": 131,
+      "votes": 47709,
       "name": "DeepSeek-V3.2",
-      "coding_rating": 1469.4,
-      "coding_rank": 132
-    },
-    "museglimmer": {
-      "rating": 1424.6,
-      "rank": 126,
-      "votes": 3791,
-      "name": "Muse Glimmer",
-      "coding_rating": 1480.7,
-      "coding_rank": 115
-    },
-    "glm4.6": {
-      "rating": 1424.5,
-      "rank": 127,
-      "votes": 35631,
-      "name": "GLM-4.6",
-      "coding_rating": 1458.2,
-      "coding_rank": 149
-    },
-    "qwen3": {
-      "rating": 1402.2,
-      "rank": 164,
-      "votes": 37408,
-      "name": "Qwen3-235B-A22B (Non-Thinking)",
-      "coding_rating": 1444.4,
-      "coding_rank": 167
-    },
-    "qwen3instruct": {
-      "rating": 1422.1,
-      "rank": 130,
-      "votes": 97593,
-      "name": "Qwen3-235B-A22B-Instruct (2507)",
-      "coding_rating": 1471.8,
-      "coding_rank": 128
-    },
-    "deepseekr1": {
-      "rating": 1398.2,
-      "rank": 170,
-      "votes": 18524,
-      "name": "DeepSeek-R1",
-      "coding_rating": 1464.0,
+      "coding_rating": 1469.7,
       "coding_rank": 138
     },
-    "claudehaiku5.5": {
-      "rating": 1421.2,
-      "rank": 133,
-      "votes": 13894,
-      "name": "Claude Haiku 5.5 (High)",
-      "coding_rating": 1489.2,
-      "coding_rank": 99,
-      "agent_score": -0.004,
-      "agent_rank": 36,
-      "sessions": 32455
+    "glm4.6": {
+      "rating": 1424.4,
+      "rank": 132,
+      "votes": 35630,
+      "name": "GLM-4.6",
+      "coding_rating": 1458.3,
+      "coding_rank": 155
     },
     "mistrallarge4": {
-      "rating": 1420.4,
-      "rank": 134,
-      "votes": 6423,
+      "rating": 1423.5,
+      "rank": 133,
+      "votes": 10705,
       "name": "Mistral Large 4",
-      "coding_rating": 1483.5,
+      "coding_rating": 1486.9,
       "coding_rank": 110,
-      "agent_score": -0.068,
-      "agent_rank": 50,
-      "sessions": 5699
+      "agent_score": -0.062,
+      "agent_rank": 53,
+      "sessions": 5992
     },
-    "grok4fast": {
-      "rating": 1405.2,
-      "rank": 161,
-      "votes": 18201,
-      "name": "Grok 4 Fast (Reasoning)",
-      "coding_rating": 1439.1,
-      "coding_rank": 174
+    "qwen3": {
+      "rating": 1402.0,
+      "rank": 170,
+      "votes": 37404,
+      "name": "Qwen3-235B-A22B (Non-Thinking)",
+      "coding_rating": 1444.4,
+      "coding_rank": 173
+    },
+    "qwen3instruct": {
+      "rating": 1422.2,
+      "rank": 136,
+      "votes": 97518,
+      "name": "Qwen3-235B-A22B-Instruct (2507)",
+      "coding_rating": 1472.1,
+      "coding_rank": 132
+    },
+    "deepseekr1": {
+      "rating": 1398.0,
+      "rank": 175,
+      "votes": 18524,
+      "name": "DeepSeek-R1",
+      "coding_rating": 1463.9,
+      "coding_rank": 144
+    },
+    "claudehaiku5.5": {
+      "rating": 1421.1,
+      "rank": 139,
+      "votes": 18415,
+      "name": "Claude Haiku 5.5 (High)",
+      "coding_rating": 1487.7,
+      "coding_rank": 108,
+      "agent_score": -0.004,
+      "agent_rank": 38,
+      "sessions": 33466
     },
     "kimik2preview": {
       "rating": 1418.1,
-      "rank": 137,
-      "votes": 27091,
+      "rank": 142,
+      "votes": 27090,
       "name": "Kimi K2 Preview (0711)",
-      "coding_rating": 1459.7,
-      "coding_rank": 145
+      "coding_rating": 1459.3,
+      "coding_rank": 153
+    },
+    "grok4fast": {
+      "rating": 1405.2,
+      "rank": 165,
+      "votes": 18174,
+      "name": "Grok 4 Fast (Reasoning)",
+      "coding_rating": 1439.1,
+      "coding_rank": 180
     },
     "deepseekv3.1": {
-      "rating": 1417.3,
-      "rank": 139,
-      "votes": 14583,
+      "rating": 1417.2,
+      "rank": 144,
+      "votes": 14572,
       "name": "DeepSeek-V3.1",
-      "coding_rating": 1447.5,
-      "coding_rank": 164
+      "coding_rating": 1447.7,
+      "coding_rank": 170
     },
     "deepseekv3.1terminus": {
-      "rating": 1414.7,
-      "rank": 144,
-      "votes": 3604,
+      "rating": 1415.1,
+      "rank": 148,
+      "votes": 3600,
       "name": "DeepSeek-V3.1-Terminus",
-      "coding_rating": 1440.2,
-      "coding_rank": 173
+      "coding_rating": 1439.9,
+      "coding_rank": 179
+    },
+    "nemotron3.5supervl": {
+      "rating": 1414.8,
+      "rank": 149,
+      "votes": 4036,
+      "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
+      "coding_rating": 1459.8,
+      "coding_rank": 150,
+      "agent_score": -0.177,
+      "agent_rank": 66,
+      "sessions": 44409
     },
     "minim2.7": {
       "rating": 1414.8,
-      "rank": 143,
-      "votes": 89429,
+      "rank": 150,
+      "votes": 89144,
       "name": "MiniMax-M2.7",
-      "coding_rating": 1479.9,
-      "coding_rank": 118
+      "coding_rating": 1480.0,
+      "coding_rank": 122
     },
     "mistrallarge3": {
       "rating": 1414.7,
-      "rank": 145,
-      "votes": 88567,
+      "rank": 151,
+      "votes": 88330,
       "name": "Mistral Large 3",
-      "coding_rating": 1471.0,
-      "coding_rank": 131
+      "coding_rating": 1471.1,
+      "coding_rank": 137
     },
     "gpt4.1": {
-      "rating": 1414.6,
-      "rank": 146,
-      "votes": 50230,
+      "rating": 1414.5,
+      "rank": 152,
+      "votes": 50211,
       "name": "GPT-4.1 (2025-04-14)",
-      "coding_rating": 1455.8,
-      "coding_rank": 154
-    },
-    "nemotron3.5supervl": {
-      "rating": 1414.4,
-      "rank": 148,
-      "votes": 4053,
-      "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
-      "coding_rating": 1459.8,
-      "coding_rank": 144,
-      "agent_score": -0.167,
-      "agent_rank": 62,
-      "sessions": 35763
+      "coding_rating": 1455.6,
+      "coding_rank": 160
     },
     "claudehaiku4.5": {
       "rating": 1414.0,
-      "rank": 149,
-      "votes": 153897,
+      "rank": 154,
+      "votes": 153535,
       "name": "Claude Haiku 4.5 (20251001)",
-      "coding_rating": 1481.5,
-      "coding_rank": 113
+      "coding_rating": 1481.7,
+      "coding_rank": 118
     },
     "qwen3vlinstruct": {
       "rating": 1413.2,
-      "rank": 150,
-      "votes": 11286,
+      "rank": 155,
+      "votes": 11274,
       "name": "Qwen3-VL-235B-A22B-Instruct",
-      "coding_rating": 1462.8,
-      "coding_rank": 139
+      "coding_rating": 1463.3,
+      "coding_rank": 145
     },
     "inkling2small": {
-      "rating": 1411.8,
-      "rank": 152,
-      "votes": 2669,
+      "rating": 1412.2,
+      "rank": 156,
+      "votes": 2682,
       "name": "Inkling 2 Small",
-      "coding_rating": 1484.8,
-      "coding_rank": 107,
-      "agent_score": 0.025,
-      "agent_rank": 23,
-      "sessions": 13976
+      "coding_rating": 1485.8,
+      "coding_rank": 113,
+      "agent_score": 0.014,
+      "agent_rank": 27,
+      "sessions": 30707
     },
     "grok3preview": {
-      "rating": 1411.3,
-      "rank": 153,
+      "rating": 1411.2,
+      "rank": 158,
       "votes": 32486,
       "name": "Grok 3 Preview (02-24)",
       "coding_rating": 1442.4,
-      "coding_rank": 171
-    },
-    "grok4": {
-      "rating": 1411.0,
-      "rank": 154,
-      "votes": 39563,
-      "name": "Grok 4 (0709)",
-      "coding_rating": 1435.3,
-      "coding_rank": 180
+      "coding_rank": 177
     },
     "glm4.5": {
       "rating": 1411.0,
-      "rank": 155,
-      "votes": 23746,
+      "rank": 159,
+      "votes": 23738,
       "name": "GLM-4.5",
       "coding_rating": 1455.1,
-      "coding_rank": 156
+      "coding_rank": 162
+    },
+    "grok4": {
+      "rating": 1410.9,
+      "rank": 160,
+      "votes": 39568,
+      "name": "Grok 4 (0709)",
+      "coding_rating": 1435.2,
+      "coding_rank": 187
     },
     "gemini2.5flash": {
-      "rating": 1409.3,
-      "rank": 156,
-      "votes": 124897,
+      "rating": 1409.2,
+      "rank": 161,
+      "votes": 124811,
       "name": "Gemini 2.5 Flash",
       "coding_rating": 1423.7,
-      "coding_rank": 197
+      "coding_rank": 203
     },
     "hy3preview": {
-      "rating": 1408.8,
-      "rank": 157,
-      "votes": 6805,
+      "rating": 1409.2,
+      "rank": 162,
+      "votes": 6786,
       "name": "Hy3 preview",
-      "coding_rating": 1452.8,
-      "coding_rank": 158
+      "coding_rating": 1453.4,
+      "coding_rank": 164
     },
     "mistral3.1": {
-      "rating": 1408.1,
-      "rank": 159,
-      "votes": 94752,
+      "rating": 1408.0,
+      "rank": 164,
+      "votes": 94641,
       "name": "Mistral Medium 3.1 (2508)",
-      "coding_rating": 1453.8,
-      "coding_rank": 157
+      "coding_rating": 1453.6,
+      "coding_rank": 163
     },
     "inklingsmall": {
-      "rating": 1405.4,
-      "rank": 160,
-      "votes": 37610,
+      "rating": 1405.2,
+      "rank": 166,
+      "votes": 37427,
       "name": "Inkling-Small",
-      "coding_rating": 1472.4,
-      "coding_rank": 126,
-      "agent_score": -0.187,
-      "agent_rank": 64,
-      "sessions": 14710
+      "coding_rating": 1472.3,
+      "coding_rank": 131,
+      "agent_score": -0.182,
+      "agent_rank": 67,
+      "sessions": 14689
     },
     "gemini2.5flashpreview": {
-      "rating": 1403.2,
-      "rank": 162,
-      "votes": 32849,
+      "rating": 1403.0,
+      "rank": 167,
+      "votes": 32835,
       "name": "Gemini 2.5 Flash Preview (09-2025)",
-      "coding_rating": 1427.5,
-      "coding_rank": 195
+      "coding_rating": 1427.7,
+      "coding_rank": 200
     },
     "o1": {
       "rating": 1402.3,
-      "rank": 163,
+      "rank": 168,
       "votes": 27807,
       "name": "o1 (2024-12-17)",
       "coding_rating": 1432.7,
-      "coding_rank": 186
+      "coding_rank": 192
     },
     "claudesonnet4": {
-      "rating": 1390.9,
-      "rank": 179,
-      "votes": 39123,
+      "rating": 1390.8,
+      "rank": 186,
+      "votes": 39090,
       "name": "Claude Sonnet 4 (20250514)",
-      "coding_rating": 1449.0,
-      "coding_rank": 162
-    },
-    "gpt5.4nano": {
-      "rating": 1401.0,
-      "rank": 166,
-      "votes": 61575,
-      "name": "GPT-5.4 nano (High)",
-      "coding_rating": 1459.6,
-      "coding_rank": 146
-    },
-    "longcatflashchat": {
-      "rating": 1400.6,
-      "rank": 167,
-      "votes": 11130,
-      "name": "LongCat-Flash-Chat",
-      "coding_rating": 1472.0,
-      "coding_rank": 127
-    },
-    "qwen3nextinstruct": {
-      "rating": 1398.6,
-      "rank": 169,
-      "votes": 22689,
-      "name": "Qwen3-Next-80B-A3B-Instruct",
-      "coding_rating": 1444.1,
+      "coding_rating": 1449.1,
       "coding_rank": 168
     },
-    "qwen3.5flash": {
-      "rating": 1396.0,
+    "gpt5.4nano": {
+      "rating": 1401.1,
       "rank": 171,
-      "votes": 61142,
+      "votes": 61458,
+      "name": "GPT-5.4 nano (High)",
+      "coding_rating": 1459.6,
+      "coding_rank": 152
+    },
+    "longcatflashchat": {
+      "rating": 1400.5,
+      "rank": 172,
+      "votes": 11117,
+      "name": "LongCat-Flash-Chat",
+      "coding_rating": 1471.9,
+      "coding_rank": 133
+    },
+    "qwen3nextinstruct": {
+      "rating": 1398.7,
+      "rank": 174,
+      "votes": 22670,
+      "name": "Qwen3-Next-80B-A3B-Instruct",
+      "coding_rating": 1444.3,
+      "coding_rank": 174
+    },
+    "qwen3.5flash": {
+      "rating": 1396.1,
+      "rank": 176,
+      "votes": 60964,
       "name": "Qwen3.5-Flash",
-      "coding_rating": 1435.4,
-      "coding_rank": 179
+      "coding_rating": 1435.7,
+      "coding_rank": 185
     },
     "deepseekv3": {
-      "rating": 1395.3,
-      "rank": 172,
-      "votes": 44915,
+      "rating": 1395.1,
+      "rank": 177,
+      "votes": 44907,
       "name": "DeepSeek-V3 (0324)",
-      "coding_rating": 1428.0,
-      "coding_rank": 193
+      "coding_rating": 1427.7,
+      "coding_rank": 201
     },
     "qwen3vl": {
       "rating": 1394.7,
-      "rank": 173,
-      "votes": 7827,
+      "rank": 178,
+      "votes": 7824,
       "name": "Qwen3-VL-235B-A22B-Thinking",
-      "coding_rating": 1452.0,
-      "coding_rank": 160
+      "coding_rating": 1452.2,
+      "coding_rank": 165
     },
     "hunyuanvision1.5": {
-      "rating": 1394.6,
-      "rank": 174,
-      "votes": 2157,
+      "rating": 1394.4,
+      "rank": 179,
+      "votes": 2154,
       "name": "Hunyuan Vision 1.5 Thinking",
-      "coding_rating": 1436.4,
-      "coding_rank": 177
+      "coding_rating": 1437.1,
+      "coding_rank": 183
     },
     "step3.5flash": {
-      "rating": 1392.6,
-      "rank": 176,
-      "votes": 59749,
+      "rating": 1392.8,
+      "rank": 181,
+      "votes": 59599,
       "name": "Step-3.5-Flash",
-      "coding_rating": 1448.6,
-      "coding_rank": 163
+      "coding_rating": 1448.5,
+      "coding_rank": 169
     },
     "mimov2flash": {
       "rating": 1391.7,
-      "rank": 178,
-      "votes": 47750,
+      "rank": 183,
+      "votes": 47653,
       "name": "MiMo-V2-Flash (Non-Thinking)",
-      "coding_rating": 1446.9,
-      "coding_rank": 165
+      "coding_rating": 1447.3,
+      "coding_rank": 171
+    },
+    "minim2.5": {
+      "rating": 1390.9,
+      "rank": 184,
+      "votes": 42349,
+      "name": "MiniMax-M2.5",
+      "coding_rating": 1446.3,
+      "coding_rank": 172
     },
     "o4mini": {
       "rating": 1390.8,
-      "rank": 180,
-      "votes": 44791,
+      "rank": 185,
+      "votes": 44781,
       "name": "o4-mini (2025-04-16)",
-      "coding_rating": 1433.1,
-      "coding_rank": 184
-    },
-    "minim2.5": {
-      "rating": 1390.8,
-      "rank": 181,
-      "votes": 42412,
-      "name": "MiniMax-M2.5",
-      "coding_rating": 1446.7,
-      "coding_rank": 166
+      "coding_rating": 1433.0,
+      "coding_rank": 191
     },
     "gpt5mini": {
-      "rating": 1389.9,
-      "rank": 182,
-      "votes": 26709,
+      "rating": 1390.3,
+      "rank": 187,
+      "votes": 26691,
       "name": "GPT-5 mini (High)",
-      "coding_rating": 1432.1,
-      "coding_rank": 188
+      "coding_rating": 1432.4,
+      "coding_rank": 194
     },
     "o1preview": {
-      "rating": 1388.7,
-      "rank": 183,
+      "rating": 1388.6,
+      "rank": 188,
       "votes": 31122,
       "name": "o1-preview",
       "coding_rating": 1415.4,
-      "coding_rank": 204
+      "coding_rank": 211
     },
     "claude3.7sonnet": {
-      "rating": 1372.5,
-      "rank": 202,
-      "votes": 42548,
+      "rating": 1372.4,
+      "rank": 207,
+      "votes": 42544,
       "name": "Claude 3.7 Sonnet (20250219)",
-      "coding_rating": 1431.5,
-      "coding_rank": 191
+      "coding_rating": 1431.4,
+      "coding_rank": 197
     },
     "solarpro4": {
-      "rating": 1387.5,
-      "rank": 185,
-      "votes": 27067,
+      "rating": 1387.6,
+      "rank": 190,
+      "votes": 26958,
       "name": "Solar Pro 4",
-      "coding_rating": 1460.9,
-      "coding_rank": 142,
-      "agent_score": -0.239,
-      "agent_rank": 65,
-      "sessions": 11073
+      "coding_rating": 1461.3,
+      "coding_rank": 148,
+      "agent_score": -0.24,
+      "agent_rank": 69,
+      "sessions": 11183
     },
     "qwen3coderinstruct": {
       "rating": 1387.4,
-      "rank": 186,
-      "votes": 25152,
+      "rank": 191,
+      "votes": 25143,
       "name": "Qwen3-Coder-480B-A35B-Instruct",
-      "coding_rating": 1457.1,
-      "coding_rank": 153
-    },
-    "mistral3": {
-      "rating": 1387.4,
-      "rank": 187,
-      "votes": 32749,
-      "name": "Mistral Medium 3 (2505)",
-      "coding_rating": 1432.6,
-      "coding_rank": 187
+      "coding_rating": 1457.2,
+      "coding_rank": 159
     },
     "hunyuant1": {
       "rating": 1387.3,
-      "rank": 188,
-      "votes": 4583,
+      "rank": 192,
+      "votes": 4584,
       "name": "Hunyuan T1 (20250711)",
-      "coding_rating": 1401.3,
-      "coding_rank": 216
+      "coding_rating": 1401.4,
+      "coding_rank": 221
+    },
+    "mistral3": {
+      "rating": 1387.2,
+      "rank": 193,
+      "votes": 32746,
+      "name": "Mistral Medium 3 (2505)",
+      "coding_rating": 1432.5,
+      "coding_rank": 193
     },
     "minim2.1preview": {
       "rating": 1384.3,
-      "rank": 190,
-      "votes": 17120,
+      "rank": 195,
+      "votes": 17103,
       "name": "MiniMax-M2.1 Preview",
-      "coding_rating": 1437.2,
-      "coding_rank": 176
+      "coding_rating": 1437.9,
+      "coding_rank": 181
     },
     "hunyuanturbos": {
-      "rating": 1383.1,
-      "rank": 191,
-      "votes": 10620,
+      "rating": 1383.0,
+      "rank": 196,
+      "votes": 10619,
       "name": "Hunyuan TurboS (20250416)",
       "coding_rating": 1394.5,
-      "coding_rank": 221
+      "coding_rank": 227
     },
     "gpt4.1mini": {
-      "rating": 1382.9,
-      "rank": 192,
-      "votes": 38659,
+      "rating": 1382.7,
+      "rank": 197,
+      "votes": 38649,
       "name": "GPT-4.1 mini (2025-04-14)",
       "coding_rating": 1433.0,
-      "coding_rank": 185
+      "coding_rank": 190
     },
     "gemini2.5flashlitepreview": {
-      "rating": 1379.4,
-      "rank": 194,
-      "votes": 47195,
+      "rating": 1379.5,
+      "rank": 199,
+      "votes": 47169,
       "name": "Gemini 2.5 Flash-Lite Preview (Non-Thinking, 09-2025)",
-      "coding_rating": 1397.3,
-      "coding_rank": 220
+      "coding_rating": 1397.6,
+      "coding_rank": 225
     },
     "trinitylargepreview": {
-      "rating": 1378.7,
-      "rank": 195,
-      "votes": 30992,
+      "rating": 1378.9,
+      "rank": 200,
+      "votes": 30926,
       "name": "Trinity Large Preview",
-      "coding_rating": 1443.1,
-      "coding_rank": 170
+      "coding_rating": 1443.6,
+      "coding_rank": 176
     },
     "glm4.6v": {
-      "rating": 1378.3,
-      "rank": 196,
-      "votes": 2823,
+      "rating": 1378.2,
+      "rank": 201,
+      "votes": 2822,
       "name": "GLM-4.6V",
-      "coding_rating": 1416.5,
-      "coding_rank": 202
+      "coding_rating": 1416.7,
+      "coding_rank": 207
     },
     "claude3.5sonnet": {
       "rating": 1374.3,
-      "rank": 199,
-      "votes": 87744,
+      "rank": 204,
+      "votes": 87743,
       "name": "Claude 3.5 Sonnet (20241022)",
       "coding_rating": 1435.7,
-      "coding_rank": 178
+      "coding_rank": 184
     },
     "qwen2.5": {
-      "rating": 1373.8,
-      "rank": 200,
-      "votes": 32481,
+      "rating": 1373.6,
+      "rank": 205,
+      "votes": 32479,
       "name": "Qwen2.5-Max",
-      "coding_rating": 1401.4,
-      "coding_rank": 215
+      "coding_rating": 1401.3,
+      "coding_rank": 222
     },
     "glm4.5air": {
-      "rating": 1373.0,
-      "rank": 201,
-      "votes": 30591,
+      "rating": 1372.9,
+      "rank": 206,
+      "votes": 30590,
       "name": "GLM-4.5-Air",
-      "coding_rating": 1427.0,
-      "coding_rank": 196
+      "coding_rating": 1427.1,
+      "coding_rank": 202
     },
     "qwen3next": {
-      "rating": 1369.4,
-      "rank": 203,
-      "votes": 13442,
+      "rating": 1369.6,
+      "rank": 208,
+      "votes": 13439,
       "name": "Qwen3-Next-80B-A3B-Thinking",
-      "coding_rating": 1420.9,
-      "coding_rank": 199
+      "coding_rating": 1421.2,
+      "coding_rank": 205
     },
     "trinitylarge": {
-      "rating": 1367.2,
-      "rank": 204,
-      "votes": 30017,
+      "rating": 1367.3,
+      "rank": 209,
+      "votes": 29913,
       "name": "Trinity Large Thinking",
-      "coding_rating": 1412.5,
-      "coding_rank": 206
+      "coding_rating": 1412.3,
+      "coding_rank": 212
+    },
+    "inkling2mini": {
+      "rating": 1366.9,
+      "rank": 210,
+      "votes": 1793,
+      "name": "Inkling 2 Mini",
+      "coding_rating": 1471.2,
+      "coding_rank": 136,
+      "agent_score": -0.077,
+      "agent_rank": 55,
+      "sessions": 3648
     },
     "gemma327bit": {
       "rating": 1365.4,
-      "rank": 205,
-      "votes": 46608,
+      "rank": 211,
+      "votes": 46602,
       "name": "Gemma 3 27B IT",
       "coding_rating": 1357.8,
-      "coding_rank": 266
+      "coding_rank": 272
     },
     "glm4.7flash": {
-      "rating": 1364.5,
-      "rank": 206,
-      "votes": 11932,
+      "rating": 1364.6,
+      "rank": 212,
+      "votes": 11916,
       "name": "GLM-4.7-Flash",
-      "coding_rating": 1422.9,
-      "coding_rank": 198
+      "coding_rating": 1422.4,
+      "coding_rank": 204
     },
     "grok3mini": {
       "rating": 1363.8,
-      "rank": 207,
-      "votes": 15573,
+      "rank": 213,
+      "votes": 15568,
       "name": "Grok 3 Mini (High)",
-      "coding_rating": 1392.5,
-      "coding_rank": 223
+      "coding_rating": 1392.6,
+      "coding_rank": 230
     },
     "minim1": {
       "rating": 1363.8,
-      "rank": 208,
-      "votes": 34230,
+      "rank": 214,
+      "votes": 34218,
       "name": "MiniMax-M1",
       "coding_rating": 1416.4,
-      "coding_rank": 203
+      "coding_rank": 209
     },
     "o3mini": {
       "rating": 1348.2,
-      "rank": 225,
-      "votes": 56695,
+      "rank": 231,
+      "votes": 56686,
       "name": "o3-mini",
       "coding_rating": 1416.6,
-      "coding_rank": 201
+      "coding_rank": 208
     },
     "gemini2.0flash": {
-      "rating": 1360.2,
-      "rank": 211,
-      "votes": 43424,
+      "rating": 1360.1,
+      "rank": 217,
+      "votes": 43415,
       "name": "Gemini 2.0 Flash (001)",
-      "coding_rating": 1363.4,
-      "coding_rank": 258
+      "coding_rating": 1363.5,
+      "coding_rank": 264
     },
     "nemotron3super": {
-      "rating": 1359.7,
-      "rank": 212,
-      "votes": 7842,
+      "rating": 1359.8,
+      "rank": 218,
+      "votes": 7835,
       "name": "NVIDIA-Nemotron-3-Super-120B-A12B",
-      "coding_rating": 1407.1,
-      "coding_rank": 211
+      "coding_rating": 1407.7,
+      "coding_rank": 217
     },
     "grok3minibeta": {
-      "rating": 1357.9,
-      "rank": 214,
-      "votes": 20905,
+      "rating": 1358.1,
+      "rank": 220,
+      "votes": 20902,
       "name": "Grok 3 Mini Beta",
-      "coding_rating": 1386.4,
-      "coding_rank": 232
+      "coding_rating": 1386.6,
+      "coding_rank": 238
     },
     "mistralsmall3.2": {
-      "rating": 1356.5,
-      "rank": 215,
-      "votes": 17431,
+      "rating": 1356.4,
+      "rank": 221,
+      "votes": 17427,
       "name": "Mistral Small 3.2 (2506)",
-      "coding_rating": 1411.8,
-      "coding_rank": 207
+      "coding_rating": 1411.9,
+      "coding_rank": 213
     },
     "intellect3": {
-      "rating": 1355.9,
-      "rank": 216,
-      "votes": 5401,
+      "rating": 1356.2,
+      "rank": 222,
+      "votes": 5400,
       "name": "INTELLECT-3",
-      "coding_rating": 1414.9,
-      "coding_rank": 205
-    },
-    "commanda": {
-      "rating": 1353.7,
-      "rank": 217,
-      "votes": 55665,
-      "name": "Command A (03-2025)",
-      "coding_rating": 1388.5,
-      "coding_rank": 229
+      "coding_rating": 1416.1,
+      "coding_rank": 210
     },
     "gemini2.0flashlitepreview": {
-      "rating": 1353.7,
-      "rank": 218,
+      "rating": 1353.6,
+      "rank": 223,
       "votes": 24955,
       "name": "Gemini 2.0 Flash-Lite Preview (02-05)",
-      "coding_rating": 1342.4,
-      "coding_rank": 284
+      "coding_rating": 1342.5,
+      "coding_rank": 290
+    },
+    "commanda": {
+      "rating": 1353.6,
+      "rank": 224,
+      "votes": 55647,
+      "name": "Command A (03-2025)",
+      "coding_rating": 1388.3,
+      "coding_rank": 235
     },
     "glm4.5v": {
-      "rating": 1352.2,
-      "rank": 219,
-      "votes": 4809,
+      "rating": 1352.1,
+      "rank": 225,
+      "votes": 4807,
       "name": "GLM-4.5V",
-      "coding_rating": 1402.7,
-      "coding_rank": 214
-    },
-    "gptoss": {
-      "rating": 1351.8,
-      "rank": 220,
-      "votes": 30115,
-      "name": "gpt-oss-120b",
-      "coding_rating": 1389.5,
-      "coding_rank": 228
+      "coding_rating": 1402.4,
+      "coding_rank": 220
     },
     "nemotron3.5lightning": {
-      "rating": 1351.5,
-      "rank": 221,
-      "votes": 25104,
+      "rating": 1351.7,
+      "rank": 226,
+      "votes": 25011,
       "name": "NVIDIA-Nemotron-3.5-Lightning-30B-A3B (NVFP4)",
-      "coding_rating": 1427.7,
-      "coding_rank": 194
+      "coding_rating": 1427.9,
+      "coding_rank": 199
+    },
+    "gptoss": {
+      "rating": 1351.7,
+      "rank": 227,
+      "votes": 30104,
+      "name": "gpt-oss-120b",
+      "coding_rating": 1389.3,
+      "coding_rank": 234
     },
     "gemini1.5pro": {
-      "rating": 1324.2,
-      "rank": 259,
+      "rating": 1324.1,
+      "rank": 265,
       "votes": 79138,
       "name": "Gemini 1.5 Pro (001)",
-      "coding_rating": 1346.2,
-      "coding_rank": 280
+      "coding_rating": 1346.0,
+      "coding_rank": 286
     },
     "step3": {
-      "rating": 1348.7,
-      "rank": 224,
+      "rating": 1348.8,
+      "rank": 229,
       "votes": 6279,
       "name": "Step-3",
-      "coding_rating": 1409.0,
-      "coding_rank": 209
+      "coding_rating": 1408.9,
+      "coding_rank": 215
     },
     "llama3.1nemotronultra253bv1": {
-      "rating": 1347.6,
-      "rank": 227,
+      "rating": 1347.5,
+      "rank": 233,
       "votes": 2549,
       "name": "Llama 3.1 Nemotron Ultra 253B v1",
-      "coding_rating": 1390.6,
-      "coding_rank": 226
+      "coding_rating": 1390.4,
+      "coding_rank": 232
     },
     "gpt4o": {
-      "rating": 1346.2,
-      "rank": 229,
+      "rating": 1346.1,
+      "rank": 236,
       "votes": 112881,
       "name": "GPT-4o (2024-05-13)",
-      "coding_rating": 1368.9,
-      "coding_rank": 250
+      "coding_rating": 1368.8,
+      "coding_rank": 256
     },
     "qwenplus": {
-      "rating": 1345.9,
-      "rank": 231,
+      "rating": 1345.8,
+      "rank": 237,
       "votes": 5819,
       "name": "Qwen-Plus (0125)",
       "coding_rating": 1378.5,
-      "coding_rank": 241
+      "coding_rank": 247
     },
     "minim2": {
-      "rating": 1343.7,
-      "rank": 232,
-      "votes": 6834,
+      "rating": 1343.5,
+      "rank": 238,
+      "votes": 6826,
       "name": "MiniMax-M2",
-      "coding_rating": 1382.8,
-      "coding_rank": 237
-    },
-    "mercury2": {
-      "rating": 1343.4,
-      "rank": 233,
-      "votes": 3159,
-      "name": "Mercury 2",
-      "coding_rating": 1392.1,
-      "coding_rank": 224
-    },
-    "llama3.3nemotronsuper49bv1.5": {
-      "rating": 1343.3,
-      "rank": 235,
-      "votes": 3321,
-      "name": "Llama 3.3 Nemotron Super 49B v1.5",
-      "coding_rating": 1403.6,
-      "coding_rank": 213
+      "coding_rating": 1383.4,
+      "coding_rank": 243
     },
     "lingflash2.0": {
       "rating": 1343.1,
-      "rank": 236,
-      "votes": 6936,
+      "rank": 240,
+      "votes": 6919,
       "name": "Ling-flash-2.0",
-      "coding_rating": 1408.9,
-      "coding_rank": 210
+      "coding_rating": 1408.1,
+      "coding_rank": 216
+    },
+    "llama3.3nemotronsuper49bv1.5": {
+      "rating": 1343.1,
+      "rank": 241,
+      "votes": 3322,
+      "name": "Llama 3.3 Nemotron Super 49B v1.5",
+      "coding_rating": 1403.5,
+      "coding_rank": 219
+    },
+    "mercury2": {
+      "rating": 1343.0,
+      "rank": 242,
+      "votes": 3152,
+      "name": "Mercury 2",
+      "coding_rating": 1393.0,
+      "coding_rank": 229
     },
     "glm4plus": {
-      "rating": 1319.4,
-      "rank": 267,
+      "rating": 1319.3,
+      "rank": 273,
       "votes": 26126,
       "name": "GLM-4-Plus",
       "coding_rating": 1351.6,
-      "coding_rank": 275
+      "coding_rank": 281
     },
     "gemma312bit": {
       "rating": 1341.8,
-      "rank": 238,
+      "rank": 244,
       "votes": 3829,
       "name": "Gemma 3 12B IT",
       "coding_rating": 1315.8,
-      "coding_rank": 300
+      "coding_rank": 306
     },
     "hunyuanturbo": {
-      "rating": 1340.7,
-      "rank": 239,
+      "rating": 1340.6,
+      "rank": 245,
       "votes": 2290,
       "name": "Hunyuan Turbo (0110)",
-      "coding_rating": 1370.3,
-      "coding_rank": 248
+      "coding_rating": 1370.2,
+      "coding_rank": 254
     },
     "granite4.230b": {
-      "rating": 1340.1,
-      "rank": 240,
-      "votes": 3314,
+      "rating": 1339.4,
+      "rank": 246,
+      "votes": 3304,
       "name": "Granite 4.2 30B",
-      "coding_rating": 1398.2,
-      "coding_rank": 219
+      "coding_rating": 1396.5,
+      "coding_rank": 226
     },
     "gpt5nano": {
-      "rating": 1337.6,
-      "rank": 241,
-      "votes": 8119,
+      "rating": 1337.9,
+      "rank": 247,
+      "votes": 8116,
       "name": "GPT-5 nano (High)",
       "coding_rating": 1385.4,
-      "coding_rank": 235
+      "coding_rank": 241
     },
     "o1mini": {
-      "rating": 1336.9,
-      "rank": 242,
+      "rating": 1336.8,
+      "rank": 248,
       "votes": 51981,
       "name": "o1-mini",
       "coding_rating": 1385.7,
-      "coding_rank": 233
+      "coding_rank": 239
     },
     "geminiadvanced": {
-      "rating": 1336.1,
-      "rank": 243,
+      "rating": 1336.0,
+      "rank": 249,
       "votes": 50148,
       "name": "Gemini Advanced (0514)",
-      "coding_rating": 1336.5,
-      "coding_rank": 289
+      "coding_rating": 1336.3,
+      "coding_rank": 295
     },
     "grok2": {
       "rating": 1335.7,
-      "rank": 244,
+      "rank": 250,
       "votes": 63498,
       "name": "Grok 2 (2024-08-13)",
-      "coding_rating": 1357.6,
-      "coding_rank": 267
+      "coding_rating": 1357.5,
+      "coding_rank": 273
     },
     "llama3.1405binstruct": {
       "rating": 1333.7,
-      "rank": 249,
+      "rank": 255,
       "votes": 59656,
       "name": "Llama 3.1 405B Instruct (FP8)",
-      "coding_rating": 1369.1,
-      "coding_rank": 249
+      "coding_rating": 1369.0,
+      "coding_rank": 255
     },
     "qwq": {
       "rating": 1335.5,
-      "rank": 247,
-      "votes": 25160,
+      "rank": 253,
+      "votes": 25153,
       "name": "QwQ-32B",
-      "coding_rating": 1382.4,
-      "coding_rank": 239
+      "coding_rating": 1382.2,
+      "coding_rank": 245
     },
     "amazonnova2lite": {
-      "rating": 1334.8,
-      "rank": 248,
-      "votes": 12332,
+      "rating": 1334.7,
+      "rank": 254,
+      "votes": 12333,
       "name": "Amazon Nova 2 Lite",
-      "coding_rating": 1392.9,
-      "coding_rank": 222
+      "coding_rating": 1393.1,
+      "coding_rank": 228
     },
     "step216kexp": {
       "rating": 1333.5,
-      "rank": 250,
+      "rank": 256,
       "votes": 4833,
       "name": "Step-2 16K Exp (202412)",
-      "coding_rating": 1370.3,
-      "coding_rank": 247
+      "coding_rating": 1370.2,
+      "coding_rank": 253
     },
     "olmo3.132binstruct": {
       "rating": 1329.3,
-      "rank": 251,
-      "votes": 11731,
+      "rank": 257,
+      "votes": 11723,
       "name": "Olmo 3.1 32B Instruct",
-      "coding_rating": 1381.3,
-      "coding_rank": 240
+      "coding_rating": 1381.5,
+      "coding_rank": 246
     },
     "yilightning": {
       "rating": 1328.3,
-      "rank": 252,
+      "rank": 258,
       "votes": 27332,
       "name": "Yi Lightning",
       "coding_rating": 1368.4,
-      "coding_rank": 252
+      "coding_rank": 258
     },
     "llama3.3nemotronsuper49bv1": {
-      "rating": 1327.8,
-      "rank": 253,
+      "rating": 1327.7,
+      "rank": 259,
       "votes": 2218,
       "name": "Llama 3.3 Nemotron Super 49B v1",
-      "coding_rating": 1361.7,
-      "coding_rank": 260
+      "coding_rating": 1361.6,
+      "coding_rank": 266
     },
     "llama4maverick17b128einstruct": {
       "rating": 1327.0,
-      "rank": 254,
-      "votes": 39386,
+      "rank": 260,
+      "votes": 39384,
       "name": "Llama 4 Maverick 17B 128E Instruct",
-      "coding_rating": 1372.4,
-      "coding_rank": 246
+      "coding_rating": 1372.3,
+      "coding_rank": 252
     },
     "hunyuanlarge": {
-      "rating": 1326.4,
-      "rank": 256,
+      "rating": 1326.3,
+      "rank": 262,
       "votes": 3738,
       "name": "Hunyuan Large (2025-02-10)",
       "coding_rating": 1365.6,
-      "coding_rank": 256
+      "coding_rank": 262
     },
     "claude3.5haiku": {
-      "rating": 1324.8,
-      "rank": 257,
-      "votes": 69006,
+      "rating": 1324.7,
+      "rank": 263,
+      "votes": 68992,
       "name": "Claude 3.5 Haiku (20241022)",
       "coding_rating": 1385.5,
-      "coding_rank": 234
+      "coding_rank": 240
     },
     "gpt4turbo": {
-      "rating": 1324.6,
-      "rank": 258,
+      "rating": 1324.5,
+      "rank": 264,
       "votes": 98114,
       "name": "GPT-4 Turbo (2024-04-09)",
       "coding_rating": 1346.8,
-      "coding_rank": 279
+      "coding_rank": 285
     },
     "deepseekv2.5": {
       "rating": 1307.2,
-      "rank": 282,
+      "rank": 288,
       "votes": 24572,
       "name": "DeepSeek-V2.5",
-      "coding_rating": 1367.6,
-      "coding_rank": 254
+      "coding_rating": 1367.5,
+      "coding_rank": 261
     },
-    "gpt4.1nano": {
-      "rating": 1322.3,
-      "rank": 261,
-      "votes": 6103,
-      "name": "GPT-4.1 nano (2025-04-14)",
-      "coding_rating": 1372.9,
-      "coding_rank": 245
+    "ringflash2.0": {
+      "rating": 1322.4,
+      "rank": 267,
+      "votes": 6965,
+      "name": "Ring-flash-2.0",
+      "coding_rating": 1390.0,
+      "coding_rank": 233
     },
     "claude3opus": {
       "rating": 1322.3,
-      "rank": 262,
+      "rank": 268,
       "votes": 194909,
       "name": "Claude 3 Opus (20240229)",
       "coding_rating": 1355.2,
-      "coding_rank": 270
+      "coding_rank": 276
     },
-    "ringflash2.0": {
+    "gpt4.1nano": {
       "rating": 1322.2,
-      "rank": 263,
-      "votes": 6970,
-      "name": "Ring-flash-2.0",
-      "coding_rating": 1390.2,
-      "coding_rank": 227
+      "rank": 269,
+      "votes": 6103,
+      "name": "GPT-4.1 nano (2025-04-14)",
+      "coding_rating": 1372.8,
+      "coding_rank": 251
     },
     "llama4scout17b16einstruct": {
-      "rating": 1321.6,
-      "rank": 264,
-      "votes": 29775,
+      "rating": 1321.4,
+      "rank": 270,
+      "votes": 29762,
       "name": "Llama 4 Scout 17B 16E Instruct",
-      "coding_rating": 1362.5,
-      "coding_rank": 259
+      "coding_rating": 1362.3,
+      "coding_rank": 265
     },
     "molmo28b": {
-      "rating": 1321.0,
-      "rank": 265,
-      "votes": 819,
+      "rating": 1320.7,
+      "rank": 271,
+      "votes": 820,
       "name": "Molmo 2 8B"
     },
     "step1oturbo": {
       "rating": 1319.7,
-      "rank": 266,
-      "votes": 8901,
+      "rank": 272,
+      "votes": 8897,
       "name": "Step-1o Turbo (202506)",
       "coding_rating": 1351.4,
-      "coding_rank": 276
-    },
-    "qwen": {
-      "rating": 1318.2,
-      "rank": 268,
-      "votes": 16478,
-      "name": "Qwen-Max (0919)",
-      "coding_rating": 1352.3,
-      "coding_rank": 274
+      "coding_rank": 282
     },
     "llama3.370binstruct": {
       "rating": 1318.1,
-      "rank": 269,
-      "votes": 54476,
+      "rank": 274,
+      "votes": 54472,
       "name": "Llama 3.3 70B Instruct",
       "coding_rating": 1345.8,
-      "coding_rank": 281
+      "coding_rank": 287
     },
-    "gpt4omini": {
-      "rating": 1317.6,
-      "rank": 270,
-      "votes": 68705,
-      "name": "GPT-4o mini (2024-07-18)",
-      "coding_rating": 1347.6,
-      "coding_rank": 278
+    "qwen": {
+      "rating": 1318.1,
+      "rank": 275,
+      "votes": 16478,
+      "name": "Qwen-Max (0919)",
+      "coding_rating": 1352.2,
+      "coding_rank": 280
     },
     "gemma3ne4bit": {
       "rating": 1317.6,
-      "rank": 271,
-      "votes": 22103,
+      "rank": 276,
+      "votes": 22101,
       "name": "Gemma 3n E4B IT",
-      "coding_rating": 1307.1,
-      "coding_rank": 310
+      "coding_rating": 1307.0,
+      "coding_rank": 316
+    },
+    "gpt4omini": {
+      "rating": 1317.5,
+      "rank": 277,
+      "votes": 68705,
+      "name": "GPT-4o mini (2024-07-18)",
+      "coding_rating": 1347.6,
+      "coding_rank": 284
     },
     "qwen2.5plus": {
       "rating": 1314.6,
-      "rank": 273,
+      "rank": 279,
       "votes": 10187,
       "name": "Qwen2.5-Plus (1127)",
       "coding_rating": 1356.2,
-      "coding_rank": 268
+      "coding_rank": 274
     },
     "mistrallarge2": {
-      "rating": 1314.5,
-      "rank": 274,
+      "rating": 1314.4,
+      "rank": 280,
       "votes": 45459,
       "name": "Mistral Large 2 (2407)",
       "coding_rating": 1353.5,
-      "coding_rank": 273
+      "coding_rank": 279
     },
     "athenev2chat": {
-      "rating": 1314.2,
-      "rank": 275,
+      "rating": 1314.1,
+      "rank": 281,
       "votes": 24739,
       "name": "Athene V2 Chat",
-      "coding_rating": 1368.5,
-      "coding_rank": 251
+      "coding_rating": 1368.4,
+      "coding_rank": 257
     },
     "nemotron3nano": {
-      "rating": 1313.7,
-      "rank": 276,
-      "votes": 15658,
+      "rating": 1313.8,
+      "rank": 282,
+      "votes": 15651,
       "name": "NVIDIA-Nemotron-3-Nano-30B-A3B (BF16)",
-      "coding_rating": 1361.0,
-      "coding_rank": 262
+      "coding_rating": 1361.4,
+      "coding_rank": 267
     },
     "gpt4turbopreview": {
       "rating": 1313.0,
-      "rank": 278,
+      "rank": 284,
       "votes": 100105,
       "name": "GPT-4 Turbo Preview (1106)",
       "coding_rating": 1340.3,
-      "coding_rank": 287
-    },
-    "hunyuanstandard": {
-      "rating": 1311.3,
-      "rank": 279,
-      "votes": 3904,
-      "name": "Hunyuan Standard (2025-02-10)",
-      "coding_rating": 1331.0,
       "coding_rank": 293
     },
+    "hunyuanstandard": {
+      "rating": 1311.2,
+      "rank": 285,
+      "votes": 3904,
+      "name": "Hunyuan Standard (2025-02-10)",
+      "coding_rating": 1330.9,
+      "coding_rank": 299
+    },
     "gemini1.5flash": {
-      "rating": 1286.7,
-      "rank": 304,
+      "rating": 1286.6,
+      "rank": 310,
       "votes": 62833,
       "name": "Gemini 1.5 Flash (001)",
-      "coding_rating": 1308.7,
-      "coding_rank": 307
+      "coding_rating": 1308.6,
+      "coding_rank": 314
     },
     "grok2mini": {
-      "rating": 1308.5,
-      "rank": 281,
+      "rating": 1308.4,
+      "rank": 287,
       "votes": 52567,
       "name": "Grok 2 mini (2024-08-13)",
-      "coding_rating": 1334.2,
-      "coding_rank": 290
+      "coding_rating": 1334.1,
+      "coding_rank": 296
     },
     "athene70b": {
-      "rating": 1306.8,
-      "rank": 283,
+      "rating": 1306.7,
+      "rank": 289,
       "votes": 19621,
       "name": "Athene 70B (0725)",
-      "coding_rating": 1349.4,
-      "coding_rank": 277
+      "coding_rating": 1349.2,
+      "coding_rank": 283
     },
     "olmo332bthink": {
-      "rating": 1305.7,
-      "rank": 284,
-      "votes": 5788,
+      "rating": 1305.9,
+      "rank": 290,
+      "votes": 5789,
       "name": "Olmo 3 32B Think",
       "coding_rating": 1359.2,
-      "coding_rank": 264
+      "coding_rank": 270
     },
     "mistrallarge": {
       "rating": 1242.7,
-      "rank": 328,
+      "rank": 334,
       "votes": 62436,
       "name": "Mistral Large (2402)",
-      "coding_rating": 1295.6,
-      "coding_rank": 318
+      "coding_rating": 1295.5,
+      "coding_rank": 324
     },
     "mercury": {
-      "rating": 1305.3,
-      "rank": 286,
+      "rating": 1305.5,
+      "rank": 292,
       "votes": 1964,
       "name": "Mercury",
-      "coding_rating": 1364.0,
-      "coding_rank": 257
+      "coding_rating": 1364.1,
+      "coding_rank": 263
     },
     "magistral": {
-      "rating": 1304.8,
-      "rank": 287,
-      "votes": 11490,
+      "rating": 1304.9,
+      "rank": 293,
+      "votes": 11486,
       "name": "Magistral Medium (2506)",
-      "coding_rating": 1387.3,
-      "coding_rank": 230
+      "coding_rating": 1387.7,
+      "coding_rank": 236
     },
     "granite4.18b": {
-      "rating": 1304.3,
-      "rank": 288,
-      "votes": 4134,
+      "rating": 1304.6,
+      "rank": 294,
+      "votes": 4120,
       "name": "Granite 4.1 8B",
-      "coding_rating": 1353.9,
-      "coding_rank": 272
+      "coding_rating": 1353.8,
+      "coding_rank": 278
     },
     "gemma34bit": {
-      "rating": 1303.3,
-      "rank": 289,
+      "rating": 1303.2,
+      "rank": 295,
       "votes": 4171,
       "name": "Gemma 3 4B IT",
-      "coding_rating": 1273.5,
-      "coding_rank": 332
+      "coding_rating": 1273.4,
+      "coding_rank": 338
     },
     "qwen2.5instruct": {
-      "rating": 1302.9,
-      "rank": 290,
+      "rating": 1302.8,
+      "rank": 296,
       "votes": 39406,
       "name": "Qwen2.5-72B-Instruct",
-      "coding_rating": 1354.8,
-      "coding_rank": 271
+      "coding_rating": 1354.7,
+      "coding_rank": 277
     },
     "mistralsmall3.124binstruct": {
-      "rating": 1302.8,
-      "rank": 291,
-      "votes": 32660,
+      "rating": 1302.6,
+      "rank": 297,
+      "votes": 32649,
       "name": "Mistral Small 3.1 24B Instruct (2503)",
-      "coding_rating": 1361.1,
-      "coding_rank": 261
+      "coding_rating": 1360.8,
+      "coding_rank": 268
     },
     "llama3.1nemotron70binstruct": {
-      "rating": 1298.8,
-      "rank": 292,
+      "rating": 1298.7,
+      "rank": 298,
       "votes": 7140,
       "name": "Llama 3.1 Nemotron 70B Instruct",
-      "coding_rating": 1327.8,
-      "coding_rank": 297
+      "coding_rating": 1327.7,
+      "coding_rank": 303
     },
     "hunyuanlargevision": {
-      "rating": 1294.1,
-      "rank": 293,
-      "votes": 5273,
+      "rating": 1293.9,
+      "rank": 299,
+      "votes": 5272,
       "name": "Hunyuan Large Vision",
       "coding_rating": 1358.2,
-      "coding_rank": 265
+      "coding_rank": 271
     },
     "llama3.170binstruct": {
-      "rating": 1293.5,
-      "rank": 294,
+      "rating": 1293.4,
+      "rank": 300,
       "votes": 55240,
       "name": "Llama 3.1 70B Instruct",
-      "coding_rating": 1333.1,
-      "coding_rank": 291
+      "coding_rating": 1333.0,
+      "coding_rank": 297
     },
     "amazonnovapro1.0": {
       "rating": 1290.1,
-      "rank": 295,
+      "rank": 301,
       "votes": 24745,
       "name": "Amazon Nova Pro 1.0",
-      "coding_rating": 1342.6,
-      "coding_rank": 283
+      "coding_rating": 1342.5,
+      "coding_rank": 289
     },
     "gemma227bit": {
-      "rating": 1289.6,
-      "rank": 296,
+      "rating": 1289.5,
+      "rank": 302,
       "votes": 75754,
       "name": "Gemma 2 27B IT",
-      "coding_rating": 1303.9,
-      "coding_rank": 314
+      "coding_rating": 1303.7,
+      "coding_rank": 320
     },
     "jamba1.5large": {
-      "rating": 1289.6,
-      "rank": 297,
+      "rating": 1289.5,
+      "rank": 303,
       "votes": 8662,
       "name": "Jamba 1.5 Large",
-      "coding_rating": 1311.9,
-      "coding_rank": 305
+      "coding_rating": 1311.8,
+      "coding_rank": 311
     },
     "granite4.28b": {
-      "rating": 1289.3,
-      "rank": 298,
-      "votes": 3193,
+      "rating": 1289.4,
+      "rank": 304,
+      "votes": 3174,
       "name": "Granite 4.2 8B",
-      "coding_rating": 1366.7,
-      "coding_rank": 255
+      "coding_rating": 1367.7,
+      "coding_rank": 260
     },
     "granite4.23b": {
-      "rating": 1289.0,
-      "rank": 299,
-      "votes": 3184,
+      "rating": 1289.1,
+      "rank": 305,
+      "votes": 3169,
       "name": "Granite 4.2 3B",
-      "coding_rating": 1375.7,
-      "coding_rank": 243
+      "coding_rating": 1376.5,
+      "coding_rank": 248
     },
     "rekacore": {
       "rating": 1288.1,
-      "rank": 300,
+      "rank": 306,
       "votes": 7312,
       "name": "Reka Core (20240904)",
-      "coding_rating": 1315.2,
-      "coding_rank": 301
+      "coding_rating": 1315.1,
+      "coding_rank": 307
     },
     "gpt4": {
-      "rating": 1276.4,
-      "rank": 312,
+      "rating": 1276.3,
+      "rank": 318,
       "votes": 88723,
       "name": "GPT-4 (0613)",
-      "coding_rating": 1314.5,
-      "coding_rank": 302
+      "coding_rating": 1314.3,
+      "coding_rank": 308
     },
     "granite4.0hsmall": {
-      "rating": 1287.5,
-      "rank": 302,
-      "votes": 5612,
+      "rating": 1287.3,
+      "rank": 308,
+      "votes": 5613,
       "name": "Granite-4.0-H-Small",
-      "coding_rating": 1330.2,
-      "coding_rank": 294
+      "coding_rating": 1329.8,
+      "coding_rank": 301
     },
     "llama3.1nemotron51binstruct": {
-      "rating": 1286.8,
-      "rank": 303,
+      "rating": 1286.7,
+      "rank": 309,
       "votes": 3749,
       "name": "Llama 3.1 Nemotron 51B Instruct",
       "coding_rating": 1312.1,
-      "coding_rank": 303
+      "coding_rank": 309
     },
     "llama3.1tulu370b": {
       "rating": 1286.2,
-      "rank": 305,
+      "rank": 311,
       "votes": 2846,
       "name": "Llama 3.1 Tulu 3 70B",
-      "coding_rating": 1307.9,
-      "coding_rank": 309
+      "coding_rating": 1307.8,
+      "coding_rank": 315
     },
     "olmo3.132bthink": {
-      "rating": 1286.1,
-      "rank": 306,
-      "votes": 8244,
+      "rating": 1285.9,
+      "rank": 312,
+      "votes": 8241,
       "name": "Olmo 3.1 32B Think",
-      "coding_rating": 1339.5,
-      "coding_rank": 288
+      "coding_rating": 1339.4,
+      "coding_rank": 294
     },
     "claude3sonnet": {
       "rating": 1281.5,
-      "rank": 307,
+      "rank": 313,
       "votes": 109284,
       "name": "Claude 3 Sonnet (20240229)",
-      "coding_rating": 1318.2,
-      "coding_rank": 298
+      "coding_rating": 1318.1,
+      "coding_rank": 304
     },
     "gemma29bitsimpo": {
-      "rating": 1280.5,
-      "rank": 308,
+      "rating": 1280.4,
+      "rank": 314,
       "votes": 10072,
       "name": "Gemma 2 9B IT SimPO",
-      "coding_rating": 1270.7,
-      "coding_rank": 335
+      "coding_rating": 1270.5,
+      "coding_rank": 341
     },
     "nemotron4340binstruct": {
       "rating": 1277.3,
-      "rank": 309,
+      "rank": 315,
       "votes": 19659,
       "name": "Nemotron-4 340B Instruct",
       "coding_rating": 1308.7,
-      "coding_rank": 308
+      "coding_rank": 313
     },
     "llama370binstruct": {
       "rating": 1276.7,
-      "rank": 310,
+      "rank": 316,
       "votes": 156876,
       "name": "Llama 3 70B Instruct",
-      "coding_rating": 1306.1,
-      "coding_rank": 311
+      "coding_rating": 1306.0,
+      "coding_rank": 317
     },
     "commandr": {
       "rating": 1261.9,
-      "rank": 321,
+      "rank": 327,
       "votes": 77554,
       "name": "Command R+",
       "coding_rating": 1273.1,
-      "coding_rank": 333
+      "coding_rank": 339
     },
     "mistralsmall24binstruct": {
-      "rating": 1274.5,
-      "rank": 313,
+      "rating": 1274.4,
+      "rank": 319,
       "votes": 14681,
       "name": "Mistral Small 24B Instruct (2501)",
-      "coding_rating": 1312.0,
-      "coding_rank": 304
+      "coding_rating": 1311.9,
+      "coding_rank": 310
     },
     "glm4": {
       "rating": 1273.5,
-      "rank": 314,
+      "rank": 320,
       "votes": 9788,
       "name": "GLM-4 (0520)",
       "coding_rating": 1309.0,
-      "coding_rank": 306
+      "coding_rank": 312
     },
     "rekaflash": {
-      "rating": 1272.6,
-      "rank": 315,
+      "rating": 1272.5,
+      "rank": 321,
       "votes": 7536,
       "name": "Reka Flash (20240904)",
-      "coding_rating": 1291.6,
-      "coding_rank": 320
+      "coding_rating": 1291.5,
+      "coding_rank": 326
     },
     "qwen2.5coderinstruct": {
-      "rating": 1270.7,
-      "rank": 316,
+      "rating": 1270.6,
+      "rank": 322,
       "votes": 5432,
       "name": "Qwen2.5-Coder-32B-Instruct",
       "coding_rating": 1341.9,
-      "coding_rank": 286
+      "coding_rank": 292
     },
     "ayaexpanse32b": {
-      "rating": 1267.4,
-      "rank": 317,
+      "rating": 1267.3,
+      "rank": 323,
       "votes": 27124,
       "name": "Aya Expanse 32B",
-      "coding_rating": 1292.2,
-      "coding_rank": 319
+      "coding_rating": 1292.0,
+      "coding_rank": 325
     },
     "gemma29bit": {
-      "rating": 1267.2,
-      "rank": 318,
+      "rating": 1267.1,
+      "rank": 324,
       "votes": 54611,
       "name": "Gemma 2 9B IT",
-      "coding_rating": 1269.7,
-      "coding_rank": 336
+      "coding_rating": 1269.4,
+      "coding_rank": 342
     },
     "deepseekcoderv2": {
-      "rating": 1265.5,
-      "rank": 319,
+      "rating": 1265.4,
+      "rank": 325,
       "votes": 15147,
       "name": "DeepSeek-Coder-V2",
-      "coding_rating": 1342.1,
-      "coding_rank": 285
+      "coding_rating": 1342.0,
+      "coding_rank": 291
     },
     "qwen2instruct": {
-      "rating": 1262.0,
-      "rank": 320,
+      "rating": 1261.9,
+      "rank": 326,
       "votes": 37325,
       "name": "Qwen2-72B-Instruct",
-      "coding_rating": 1297.3,
-      "coding_rank": 317
+      "coding_rating": 1297.2,
+      "coding_rank": 323
     },
     "claude3haiku": {
       "rating": 1261.8,
-      "rank": 322,
+      "rank": 328,
       "votes": 117701,
       "name": "Claude 3 Haiku (20240307)",
-      "coding_rating": 1301.2,
-      "coding_rank": 315
+      "coding_rating": 1301.1,
+      "coding_rank": 321
     },
     "amazonnovalite1.0": {
-      "rating": 1260.5,
-      "rank": 323,
+      "rating": 1260.4,
+      "rank": 329,
       "votes": 19372,
       "name": "Amazon Nova Lite 1.0",
       "coding_rating": 1305.5,
-      "coding_rank": 313
+      "coding_rank": 319
     },
     "phi4": {
-      "rating": 1256.4,
-      "rank": 325,
+      "rating": 1256.3,
+      "rank": 331,
       "votes": 24126,
       "name": "Phi-4",
-      "coding_rating": 1305.7,
-      "coding_rank": 312
+      "coding_rating": 1305.6,
+      "coding_rank": 318
     },
     "olmo232binstruct": {
       "rating": 1251.7,
-      "rank": 326,
+      "rank": 332,
       "votes": 3334,
       "name": "OLMo 2 32B Instruct (0325)",
-      "coding_rating": 1279.6,
-      "coding_rank": 326
+      "coding_rating": 1279.5,
+      "coding_rank": 332
     },
     "amazonnovamicro1.0": {
-      "rating": 1240.8,
-      "rank": 329,
+      "rating": 1240.7,
+      "rank": 335,
       "votes": 19364,
       "name": "Amazon Nova Micro 1.0",
       "coding_rating": 1288.3,
-      "coding_rank": 321
+      "coding_rank": 327
     },
     "jamba1.5mini": {
-      "rating": 1239.9,
-      "rank": 330,
+      "rating": 1239.8,
+      "rank": 336,
       "votes": 8858,
       "name": "Jamba 1.5 Mini",
-      "coding_rating": 1264.3,
-      "coding_rank": 338
+      "coding_rating": 1264.1,
+      "coding_rank": 344
     },
     "ministral8b": {
-      "rating": 1237.7,
-      "rank": 331,
+      "rating": 1237.6,
+      "rank": 337,
       "votes": 4781,
       "name": "Ministral 8B (2410)",
       "coding_rating": 1274.2,
-      "coding_rank": 331
+      "coding_rank": 337
     },
     "geminipro": {
-      "rating": 1237.0,
-      "rank": 332,
+      "rating": 1236.9,
+      "rank": 338,
       "votes": 18354,
       "name": "Gemini Pro (Dev API)",
-      "coding_rating": 1239.4,
-      "coding_rank": 356
+      "coding_rating": 1239.1,
+      "coding_rank": 362
     },
     "qwen1.5chat": {
       "rating": 1233.7,
-      "rank": 335,
+      "rank": 341,
       "votes": 39302,
       "name": "Qwen1.5-72B-Chat",
-      "coding_rating": 1275.3,
-      "coding_rank": 329
+      "coding_rating": 1275.2,
+      "coding_rank": 335
     },
     "rekaflash21b": {
-      "rating": 1227.0,
-      "rank": 339,
+      "rating": 1226.9,
+      "rank": 345,
       "votes": 24806,
       "name": "Reka Flash 21B (20240226)",
-      "coding_rating": 1267.3,
-      "coding_rank": 337
+      "coding_rating": 1267.2,
+      "coding_rank": 343
     },
     "hunyuanstandard256k": {
       "rating": 1233.2,
-      "rank": 336,
+      "rank": 342,
       "votes": 2728,
       "name": "Hunyuan Standard 256K",
-      "coding_rating": 1300.3,
-      "coding_rank": 316
+      "coding_rating": 1300.2,
+      "coding_rank": 322
     },
     "mixtral8x22binstructv0.1": {
-      "rating": 1229.8,
-      "rank": 337,
+      "rating": 1229.7,
+      "rank": 343,
       "votes": 51416,
       "name": "Mixtral 8x22B Instruct v0.1",
-      "coding_rating": 1277.7,
-      "coding_rank": 328
+      "coding_rating": 1277.6,
+      "coding_rank": 334
     },
     "gpt3.5turbo": {
-      "rating": 1225.8,
-      "rank": 340,
+      "rating": 1225.7,
+      "rank": 346,
       "votes": 66207,
       "name": "GPT-3.5 Turbo (0125)",
-      "coding_rating": 1274.8,
-      "coding_rank": 330
+      "coding_rating": 1274.6,
+      "coding_rank": 336
     },
     "llama38binstruct": {
-      "rating": 1223.8,
-      "rank": 342,
+      "rating": 1223.7,
+      "rank": 347,
       "votes": 104642,
       "name": "Llama 3 8B Instruct",
-      "coding_rating": 1253.1,
-      "coding_rank": 344
+      "coding_rating": 1253.0,
+      "coding_rank": 350
     },
     "ayaexpanse8b": {
-      "rating": 1223.2,
-      "rank": 343,
+      "rating": 1223.1,
+      "rank": 349,
       "votes": 9818,
       "name": "Aya Expanse 8B",
-      "coding_rating": 1255.0,
-      "coding_rank": 343
+      "coding_rating": 1254.8,
+      "coding_rank": 349
     },
     "mistral": {
-      "rating": 1222.9,
-      "rank": 344,
+      "rating": 1222.8,
+      "rank": 350,
       "votes": 34550,
       "name": "Mistral Medium",
       "coding_rating": 1262.7,
-      "coding_rank": 339
+      "coding_rank": 345
     },
     "llama3.1tulu38b": {
-      "rating": 1220.6,
-      "rank": 345,
+      "rating": 1220.5,
+      "rank": 351,
       "votes": 2896,
       "name": "Llama 3.1 Tulu 3 8B",
       "coding_rating": 1252.6,
-      "coding_rank": 345
-    },
-    "zephyrorpo141ba35bv0.1": {
-      "rating": 1213.2,
-      "rank": 346,
-      "votes": 4652,
-      "name": "Zephyr ORPO 141B A35B v0.1",
-      "coding_rating": 1245.3,
       "coding_rank": 351
     },
+    "zephyrorpo141ba35bv0.1": {
+      "rating": 1213.1,
+      "rank": 352,
+      "votes": 4652,
+      "name": "Zephyr ORPO 141B A35B v0.1",
+      "coding_rating": 1245.2,
+      "coding_rank": 357
+    },
     "yi1.534bchat": {
-      "rating": 1213.0,
-      "rank": 347,
+      "rating": 1212.9,
+      "rank": 353,
       "votes": 24146,
       "name": "Yi 1.5 34B Chat",
       "coding_rating": 1248.5,
-      "coding_rank": 350
+      "coding_rank": 355
     },
     "llama3.18binstruct": {
-      "rating": 1211.3,
-      "rank": 348,
+      "rating": 1211.2,
+      "rank": 354,
       "votes": 49605,
       "name": "Llama 3.1 8B Instruct",
       "coding_rating": 1259.5,
-      "coding_rank": 342
+      "coding_rank": 348
     },
     "granite3.18binstruct": {
-      "rating": 1208.7,
-      "rank": 349,
+      "rating": 1208.6,
+      "rank": 355,
       "votes": 3090,
       "name": "Granite 3.1 8B Instruct",
-      "coding_rating": 1288.3,
-      "coding_rank": 322
+      "coding_rating": 1288.2,
+      "coding_rank": 328
     },
     "gemma22bit": {
-      "rating": 1200.2,
-      "rank": 352,
+      "rating": 1200.1,
+      "rank": 358,
       "votes": 46616,
       "name": "Gemma 2 2B IT",
-      "coding_rating": 1191.6,
-      "coding_rank": 374
+      "coding_rating": 1191.4,
+      "coding_rank": 380
     },
     "phi34kinstruct": {
-      "rating": 1198.1,
-      "rank": 353,
+      "rating": 1198.0,
+      "rank": 359,
       "votes": 25055,
       "name": "Phi-3 Medium 4K Instruct",
       "coding_rating": 1231.4,
-      "coding_rank": 358
+      "coding_rank": 364
     },
     "mixtral8x7binstructv0.1": {
       "rating": 1197.3,
-      "rank": 354,
+      "rank": 360,
       "votes": 73503,
       "name": "Mixtral 8x7B Instruct v0.1",
-      "coding_rating": 1239.8,
-      "coding_rank": 355
+      "coding_rating": 1239.7,
+      "coding_rank": 361
     },
     "dbrxinstructpreview": {
-      "rating": 1195.7,
-      "rank": 355,
+      "rating": 1195.6,
+      "rank": 361,
       "votes": 32191,
       "name": "DBRX Instruct Preview",
-      "coding_rating": 1251.3,
-      "coding_rank": 346
+      "coding_rating": 1251.2,
+      "coding_rank": 352
     },
     "internlm2.520bchat": {
-      "rating": 1190.9,
-      "rank": 357,
+      "rating": 1190.8,
+      "rank": 363,
       "votes": 9901,
       "name": "InternLM2.5 20B Chat",
       "coding_rating": 1248.8,
-      "coding_rank": 348
+      "coding_rank": 354
     },
     "deepseekllm67bchat": {
       "rating": 1185.1,
-      "rank": 358,
+      "rank": 364,
       "votes": 4932,
       "name": "DeepSeek LLM 67B Chat",
-      "coding_rating": 1218.3,
-      "coding_rank": 361
+      "coding_rating": 1218.2,
+      "coding_rank": 367
     },
     "wizardlm70b": {
       "rating": 1184.9,
-      "rank": 359,
+      "rank": 365,
       "votes": 8214,
       "name": "WizardLM 70B",
-      "coding_rating": 1193.6,
-      "coding_rank": 373
+      "coding_rating": 1193.5,
+      "coding_rank": 379
     },
     "yi34bchat": {
-      "rating": 1183.9,
-      "rank": 360,
+      "rating": 1183.8,
+      "rank": 366,
       "votes": 15483,
       "name": "Yi 34B Chat",
-      "coding_rating": 1205.7,
-      "coding_rank": 367
+      "coding_rating": 1205.6,
+      "coding_rank": 373
     },
     "granite3.08binstruct": {
       "rating": 1183.3,
-      "rank": 361,
+      "rank": 367,
       "votes": 6638,
       "name": "Granite 3.0 8B Instruct",
-      "coding_rating": 1240.6,
-      "coding_rank": 353
+      "coding_rating": 1240.4,
+      "coding_rank": 359
     },
     "openchat3.5": {
       "rating": 1182.9,
-      "rank": 363,
+      "rank": 369,
       "votes": 12637,
       "name": "OpenChat 3.5 (0106)",
-      "coding_rating": 1230.0,
-      "coding_rank": 359
+      "coding_rating": 1229.9,
+      "coding_rank": 365
     },
     "gemma1.17bit": {
-      "rating": 1182.8,
-      "rank": 364,
+      "rating": 1182.6,
+      "rank": 370,
       "votes": 23893,
       "name": "Gemma 1.1 7B IT",
-      "coding_rating": 1215.7,
-      "coding_rank": 362
+      "coding_rating": 1215.3,
+      "coding_rank": 368
     },
     "snowflakearcticinstruct": {
       "rating": 1180.2,
-      "rank": 365,
+      "rank": 371,
       "votes": 32832,
       "name": "Snowflake Arctic Instruct",
-      "coding_rating": 1224.8,
-      "coding_rank": 360
+      "coding_rating": 1224.6,
+      "coding_rank": 366
     },
     "granite3.12binstruct": {
       "rating": 1179.0,
-      "rank": 366,
+      "rank": 372,
       "votes": 3188,
       "name": "Granite 3.1 2B Instruct",
       "coding_rating": 1249.0,
-      "coding_rank": 347
+      "coding_rank": 353
     },
     "tulu2dpo70b": {
       "rating": 1177.8,
-      "rank": 367,
+      "rank": 373,
       "votes": 6535,
       "name": "Tulu 2 DPO 70B",
       "coding_rating": 1215.2,
-      "coding_rank": 363
+      "coding_rank": 369
     },
     "openhermes2.5mistral7b": {
       "rating": 1176.1,
-      "rank": 368,
+      "rank": 374,
       "votes": 5006,
       "name": "OpenHermes 2.5 Mistral 7B",
-      "coding_rating": 1186.8,
-      "coding_rank": 376
+      "coding_rating": 1186.7,
+      "coding_rank": 382
     },
     "vicuna33b": {
       "rating": 1173.1,
-      "rank": 369,
+      "rank": 375,
       "votes": 22479,
       "name": "Vicuna 33B",
-      "coding_rating": 1193.7,
-      "coding_rank": 372
+      "coding_rating": 1193.6,
+      "coding_rank": 378
     },
     "phi3small8kinstruct": {
       "rating": 1171.2,
-      "rank": 370,
+      "rank": 376,
       "votes": 17766,
       "name": "Phi-3 Small 8K Instruct",
-      "coding_rating": 1205.1,
-      "coding_rank": 368
+      "coding_rating": 1205.0,
+      "coding_rank": 374
     },
     "starlinglm7bbeta": {
       "rating": 1171.1,
-      "rank": 371,
+      "rank": 377,
       "votes": 16056,
       "name": "Starling LM 7B Beta",
       "coding_rating": 1235.7,
-      "coding_rank": 357
+      "coding_rank": 363
     },
     "llama270bchat": {
       "rating": 1170.8,
-      "rank": 372,
+      "rank": 378,
       "votes": 38492,
       "name": "Llama 2 70B Chat",
-      "coding_rating": 1179.3,
-      "coding_rank": 379
+      "coding_rating": 1179.2,
+      "coding_rank": 385
     },
     "starlinglm7balpha": {
-      "rating": 1167.6,
-      "rank": 373,
+      "rating": 1167.5,
+      "rank": 379,
       "votes": 10224,
       "name": "Starling LM 7B Alpha",
-      "coding_rating": 1207.7,
-      "coding_rank": 366
+      "coding_rating": 1207.6,
+      "coding_rank": 372
     },
     "llama3.23binstruct": {
       "rating": 1166.9,
-      "rank": 374,
+      "rank": 380,
       "votes": 7936,
       "name": "Llama 3.2 3B Instruct",
-      "coding_rating": 1176.6,
-      "coding_rank": 380
+      "coding_rating": 1176.7,
+      "coding_rank": 386
     },
     "noushermes2mixtral8x7bdpo": {
       "rating": 1164.5,
-      "rank": 375,
+      "rank": 381,
       "votes": 3777,
       "name": "Nous Hermes 2 Mixtral 8x7B DPO",
       "coding_rating": 1175.8,
-      "coding_rank": 381
+      "coding_rank": 387
     },
     "granite3.02binstruct": {
       "rating": 1156.8,
-      "rank": 376,
+      "rank": 382,
       "votes": 6837,
       "name": "Granite 3.0 2B Instruct",
-      "coding_rating": 1209.6,
-      "coding_rank": 365
+      "coding_rating": 1209.5,
+      "coding_rank": 371
     },
     "llama270bsteerlmchat": {
-      "rating": 1154.9,
-      "rank": 377,
+      "rating": 1154.8,
+      "rank": 383,
       "votes": 3585,
       "name": "Llama 2 70B SteerLM Chat",
-      "coding_rating": 1145.8,
-      "coding_rank": 396
+      "coding_rating": 1145.7,
+      "coding_rank": 402
     },
     "qwqpreview": {
       "rating": 1154.3,
-      "rank": 378,
+      "rank": 384,
       "votes": 3231,
       "name": "QwQ-32B-Preview",
-      "coding_rating": 1173.9,
-      "coding_rank": 382
+      "coding_rating": 1174.1,
+      "coding_rank": 388
     },
     "solar10.7binstructv1.0": {
       "rating": 1152.6,
-      "rank": 379,
+      "rank": 385,
       "votes": 4155,
       "name": "SOLAR 10.7B Instruct v1.0",
-      "coding_rating": 1183.7,
-      "coding_rank": 378
+      "coding_rating": 1183.6,
+      "coding_rank": 384
     },
     "dolphin2.2.1mistral7b": {
       "rating": 1152.4,
-      "rank": 380,
+      "rank": 386,
       "votes": 1679,
       "name": "Dolphin 2.2.1 Mistral 7B"
     },
     "mpt30bchat": {
       "rating": 1150.9,
-      "rank": 381,
+      "rank": 387,
       "votes": 2572,
       "name": "MPT 30B Chat",
-      "coding_rating": 1168.1,
-      "coding_rank": 384
+      "coding_rating": 1167.9,
+      "coding_rank": 390
     },
     "wizardlm13b": {
       "rating": 1149.7,
-      "rank": 382,
+      "rank": 388,
       "votes": 7044,
       "name": "WizardLM 13B",
-      "coding_rating": 1151.9,
-      "coding_rank": 394
+      "coding_rating": 1151.8,
+      "coding_rank": 400
     },
     "mistral7binstructv0.2": {
       "rating": 1149.5,
-      "rank": 383,
+      "rank": 389,
       "votes": 19402,
       "name": "Mistral 7B Instruct v0.2",
-      "coding_rating": 1186.1,
-      "coding_rank": 377
+      "coding_rating": 1186.0,
+      "coding_rank": 383
     },
     "falcon180bchat": {
-      "rating": 1148.3,
-      "rank": 384,
+      "rating": 1148.2,
+      "rank": 390,
       "votes": 1295,
       "name": "Falcon 180B Chat"
     },
     "phi3mini4kinstruct": {
       "rating": 1128.2,
-      "rank": 395,
+      "rank": 401,
       "votes": 20118,
       "name": "Phi-3 Mini 4K Instruct",
-      "coding_rating": 1187.7,
-      "coding_rank": 375
+      "coding_rating": 1187.6,
+      "coding_rank": 381
     },
     "vicuna13b": {
-      "rating": 1141.8,
-      "rank": 387,
+      "rating": 1141.7,
+      "rank": 393,
       "votes": 19367,
       "name": "Vicuna 13B",
-      "coding_rating": 1163.5,
-      "coding_rank": 387
+      "coding_rating": 1163.4,
+      "coding_rank": 393
     },
     "llama213bchat": {
-      "rating": 1141.6,
-      "rank": 388,
+      "rating": 1141.5,
+      "rank": 394,
       "votes": 19174,
       "name": "Llama 2 13B Chat",
       "coding_rating": 1162.7,
-      "coding_rank": 388
+      "coding_rank": 394
     },
     "qwenchat": {
-      "rating": 1139.6,
-      "rank": 389,
+      "rating": 1139.5,
+      "rank": 395,
       "votes": 4964,
       "name": "Qwen-14B-Chat",
-      "coding_rating": 1197.8,
-      "coding_rank": 370
+      "coding_rating": 1197.6,
+      "coding_rank": 376
     },
     "palm2": {
-      "rating": 1139.4,
-      "rank": 390,
+      "rating": 1139.3,
+      "rank": 396,
       "votes": 8554,
       "name": "PaLM 2",
-      "coding_rating": 1153.1,
-      "coding_rank": 392
+      "coding_rating": 1152.8,
+      "coding_rank": 399
     },
     "gemma7bit": {
-      "rating": 1137.9,
-      "rank": 391,
+      "rating": 1137.8,
+      "rank": 397,
       "votes": 8925,
       "name": "Gemma 7B IT",
-      "coding_rating": 1166.6,
-      "coding_rank": 386
+      "coding_rating": 1166.3,
+      "coding_rank": 392
     },
     "codellama34binstruct": {
       "rating": 1137.0,
-      "rank": 392,
+      "rank": 398,
       "votes": 7366,
       "name": "Code Llama 34B Instruct",
-      "coding_rating": 1159.6,
-      "coding_rank": 390
+      "coding_rating": 1159.5,
+      "coding_rank": 396
     },
     "zephyr7bbeta": {
-      "rating": 1131.0,
-      "rank": 393,
+      "rating": 1130.9,
+      "rank": 399,
       "votes": 11118,
       "name": "Zephyr 7B Beta",
-      "coding_rating": 1152.9,
-      "coding_rank": 393
+      "coding_rating": 1152.8,
+      "coding_rank": 398
     },
     "phi3mini128kinstruct": {
       "rating": 1130.0,
-      "rank": 394,
+      "rank": 400,
       "votes": 20685,
       "name": "Phi-3 Mini 128K Instruct",
-      "coding_rating": 1154.7,
-      "coding_rank": 391
+      "coding_rating": 1154.6,
+      "coding_rank": 397
     },
     "guanaco33b": {
-      "rating": 1127.7,
-      "rank": 396,
+      "rating": 1127.6,
+      "rank": 402,
       "votes": 2921,
       "name": "Guanaco 33B",
-      "coding_rating": 1113.9,
-      "coding_rank": 402
+      "coding_rating": 1113.7,
+      "coding_rank": 408
     },
     "zephyr7balpha": {
       "rating": 1127.1,
-      "rank": 397,
+      "rank": 403,
       "votes": 1785,
       "name": "Zephyr 7B Alpha",
-      "coding_rating": 1167.0,
-      "coding_rank": 385
+      "coding_rating": 1166.9,
+      "coding_rank": 391
     },
     "stripedhyenanous7b": {
-      "rating": 1121.8,
-      "rank": 398,
+      "rating": 1121.7,
+      "rank": 404,
       "votes": 5182,
       "name": "StripedHyena Nous 7B",
-      "coding_rating": 1127.5,
-      "coding_rank": 401
+      "coding_rating": 1127.4,
+      "coding_rank": 407
     },
     "codellama70binstruct": {
       "rating": 1119.3,
-      "rank": 399,
+      "rank": 405,
       "votes": 1143,
       "name": "Code Llama 70B Instruct"
     },
     "gemma1.12bit": {
-      "rating": 1116.9,
-      "rank": 400,
+      "rating": 1116.7,
+      "rank": 406,
       "votes": 10854,
       "name": "Gemma 1.1 2B IT",
-      "coding_rating": 1170.6,
-      "coding_rank": 383
-    },
-    "vicuna7b": {
-      "rating": 1115.5,
-      "rank": 401,
-      "votes": 6923,
-      "name": "Vicuna 7B",
-      "coding_rating": 1131.9,
-      "coding_rank": 399
-    },
-    "smollm21.7binstruct": {
-      "rating": 1114.9,
-      "rank": 402,
-      "votes": 2199,
-      "name": "SmolLM2 1.7B Instruct",
-      "coding_rating": 1160.2,
+      "coding_rating": 1170.2,
       "coding_rank": 389
     },
+    "vicuna7b": {
+      "rating": 1115.4,
+      "rank": 407,
+      "votes": 6923,
+      "name": "Vicuna 7B",
+      "coding_rating": 1131.8,
+      "coding_rank": 405
+    },
+    "smollm21.7binstruct": {
+      "rating": 1114.8,
+      "rank": 408,
+      "votes": 2199,
+      "name": "SmolLM2 1.7B Instruct",
+      "coding_rating": 1160.1,
+      "coding_rank": 395
+    },
     "llama3.21binstruct": {
-      "rating": 1111.3,
-      "rank": 403,
+      "rating": 1111.2,
+      "rank": 409,
       "votes": 8045,
       "name": "Llama 3.2 1B Instruct",
       "coding_rating": 1149.4,
-      "coding_rank": 395
+      "coding_rank": 401
     },
     "mistral7binstruct": {
-      "rating": 1110.6,
-      "rank": 404,
+      "rating": 1110.5,
+      "rank": 410,
       "votes": 8977,
       "name": "Mistral 7B Instruct",
-      "coding_rating": 1144.7,
-      "coding_rank": 397
+      "coding_rating": 1144.6,
+      "coding_rank": 403
     },
     "llama27bchat": {
       "rating": 1108.0,
-      "rank": 405,
+      "rank": 411,
       "votes": 14148,
       "name": "Llama 2 7B Chat",
-      "coding_rating": 1103.3,
-      "coding_rank": 404
+      "coding_rating": 1103.2,
+      "coding_rank": 410
     },
     "gemma2bit": {
-      "rating": 1093.9,
-      "rank": 406,
+      "rating": 1093.7,
+      "rank": 412,
       "votes": 4780,
       "name": "Gemma 2B IT",
-      "coding_rating": 1135.7,
-      "coding_rank": 398
+      "coding_rating": 1135.4,
+      "coding_rank": 404
     },
     "olmo7binstruct": {
       "rating": 1073.7,
-      "rank": 408,
+      "rank": 414,
       "votes": 6328,
       "name": "OLMo 7B Instruct",
       "coding_rating": 1107.5,
-      "coding_rank": 403
+      "coding_rank": 409
     },
     "koala13b": {
       "rating": 1071.1,
-      "rank": 409,
+      "rank": 415,
       "votes": 6965,
       "name": "Koala 13B",
-      "coding_rating": 1066.3,
-      "coding_rank": 406
+      "coding_rating": 1066.2,
+      "coding_rank": 412
     },
     "alpaca13b": {
-      "rating": 1070.5,
-      "rank": 410,
+      "rating": 1070.3,
+      "rank": 416,
       "votes": 5745,
       "name": "Alpaca 13B",
-      "coding_rating": 999.0,
-      "coding_rank": 413
+      "coding_rating": 998.5,
+      "coding_rank": 419
     },
     "gpt4all13bsnoozy": {
-      "rating": 1067.9,
-      "rank": 411,
+      "rating": 1067.8,
+      "rank": 417,
       "votes": 1743,
       "name": "GPT4All 13B Snoozy"
     },
     "mpt7bchat": {
-      "rating": 1063.7,
-      "rank": 412,
+      "rating": 1063.6,
+      "rank": 418,
       "votes": 3924,
       "name": "MPT 7B Chat",
-      "coding_rating": 1066.1,
-      "coding_rank": 407
+      "coding_rating": 1065.9,
+      "coding_rank": 413
     },
     "chatglm36b": {
-      "rating": 1056.8,
-      "rank": 413,
+      "rating": 1056.7,
+      "rank": 419,
       "votes": 4658,
       "name": "ChatGLM3 6B",
-      "coding_rating": 1090.4,
-      "coding_rank": 405
+      "coding_rating": 1090.3,
+      "coding_rank": 411
     },
     "rwkv4raven14b": {
       "rating": 1042.5,
-      "rank": 414,
+      "rank": 420,
       "votes": 4845,
       "name": "RWKV-4 Raven 14B",
-      "coding_rating": 1059.7,
-      "coding_rank": 408
-    },
-    "chatglm26b": {
-      "rating": 1025.0,
-      "rank": 415,
-      "votes": 2658,
-      "name": "ChatGLM2 6B",
-      "coding_rating": 1030.8,
-      "coding_rank": 411
-    },
-    "openassistantpythia12b": {
-      "rating": 1023.7,
-      "rank": 416,
-      "votes": 6310,
-      "name": "OpenAssistant Pythia 12B",
-      "coding_rating": 1050.2,
-      "coding_rank": 409
-    },
-    "chatglm6b": {
-      "rating": 996.0,
-      "rank": 417,
-      "votes": 4914,
-      "name": "ChatGLM 6B",
-      "coding_rating": 1035.9,
-      "coding_rank": 410
-    },
-    "fastchatt53b": {
-      "rating": 992.8,
-      "rank": 418,
-      "votes": 4203,
-      "name": "FastChat-T5 3B",
-      "coding_rating": 908.0,
-      "coding_rank": 415
-    },
-    "dolly2.012b": {
-      "rating": 982.7,
-      "rank": 419,
-      "votes": 3412,
-      "name": "Dolly 2.0 12B",
-      "coding_rating": 962.2,
+      "coding_rating": 1059.6,
       "coding_rank": 414
     },
-    "llama13b": {
-      "rating": 975.4,
-      "rank": 420,
-      "votes": 2391,
-      "name": "LLaMA 13B",
-      "coding_rating": 882.6,
+    "chatglm26b": {
+      "rating": 1024.9,
+      "rank": 421,
+      "votes": 2658,
+      "name": "ChatGLM2 6B",
+      "coding_rating": 1030.6,
+      "coding_rank": 417
+    },
+    "openassistantpythia12b": {
+      "rating": 1023.6,
+      "rank": 422,
+      "votes": 6310,
+      "name": "OpenAssistant Pythia 12B",
+      "coding_rating": 1050.0,
+      "coding_rank": 415
+    },
+    "chatglm6b": {
+      "rating": 995.9,
+      "rank": 423,
+      "votes": 4914,
+      "name": "ChatGLM 6B",
+      "coding_rating": 1035.8,
       "coding_rank": 416
     },
+    "fastchatt53b": {
+      "rating": 992.7,
+      "rank": 424,
+      "votes": 4203,
+      "name": "FastChat-T5 3B",
+      "coding_rating": 907.8,
+      "coding_rank": 421
+    },
+    "dolly2.012b": {
+      "rating": 982.6,
+      "rank": 425,
+      "votes": 3412,
+      "name": "Dolly 2.0 12B",
+      "coding_rating": 961.8,
+      "coding_rank": 420
+    },
+    "llama13b": {
+      "rating": 975.3,
+      "rank": 426,
+      "votes": 2391,
+      "name": "LLaMA 13B",
+      "coding_rating": 882.1,
+      "coding_rank": 422
+    },
     "stablelmtunedalpha7b": {
-      "rating": 953.4,
-      "rank": 421,
+      "rating": 953.3,
+      "rank": 427,
       "votes": 3287,
       "name": "StableLM Tuned Alpha 7B",
-      "coding_rating": 1005.0,
-      "coding_rank": 412
+      "coding_rating": 1004.9,
+      "coding_rank": 418
     }
   }
 }

@@ -1,9 +1,9 @@
 {
   "inclusionai/ling-3.2-flash:free": {
-    "throughput_p50": 18.0,
-    "latency_p50_ms": 1358.0,
+    "throughput_p50": 83.5,
+    "latency_p50_ms": 1306.0,
     "provider": "Ant Digital",
-    "fetched_at": "2026-11-13T23:01:32"
+    "fetched_at": "2026-11-26T00:00:51"
   },
   "thinkingmachines/inkling-2-small:free": {
     "throughput_p50": 102.0,
@@ -12,34 +12,34 @@
     "fetched_at": "2026-11-13T23:01:32"
   },
   "particle-ai/particle-1:free": {
-    "throughput_p50": 118.0,
-    "latency_p50_ms": 928.0,
+    "throughput_p50": 140.0,
+    "latency_p50_ms": 506.0,
     "provider": "Particle AI",
-    "fetched_at": "2026-11-13T23:01:32"
+    "fetched_at": "2026-11-26T00:00:53"
   },
   "baidu/ernie-5.5-flash-preview:free": {
-    "throughput_p50": 87.0,
-    "latency_p50_ms": 2402.0,
+    "throughput_p50": 107.0,
+    "latency_p50_ms": 1617.0,
     "provider": "Baidu",
-    "fetched_at": "2026-11-13T23:01:32"
+    "fetched_at": "2026-11-26T00:00:51"
   },
   "nvidia/nemotron-3.5-super-vl:free": {
-    "throughput_p50": 107.0,
-    "latency_p50_ms": 1156.0,
+    "throughput_p50": 53.0,
+    "latency_p50_ms": 9202.0,
     "provider": "Nvidia",
-    "fetched_at": "2026-11-13T23:01:32"
+    "fetched_at": "2026-11-26T00:00:56"
   },
   "nvidia/nemotron-3.5-lightning:free": {
-    "throughput_p50": 92.0,
-    "latency_p50_ms": 438.0,
+    "throughput_p50": 132.0,
+    "latency_p50_ms": 409.0,
     "provider": "Nvidia",
-    "fetched_at": "2026-11-13T23:01:32"
+    "fetched_at": "2026-11-26T00:01:06"
   },
   "nvidia/nemotron-3-ultra-550b-a55b:free": {
-    "throughput_p50": 39.0,
-    "latency_p50_ms": 1553.0,
+    "throughput_p50": 41.0,
+    "latency_p50_ms": 1366.0,
     "provider": "Nvidia",
-    "fetched_at": "2026-11-13T23:01:32"
+    "fetched_at": "2026-11-26T00:01:12"
   },
   "dots-studio/dots-3-note-preview:free": {
     "throughput_p50": 60.0,
@@ -48,28 +48,28 @@
     "fetched_at": "2026-11-13T23:01:32"
   },
   "liquid/lfm-3-1.7b:free": {
-    "throughput_p50": 119.0,
-    "latency_p50_ms": 2266.0,
+    "throughput_p50": 186.0,
+    "latency_p50_ms": 390.0,
     "provider": "Liquid",
-    "fetched_at": "2026-11-13T23:01:32"
+    "fetched_at": "2026-11-26T00:00:52"
   },
   "recursive/flint-v1.0:free": {
-    "throughput_p50": 107.0,
-    "latency_p50_ms": 924.0,
+    "throughput_p50": 28.0,
+    "latency_p50_ms": 1307.0,
     "provider": "Recursive",
-    "fetched_at": "2026-11-13T23:01:32"
+    "fetched_at": "2026-11-26T00:00:54"
   },
   "google/gemma-4-26b-a4b-it:free": {
     "throughput_p50": 42.0,
-    "latency_p50_ms": 1058.0,
+    "latency_p50_ms": 911.0,
     "provider": "Google AI Studio",
-    "fetched_at": "2026-11-13T23:01:32"
+    "fetched_at": "2026-11-26T00:01:17"
   },
   "google/gemma-4-31b-it:free": {
-    "throughput_p50": 24.0,
-    "latency_p50_ms": 1181.0,
+    "throughput_p50": 31.0,
+    "latency_p50_ms": 1451.0,
     "provider": "Google AI Studio",
-    "fetched_at": "2026-11-13T23:01:33"
+    "fetched_at": "2026-11-26T00:01:17"
   },
   "cohere/north-mini-code:free": {
     "throughput_p50": 133.0,
@@ -78,430 +78,430 @@
     "fetched_at": "2026-11-13T23:01:33"
   },
   "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free": {
-    "throughput_p50": 78.0,
-    "latency_p50_ms": 430.0,
+    "throughput_p50": 104.0,
+    "latency_p50_ms": 462.0,
     "provider": "Nvidia",
-    "fetched_at": "2026-11-13T23:01:33"
+    "fetched_at": "2026-11-26T00:01:14"
   },
   "openai/gpt-5.6-sol": {
-    "throughput_p50": 108.5,
-    "latency_p50_ms": 3126.0,
+    "throughput_p50": 99.0,
+    "latency_p50_ms": 4281.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-13T23:01:33"
+    "fetched_at": "2026-11-26T00:01:10"
   },
   "openai/gpt-5.6-terra": {
-    "throughput_p50": 95.0,
-    "latency_p50_ms": 878.0,
+    "throughput_p50": 112.0,
+    "latency_p50_ms": 1090.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-13T23:01:33"
+    "fetched_at": "2026-11-26T00:01:10"
   },
   "openai/gpt-5.6-luna": {
-    "throughput_p50": 149.0,
-    "latency_p50_ms": 406.0,
-    "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-13T23:01:33"
+    "throughput_p50": 173.0,
+    "latency_p50_ms": 653.0,
+    "provider": "OpenAI",
+    "fetched_at": "2026-11-26T00:01:09"
   },
   "openai/gpt-5.4": {
-    "throughput_p50": 121.0,
-    "latency_p50_ms": 2946.0,
-    "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-13T23:01:33"
+    "throughput_p50": 77.0,
+    "latency_p50_ms": 3384.0,
+    "provider": "Azure",
+    "fetched_at": "2026-11-26T00:01:19"
   },
   "openai/gpt-5.4-mini": {
-    "throughput_p50": 174.0,
-    "latency_p50_ms": 660.0,
+    "throughput_p50": 149.0,
+    "latency_p50_ms": 812.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-13T23:01:33"
+    "fetched_at": "2026-11-26T00:01:18"
   },
   "openai/gpt-4o": {
-    "throughput_p50": 89.0,
-    "latency_p50_ms": 515.0,
+    "throughput_p50": 91.0,
+    "latency_p50_ms": 479.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-13T23:01:33"
+    "fetched_at": "2026-11-26T00:01:39"
   },
   "openai/gpt-4o-mini": {
-    "throughput_p50": 95.0,
-    "latency_p50_ms": 377.0,
-    "provider": "Azure",
-    "fetched_at": "2026-11-13T23:01:33"
+    "throughput_p50": 58.0,
+    "latency_p50_ms": 529.0,
+    "provider": "OpenAI",
+    "fetched_at": "2026-11-26T00:01:39"
   },
   "anthropic/claude-sonnet-4.5": {
-    "throughput_p50": 53.0,
-    "latency_p50_ms": 870.0,
-    "provider": "Google",
-    "fetched_at": "2026-11-13T23:01:33"
+    "throughput_p50": 43.0,
+    "latency_p50_ms": 1067.0,
+    "provider": "Claude Platform on AWS",
+    "fetched_at": "2026-11-26T00:01:28"
   },
   "anthropic/claude-opus-5": {
-    "throughput_p50": 84.0,
-    "latency_p50_ms": 937.0,
+    "throughput_p50": 130.0,
+    "latency_p50_ms": 603.0,
     "provider": "Anthropic",
-    "fetched_at": "2026-11-13T23:01:33"
+    "fetched_at": "2026-11-26T00:01:08"
   },
   "google/gemini-3.8-flash": {
-    "throughput_p50": 130.0,
-    "latency_p50_ms": 2205.0,
+    "throughput_p50": 107.0,
+    "latency_p50_ms": 2724.0,
     "provider": "Google",
-    "fetched_at": "2026-11-13T23:01:33"
+    "fetched_at": "2026-11-26T00:01:03"
   },
   "google/gemini-4-carbon": {
-    "throughput_p50": 63.0,
-    "latency_p50_ms": 7755.0,
+    "throughput_p50": 44.0,
+    "latency_p50_ms": 7359.0,
     "provider": "Google AI Studio",
-    "fetched_at": "2026-11-13T23:01:33"
+    "fetched_at": "2026-11-26T00:00:51"
   },
   "deepseek/deepseek-v4-pro": {
-    "throughput_p50": 104.0,
-    "latency_p50_ms": 648.0,
+    "throughput_p50": 123.0,
+    "latency_p50_ms": 465.0,
     "provider": "Relace",
-    "fetched_at": "2026-11-13T23:01:33"
+    "fetched_at": "2026-11-26T00:01:16"
   },
   "deepseek/deepseek-v4.1-flash": {
-    "throughput_p50": 261.0,
-    "latency_p50_ms": 200.0,
+    "throughput_p50": 253.0,
+    "latency_p50_ms": 220.0,
     "provider": "Together",
-    "fetched_at": "2026-11-13T23:01:33"
+    "fetched_at": "2026-11-26T00:01:02"
   },
   "deepseek/deepseek-v4-flash": {
-    "throughput_p50": 110.0,
-    "latency_p50_ms": 1511.0,
-    "provider": "GMICloud",
-    "fetched_at": "2026-11-13T23:01:33"
+    "throughput_p50": 123.0,
+    "latency_p50_ms": 479.0,
+    "provider": "Relace",
+    "fetched_at": "2026-11-26T00:01:16"
   },
   "x-ai/grok-4.7": {
-    "throughput_p50": 68.0,
-    "latency_p50_ms": 2303.0,
+    "throughput_p50": 86.0,
+    "latency_p50_ms": 1407.0,
     "provider": "xAI",
-    "fetched_at": "2026-11-13T23:01:33"
+    "fetched_at": "2026-11-26T00:01:00"
   },
   "x-ai/grok-4.6": {
-    "throughput_p50": 78.0,
-    "latency_p50_ms": 1209.0,
+    "throughput_p50": 82.0,
+    "latency_p50_ms": 1152.0,
     "provider": "xAI",
-    "fetched_at": "2026-11-13T23:01:33"
+    "fetched_at": "2026-11-26T00:01:06"
   },
   "moonshotai/kimi-k3.1-pro": {
-    "throughput_p50": 90.0,
-    "latency_p50_ms": 768.0,
-    "provider": "InferenceNet",
-    "fetched_at": "2026-11-13T23:01:34"
+    "throughput_p50": 131.0,
+    "latency_p50_ms": 993.0,
+    "provider": "Nebius",
+    "fetched_at": "2026-11-26T00:00:54"
   },
   "z-ai/glm-5.3": {
-    "throughput_p50": 179.5,
-    "latency_p50_ms": 421.0,
+    "throughput_p50": 279.0,
+    "latency_p50_ms": 333.0,
     "provider": "BaseTen",
-    "fetched_at": "2026-11-13T23:01:34"
+    "fetched_at": "2026-11-26T00:01:05"
   },
   "mistralai/mistral-large-4-0": {
-    "throughput_p50": 83.0,
-    "latency_p50_ms": 1136.0,
+    "throughput_p50": 89.5,
+    "latency_p50_ms": 682.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-13T23:01:34"
+    "fetched_at": "2026-11-26T00:00:57"
   },
   "nvidia/nemotron-3.5-super-vl": {
-    "throughput_p50": 471.0,
-    "latency_p50_ms": 548.0,
-    "provider": "Venice",
-    "fetched_at": "2026-11-13T23:01:34"
+    "throughput_p50": 405.0,
+    "latency_p50_ms": 184.0,
+    "provider": "BaseTen",
+    "fetched_at": "2026-11-26T00:00:56"
   },
   "nvidia/nemotron-3.5-lightning": {
-    "throughput_p50": 420.0,
-    "latency_p50_ms": 282.0,
-    "provider": "Fireworks",
-    "fetched_at": "2026-11-13T23:01:34"
+    "throughput_p50": 921.0,
+    "latency_p50_ms": 54.0,
+    "provider": "ModelRun",
+    "fetched_at": "2026-11-26T00:01:06"
   },
   "openai/gpt-6.1-terra-pro": {
-    "throughput_p50": 237.0,
-    "latency_p50_ms": 41385.0,
-    "provider": "OpenAI",
-    "fetched_at": "2026-11-13T23:01:34"
+    "throughput_p50": 64.0,
+    "latency_p50_ms": 6132.0,
+    "provider": "Azure",
+    "fetched_at": "2026-11-26T00:00:53"
   },
   "openai/gpt-6.1-terra": {
-    "throughput_p50": 77.0,
-    "latency_p50_ms": 2642.0,
-    "provider": "Azure",
-    "fetched_at": "2026-11-13T23:01:34"
+    "throughput_p50": 80.0,
+    "latency_p50_ms": 991.0,
+    "provider": "Google",
+    "fetched_at": "2026-11-26T00:00:53"
   },
   "openai/gpt-6.1-sol-pro": {
-    "throughput_p50": 41.0,
-    "latency_p50_ms": 8798.0,
-    "provider": "Azure",
-    "fetched_at": "2026-11-13T23:01:34"
+    "throughput_p50": 55.0,
+    "latency_p50_ms": 10721.0,
+    "provider": "OpenAI",
+    "fetched_at": "2026-11-26T00:00:57"
   },
   "openai/gpt-6.1-sol": {
-    "throughput_p50": 113.0,
-    "latency_p50_ms": 1222.0,
+    "throughput_p50": 283.0,
+    "latency_p50_ms": 1669.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-13T23:01:34"
+    "fetched_at": "2026-11-26T00:00:57"
   },
   "openai/gpt-6-luna-pro": {
-    "throughput_p50": 152.5,
-    "latency_p50_ms": 51868.0,
-    "provider": "Azure",
-    "fetched_at": "2026-11-13T23:01:34"
+    "throughput_p50": 275.0,
+    "latency_p50_ms": 6682.0,
+    "provider": "OpenAI",
+    "fetched_at": "2026-11-26T00:00:59"
   },
   "openai/gpt-6-luna": {
-    "throughput_p50": 142.0,
-    "latency_p50_ms": 1020.0,
-    "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-13T23:01:34"
+    "throughput_p50": 157.0,
+    "latency_p50_ms": 384.0,
+    "provider": "OpenAI",
+    "fetched_at": "2026-11-26T00:00:59"
   },
   "openai/gpt-6-sol-pro": {
-    "throughput_p50": 49.5,
-    "latency_p50_ms": 3028.0,
-    "provider": "Azure",
-    "fetched_at": "2026-11-13T23:01:34"
+    "throughput_p50": 139.0,
+    "latency_p50_ms": 2852.0,
+    "provider": "OpenAI",
+    "fetched_at": "2026-11-26T00:00:59"
   },
   "openai/gpt-6-sol": {
-    "throughput_p50": 106.0,
-    "latency_p50_ms": 3628.0,
+    "throughput_p50": 85.0,
+    "latency_p50_ms": 1439.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-13T23:01:34"
+    "fetched_at": "2026-11-26T00:00:59"
   },
   "openai/gpt-6-astra": {
-    "throughput_p50": 77.0,
-    "latency_p50_ms": 699.0,
+    "throughput_p50": 60.0,
+    "latency_p50_ms": 3766.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-13T23:01:34"
+    "fetched_at": "2026-11-26T00:01:02"
   },
   "openai/gpt-6-astra-pro": {
-    "throughput_p50": 59.5,
-    "latency_p50_ms": 25194.0,
+    "throughput_p50": 54.0,
+    "latency_p50_ms": 3768.0,
     "provider": "Azure",
-    "fetched_at": "2026-11-13T23:01:34"
+    "fetched_at": "2026-11-26T00:01:02"
   },
   "anthropic/claude-fable-5.2": {
-    "throughput_p50": 219.0,
-    "latency_p50_ms": 1749.0,
+    "throughput_p50": 185.0,
+    "latency_p50_ms": 2690.0,
     "provider": "Anthropic",
-    "fetched_at": "2026-11-13T23:01:34"
+    "fetched_at": "2026-11-26T00:00:52"
   },
   "anthropic/claude-haiku-5.5": {
-    "throughput_p50": 192.0,
-    "latency_p50_ms": 558.0,
-    "provider": "Google",
-    "fetched_at": "2026-11-13T23:01:34"
+    "throughput_p50": 173.0,
+    "latency_p50_ms": 1266.0,
+    "provider": "Claude Platform on AWS",
+    "fetched_at": "2026-11-26T00:00:56"
   },
   "anthropic/claude-sonnet-5.5": {
-    "throughput_p50": 133.0,
-    "latency_p50_ms": 724.0,
-    "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-13T23:01:34"
+    "throughput_p50": 127.0,
+    "latency_p50_ms": 837.0,
+    "provider": "Azure",
+    "fetched_at": "2026-11-26T00:00:57"
   },
   "anthropic/claude-opus-5.5": {
-    "throughput_p50": 187.0,
-    "latency_p50_ms": 1803.0,
+    "throughput_p50": 199.0,
+    "latency_p50_ms": 1262.0,
     "provider": "Anthropic",
-    "fetched_at": "2026-11-13T23:01:34"
+    "fetched_at": "2026-11-26T00:00:59"
   },
   "anthropic/claude-fable-5.1": {
-    "throughput_p50": 70.0,
-    "latency_p50_ms": 2988.0,
+    "throughput_p50": 65.0,
+    "latency_p50_ms": 3024.0,
     "provider": "Google",
-    "fetched_at": "2026-11-13T23:01:34"
+    "fetched_at": "2026-11-26T00:01:03"
   },
   "anthropic/claude-sonnet-5": {
-    "throughput_p50": 101.0,
-    "latency_p50_ms": 2261.0,
-    "provider": "Google",
-    "fetched_at": "2026-11-13T23:01:35"
+    "throughput_p50": 88.0,
+    "latency_p50_ms": 3135.0,
+    "provider": "Azure",
+    "fetched_at": "2026-11-26T00:01:11"
   },
   "anthropic/claude-fable-5": {
-    "throughput_p50": 74.0,
-    "latency_p50_ms": 46007.0,
-    "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-13T23:01:35"
+    "throughput_p50": 72.0,
+    "latency_p50_ms": 5940.0,
+    "provider": "Azure",
+    "fetched_at": "2026-11-26T00:01:12"
   },
   "anthropic/claude-opus-4.8": {
-    "throughput_p50": 138.0,
-    "latency_p50_ms": 810.0,
+    "throughput_p50": 223.0,
+    "latency_p50_ms": 436.0,
     "provider": "Anthropic",
-    "fetched_at": "2026-11-13T23:01:35"
+    "fetched_at": "2026-11-26T00:01:13"
   },
   "anthropic/claude-opus-4.7": {
-    "throughput_p50": 105.0,
-    "latency_p50_ms": 1224.0,
-    "provider": "Azure",
-    "fetched_at": "2026-11-13T23:01:35"
+    "throughput_p50": 68.0,
+    "latency_p50_ms": 1034.0,
+    "provider": "Amazon Bedrock",
+    "fetched_at": "2026-11-26T00:01:16"
   },
   "anthropic/claude-sonnet-4.6": {
-    "throughput_p50": 135.0,
-    "latency_p50_ms": 636.0,
+    "throughput_p50": 75.0,
+    "latency_p50_ms": 1100.0,
     "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-13T23:01:35"
+    "fetched_at": "2026-11-26T00:01:21"
   },
   "google/gemini-4-hydrogen": {
-    "throughput_p50": 164.0,
-    "latency_p50_ms": 1596.0,
+    "throughput_p50": 159.0,
+    "latency_p50_ms": 2210.0,
     "provider": "Google AI Studio",
-    "fetched_at": "2026-11-13T23:01:35"
+    "fetched_at": "2026-11-26T00:00:51"
   },
   "google/gemini-4-argon": {
-    "throughput_p50": 56.0,
-    "latency_p50_ms": 8933.0,
-    "provider": "Google AI Studio",
-    "fetched_at": "2026-11-13T23:01:35"
+    "throughput_p50": 33.0,
+    "latency_p50_ms": 4067.0,
+    "provider": "Google",
+    "fetched_at": "2026-11-26T00:00:56"
   },
   "google/gemini-3.7-flash": {
-    "throughput_p50": 129.0,
-    "latency_p50_ms": 2185.0,
+    "throughput_p50": 92.0,
+    "latency_p50_ms": 2122.0,
     "provider": "Google",
-    "fetched_at": "2026-11-13T23:01:35"
+    "fetched_at": "2026-11-26T00:01:06"
   },
   "google/gemini-3.6-flash": {
-    "throughput_p50": 180.0,
-    "latency_p50_ms": 1354.0,
+    "throughput_p50": 169.0,
+    "latency_p50_ms": 1730.0,
     "provider": "Google AI Studio",
-    "fetched_at": "2026-11-13T23:01:35"
+    "fetched_at": "2026-11-26T00:01:08"
   },
   "google/gemini-3.5-flash-lite": {
-    "throughput_p50": 182.0,
-    "latency_p50_ms": 515.0,
-    "provider": "Google AI Studio",
-    "fetched_at": "2026-11-13T23:01:35"
+    "throughput_p50": 413.0,
+    "latency_p50_ms": 6770.0,
+    "provider": "Google",
+    "fetched_at": "2026-11-26T00:01:08"
   },
   "google/gemini-3.5-flash": {
-    "throughput_p50": 159.0,
-    "latency_p50_ms": 1675.0,
+    "throughput_p50": 144.0,
+    "latency_p50_ms": 1733.0,
     "provider": "Google",
-    "fetched_at": "2026-11-13T23:01:35"
+    "fetched_at": "2026-11-26T00:01:13"
   },
   "google/gemini-3.1-flash-lite": {
-    "throughput_p50": 162.0,
-    "latency_p50_ms": 905.0,
-    "provider": "Google",
-    "fetched_at": "2026-11-13T23:01:35"
+    "throughput_p50": 157.0,
+    "latency_p50_ms": 641.0,
+    "provider": "Google AI Studio",
+    "fetched_at": "2026-11-26T00:01:14"
   },
   "google/gemma-4-26b-a4b-it": {
-    "throughput_p50": 98.0,
-    "latency_p50_ms": 615.0,
-    "provider": "Makora",
-    "fetched_at": "2026-11-13T23:01:35"
+    "throughput_p50": 156.0,
+    "latency_p50_ms": 393.0,
+    "provider": "PrimeIntellect",
+    "fetched_at": "2026-11-26T00:01:17"
   },
   "deepseek/deepseek-v4.1-flash-1017": {
-    "throughput_p50": 420.0,
-    "latency_p50_ms": 321.0,
+    "throughput_p50": 569.0,
+    "latency_p50_ms": 303.0,
     "provider": "BaseTen",
-    "fetched_at": "2026-11-13T23:01:35"
+    "fetched_at": "2026-11-26T00:00:55"
   },
   "deepseek/deepseek-v4-flash-vision-exp": {
-    "throughput_p50": 72.5,
-    "latency_p50_ms": 2608.0,
-    "provider": "GMICloud",
-    "fetched_at": "2026-11-13T23:01:35"
+    "throughput_p50": 109.0,
+    "latency_p50_ms": 1461.0,
+    "provider": "SiliconFlow",
+    "fetched_at": "2026-11-26T00:01:05"
   },
   "deepseek/deepseek-v4-pro-0813": {
-    "throughput_p50": 117.0,
-    "latency_p50_ms": 516.0,
-    "provider": "Together",
-    "fetched_at": "2026-11-13T23:01:35"
+    "throughput_p50": 113.0,
+    "latency_p50_ms": 295.0,
+    "provider": "Relace",
+    "fetched_at": "2026-11-26T00:01:06"
   },
   "deepseek/deepseek-v4-flash-0731": {
-    "throughput_p50": 165.0,
-    "latency_p50_ms": 297.0,
-    "provider": "BaseTen",
-    "fetched_at": "2026-11-13T23:01:35"
+    "throughput_p50": 187.0,
+    "latency_p50_ms": 320.0,
+    "provider": "Cohere",
+    "fetched_at": "2026-11-26T00:01:07"
   },
   "deepseek/deepseek-v3.2": {
-    "throughput_p50": 51.0,
-    "latency_p50_ms": 1143.0,
-    "provider": "GMICloud",
-    "fetched_at": "2026-11-13T23:01:36"
+    "throughput_p50": 28.0,
+    "latency_p50_ms": 2418.0,
+    "provider": "Featherless",
+    "fetched_at": "2026-11-26T00:01:25"
   },
   "deepseek/deepseek-v3.2-exp": {
-    "throughput_p50": 20.0,
-    "latency_p50_ms": 2034.0,
+    "throughput_p50": 18.0,
+    "latency_p50_ms": 2372.0,
     "provider": "SiliconFlow",
-    "fetched_at": "2026-11-13T23:01:36"
+    "fetched_at": "2026-11-26T00:01:28"
   },
   "deepseek/deepseek-v3.1-terminus": {
-    "throughput_p50": 20.0,
-    "latency_p50_ms": 2057.0,
+    "throughput_p50": 2.0,
+    "latency_p50_ms": 53453.0,
     "provider": "SiliconFlow",
-    "fetched_at": "2026-11-13T23:01:36"
+    "fetched_at": "2026-11-26T00:01:29"
   },
   "deepseek/deepseek-chat-v3.1": {
-    "throughput_p50": 82.0,
-    "latency_p50_ms": 233.0,
+    "throughput_p50": 70.5,
+    "latency_p50_ms": 438.0,
     "provider": "CoreWeave",
-    "fetched_at": "2026-11-13T23:01:36"
+    "fetched_at": "2026-11-26T00:01:29"
   },
   "deepseek/deepseek-r1-0528": {
-    "throughput_p50": 33.0,
-    "latency_p50_ms": 3340.0,
+    "throughput_p50": 40.0,
+    "latency_p50_ms": 3015.0,
     "provider": "StreamLake",
-    "fetched_at": "2026-11-13T23:01:36"
+    "fetched_at": "2026-11-26T00:01:33"
   },
   "deepseek/deepseek-chat-v3-0324": {
-    "throughput_p50": 37.0,
-    "latency_p50_ms": 1311.0,
-    "provider": "GMICloud",
-    "fetched_at": "2026-11-13T23:01:36"
+    "throughput_p50": 23.0,
+    "latency_p50_ms": 1400.0,
+    "provider": "SiliconFlow",
+    "fetched_at": "2026-11-26T00:01:34"
   },
   "qwen/qwen3.8-max-prime": {
-    "throughput_p50": 69.0,
-    "latency_p50_ms": 1838.0,
+    "throughput_p50": 68.0,
+    "latency_p50_ms": 946.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-13T23:01:36"
+    "fetched_at": "2026-11-26T00:00:58"
   },
   "qwen/qwen3.8-omni-flash": {
-    "throughput_p50": 33.0,
-    "latency_p50_ms": 1584.0,
+    "throughput_p50": 36.0,
+    "latency_p50_ms": 4548.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-13T23:01:36"
+    "fetched_at": "2026-11-26T00:01:00"
   },
   "qwen/qwen3.8-max-0902": {
-    "throughput_p50": 33.0,
-    "latency_p50_ms": 3518.0,
+    "throughput_p50": 36.0,
+    "latency_p50_ms": 1718.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-13T23:01:36"
+    "fetched_at": "2026-11-26T00:01:03"
   },
   "qwen/qwen3.8-flash": {
-    "throughput_p50": 72.0,
-    "latency_p50_ms": 818.0,
+    "throughput_p50": 65.0,
+    "latency_p50_ms": 694.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-13T23:01:36"
+    "fetched_at": "2026-11-26T00:01:04"
   },
   "qwen/qwen3.8-27b": {
-    "throughput_p50": 1033.0,
-    "latency_p50_ms": 323.0,
+    "throughput_p50": 1295.0,
+    "latency_p50_ms": 216.0,
     "provider": "Cerebras",
-    "fetched_at": "2026-11-13T23:01:36"
+    "fetched_at": "2026-11-26T00:01:06"
   },
   "qwen/qwen3.8-2.4t-a95b": {
-    "throughput_p50": 131.0,
-    "latency_p50_ms": 1720.0,
-    "provider": "Venice",
-    "fetched_at": "2026-11-13T23:01:36"
+    "throughput_p50": 101.0,
+    "latency_p50_ms": 836.0,
+    "provider": "Fireworks",
+    "fetched_at": "2026-11-26T00:01:06"
   },
   "qwen/qwen3.7-flash": {
-    "throughput_p50": 152.0,
-    "latency_p50_ms": 1080.0,
+    "throughput_p50": 74.0,
+    "latency_p50_ms": 609.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-13T23:01:36"
+    "fetched_at": "2026-11-26T00:01:08"
   },
   "qwen/qwen3.7-plus": {
-    "throughput_p50": 51.0,
-    "latency_p50_ms": 1936.0,
+    "throughput_p50": 52.0,
+    "latency_p50_ms": 1477.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-13T23:01:36"
+    "fetched_at": "2026-11-26T00:01:13"
   },
   "qwen/qwen3.7-max": {
-    "throughput_p50": 77.0,
-    "latency_p50_ms": 1280.0,
+    "throughput_p50": 34.0,
+    "latency_p50_ms": 1098.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-13T23:01:36"
+    "fetched_at": "2026-11-26T00:01:13"
   },
   "qwen/qwen3.6-flash": {
-    "throughput_p50": 64.0,
-    "latency_p50_ms": 580.0,
+    "throughput_p50": 71.0,
+    "latency_p50_ms": 603.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-13T23:01:37"
+    "fetched_at": "2026-11-26T00:01:15"
   },
   "x-ai/grok-4.5": {
-    "throughput_p50": 65.0,
-    "latency_p50_ms": 1264.0,
+    "throughput_p50": 68.0,
+    "latency_p50_ms": 1459.0,
     "provider": "xAI",
-    "fetched_at": "2026-11-13T23:01:37"
+    "fetched_at": "2026-11-26T00:01:10"
   },
   "x-ai/grok-build-0.1": {
     "throughput_p50": 125.5,
@@ -511,33 +511,33 @@
   },
   "x-ai/grok-4.3": {
     "throughput_p50": 81.0,
-    "latency_p50_ms": 1382.0,
+    "latency_p50_ms": 1116.0,
     "provider": "xAI",
-    "fetched_at": "2026-11-13T23:01:37"
+    "fetched_at": "2026-11-26T00:01:14"
   },
   "x-ai/grok-4.20": {
-    "throughput_p50": 149.0,
-    "latency_p50_ms": 1590.0,
+    "throughput_p50": 110.0,
+    "latency_p50_ms": 681.0,
     "provider": "xAI",
-    "fetched_at": "2026-11-13T23:01:37"
+    "fetched_at": "2026-11-26T00:01:18"
   },
   "meta/muse-ember": {
-    "throughput_p50": 330.0,
-    "latency_p50_ms": 2281.0,
+    "throughput_p50": 227.0,
+    "latency_p50_ms": 2201.0,
     "provider": "Google",
-    "fetched_at": "2026-11-13T23:01:37"
+    "fetched_at": "2026-11-26T00:00:52"
   },
   "meta/muse-spark-open": {
-    "throughput_p50": 190.0,
-    "latency_p50_ms": 342.0,
+    "throughput_p50": 227.0,
+    "latency_p50_ms": 290.0,
     "provider": "BaseTen",
-    "fetched_at": "2026-11-13T23:01:37"
+    "fetched_at": "2026-11-26T00:00:55"
   },
   "meta/muse-wonder": {
-    "throughput_p50": 64.0,
-    "latency_p50_ms": 3395.0,
-    "provider": "Meta",
-    "fetched_at": "2026-11-13T23:01:37"
+    "throughput_p50": 119.0,
+    "latency_p50_ms": 6754.0,
+    "provider": "Google",
+    "fetched_at": "2026-11-26T00:00:56"
   },
   "meta/muse-spark-1.3-contributor": {
     "throughput_p50": 73.0,
@@ -546,10 +546,10 @@
     "fetched_at": "2026-11-13T23:01:37"
   },
   "meta/muse-spark-1.3": {
-    "throughput_p50": 169.0,
-    "latency_p50_ms": 1998.0,
-    "provider": "Google",
-    "fetched_at": "2026-11-13T23:01:37"
+    "throughput_p50": 127.0,
+    "latency_p50_ms": 2778.0,
+    "provider": "Meta",
+    "fetched_at": "2026-11-26T00:01:03"
   },
   "meta/muse-spark-1.2-contributor": {
     "throughput_p50": 134.0,
@@ -558,124 +558,124 @@
     "fetched_at": "2026-11-13T23:01:37"
   },
   "meta/muse-glimmer-30b": {
-    "throughput_p50": 130.0,
-    "latency_p50_ms": 408.0,
-    "provider": "DeepInfra",
-    "fetched_at": "2026-11-13T23:01:37"
+    "throughput_p50": 91.0,
+    "latency_p50_ms": 807.0,
+    "provider": "ModelRun",
+    "fetched_at": "2026-11-26T00:01:07"
   },
   "meta/muse-spark-1.2": {
-    "throughput_p50": 181.0,
-    "latency_p50_ms": 2462.0,
+    "throughput_p50": 187.0,
+    "latency_p50_ms": 2351.0,
     "provider": "Meta",
-    "fetched_at": "2026-11-13T23:01:37"
+    "fetched_at": "2026-11-26T00:01:07"
   },
   "meta/muse-spark-1.1": {
-    "throughput_p50": 194.0,
-    "latency_p50_ms": 1528.0,
+    "throughput_p50": 152.0,
+    "latency_p50_ms": 1786.0,
     "provider": "Meta",
-    "fetched_at": "2026-11-13T23:01:37"
+    "fetched_at": "2026-11-26T00:01:09"
   },
   "mistralai/mistral-medium-3-5": {
-    "throughput_p50": 120.5,
-    "latency_p50_ms": 536.0,
+    "throughput_p50": 108.5,
+    "latency_p50_ms": 375.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-13T23:01:37"
+    "fetched_at": "2026-11-26T00:01:14"
   },
   "baidu/ernie-light-dt-1.0-intl": {
-    "throughput_p50": 54.0,
-    "latency_p50_ms": 4588.0,
+    "throughput_p50": 70.0,
+    "latency_p50_ms": 2310.0,
     "provider": "Baidu",
-    "fetched_at": "2026-11-15T23:24:36"
+    "fetched_at": "2026-11-26T00:00:51"
   },
   "nex-agi/nex-n2.6": {
-    "throughput_p50": 94.0,
-    "latency_p50_ms": 838.0,
+    "throughput_p50": 100.0,
+    "latency_p50_ms": 2778.0,
     "provider": "Nex AGI",
-    "fetched_at": "2026-11-15T23:24:36"
+    "fetched_at": "2026-11-26T00:00:52"
   },
   "thinkingmachines/inkling-2-small": {
-    "throughput_p50": 256.5,
-    "latency_p50_ms": 594.0,
-    "provider": "Cloudflare",
-    "fetched_at": "2026-11-15T23:24:36"
+    "throughput_p50": 237.0,
+    "latency_p50_ms": 936.0,
+    "provider": "Together",
+    "fetched_at": "2026-11-26T00:00:52"
   },
   "liquid/lfm-3-1.7b": {
-    "throughput_p50": 150.0,
-    "latency_p50_ms": 436.0,
+    "throughput_p50": 295.0,
+    "latency_p50_ms": 254.0,
     "provider": "Liquid",
-    "fetched_at": "2026-11-15T23:24:36"
+    "fetched_at": "2026-11-26T00:00:52"
   },
   "kt/midm-k-3.0-pro": {
-    "throughput_p50": 237.0,
-    "latency_p50_ms": 423.0,
+    "throughput_p50": 280.0,
+    "latency_p50_ms": 390.0,
     "provider": "KT",
-    "fetched_at": "2026-11-15T23:24:36"
+    "fetched_at": "2026-11-26T00:00:52"
   },
   "ricursiveai/ripple-65b-preview": {
-    "throughput_p50": 113.0,
-    "latency_p50_ms": 937.0,
+    "throughput_p50": 97.0,
+    "latency_p50_ms": 742.0,
     "provider": "PrimeIntellect",
-    "fetched_at": "2026-11-15T23:24:36"
+    "fetched_at": "2026-11-26T00:00:52"
   },
   "tencent/hy4": {
-    "throughput_p50": 56.0,
-    "latency_p50_ms": 2978.0,
-    "provider": "Tencent",
-    "fetched_at": "2026-11-15T23:24:36"
+    "throughput_p50": 87.0,
+    "latency_p50_ms": 760.0,
+    "provider": "Together",
+    "fetched_at": "2026-11-26T00:00:53"
   },
   "motif-technologies/motif-3": {
-    "throughput_p50": 120.0,
-    "latency_p50_ms": 494.0,
+    "throughput_p50": 33.0,
+    "latency_p50_ms": 15670.0,
     "provider": "KT",
-    "fetched_at": "2026-11-15T23:24:36"
+    "fetched_at": "2026-11-26T00:00:53"
   },
   "z-ai/glm-5.3-flashx-legal": {
-    "throughput_p50": 93.0,
-    "latency_p50_ms": 1179.0,
+    "throughput_p50": 89.0,
+    "latency_p50_ms": 861.0,
     "provider": "Z.AI",
-    "fetched_at": "2026-11-15T23:24:36"
+    "fetched_at": "2026-11-26T00:00:53"
   },
   "particle-ai/particle-1": {
-    "throughput_p50": 134.0,
-    "latency_p50_ms": 786.0,
+    "throughput_p50": 154.0,
+    "latency_p50_ms": 517.0,
     "provider": "Particle AI",
-    "fetched_at": "2026-11-15T23:24:36"
+    "fetched_at": "2026-11-26T00:00:53"
   },
   "minimax/minimax-m3.1-flash": {
-    "throughput_p50": 223.0,
-    "latency_p50_ms": 471.0,
+    "throughput_p50": 204.0,
+    "latency_p50_ms": 398.0,
     "provider": "Inferact vLLM",
-    "fetched_at": "2026-11-15T23:24:36"
+    "fetched_at": "2026-11-26T00:00:54"
   },
   "elorian/glimpse": {
-    "throughput_p50": 184.0,
-    "latency_p50_ms": 384.0,
+    "throughput_p50": 206.0,
+    "latency_p50_ms": 214.0,
     "provider": "Together",
-    "fetched_at": "2026-11-15T23:24:36"
+    "fetched_at": "2026-11-26T00:00:55"
   },
   "reflection/beam-1.0-501b-a23b": {
-    "throughput_p50": 481.5,
-    "latency_p50_ms": 322.0,
+    "throughput_p50": 555.5,
+    "latency_p50_ms": 116.0,
     "provider": "BaseTen",
-    "fetched_at": "2026-11-15T23:24:36"
+    "fetched_at": "2026-11-26T00:00:55"
   },
   "prism-ml/ternary-bonsai-2-9b": {
-    "throughput_p50": 112.0,
-    "latency_p50_ms": 587.0,
+    "throughput_p50": 61.5,
+    "latency_p50_ms": 596.0,
     "provider": "Darkbloom",
-    "fetched_at": "2026-11-15T23:24:37"
+    "fetched_at": "2026-11-26T00:00:55"
   },
   "moondream/moondream3-preview": {
-    "throughput_p50": 121.5,
-    "latency_p50_ms": 306.0,
+    "throughput_p50": 228.0,
+    "latency_p50_ms": 736.0,
     "provider": "PrimeIntellect",
-    "fetched_at": "2026-11-15T23:24:37"
+    "fetched_at": "2026-11-26T00:00:55"
   },
   "moondream/moondream3.1-9b-a2b": {
-    "throughput_p50": 182.0,
-    "latency_p50_ms": 272.0,
+    "throughput_p50": 173.0,
+    "latency_p50_ms": 183.0,
     "provider": "PrimeIntellect",
-    "fetched_at": "2026-11-15T23:24:37"
+    "fetched_at": "2026-11-26T00:00:55"
   },
   "unbiased/pareto-26.10": {
     "throughput_p50": 32.0,
@@ -690,34 +690,34 @@
     "fetched_at": "2026-11-15T23:24:37"
   },
   "liquid/lfm-2.5-24b-a2b": {
-    "throughput_p50": 490.0,
-    "latency_p50_ms": 233.0,
+    "throughput_p50": 122.0,
+    "latency_p50_ms": 350.0,
     "provider": "Liquid",
-    "fetched_at": "2026-11-15T23:24:37"
+    "fetched_at": "2026-11-26T00:00:56"
   },
   "scaledown/summarize": {
-    "throughput_p50": 130.0,
-    "latency_p50_ms": 495.0,
+    "throughput_p50": 78.0,
+    "latency_p50_ms": 922.0,
     "provider": "ScaleDown",
-    "fetched_at": "2026-11-15T23:24:37"
+    "fetched_at": "2026-11-26T00:00:56"
   },
   "scaledown/extract": {
-    "throughput_p50": 532.0,
-    "latency_p50_ms": 807.0,
+    "throughput_p50": 60.0,
+    "latency_p50_ms": 1416.0,
     "provider": "ScaleDown",
-    "fetched_at": "2026-11-15T23:24:37"
+    "fetched_at": "2026-11-26T00:00:56"
   },
   "stepfun/step-5-preview": {
-    "throughput_p50": 144.5,
-    "latency_p50_ms": 1022.0,
+    "throughput_p50": 49.0,
+    "latency_p50_ms": 2188.0,
     "provider": "StepFun",
-    "fetched_at": "2026-11-15T23:24:37"
+    "fetched_at": "2026-11-26T00:00:56"
   },
   "inclusionai/ling-3.1-flash": {
-    "throughput_p50": 67.0,
-    "latency_p50_ms": 2359.0,
-    "provider": "Novita",
-    "fetched_at": "2026-11-15T23:24:37"
+    "throughput_p50": 80.0,
+    "latency_p50_ms": 1019.0,
+    "provider": "Ant Digital",
+    "fetched_at": "2026-11-26T00:00:57"
   },
   "unbiased/pareto-26.10-preview": {
     "throughput_p50": 28.0,
@@ -726,88 +726,88 @@
     "fetched_at": "2026-11-15T23:24:37"
   },
   "perceptron/perceptron-mk1.5": {
-    "throughput_p50": 20.5,
-    "latency_p50_ms": 1927.0,
+    "throughput_p50": 218.0,
+    "latency_p50_ms": 803.0,
     "provider": "Perceptron",
-    "fetched_at": "2026-11-15T23:24:37"
+    "fetched_at": "2026-11-26T00:00:58"
   },
   "fireworks/ember-1": {
-    "throughput_p50": 71.0,
-    "latency_p50_ms": 536.0,
+    "throughput_p50": 69.0,
+    "latency_p50_ms": 928.0,
     "provider": "Fireworks",
-    "fetched_at": "2026-11-15T23:24:37"
+    "fetched_at": "2026-11-26T00:00:58"
   },
   "z-ai/glm-5.3-prime": {
-    "throughput_p50": 115.0,
-    "latency_p50_ms": 828.0,
+    "throughput_p50": 96.0,
+    "latency_p50_ms": 813.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-15T23:24:37"
+    "fetched_at": "2026-11-26T00:00:58"
   },
   "aion-labs/aion-3.5-mini": {
-    "throughput_p50": 58.0,
-    "latency_p50_ms": 1546.0,
+    "throughput_p50": 57.0,
+    "latency_p50_ms": 1720.0,
     "provider": "AionLabs",
-    "fetched_at": "2026-11-15T23:24:38"
+    "fetched_at": "2026-11-26T00:00:58"
   },
   "aion-labs/aion-3.5": {
-    "throughput_p50": 49.0,
-    "latency_p50_ms": 2245.0,
+    "throughput_p50": 50.0,
+    "latency_p50_ms": 2719.0,
     "provider": "AionLabs",
-    "fetched_at": "2026-11-15T23:24:38"
+    "fetched_at": "2026-11-26T00:00:58"
   },
   "upstage/solar-mini4": {
-    "throughput_p50": 93.0,
-    "latency_p50_ms": 562.0,
+    "throughput_p50": 90.0,
+    "latency_p50_ms": 1671.0,
     "provider": "Upstage",
-    "fetched_at": "2026-11-15T23:24:38"
+    "fetched_at": "2026-11-26T00:00:58"
   },
   "cohere/command-a-plus": {
-    "throughput_p50": 176.0,
-    "latency_p50_ms": 161.0,
+    "throughput_p50": 119.0,
+    "latency_p50_ms": 555.0,
     "provider": "Cohere",
-    "fetched_at": "2026-11-15T23:24:38"
+    "fetched_at": "2026-11-26T00:00:58"
   },
   "xiaomi/mimo-v2.6-pro-ultraspeed": {
-    "throughput_p50": 19.5,
-    "latency_p50_ms": 14409.0,
+    "throughput_p50": 91.0,
+    "latency_p50_ms": 4309.0,
     "provider": "Xiaomi",
-    "fetched_at": "2026-11-15T23:24:38"
+    "fetched_at": "2026-11-26T00:01:00"
   },
   "xiaomi/mimo-v2.6-flash": {
-    "throughput_p50": 272.0,
-    "latency_p50_ms": 740.0,
+    "throughput_p50": 156.0,
+    "latency_p50_ms": 650.0,
     "provider": "Cohere",
-    "fetched_at": "2026-11-15T23:24:38"
+    "fetched_at": "2026-11-26T00:01:00"
   },
   "xiaomi/mimo-v2.6-pro": {
-    "throughput_p50": 184.0,
-    "latency_p50_ms": 870.0,
+    "throughput_p50": 124.0,
+    "latency_p50_ms": 368.0,
     "provider": "PrimaLabs",
-    "fetched_at": "2026-11-15T23:24:38"
+    "fetched_at": "2026-11-26T00:01:00"
   },
   "prism-ml/ternary-bonsai-2-27b": {
-    "throughput_p50": 35.5,
-    "latency_p50_ms": 513.0,
+    "throughput_p50": 14.0,
+    "latency_p50_ms": 2784.0,
     "provider": "Darkbloom",
-    "fetched_at": "2026-11-15T23:24:38"
+    "fetched_at": "2026-11-26T00:01:00"
   },
   "z-ai/glm-5.3-flashx": {
-    "throughput_p50": 83.0,
-    "latency_p50_ms": 1713.0,
+    "throughput_p50": 86.0,
+    "latency_p50_ms": 1585.0,
     "provider": "Z.AI",
-    "fetched_at": "2026-11-15T23:24:38"
+    "fetched_at": "2026-11-26T00:01:01"
   },
   "inference-net/schematron-v2-turbo": {
-    "throughput_p50": 169.0,
-    "latency_p50_ms": 215.0,
+    "throughput_p50": 288.0,
+    "latency_p50_ms": 336.0,
     "provider": "InferenceNet",
-    "fetched_at": "2026-11-15T23:24:38"
+    "fetched_at": "2026-11-26T00:01:01"
   },
   "inference-net/schematron-v2-small": {
-    "throughput_p50": 53.0,
-    "latency_p50_ms": 284.0,
+    "throughput_p50": 306.0,
+    "latency_p50_ms": 286.0,
     "provider": "InferenceNet",
-    "fetched_at": "2026-11-15T23:24:38"
+    "fetched_at": "2026-11-26T00:01:01"
   },
   "sakana/fugu-ultra-v2": {
     "throughput_p50": 61.0,
@@ -816,70 +816,70 @@
     "fetched_at": "2026-11-15T23:24:39"
   },
   "sakana/fugu-max": {
-    "throughput_p50": 95.0,
-    "latency_p50_ms": 3307.0,
+    "throughput_p50": 111.0,
+    "latency_p50_ms": 3732.0,
     "provider": "Sakana AI",
-    "fetched_at": "2026-11-15T23:24:39"
+    "fetched_at": "2026-11-26T00:01:02"
   },
   "inclusionai/ling-3.0-flash-vl": {
-    "throughput_p50": 70.0,
-    "latency_p50_ms": 1095.0,
+    "throughput_p50": 73.0,
+    "latency_p50_ms": 1027.0,
     "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:39"
+    "fetched_at": "2026-11-26T00:01:02"
   },
   "nex-agi/nex-n2.5-mini": {
-    "throughput_p50": 61.0,
-    "latency_p50_ms": 1058.0,
+    "throughput_p50": 65.0,
+    "latency_p50_ms": 735.0,
     "provider": "Nex AGI",
-    "fetched_at": "2026-11-15T23:24:39"
+    "fetched_at": "2026-11-26T00:01:02"
   },
   "nex-agi/nex-n2.5-pro": {
-    "throughput_p50": 51.0,
-    "latency_p50_ms": 970.0,
+    "throughput_p50": 41.5,
+    "latency_p50_ms": 1913.0,
     "provider": "Nex AGI",
-    "fetched_at": "2026-11-15T23:24:39"
+    "fetched_at": "2026-11-26T00:01:02"
   },
   "ibm-granite/granite-4.2-8b": {
-    "throughput_p50": 161.0,
-    "latency_p50_ms": 228.0,
+    "throughput_p50": 90.0,
+    "latency_p50_ms": 310.0,
     "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:39"
+    "fetched_at": "2026-11-26T00:01:04"
   },
   "tencent/hy4-preview": {
-    "throughput_p50": 76.0,
-    "latency_p50_ms": 1554.0,
-    "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:39"
+    "throughput_p50": 55.5,
+    "latency_p50_ms": 822.0,
+    "provider": "SiliconFlow",
+    "fetched_at": "2026-11-26T00:01:04"
   },
   "z-ai/glm-5.3-flash": {
-    "throughput_p50": 165.0,
-    "latency_p50_ms": 550.0,
-    "provider": "Together",
-    "fetched_at": "2026-11-15T23:24:39"
+    "throughput_p50": 190.0,
+    "latency_p50_ms": 483.0,
+    "provider": "Parasail",
+    "fetched_at": "2026-11-26T00:01:04"
   },
   "tencent/hy-mt2-1.8b": {
-    "throughput_p50": 104.0,
-    "latency_p50_ms": 685.0,
+    "throughput_p50": 137.0,
+    "latency_p50_ms": 551.0,
     "provider": "Tencent",
-    "fetched_at": "2026-11-15T23:24:39"
+    "fetched_at": "2026-11-26T00:01:05"
   },
   "tencent/hy-mt2-30b-a3b": {
-    "throughput_p50": 50.0,
-    "latency_p50_ms": 780.0,
+    "throughput_p50": 102.0,
+    "latency_p50_ms": 543.0,
     "provider": "Tencent",
-    "fetched_at": "2026-11-15T23:24:39"
+    "fetched_at": "2026-11-26T00:01:05"
   },
   "tencent/hy-mt2-7b": {
-    "throughput_p50": 82.0,
-    "latency_p50_ms": 747.0,
+    "throughput_p50": 61.0,
+    "latency_p50_ms": 569.0,
     "provider": "Tencent",
-    "fetched_at": "2026-11-15T23:24:39"
+    "fetched_at": "2026-11-26T00:01:05"
   },
   "bytedance-seed/seed-2-1-turbo": {
     "throughput_p50": 46.0,
-    "latency_p50_ms": 2393.0,
+    "latency_p50_ms": 4700.0,
     "provider": "Seed",
-    "fetched_at": "2026-11-15T23:24:40"
+    "fetched_at": "2026-11-26T00:01:06"
   },
   "sakana/sakana-namazu": {
     "throughput_p50": 130.0,
@@ -888,28 +888,28 @@
     "fetched_at": "2026-11-15T23:24:40"
   },
   "upstage/solar-pro4": {
-    "throughput_p50": 82.5,
-    "latency_p50_ms": 676.0,
+    "throughput_p50": 91.0,
+    "latency_p50_ms": 1478.0,
     "provider": "KT",
-    "fetched_at": "2026-11-15T23:24:40"
+    "fetched_at": "2026-11-26T00:01:07"
   },
   "inclusionai/ling-3.0-tiny": {
-    "throughput_p50": 140.0,
-    "latency_p50_ms": 627.0,
+    "throughput_p50": 159.5,
+    "latency_p50_ms": 352.0,
     "provider": "Ant Digital",
-    "fetched_at": "2026-11-15T23:24:40"
+    "fetched_at": "2026-11-26T00:01:07"
   },
   "thinkingmachines/inkling-small": {
-    "throughput_p50": 91.0,
-    "latency_p50_ms": 517.0,
+    "throughput_p50": 67.0,
+    "latency_p50_ms": 655.0,
     "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:40"
+    "fetched_at": "2026-11-26T00:01:07"
   },
   "inclusionai/ling-3.0-flash": {
-    "throughput_p50": 135.0,
-    "latency_p50_ms": 249.0,
-    "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:40"
+    "throughput_p50": 96.0,
+    "latency_p50_ms": 1084.0,
+    "provider": "Ant Digital",
+    "fetched_at": "2026-11-26T00:01:08"
   },
   "meituan/longcat-2.0": {
     "throughput_p50": 38.0,
@@ -918,136 +918,136 @@
     "fetched_at": "2026-11-15T23:24:40"
   },
   "thinkingmachines/inkling": {
-    "throughput_p50": 117.5,
-    "latency_p50_ms": 442.0,
+    "throughput_p50": 121.0,
+    "latency_p50_ms": 239.0,
     "provider": "Together",
-    "fetched_at": "2026-11-15T23:24:40"
+    "fetched_at": "2026-11-26T00:01:08"
   },
   "moonshotai/kimi-k3": {
-    "throughput_p50": 185.0,
-    "latency_p50_ms": 268.0,
+    "throughput_p50": 164.5,
+    "latency_p50_ms": 229.0,
     "provider": "River",
-    "fetched_at": "2026-11-15T23:24:40"
+    "fetched_at": "2026-11-26T00:01:09"
   },
   "openai/gpt-5.6-luna-pro": {
-    "throughput_p50": 261.5,
-    "latency_p50_ms": 8330.0,
-    "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:40"
+    "throughput_p50": 170.0,
+    "latency_p50_ms": 9079.0,
+    "provider": "Azure",
+    "fetched_at": "2026-11-26T00:01:09"
   },
   "openai/gpt-5.6-terra-pro": {
-    "throughput_p50": 139.0,
-    "latency_p50_ms": 5992.0,
+    "throughput_p50": 136.0,
+    "latency_p50_ms": 8370.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:40"
+    "fetched_at": "2026-11-26T00:01:09"
   },
   "openai/gpt-5.6-sol-pro": {
-    "throughput_p50": 105.0,
-    "latency_p50_ms": 7872.0,
+    "throughput_p50": 67.5,
+    "latency_p50_ms": 2605.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:41"
+    "fetched_at": "2026-11-26T00:01:10"
   },
   "aion-labs/aion-3.0-mini": {
-    "throughput_p50": 54.0,
-    "latency_p50_ms": 694.0,
+    "throughput_p50": 53.0,
+    "latency_p50_ms": 990.0,
     "provider": "AionLabs",
-    "fetched_at": "2026-11-15T23:24:41"
+    "fetched_at": "2026-11-26T00:01:10"
   },
   "aion-labs/aion-3.0": {
     "throughput_p50": 42.0,
-    "latency_p50_ms": 1203.0,
+    "latency_p50_ms": 1442.0,
     "provider": "AionLabs",
-    "fetched_at": "2026-11-15T23:24:41"
+    "fetched_at": "2026-11-26T00:01:10"
   },
   "tencent/hy3": {
-    "throughput_p50": 93.0,
-    "latency_p50_ms": 1652.0,
+    "throughput_p50": 53.0,
+    "latency_p50_ms": 2011.0,
     "provider": "Tencent",
-    "fetched_at": "2026-11-15T23:24:41"
+    "fetched_at": "2026-11-26T00:01:11"
   },
   "sakana/fugu-ultra": {
-    "throughput_p50": 37.0,
-    "latency_p50_ms": 8656.0,
+    "throughput_p50": 58.0,
+    "latency_p50_ms": 4770.0,
     "provider": "Sakana AI",
-    "fetched_at": "2026-11-15T23:24:41"
+    "fetched_at": "2026-11-26T00:01:11"
   },
   "z-ai/glm-5.2": {
-    "throughput_p50": 236.0,
-    "latency_p50_ms": 402.0,
+    "throughput_p50": 200.0,
+    "latency_p50_ms": 259.0,
     "provider": "BaseTen",
-    "fetched_at": "2026-11-15T23:24:41"
+    "fetched_at": "2026-11-26T00:01:11"
   },
   "moonshotai/kimi-k2.7-code": {
-    "throughput_p50": 157.0,
-    "latency_p50_ms": 2089.0,
-    "provider": "Moonshot AI",
-    "fetched_at": "2026-11-15T23:24:41"
+    "throughput_p50": 83.0,
+    "latency_p50_ms": 896.0,
+    "provider": "Alibaba",
+    "fetched_at": "2026-11-26T00:01:12"
   },
   "nvidia/nemotron-3.5-content-safety": {
-    "throughput_p50": 234.0,
-    "latency_p50_ms": 268.0,
+    "throughput_p50": 183.0,
+    "latency_p50_ms": 304.0,
     "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:42"
+    "fetched_at": "2026-11-26T00:01:12"
   },
   "nvidia/nemotron-3-ultra-550b-a55b": {
-    "throughput_p50": 145.0,
-    "latency_p50_ms": 666.0,
-    "provider": "KT",
-    "fetched_at": "2026-11-15T23:24:42"
+    "throughput_p50": 212.0,
+    "latency_p50_ms": 453.0,
+    "provider": "Fireworks",
+    "fetched_at": "2026-11-26T00:01:12"
   },
   "minimax/minimax-m3": {
-    "throughput_p50": 138.5,
-    "latency_p50_ms": 684.0,
-    "provider": "Parasail",
-    "fetched_at": "2026-11-15T23:24:42"
+    "throughput_p50": 158.0,
+    "latency_p50_ms": 775.0,
+    "provider": "CoreWeave",
+    "fetched_at": "2026-11-26T00:01:13"
   },
   "stepfun/step-3.7-flash": {
-    "throughput_p50": 145.0,
-    "latency_p50_ms": 3465.0,
+    "throughput_p50": 136.0,
+    "latency_p50_ms": 3368.0,
     "provider": "StepFun",
-    "fetched_at": "2026-11-15T23:24:42"
+    "fetched_at": "2026-11-26T00:01:13"
   },
   "perceptron/perceptron-mk1": {
-    "throughput_p50": 35.0,
-    "latency_p50_ms": 648.0,
+    "throughput_p50": 61.0,
+    "latency_p50_ms": 577.0,
     "provider": "Perceptron",
-    "fetched_at": "2026-11-15T23:24:42"
+    "fetched_at": "2026-11-26T00:01:14"
   },
   "openai/gpt-chat-latest": {
-    "throughput_p50": 78.0,
-    "latency_p50_ms": 970.0,
+    "throughput_p50": 94.0,
+    "latency_p50_ms": 743.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:42"
+    "fetched_at": "2026-11-26T00:01:14"
   },
   "qwen/qwen3.5-plus-20260420": {
-    "throughput_p50": 70.0,
-    "latency_p50_ms": 804.0,
+    "throughput_p50": 91.0,
+    "latency_p50_ms": 756.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-15T23:24:42"
+    "fetched_at": "2026-11-26T00:01:15"
   },
   "qwen/qwen3.6-35b-a3b": {
-    "throughput_p50": 131.0,
-    "latency_p50_ms": 1108.0,
-    "provider": "DekaLLM",
-    "fetched_at": "2026-11-15T23:24:42"
+    "throughput_p50": 126.0,
+    "latency_p50_ms": 4591.0,
+    "provider": "PrimeIntellect",
+    "fetched_at": "2026-11-26T00:01:15"
   },
   "qwen/qwen3.6-27b": {
-    "throughput_p50": 69.5,
-    "latency_p50_ms": 349.0,
-    "provider": "Reka",
-    "fetched_at": "2026-11-15T23:24:42"
+    "throughput_p50": 85.0,
+    "latency_p50_ms": 347.0,
+    "provider": "DeepInfra",
+    "fetched_at": "2026-11-26T00:01:15"
   },
   "openai/gpt-5.5-pro": {
-    "throughput_p50": 7.0,
-    "latency_p50_ms": 61044.0,
+    "throughput_p50": 31.0,
+    "latency_p50_ms": 8784.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:42"
+    "fetched_at": "2026-11-26T00:01:16"
   },
   "openai/gpt-5.5": {
     "throughput_p50": 85.0,
-    "latency_p50_ms": 3215.0,
+    "latency_p50_ms": 2996.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:43"
+    "fetched_at": "2026-11-26T00:01:16"
   },
   "tencent/hy3-preview": {
     "throughput_p50": 103.0,
@@ -1068,232 +1068,232 @@
     "fetched_at": "2026-11-15T23:24:43"
   },
   "moonshotai/kimi-k2.6": {
-    "throughput_p50": 88.0,
-    "latency_p50_ms": 545.0,
-    "provider": "CoreWeave",
-    "fetched_at": "2026-11-15T23:24:43"
+    "throughput_p50": 95.0,
+    "latency_p50_ms": 404.0,
+    "provider": "Inceptron",
+    "fetched_at": "2026-11-26T00:01:16"
   },
   "z-ai/glm-5.1": {
-    "throughput_p50": 97.0,
-    "latency_p50_ms": 254.0,
-    "provider": "Friendli",
-    "fetched_at": "2026-11-15T23:24:44"
+    "throughput_p50": 101.0,
+    "latency_p50_ms": 1073.0,
+    "provider": "Novita",
+    "fetched_at": "2026-11-26T00:01:17"
   },
   "google/gemma-4-31b-it": {
-    "throughput_p50": 146.0,
-    "latency_p50_ms": 664.0,
-    "provider": "Friendli",
-    "fetched_at": "2026-11-15T23:24:44"
+    "throughput_p50": 229.0,
+    "latency_p50_ms": 61.0,
+    "provider": "ModelRun",
+    "fetched_at": "2026-11-26T00:01:17"
   },
   "qwen/qwen3.6-plus": {
-    "throughput_p50": 45.0,
-    "latency_p50_ms": 2416.0,
+    "throughput_p50": 38.0,
+    "latency_p50_ms": 1180.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-15T23:24:44"
+    "fetched_at": "2026-11-26T00:01:17"
   },
   "z-ai/glm-5v-turbo": {
-    "throughput_p50": 22.0,
-    "latency_p50_ms": 1982.0,
+    "throughput_p50": 29.5,
+    "latency_p50_ms": 1225.0,
     "provider": "Z.AI",
-    "fetched_at": "2026-11-15T23:24:44"
+    "fetched_at": "2026-11-26T00:01:18"
   },
   "x-ai/grok-4.20-multi-agent": {
-    "throughput_p50": 480.0,
-    "latency_p50_ms": 3937.0,
+    "throughput_p50": 551.5,
+    "latency_p50_ms": 3462.0,
     "provider": "xAI",
-    "fetched_at": "2026-11-15T23:24:44"
+    "fetched_at": "2026-11-26T00:01:18"
   },
   "google/lyria-3-pro-preview": {
-    "throughput_p50": 4.0,
-    "latency_p50_ms": 6083.0,
+    "throughput_p50": 10.0,
+    "latency_p50_ms": 6020.0,
     "provider": "Google AI Studio",
-    "fetched_at": "2026-11-15T23:24:44"
+    "fetched_at": "2026-11-26T00:01:18"
   },
   "google/lyria-3-clip-preview": {
-    "throughput_p50": 5.5,
-    "latency_p50_ms": 2585.0,
+    "throughput_p50": 7.0,
+    "latency_p50_ms": 2565.0,
     "provider": "Google AI Studio",
-    "fetched_at": "2026-11-15T23:24:44"
+    "fetched_at": "2026-11-26T00:01:18"
   },
   "rekaai/reka-edge": {
-    "throughput_p50": 131.0,
-    "latency_p50_ms": 590.0,
+    "throughput_p50": 132.5,
+    "latency_p50_ms": 424.0,
     "provider": "Reka",
-    "fetched_at": "2026-11-15T23:24:44"
+    "fetched_at": "2026-11-26T00:01:18"
   },
   "minimax/minimax-m2.7": {
-    "throughput_p50": 240.0,
-    "latency_p50_ms": 432.0,
+    "throughput_p50": 228.0,
+    "latency_p50_ms": 552.0,
     "provider": "Groq",
-    "fetched_at": "2026-11-15T23:24:44"
+    "fetched_at": "2026-11-26T00:01:18"
   },
   "openai/gpt-5.4-nano": {
-    "throughput_p50": 96.0,
-    "latency_p50_ms": 930.0,
+    "throughput_p50": 108.0,
+    "latency_p50_ms": 648.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:44"
+    "fetched_at": "2026-11-26T00:01:18"
   },
   "mistralai/mistral-small-2603": {
-    "throughput_p50": 145.0,
-    "latency_p50_ms": 468.0,
+    "throughput_p50": 151.0,
+    "latency_p50_ms": 434.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-15T23:24:44"
+    "fetched_at": "2026-11-26T00:01:19"
   },
   "z-ai/glm-5-turbo": {
-    "throughput_p50": 26.0,
-    "latency_p50_ms": 4487.0,
+    "throughput_p50": 51.0,
+    "latency_p50_ms": 1623.0,
     "provider": "Z.AI",
-    "fetched_at": "2026-11-15T23:24:44"
+    "fetched_at": "2026-11-26T00:01:19"
   },
   "nvidia/nemotron-3-super-120b-a12b": {
-    "throughput_p50": 173.0,
-    "latency_p50_ms": 466.0,
+    "throughput_p50": 135.0,
+    "latency_p50_ms": 705.0,
     "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:44"
+    "fetched_at": "2026-11-26T00:01:19"
   },
   "bytedance-seed/seed-2.0-lite": {
-    "throughput_p50": 45.5,
-    "latency_p50_ms": 1419.0,
+    "throughput_p50": 36.0,
+    "latency_p50_ms": 1810.0,
     "provider": "Seed",
-    "fetched_at": "2026-11-15T23:24:44"
+    "fetched_at": "2026-11-26T00:01:19"
   },
   "qwen/qwen3.5-9b": {
-    "throughput_p50": 109.0,
-    "latency_p50_ms": 168.0,
-    "provider": "Together",
-    "fetched_at": "2026-11-15T23:24:44"
+    "throughput_p50": 127.0,
+    "latency_p50_ms": 271.0,
+    "provider": "PrimeIntellect",
+    "fetched_at": "2026-11-26T00:01:19"
   },
   "openai/gpt-5.4-pro": {
-    "throughput_p50": 6.0,
-    "latency_p50_ms": 8586.0,
+    "throughput_p50": 16.0,
+    "latency_p50_ms": 6155.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:44"
+    "fetched_at": "2026-11-26T00:01:19"
   },
   "google/gemini-3.1-flash-lite-preview": {
-    "throughput_p50": 170.0,
-    "latency_p50_ms": 611.0,
+    "throughput_p50": 143.5,
+    "latency_p50_ms": 696.0,
     "provider": "Google AI Studio",
-    "fetched_at": "2026-11-15T23:24:45"
+    "fetched_at": "2026-11-26T00:01:20"
   },
   "bytedance-seed/seed-2.0-mini": {
-    "throughput_p50": 89.0,
-    "latency_p50_ms": 418.0,
+    "throughput_p50": 57.0,
+    "latency_p50_ms": 486.0,
     "provider": "Seed",
-    "fetched_at": "2026-11-15T23:24:45"
+    "fetched_at": "2026-11-26T00:01:20"
   },
   "qwen/qwen3.5-35b-a3b": {
-    "throughput_p50": 132.0,
-    "latency_p50_ms": 767.0,
-    "provider": "Venice",
-    "fetched_at": "2026-11-15T23:24:45"
+    "throughput_p50": 166.0,
+    "latency_p50_ms": 542.0,
+    "provider": "Alibaba",
+    "fetched_at": "2026-11-26T00:01:20"
   },
   "qwen/qwen3.5-27b": {
-    "throughput_p50": 80.0,
-    "latency_p50_ms": 2763.0,
-    "provider": "Chutes",
-    "fetched_at": "2026-11-15T23:24:45"
+    "throughput_p50": 43.0,
+    "latency_p50_ms": 560.0,
+    "provider": "DeepInfra",
+    "fetched_at": "2026-11-26T00:01:20"
   },
   "qwen/qwen3.5-122b-a10b": {
-    "throughput_p50": 130.0,
-    "latency_p50_ms": 533.0,
+    "throughput_p50": 107.0,
+    "latency_p50_ms": 467.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-15T23:24:45"
+    "fetched_at": "2026-11-26T00:01:20"
   },
   "qwen/qwen3.5-flash-02-23": {
-    "throughput_p50": 72.0,
-    "latency_p50_ms": 627.0,
+    "throughput_p50": 81.0,
+    "latency_p50_ms": 576.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-15T23:24:45"
+    "fetched_at": "2026-11-26T00:01:20"
   },
   "google/gemini-3.1-pro-preview-customtools": {
-    "throughput_p50": 80.0,
-    "latency_p50_ms": 4165.0,
+    "throughput_p50": 141.0,
+    "latency_p50_ms": 2865.0,
     "provider": "Google AI Studio",
-    "fetched_at": "2026-11-15T23:24:45"
+    "fetched_at": "2026-11-26T00:01:21"
   },
   "openai/gpt-5.3-codex": {
-    "throughput_p50": 70.0,
-    "latency_p50_ms": 2140.0,
+    "throughput_p50": 99.0,
+    "latency_p50_ms": 2919.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:45"
+    "fetched_at": "2026-11-26T00:01:21"
   },
   "aion-labs/aion-2.0": {
-    "throughput_p50": 58.0,
-    "latency_p50_ms": 641.0,
+    "throughput_p50": 54.0,
+    "latency_p50_ms": 763.0,
     "provider": "AionLabs",
-    "fetched_at": "2026-11-15T23:24:45"
+    "fetched_at": "2026-11-26T00:01:21"
   },
   "google/gemini-3.1-pro-preview": {
-    "throughput_p50": 83.0,
-    "latency_p50_ms": 4041.0,
+    "throughput_p50": 108.0,
+    "latency_p50_ms": 3969.0,
     "provider": "Google AI Studio",
-    "fetched_at": "2026-11-15T23:24:45"
+    "fetched_at": "2026-11-26T00:01:21"
   },
   "qwen/qwen3.5-plus-02-15": {
-    "throughput_p50": 52.0,
-    "latency_p50_ms": 1097.0,
+    "throughput_p50": 56.0,
+    "latency_p50_ms": 1196.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-15T23:24:45"
+    "fetched_at": "2026-11-26T00:01:21"
   },
   "qwen/qwen3.5-397b-a17b": {
-    "throughput_p50": 99.0,
-    "latency_p50_ms": 487.0,
-    "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:45"
+    "throughput_p50": 133.0,
+    "latency_p50_ms": 597.0,
+    "provider": "Parasail",
+    "fetched_at": "2026-11-26T00:01:21"
   },
   "minimax/minimax-m2.5": {
-    "throughput_p50": 48.0,
-    "latency_p50_ms": 1460.0,
-    "provider": "AtlasCloud",
-    "fetched_at": "2026-11-15T23:24:45"
+    "throughput_p50": 54.0,
+    "latency_p50_ms": 886.0,
+    "provider": "DigitalOcean",
+    "fetched_at": "2026-11-26T00:01:21"
   },
   "z-ai/glm-5": {
-    "throughput_p50": 123.0,
-    "latency_p50_ms": 854.0,
+    "throughput_p50": 95.0,
+    "latency_p50_ms": 1225.0,
     "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-15T23:24:45"
+    "fetched_at": "2026-11-26T00:01:22"
   },
   "anthropic/claude-opus-4.6": {
-    "throughput_p50": 48.0,
-    "latency_p50_ms": 1606.0,
+    "throughput_p50": 63.0,
+    "latency_p50_ms": 1026.0,
     "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-15T23:24:45"
+    "fetched_at": "2026-11-26T00:01:22"
   },
   "qwen/qwen3-coder-next": {
-    "throughput_p50": 74.0,
-    "latency_p50_ms": 560.0,
+    "throughput_p50": 63.0,
+    "latency_p50_ms": 704.0,
     "provider": "Parasail",
-    "fetched_at": "2026-11-15T23:24:46"
+    "fetched_at": "2026-11-26T00:01:22"
   },
   "moonshotai/kimi-k2.5": {
-    "throughput_p50": 57.0,
-    "latency_p50_ms": 1036.0,
-    "provider": "Venice",
-    "fetched_at": "2026-11-15T23:24:46"
+    "throughput_p50": 77.0,
+    "latency_p50_ms": 567.0,
+    "provider": "Amazon Bedrock",
+    "fetched_at": "2026-11-26T00:01:22"
   },
   "writer/palmyra-x5": {
-    "throughput_p50": 55.0,
-    "latency_p50_ms": 696.0,
+    "throughput_p50": 64.0,
+    "latency_p50_ms": 464.0,
     "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-15T23:24:46"
+    "fetched_at": "2026-11-26T00:01:22"
   },
   "openai/gpt-audio": {
-    "throughput_p50": 101.0,
-    "latency_p50_ms": 400.0,
+    "throughput_p50": 68.0,
+    "latency_p50_ms": 512.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:46"
+    "fetched_at": "2026-11-26T00:01:22"
   },
   "openai/gpt-audio-mini": {
-    "throughput_p50": 112.0,
-    "latency_p50_ms": 465.0,
+    "throughput_p50": 129.0,
+    "latency_p50_ms": 468.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:46"
+    "fetched_at": "2026-11-26T00:01:23"
   },
   "z-ai/glm-4.7-flash": {
-    "throughput_p50": 46.0,
-    "latency_p50_ms": 695.0,
-    "provider": "Novita",
-    "fetched_at": "2026-11-15T23:24:46"
+    "throughput_p50": 17.0,
+    "latency_p50_ms": 3590.0,
+    "provider": "Cloudflare",
+    "fetched_at": "2026-11-26T00:01:23"
   },
   "openai/gpt-5.2-codex": {
     "throughput_p50": 78.5,
@@ -1302,106 +1302,106 @@
     "fetched_at": "2026-11-15T23:24:46"
   },
   "z-ai/glm-4.7": {
-    "throughput_p50": 50.0,
-    "latency_p50_ms": 1074.0,
-    "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:46"
+    "throughput_p50": 44.0,
+    "latency_p50_ms": 1684.0,
+    "provider": "Z.AI",
+    "fetched_at": "2026-11-26T00:01:23"
   },
   "google/gemini-3-flash-preview": {
-    "throughput_p50": 112.0,
-    "latency_p50_ms": 1279.0,
-    "provider": "Google",
-    "fetched_at": "2026-11-15T23:24:46"
+    "throughput_p50": 123.0,
+    "latency_p50_ms": 986.0,
+    "provider": "Google AI Studio",
+    "fetched_at": "2026-11-26T00:01:23"
   },
   "nvidia/nemotron-3-nano-30b-a3b": {
-    "throughput_p50": 49.0,
-    "latency_p50_ms": 502.0,
+    "throughput_p50": 218.0,
+    "latency_p50_ms": 441.0,
     "provider": "Nebius",
-    "fetched_at": "2026-11-15T23:24:46"
+    "fetched_at": "2026-11-26T00:01:23"
   },
   "openai/gpt-5.2": {
-    "throughput_p50": 45.0,
-    "latency_p50_ms": 2109.0,
+    "throughput_p50": 68.0,
+    "latency_p50_ms": 1206.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:46"
+    "fetched_at": "2026-11-26T00:01:24"
   },
   "mistralai/devstral-2512": {
-    "throughput_p50": 108.0,
-    "latency_p50_ms": 1084.0,
+    "throughput_p50": 88.0,
+    "latency_p50_ms": 660.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-15T23:24:46"
+    "fetched_at": "2026-11-26T00:01:24"
   },
   "relace/relace-search": {
-    "throughput_p50": 231.0,
-    "latency_p50_ms": 1106.0,
+    "throughput_p50": 213.0,
+    "latency_p50_ms": 741.0,
     "provider": "Relace",
-    "fetched_at": "2026-11-15T23:24:46"
+    "fetched_at": "2026-11-26T00:01:24"
   },
   "z-ai/glm-4.6v": {
-    "throughput_p50": 38.0,
-    "latency_p50_ms": 1254.0,
+    "throughput_p50": 43.0,
+    "latency_p50_ms": 1880.0,
     "provider": "Z.AI",
-    "fetched_at": "2026-11-15T23:24:47"
+    "fetched_at": "2026-11-26T00:01:24"
   },
   "openai/gpt-5.1-codex-max": {
-    "throughput_p50": 109.0,
-    "latency_p50_ms": 3374.0,
+    "throughput_p50": 51.0,
+    "latency_p50_ms": 3490.0,
     "provider": "Azure",
-    "fetched_at": "2026-11-15T23:24:47"
+    "fetched_at": "2026-11-26T00:01:24"
   },
   "amazon/nova-2-lite-v1": {
     "throughput_p50": 107.0,
-    "latency_p50_ms": 1182.0,
+    "latency_p50_ms": 828.0,
     "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-15T23:24:47"
+    "fetched_at": "2026-11-26T00:01:25"
   },
   "mistralai/ministral-14b-2512": {
-    "throughput_p50": 103.0,
-    "latency_p50_ms": 352.0,
+    "throughput_p50": 128.0,
+    "latency_p50_ms": 318.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-15T23:24:47"
+    "fetched_at": "2026-11-26T00:01:25"
   },
   "mistralai/ministral-8b-2512": {
-    "throughput_p50": 96.0,
-    "latency_p50_ms": 376.0,
+    "throughput_p50": 111.0,
+    "latency_p50_ms": 393.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-15T23:24:47"
+    "fetched_at": "2026-11-26T00:01:25"
   },
   "mistralai/ministral-3b-2512": {
-    "throughput_p50": 157.0,
-    "latency_p50_ms": 338.0,
+    "throughput_p50": 177.0,
+    "latency_p50_ms": 294.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-15T23:24:47"
+    "fetched_at": "2026-11-26T00:01:25"
   },
   "mistralai/mistral-large-2512": {
-    "throughput_p50": 65.0,
-    "latency_p50_ms": 523.0,
+    "throughput_p50": 49.0,
+    "latency_p50_ms": 532.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-15T23:24:47"
+    "fetched_at": "2026-11-26T00:01:25"
   },
   "anthropic/claude-opus-4.5": {
-    "throughput_p50": 44.0,
-    "latency_p50_ms": 1743.0,
-    "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-15T23:24:47"
+    "throughput_p50": 60.0,
+    "latency_p50_ms": 981.0,
+    "provider": "Claude Platform on AWS",
+    "fetched_at": "2026-11-26T00:01:26"
   },
   "openai/gpt-5.1": {
-    "throughput_p50": 160.0,
-    "latency_p50_ms": 668.0,
+    "throughput_p50": 157.0,
+    "latency_p50_ms": 720.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:47"
+    "fetched_at": "2026-11-26T00:01:26"
   },
   "openai/gpt-5.1-codex": {
-    "throughput_p50": 88.5,
-    "latency_p50_ms": 1276.0,
+    "throughput_p50": 72.0,
+    "latency_p50_ms": 3357.0,
     "provider": "Azure",
-    "fetched_at": "2026-11-15T23:24:47"
+    "fetched_at": "2026-11-26T00:01:26"
   },
   "openai/gpt-5.1-codex-mini": {
-    "throughput_p50": 99.5,
-    "latency_p50_ms": 2373.0,
+    "throughput_p50": 51.5,
+    "latency_p50_ms": 1588.0,
     "provider": "Azure",
-    "fetched_at": "2026-11-15T23:24:48"
+    "fetched_at": "2026-11-26T00:01:26"
   },
   "moonshotai/kimi-k2-thinking": {
     "throughput_p50": 39.0,
@@ -1410,94 +1410,94 @@
     "fetched_at": "2026-11-15T23:24:48"
   },
   "perplexity/sonar-pro-search": {
-    "throughput_p50": 23.0,
-    "latency_p50_ms": 16108.0,
+    "throughput_p50": 36.0,
+    "latency_p50_ms": 4906.0,
     "provider": "Perplexity",
-    "fetched_at": "2026-11-15T23:24:48"
+    "fetched_at": "2026-11-26T00:01:26"
   },
   "mistralai/voxtral-small-24b-2507": {
-    "throughput_p50": 81.5,
-    "latency_p50_ms": 659.0,
+    "throughput_p50": 83.0,
+    "latency_p50_ms": 743.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-15T23:24:48"
+    "fetched_at": "2026-11-26T00:01:27"
   },
   "openai/gpt-oss-safeguard-20b": {
-    "throughput_p50": 559.0,
-    "latency_p50_ms": 180.0,
+    "throughput_p50": 579.0,
+    "latency_p50_ms": 179.0,
     "provider": "Groq",
-    "fetched_at": "2026-11-15T23:24:48"
+    "fetched_at": "2026-11-26T00:01:27"
   },
   "anthropic/claude-haiku-4.5": {
-    "throughput_p50": 191.0,
-    "latency_p50_ms": 330.0,
-    "provider": "Google",
-    "fetched_at": "2026-11-15T23:24:48"
+    "throughput_p50": 86.0,
+    "latency_p50_ms": 774.0,
+    "provider": "Amazon Bedrock",
+    "fetched_at": "2026-11-26T00:01:27"
   },
   "qwen/qwen3-vl-8b-instruct": {
-    "throughput_p50": 24.0,
-    "latency_p50_ms": 966.0,
+    "throughput_p50": 64.0,
+    "latency_p50_ms": 500.0,
     "provider": "Parasail",
-    "fetched_at": "2026-11-15T23:24:48"
+    "fetched_at": "2026-11-26T00:01:27"
   },
   "qwen/qwen3-vl-30b-a3b-instruct": {
-    "throughput_p50": 28.0,
-    "latency_p50_ms": 610.0,
+    "throughput_p50": 18.0,
+    "latency_p50_ms": 1162.0,
     "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:48"
+    "fetched_at": "2026-11-26T00:01:27"
   },
   "openai/gpt-5-pro": {
-    "throughput_p50": 2.0,
-    "latency_p50_ms": 29713.0,
+    "throughput_p50": 8.0,
+    "latency_p50_ms": 9103.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:48"
+    "fetched_at": "2026-11-26T00:01:28"
   },
   "z-ai/glm-4.6": {
-    "throughput_p50": 27.0,
-    "latency_p50_ms": 1494.0,
+    "throughput_p50": 49.0,
+    "latency_p50_ms": 1069.0,
     "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:48"
+    "fetched_at": "2026-11-26T00:01:28"
   },
   "thedrummer/cydonia-24b-v4.1": {
-    "throughput_p50": 48.0,
-    "latency_p50_ms": 672.0,
+    "throughput_p50": 15.0,
+    "latency_p50_ms": 814.0,
     "provider": "Parasail",
-    "fetched_at": "2026-11-15T23:24:48"
+    "fetched_at": "2026-11-26T00:01:28"
   },
   "relace/relace-apply-3": {
-    "throughput_p50": 3795.0,
-    "latency_p50_ms": 653.0,
+    "throughput_p50": 3316.0,
+    "latency_p50_ms": 723.0,
     "provider": "Relace",
-    "fetched_at": "2026-11-15T23:24:49"
+    "fetched_at": "2026-11-26T00:01:28"
   },
   "qwen/qwen3-vl-235b-a22b-instruct": {
-    "throughput_p50": 29.0,
-    "latency_p50_ms": 878.0,
+    "throughput_p50": 34.0,
+    "latency_p50_ms": 710.0,
     "provider": "Parasail",
-    "fetched_at": "2026-11-15T23:24:49"
+    "fetched_at": "2026-11-26T00:01:28"
   },
   "qwen/qwen3-coder-flash": {
-    "throughput_p50": 67.0,
-    "latency_p50_ms": 770.0,
+    "throughput_p50": 57.0,
+    "latency_p50_ms": 986.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-15T23:24:49"
+    "fetched_at": "2026-11-26T00:01:29"
   },
   "qwen/qwen3-next-80b-a3b-instruct": {
-    "throughput_p50": 168.0,
-    "latency_p50_ms": 894.0,
-    "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:49"
+    "throughput_p50": 119.0,
+    "latency_p50_ms": 426.0,
+    "provider": "Parasail",
+    "fetched_at": "2026-11-26T00:01:29"
   },
   "moonshotai/kimi-k2-0905": {
-    "throughput_p50": 37.0,
-    "latency_p50_ms": 449.0,
+    "throughput_p50": 108.0,
+    "latency_p50_ms": 369.0,
     "provider": "Novita",
-    "fetched_at": "2026-11-15T23:24:49"
+    "fetched_at": "2026-11-26T19:05:08"
   },
   "nousresearch/hermes-4-405b": {
-    "throughput_p50": 34.0,
-    "latency_p50_ms": 449.0,
+    "throughput_p50": 39.0,
+    "latency_p50_ms": 308.0,
     "provider": "Nebius",
-    "fetched_at": "2026-11-15T23:24:49"
+    "fetched_at": "2026-11-26T00:01:29"
   },
   "mistralai/mistral-medium-3.1": {
     "throughput_p50": 101.0,
@@ -1506,154 +1506,154 @@
     "fetched_at": "2026-11-15T23:24:49"
   },
   "z-ai/glm-4.5v": {
-    "throughput_p50": 25.0,
-    "latency_p50_ms": 1499.0,
+    "throughput_p50": 38.0,
+    "latency_p50_ms": 1454.0,
     "provider": "Z.AI",
-    "fetched_at": "2026-11-15T23:24:49"
+    "fetched_at": "2026-11-26T00:01:29"
   },
   "openai/gpt-5": {
-    "throughput_p50": 77.0,
-    "latency_p50_ms": 4548.0,
-    "provider": "Azure",
-    "fetched_at": "2026-11-15T23:24:49"
+    "throughput_p50": 116.0,
+    "latency_p50_ms": 4103.0,
+    "provider": "OpenAI",
+    "fetched_at": "2026-11-26T00:01:29"
   },
   "openai/gpt-5-mini": {
-    "throughput_p50": 120.0,
-    "latency_p50_ms": 2430.0,
-    "provider": "Azure",
-    "fetched_at": "2026-11-15T23:24:49"
+    "throughput_p50": 121.5,
+    "latency_p50_ms": 978.0,
+    "provider": "OpenAI",
+    "fetched_at": "2026-11-26T00:01:29"
   },
   "openai/gpt-5-nano": {
-    "throughput_p50": 133.0,
-    "latency_p50_ms": 2129.0,
-    "provider": "Azure",
-    "fetched_at": "2026-11-15T23:24:49"
+    "throughput_p50": 140.0,
+    "latency_p50_ms": 2136.0,
+    "provider": "OpenAI",
+    "fetched_at": "2026-11-26T00:01:30"
   },
   "openai/gpt-oss-120b": {
-    "throughput_p50": 893.0,
-    "latency_p50_ms": 175.0,
+    "throughput_p50": 672.0,
+    "latency_p50_ms": 277.0,
     "provider": "Cerebras",
-    "fetched_at": "2026-11-15T23:24:49"
+    "fetched_at": "2026-11-26T00:01:30"
   },
   "openai/gpt-oss-20b": {
-    "throughput_p50": 401.0,
-    "latency_p50_ms": 358.0,
-    "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-15T23:24:49"
+    "throughput_p50": 444.0,
+    "latency_p50_ms": 238.0,
+    "provider": "Groq",
+    "fetched_at": "2026-11-26T00:01:30"
   },
   "anthropic/claude-opus-4.1": {
-    "throughput_p50": 14.0,
-    "latency_p50_ms": 3452.0,
+    "throughput_p50": 13.5,
+    "latency_p50_ms": 3200.0,
     "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-15T23:24:49"
+    "fetched_at": "2026-11-26T00:01:30"
   },
   "mistralai/codestral-2508": {
-    "throughput_p50": 141.0,
-    "latency_p50_ms": 356.0,
+    "throughput_p50": 207.0,
+    "latency_p50_ms": 333.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-15T23:24:49"
+    "fetched_at": "2026-11-26T00:01:30"
   },
   "qwen/qwen3-coder-30b-a3b-instruct": {
-    "throughput_p50": 39.0,
-    "latency_p50_ms": 755.0,
+    "throughput_p50": 291.0,
+    "latency_p50_ms": 898.0,
     "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-15T23:24:49"
+    "fetched_at": "2026-11-26T00:01:31"
   },
   "qwen/qwen3-30b-a3b-instruct-2507": {
-    "throughput_p50": 84.0,
-    "latency_p50_ms": 246.0,
+    "throughput_p50": 52.0,
+    "latency_p50_ms": 307.0,
     "provider": "Nebius",
-    "fetched_at": "2026-11-15T23:24:49"
+    "fetched_at": "2026-11-26T00:01:31"
   },
   "z-ai/glm-4.5": {
-    "throughput_p50": 28.0,
-    "latency_p50_ms": 4118.0,
+    "throughput_p50": 41.0,
+    "latency_p50_ms": 1394.0,
     "provider": "Z.AI",
-    "fetched_at": "2026-11-15T23:24:49"
+    "fetched_at": "2026-11-26T00:01:31"
   },
   "z-ai/glm-4.5-air": {
-    "throughput_p50": 69.0,
-    "latency_p50_ms": 567.0,
-    "provider": "Z.AI",
-    "fetched_at": "2026-11-15T23:24:50"
+    "throughput_p50": 68.5,
+    "latency_p50_ms": 709.0,
+    "provider": "SiliconFlow",
+    "fetched_at": "2026-11-26T00:01:31"
   },
   "qwen/qwen3-235b-a22b-thinking-2507": {
-    "throughput_p50": 121.0,
-    "latency_p50_ms": 708.0,
+    "throughput_p50": 48.5,
+    "latency_p50_ms": 795.0,
     "provider": "Venice",
-    "fetched_at": "2026-11-15T23:24:50"
+    "fetched_at": "2026-11-26T00:01:31"
   },
   "qwen/qwen3-coder": {
-    "throughput_p50": 74.0,
-    "latency_p50_ms": 772.0,
-    "provider": "Venice",
-    "fetched_at": "2026-11-15T23:24:50"
+    "throughput_p50": 34.0,
+    "latency_p50_ms": 1110.0,
+    "provider": "DeepInfra",
+    "fetched_at": "2026-11-26T00:01:31"
   },
   "bytedance/ui-tars-1.5-7b": {
-    "throughput_p50": 94.5,
-    "latency_p50_ms": 578.0,
+    "throughput_p50": 48.0,
+    "latency_p50_ms": 808.0,
     "provider": "Parasail",
-    "fetched_at": "2026-11-15T23:24:50"
+    "fetched_at": "2026-11-26T00:01:31"
   },
   "google/gemini-2.5-flash-lite": {
-    "throughput_p50": 237.0,
-    "latency_p50_ms": 448.0,
+    "throughput_p50": 349.0,
+    "latency_p50_ms": 910.0,
     "provider": "Google AI Studio",
-    "fetched_at": "2026-11-15T23:24:50"
+    "fetched_at": "2026-11-26T00:01:31"
   },
   "qwen/qwen3-235b-a22b-2507": {
-    "throughput_p50": 46.0,
-    "latency_p50_ms": 312.0,
-    "provider": "Nebius",
-    "fetched_at": "2026-11-15T23:24:50"
+    "throughput_p50": 39.0,
+    "latency_p50_ms": 456.0,
+    "provider": "Parasail",
+    "fetched_at": "2026-11-26T00:01:31"
   },
   "moonshotai/kimi-k2": {
-    "throughput_p50": 37.0,
-    "latency_p50_ms": 890.0,
+    "throughput_p50": 117.0,
+    "latency_p50_ms": 266.0,
     "provider": "Novita",
-    "fetched_at": "2026-11-15T23:24:50"
+    "fetched_at": "2026-11-26T19:05:09"
   },
   "cognitivecomputations/dolphin-mistral-24b-venice-edition": {
-    "throughput_p50": 82.0,
-    "latency_p50_ms": 724.0,
+    "throughput_p50": 67.0,
+    "latency_p50_ms": 846.0,
     "provider": "Venice",
-    "fetched_at": "2026-11-15T23:24:50"
+    "fetched_at": "2026-11-26T00:01:31"
   },
   "morph/morph-v3-fast": {
-    "throughput_p50": 6914.0,
-    "latency_p50_ms": 254.0,
+    "throughput_p50": 2953.5,
+    "latency_p50_ms": 268.0,
     "provider": "Morph",
-    "fetched_at": "2026-11-15T23:24:50"
+    "fetched_at": "2026-11-26T00:01:32"
   },
   "mistralai/mistral-small-3.2-24b-instruct": {
-    "throughput_p50": 83.0,
-    "latency_p50_ms": 577.0,
-    "provider": "Mistral",
-    "fetched_at": "2026-11-15T23:24:50"
+    "throughput_p50": 76.0,
+    "latency_p50_ms": 279.0,
+    "provider": "DeepInfra",
+    "fetched_at": "2026-11-26T00:01:32"
   },
   "google/gemini-2.5-flash": {
-    "throughput_p50": 205.0,
-    "latency_p50_ms": 978.0,
+    "throughput_p50": 190.0,
+    "latency_p50_ms": 831.0,
     "provider": "Google AI Studio",
-    "fetched_at": "2026-11-15T23:24:50"
+    "fetched_at": "2026-11-26T00:01:32"
   },
   "google/gemini-2.5-pro": {
-    "throughput_p50": 89.0,
-    "latency_p50_ms": 2886.0,
+    "throughput_p50": 101.0,
+    "latency_p50_ms": 2531.0,
     "provider": "Google AI Studio",
-    "fetched_at": "2026-11-15T23:24:50"
+    "fetched_at": "2026-11-26T00:01:32"
   },
   "openai/o3-pro": {
-    "throughput_p50": 12.0,
-    "latency_p50_ms": 8533.0,
+    "throughput_p50": 9.0,
+    "latency_p50_ms": 5895.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:50"
+    "fetched_at": "2026-11-26T00:01:32"
   },
   "google/gemini-2.5-pro-preview": {
-    "throughput_p50": 89.0,
-    "latency_p50_ms": 2886.0,
+    "throughput_p50": 101.0,
+    "latency_p50_ms": 2531.0,
     "provider": "Google AI Studio",
-    "fetched_at": "2026-11-15T23:24:50"
+    "fetched_at": "2026-11-26T00:01:33"
   },
   "mistralai/mistral-medium-3": {
     "throughput_p50": 137.5,
@@ -1662,226 +1662,226 @@
     "fetched_at": "2026-11-15T23:24:50"
   },
   "qwen/qwen3-30b-a3b": {
-    "throughput_p50": 114.0,
-    "latency_p50_ms": 558.0,
+    "throughput_p50": 112.0,
+    "latency_p50_ms": 551.0,
     "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:50"
+    "fetched_at": "2026-11-26T00:01:33"
   },
   "qwen/qwen3-14b": {
-    "throughput_p50": 68.5,
-    "latency_p50_ms": 1028.0,
+    "throughput_p50": 71.0,
+    "latency_p50_ms": 1119.0,
     "provider": "NextBit",
-    "fetched_at": "2026-11-15T23:24:50"
+    "fetched_at": "2026-11-26T00:01:33"
   },
   "qwen/qwen3-32b": {
-    "throughput_p50": 36.0,
-    "latency_p50_ms": 800.0,
-    "provider": "Tenstorrent",
-    "fetched_at": "2026-11-15T23:24:50"
+    "throughput_p50": 33.0,
+    "latency_p50_ms": 956.0,
+    "provider": "SiliconFlow",
+    "fetched_at": "2026-11-26T00:01:33"
   },
   "openai/o3": {
-    "throughput_p50": 117.0,
-    "latency_p50_ms": 3014.0,
+    "throughput_p50": 105.0,
+    "latency_p50_ms": 3387.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:51"
+    "fetched_at": "2026-11-26T00:01:33"
   },
   "openai/gpt-4.1": {
-    "throughput_p50": 89.0,
-    "latency_p50_ms": 1003.0,
+    "throughput_p50": 123.0,
+    "latency_p50_ms": 748.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:51"
+    "fetched_at": "2026-11-26T00:01:34"
   },
   "openai/gpt-4.1-mini": {
-    "throughput_p50": 130.5,
-    "latency_p50_ms": 936.0,
-    "provider": "Azure",
-    "fetched_at": "2026-11-15T23:24:51"
+    "throughput_p50": 74.0,
+    "latency_p50_ms": 861.0,
+    "provider": "OpenAI",
+    "fetched_at": "2026-11-26T00:01:34"
   },
   "openai/gpt-4.1-nano": {
-    "throughput_p50": 82.0,
-    "latency_p50_ms": 834.0,
+    "throughput_p50": 58.0,
+    "latency_p50_ms": 1091.0,
     "provider": "Azure",
-    "fetched_at": "2026-11-15T23:24:51"
+    "fetched_at": "2026-11-26T00:01:34"
   },
   "meta-llama/llama-4-maverick": {
-    "throughput_p50": 65.0,
-    "latency_p50_ms": 307.0,
+    "throughput_p50": 70.0,
+    "latency_p50_ms": 367.0,
     "provider": "Parasail",
-    "fetched_at": "2026-11-15T23:24:51"
+    "fetched_at": "2026-11-26T00:01:34"
   },
   "meta-llama/llama-4-scout": {
-    "throughput_p50": 86.0,
-    "latency_p50_ms": 343.0,
+    "throughput_p50": 123.0,
+    "latency_p50_ms": 1166.0,
     "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:51"
+    "fetched_at": "2026-11-26T00:01:34"
   },
   "mistralai/mistral-small-3.1-24b-instruct": {
-    "throughput_p50": 52.0,
-    "latency_p50_ms": 490.0,
+    "throughput_p50": 43.0,
+    "latency_p50_ms": 532.0,
     "provider": "Cloudflare",
-    "fetched_at": "2026-11-15T23:24:51"
+    "fetched_at": "2026-11-26T00:01:34"
   },
   "google/gemma-3-4b-it": {
-    "throughput_p50": 28.0,
-    "latency_p50_ms": 1525.0,
-    "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:51"
+    "throughput_p50": 52.0,
+    "latency_p50_ms": 590.0,
+    "provider": "Parasail",
+    "fetched_at": "2026-11-26T00:01:34"
   },
   "google/gemma-3-12b-it": {
-    "throughput_p50": 56.0,
-    "latency_p50_ms": 1478.0,
-    "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:51"
+    "throughput_p50": 65.0,
+    "latency_p50_ms": 589.0,
+    "provider": "NextBit",
+    "fetched_at": "2026-11-26T00:01:35"
   },
   "cohere/command-a": {
-    "throughput_p50": 57.0,
-    "latency_p50_ms": 522.0,
+    "throughput_p50": 55.0,
+    "latency_p50_ms": 306.0,
     "provider": "Cohere",
-    "fetched_at": "2026-11-15T23:24:51"
+    "fetched_at": "2026-11-26T00:01:35"
   },
   "rekaai/reka-flash-3": {
-    "throughput_p50": 75.0,
-    "latency_p50_ms": 1142.0,
+    "throughput_p50": 77.5,
+    "latency_p50_ms": 588.0,
     "provider": "Reka",
-    "fetched_at": "2026-11-15T23:24:51"
+    "fetched_at": "2026-11-26T00:01:35"
   },
   "google/gemma-3-27b-it": {
-    "throughput_p50": 48.0,
-    "latency_p50_ms": 1089.0,
-    "provider": "Nebius",
-    "fetched_at": "2026-11-15T23:24:51"
+    "throughput_p50": 46.0,
+    "latency_p50_ms": 758.0,
+    "provider": "Parasail",
+    "fetched_at": "2026-11-26T00:01:35"
   },
   "thedrummer/skyfall-36b-v2": {
-    "throughput_p50": 50.0,
-    "latency_p50_ms": 546.0,
+    "throughput_p50": 31.5,
+    "latency_p50_ms": 274.0,
     "provider": "Parasail",
-    "fetched_at": "2026-11-15T23:24:51"
+    "fetched_at": "2026-11-26T00:01:35"
   },
   "perplexity/sonar-reasoning-pro": {
-    "throughput_p50": 20.0,
-    "latency_p50_ms": 9390.0,
+    "throughput_p50": 34.0,
+    "latency_p50_ms": 7648.0,
     "provider": "Perplexity",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:35"
   },
   "perplexity/sonar-pro": {
-    "throughput_p50": 85.0,
-    "latency_p50_ms": 2655.0,
+    "throughput_p50": 74.0,
+    "latency_p50_ms": 2532.0,
     "provider": "Perplexity",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:36"
   },
   "perplexity/sonar-deep-research": {
-    "throughput_p50": 17.0,
-    "latency_p50_ms": 72638.0,
+    "throughput_p50": 48.0,
+    "latency_p50_ms": 71945.0,
     "provider": "Perplexity",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:36"
   },
   "mistralai/mistral-saba": {
-    "throughput_p50": 186.0,
-    "latency_p50_ms": 427.0,
+    "throughput_p50": 53.5,
+    "latency_p50_ms": 1083.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:36"
   },
   "aion-labs/aion-rp-llama-3.1-8b": {
-    "throughput_p50": 29.0,
-    "latency_p50_ms": 1177.0,
+    "throughput_p50": 27.0,
+    "latency_p50_ms": 1128.0,
     "provider": "AionLabs",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:36"
   },
   "qwen/qwen2.5-vl-72b-instruct": {
-    "throughput_p50": 41.0,
-    "latency_p50_ms": 778.0,
+    "throughput_p50": 43.0,
+    "latency_p50_ms": 699.0,
     "provider": "Parasail",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:36"
   },
   "qwen/qwen-plus": {
-    "throughput_p50": 49.0,
-    "latency_p50_ms": 427.0,
+    "throughput_p50": 36.0,
+    "latency_p50_ms": 914.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:36"
   },
   "mistralai/mistral-small-24b-instruct-2501": {
-    "throughput_p50": 68.0,
-    "latency_p50_ms": 297.0,
+    "throughput_p50": 60.0,
+    "latency_p50_ms": 327.0,
     "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:36"
   },
   "perplexity/sonar": {
-    "throughput_p50": 84.0,
-    "latency_p50_ms": 1830.0,
+    "throughput_p50": 94.0,
+    "latency_p50_ms": 1598.0,
     "provider": "Perplexity",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:36"
   },
   "microsoft/phi-4": {
-    "throughput_p50": 81.0,
-    "latency_p50_ms": 282.0,
+    "throughput_p50": 110.0,
+    "latency_p50_ms": 261.0,
     "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:36"
   },
   "deepseek/deepseek-chat": {
-    "throughput_p50": 31.0,
-    "latency_p50_ms": 1082.0,
+    "throughput_p50": 48.0,
+    "latency_p50_ms": 933.0,
     "provider": "StreamLake",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:36"
   },
   "cohere/command-r7b-12-2024": {
-    "throughput_p50": 64.5,
-    "latency_p50_ms": 213.0,
+    "throughput_p50": 77.0,
+    "latency_p50_ms": 306.0,
     "provider": "Cohere",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:37"
   },
   "meta-llama/llama-3.3-70b-instruct": {
-    "throughput_p50": 219.0,
-    "latency_p50_ms": 448.0,
+    "throughput_p50": 210.0,
+    "latency_p50_ms": 415.0,
     "provider": "Groq",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:37"
   },
   "amazon/nova-lite-v1": {
-    "throughput_p50": 93.0,
-    "latency_p50_ms": 537.0,
+    "throughput_p50": 155.0,
+    "latency_p50_ms": 296.0,
     "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:37"
   },
   "amazon/nova-micro-v1": {
-    "throughput_p50": 169.0,
-    "latency_p50_ms": 342.0,
+    "throughput_p50": 207.0,
+    "latency_p50_ms": 330.0,
     "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:37"
   },
   "amazon/nova-pro-v1": {
-    "throughput_p50": 144.0,
-    "latency_p50_ms": 627.0,
+    "throughput_p50": 194.0,
+    "latency_p50_ms": 727.0,
     "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:37"
   },
   "openai/gpt-4o-2024-11-20": {
-    "throughput_p50": 120.0,
-    "latency_p50_ms": 605.0,
+    "throughput_p50": 106.5,
+    "latency_p50_ms": 538.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:37"
   },
   "mistralai/mistral-large-2407": {
-    "throughput_p50": 85.5,
-    "latency_p50_ms": 2562.0,
+    "throughput_p50": 71.0,
+    "latency_p50_ms": 3216.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:37"
   },
   "qwen/qwen-2.5-coder-32b-instruct": {
-    "throughput_p50": 30.0,
-    "latency_p50_ms": 1262.0,
+    "throughput_p50": 33.0,
+    "latency_p50_ms": 1820.0,
     "provider": "Cloudflare",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:37"
   },
   "thedrummer/unslopnemo-12b": {
-    "throughput_p50": 34.0,
-    "latency_p50_ms": 552.0,
+    "throughput_p50": 94.0,
+    "latency_p50_ms": 382.0,
     "provider": "Parasail",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:37"
   },
   "anthracite-org/magnum-v4-72b": {
-    "throughput_p50": 17.0,
-    "latency_p50_ms": 918.0,
+    "throughput_p50": 16.5,
+    "latency_p50_ms": 1194.0,
     "provider": "Mancer 2",
-    "fetched_at": "2026-11-15T23:24:52"
+    "fetched_at": "2026-11-26T00:01:37"
   },
   "meta-llama/llama-3.2-1b-instruct": {
     "throughput_p50": 139.0,
@@ -1890,183 +1890,237 @@
     "fetched_at": "2026-11-15T23:24:52"
   },
   "meta-llama/llama-3.2-3b-instruct": {
-    "throughput_p50": 217.0,
-    "latency_p50_ms": 163.0,
-    "provider": "Cloudflare",
-    "fetched_at": "2026-11-15T23:24:53"
+    "throughput_p50": 251.0,
+    "latency_p50_ms": 228.0,
+    "provider": "Parasail",
+    "fetched_at": "2026-11-26T00:01:37"
   },
   "qwen/qwen-2.5-72b-instruct": {
-    "throughput_p50": 34.0,
-    "latency_p50_ms": 366.0,
+    "throughput_p50": 38.0,
+    "latency_p50_ms": 322.0,
     "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:38"
   },
   "cohere/command-r-08-2024": {
     "throughput_p50": 48.0,
-    "latency_p50_ms": 162.0,
+    "latency_p50_ms": 222.0,
     "provider": "Cohere",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:38"
   },
   "cohere/command-r-plus-08-2024": {
-    "throughput_p50": 17.5,
-    "latency_p50_ms": 396.0,
+    "throughput_p50": 17.0,
+    "latency_p50_ms": 301.0,
     "provider": "Cohere",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:38"
   },
   "sao10k/l3.1-euryale-70b": {
-    "throughput_p50": 49.0,
-    "latency_p50_ms": 278.0,
+    "throughput_p50": 27.0,
+    "latency_p50_ms": 458.0,
     "provider": "DeepInfra",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:38"
   },
   "sao10k/l3-lunaris-8b": {
-    "throughput_p50": 121.0,
-    "latency_p50_ms": 444.0,
+    "throughput_p50": 140.0,
+    "latency_p50_ms": 388.0,
     "provider": "Parasail",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:38"
   },
   "openai/gpt-4o-2024-08-06": {
-    "throughput_p50": 88.0,
-    "latency_p50_ms": 566.0,
+    "throughput_p50": 91.0,
+    "latency_p50_ms": 479.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:38"
   },
   "meta-llama/llama-3.1-70b-instruct": {
-    "throughput_p50": 58.0,
-    "latency_p50_ms": 572.0,
+    "throughput_p50": 89.0,
+    "latency_p50_ms": 484.0,
     "provider": "Amazon Bedrock",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:38"
   },
   "meta-llama/llama-3.1-8b-instruct": {
-    "throughput_p50": 554.0,
-    "latency_p50_ms": 145.0,
+    "throughput_p50": 322.0,
+    "latency_p50_ms": 176.0,
     "provider": "Groq",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:38"
   },
   "mistralai/mistral-nemo": {
-    "throughput_p50": 106.0,
-    "latency_p50_ms": 375.0,
+    "throughput_p50": 94.0,
+    "latency_p50_ms": 377.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:38"
   },
   "openai/gpt-4o-mini-2024-07-18": {
-    "throughput_p50": 55.0,
-    "latency_p50_ms": 637.0,
+    "throughput_p50": 54.0,
+    "latency_p50_ms": 640.0,
     "provider": "OpenAI",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:39"
   },
   "google/gemma-2-27b-it": {
-    "throughput_p50": 51.0,
-    "latency_p50_ms": 792.0,
+    "throughput_p50": 58.0,
+    "latency_p50_ms": 362.0,
     "provider": "NextBit",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:39"
   },
   "openai/gpt-4o-2024-05-13": {
-    "throughput_p50": 24.0,
-    "latency_p50_ms": 1870.0,
+    "throughput_p50": 29.0,
+    "latency_p50_ms": 1379.0,
     "provider": "Azure",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T19:05:10"
   },
   "mistralai/mixtral-8x22b-instruct": {
-    "throughput_p50": 105.0,
-    "latency_p50_ms": 474.0,
+    "throughput_p50": 181.0,
+    "latency_p50_ms": 429.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:40"
   },
   "mistralai/mistral-large": {
-    "throughput_p50": 74.0,
-    "latency_p50_ms": 6056.0,
+    "throughput_p50": 79.0,
+    "latency_p50_ms": 9042.0,
     "provider": "Mistral",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:40"
   },
   "openai/gpt-3.5-turbo-0613": {
-    "throughput_p50": 109.0,
-    "latency_p50_ms": 294.0,
+    "throughput_p50": 117.0,
+    "latency_p50_ms": 384.0,
     "provider": "Azure",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:40"
   },
   "openai/gpt-3.5-turbo-16k": {
-    "throughput_p50": 101.5,
-    "latency_p50_ms": 730.0,
+    "throughput_p50": 79.0,
+    "latency_p50_ms": 1037.0,
     "provider": "Azure",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:40"
   },
   "mancer/weaver": {
-    "throughput_p50": 51.0,
-    "latency_p50_ms": 1096.0,
+    "throughput_p50": 55.0,
+    "latency_p50_ms": 820.0,
     "provider": "Mancer 2",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:40"
   },
   "undi95/remm-slerp-l2-13b": {
-    "throughput_p50": 55.0,
-    "latency_p50_ms": 1050.0,
+    "throughput_p50": 50.0,
+    "latency_p50_ms": 1039.0,
     "provider": "Mancer 2",
-    "fetched_at": "2026-11-15T23:24:53"
+    "fetched_at": "2026-11-26T00:01:40"
   },
   "gryphe/mythomax-l2-13b": {
-    "throughput_p50": 98.0,
-    "latency_p50_ms": 348.0,
+    "throughput_p50": 96.0,
+    "latency_p50_ms": 368.0,
     "provider": "Parasail",
-    "fetched_at": "2026-11-15T23:24:54"
+    "fetched_at": "2026-11-26T00:01:40"
   },
   "openai/gpt-4": {
-    "throughput_p50": 62.5,
-    "latency_p50_ms": 332.0,
+    "throughput_p50": 74.5,
+    "latency_p50_ms": 1152.0,
     "provider": "Azure",
-    "fetched_at": "2026-11-15T23:24:54"
+    "fetched_at": "2026-11-26T00:01:40"
   },
   "morph/morph-v3-large": {
-    "throughput_p50": 44.5,
-    "latency_p50_ms": 539.0,
+    "throughput_p50": 3635.0,
+    "latency_p50_ms": 226.0,
     "provider": "Morph",
-    "fetched_at": "2026-11-15T23:28:06"
+    "fetched_at": "2026-11-26T00:01:32"
   },
   "qwen/qwen4-max": {
-    "throughput_p50": 33.0,
-    "latency_p50_ms": 932.0,
+    "throughput_p50": 56.0,
+    "latency_p50_ms": 2079.0,
     "provider": "Alibaba",
-    "fetched_at": "2026-11-15T23:47:09"
+    "fetched_at": "2026-11-26T00:00:51"
   },
   "google/gemini-4-neon": {
-    "throughput_p50": 123.0,
-    "latency_p50_ms": 1598.0,
-    "provider": "Google",
-    "fetched_at": "2026-11-19T00:00:49"
+    "throughput_p50": 78.0,
+    "latency_p50_ms": 4829.0,
+    "provider": "Google AI Studio",
+    "fetched_at": "2026-11-26T00:00:50"
   },
   "openai/gpt-6.2-astra-pro": {
-    "throughput_p50": 74.0,
-    "latency_p50_ms": 15237.0,
+    "throughput_p50": 68.0,
+    "latency_p50_ms": 11592.0,
     "provider": "Azure",
-    "fetched_at": "2026-11-19T00:00:49"
+    "fetched_at": "2026-11-26T00:00:50"
   },
   "openai/gpt-6.2-astra": {
-    "throughput_p50": 56.0,
-    "latency_p50_ms": 1409.0,
-    "provider": "OpenAI",
-    "fetched_at": "2026-11-19T00:00:50"
+    "throughput_p50": 63.0,
+    "latency_p50_ms": 4698.0,
+    "provider": "Google",
+    "fetched_at": "2026-11-26T19:04:51"
   },
   "openai/gpt-6.2-sol-pro": {
-    "throughput_p50": 87.5,
-    "latency_p50_ms": 3735.0,
+    "throughput_p50": 86.0,
+    "latency_p50_ms": 6088.0,
     "provider": "Azure",
-    "fetched_at": "2026-11-19T00:00:50"
+    "fetched_at": "2026-11-26T19:04:51"
   },
   "openai/gpt-6.2-sol": {
-    "throughput_p50": 86.0,
-    "latency_p50_ms": 1332.0,
-    "provider": "OpenAI",
-    "fetched_at": "2026-11-19T00:00:50"
+    "throughput_p50": 92.0,
+    "latency_p50_ms": 3752.0,
+    "provider": "Azure",
+    "fetched_at": "2026-11-26T19:04:51"
   },
   "tencent/hy4-flash": {
-    "throughput_p50": 65.0,
-    "latency_p50_ms": 3181.0,
-    "provider": "Tencent",
-    "fetched_at": "2026-11-19T00:00:50"
+    "throughput_p50": 109.0,
+    "latency_p50_ms": 706.0,
+    "provider": "Fireworks",
+    "fetched_at": "2026-11-26T19:04:52"
   },
   "meta-llama/llama-guard-4-12b": {
-    "throughput_p50": 51.0,
-    "latency_p50_ms": 258.0,
+    "throughput_p50": 55.0,
+    "latency_p50_ms": 508.0,
     "provider": "DeepInfra",
-    "fetched_at": "2026-11-19T00:01:09"
+    "fetched_at": "2026-11-26T19:05:09"
+  },
+  "upstage/solar-mini-4-5": {
+    "throughput_p50": 161.0,
+    "latency_p50_ms": 434.0,
+    "provider": "Upstage",
+    "fetched_at": "2026-11-26T00:00:49"
+  },
+  "upstage/solar-pro-4-contributor": {
+    "throughput_p50": 33.5,
+    "latency_p50_ms": 2531.0,
+    "provider": "Upstage",
+    "fetched_at": "2026-11-26T00:00:49"
+  },
+  "xiaomi/mimo-v2.6-flash-mopd": {
+    "throughput_p50": 110.0,
+    "latency_p50_ms": 434.0,
+    "provider": "Featherless",
+    "fetched_at": "2026-11-26T00:00:49"
+  },
+  "thinkingmachines/inkling-2-mini": {
+    "throughput_p50": 252.0,
+    "latency_p50_ms": 433.0,
+    "provider": "Relace",
+    "fetched_at": "2026-11-26T00:00:49"
+  },
+  "radixark/daisyrose-27b": {
+    "throughput_p50": 125.0,
+    "latency_p50_ms": 1023.0,
+    "provider": "DeepInfra",
+    "fetched_at": "2026-11-26T00:00:50"
+  },
+  "mistralai/pixtral-large-2502": {
+    "throughput_p50": 64.0,
+    "latency_p50_ms": 1420.0,
+    "provider": "Amazon Bedrock",
+    "fetched_at": "2026-11-26T00:00:50"
+  },
+  "tngtech/deepseek-r1t2-chimera": {
+    "throughput_p50": 39.0,
+    "latency_p50_ms": 923.0,
+    "provider": "Featherless",
+    "fetched_at": "2026-11-26T00:01:32"
+  },
+  "inclusionai/lingsante-3.1-air-vl": {
+    "throughput_p50": 86.0,
+    "latency_p50_ms": 476.0,
+    "provider": "DeepInfra",
+    "fetched_at": "2026-11-26T19:04:50"
+  },
+  "openai/gpt-5.2-pro": {
+    "throughput_p50": 7.0,
+    "latency_p50_ms": 6669.0,
+    "provider": "OpenAI",
+    "fetched_at": "2026-11-26T19:05:05"
   }
 }
